@@ -5,6 +5,7 @@ import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
 const inter = Inter({ subsets: ["latin"] });
 import SignBtn from "@/components/SignBtn";
+import Timeline from "./schedule/Timeline";
 async function getData() {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_SERVER}/api/events`,
@@ -29,6 +30,7 @@ export default async function Home() {
   // console.log(eventsArray);
   return (
     <>
+      <Timeline eventsArray={eventsArray} session={session}></Timeline>
       {session ? (
         <>
           {eventsArray.map((event) => {
