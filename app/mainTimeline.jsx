@@ -1,42 +1,48 @@
 "use client";
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-
-import SignBtn from "@/components/SignBtn";
-import { authOptions } from "@/pages/api/auth/[...nextauth]";
-import { getServerSession } from "next-auth";
 import Card from "@/components/LandingPageCard";
-async function getData() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/events`, {
-    method: "GET",
-  });
-  if (!res.ok) {
-    throw new Error("Failed to fetch data");
-  }
-  const session = await getServerSession(authOptions);
-  const eventData = await getData();
-  console.log(eventData);
+import SignBtn from "@/components/SignBtn";
 
-  const eventsArray = eventData.events;
-  console.log(eventsArray);
+export default function MainTimeline({ eventsArray, session }) {
+  const [registeredEventsArray, setregisteredEventsArray] = useState([]);
+  const eventCodes = [
+    "IMPETUS",
+    "EHACK",
+    "INNOVENTURE",
+    "EVENT_4",
+    "EVENT_5",
+    "EVENT_6",
+  ];
 
-  return res.json();
-}
-export default function Timeline({ eventsArray, session }) {
-  console.log(session);
+  useEffect(() => {
+    session &&
+      fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${session.accessTokenBackend}`,
+          "Access-Control-Allow-Origin": "*",
+        },
+      })
+        .then((response) => response.json())
+
+        .then((data) => setregisteredEventsArray(data.user.registeredEvents));
+  }, [session, registeredEventsArray]);
   return (
     <VerticalTimeline lineColor={"black"}>
       <>
         <>
           {session ? (
             <>
-              {eventsArray.map((event) => {
+              {eventsArray.map((event, index) => {
                 return (
                   <VerticalTimelineElement
+                    key={index}
                     contentStyle={{
                       background: "rgb(33, 150, 243)",
                       color: "#000",
@@ -49,7 +55,15 @@ export default function Timeline({ eventsArray, session }) {
                       color: "#000",
                     }}
                   >
-                    <Card data={session.user} event={event} key={event._id} />;
+                    <Card
+                      isRegistered={registeredEventsArray[index + 1]}
+                      session={session}
+                      event={event}
+                      key={event._id}
+                      tit={eventCodes[index]}
+                      id={index + 1}
+                    />
+                    ;
                   </VerticalTimelineElement>
                 );
               })}
@@ -58,9 +72,10 @@ export default function Timeline({ eventsArray, session }) {
             </>
           ) : (
             <>
-              {eventsArray.map((event) => {
+              {eventsArray.map((event, index) => {
                 return (
                   <VerticalTimelineElement
+                    key={index}
                     contentStyle={{
                       background: "rgb(33, 150, 243)",
                       color: "#000",
@@ -73,7 +88,15 @@ export default function Timeline({ eventsArray, session }) {
                       color: "#000",
                     }}
                   >
-                    <Card data={null} event={event} key={event._id} />;
+                    <Card
+                      session={null}
+                      event={event}
+                      key={event._id}
+                      tit={eventCodes[index]}
+                      id={index + 1}
+                      isRegistered={0}
+                    />
+                    ;
                   </VerticalTimelineElement>
                 );
               })}

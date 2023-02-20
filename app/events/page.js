@@ -1,22 +1,21 @@
-import Card from '@/components/card'
+import Card from "@/components/LandingPageCard";
 
 async function getData() {
-    const res = await fetch("https://dummyjson.com/products/1");
+  const res = await fetch("https://dummyjson.com/products/1");
 
-    if (!res.ok) {
-        throw new Error('Failed to fetch data');
-    }
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
 
-    return res.json();
+  return res.json();
 }
 
 export default function Home() {
-    // const data = await getData();
+  // const data = await getData();
 
-    return (
-      <>
-        <Card />
-      </>
-    )
-  }
-  
+  return (
+    <>
+      <Card />
+    </>
+  );
+}
