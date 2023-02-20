@@ -40,6 +40,7 @@ export default function MainTimeline({ eventsArray, session }) {
           {session ? (
             <>
               {eventsArray.map((event, index) => {
+                console.log(event);
                 return (
                   <VerticalTimelineElement
                     key={index}
@@ -56,12 +57,12 @@ export default function MainTimeline({ eventsArray, session }) {
                     }}
                   >
                     <Card
-                      isRegistered={registeredEventsArray[index + 1]}
+                      isRegistered={registeredEventsArray[index]}
                       session={session}
                       event={event}
                       key={event._id}
                       tit={eventCodes[index]}
-                      id={index + 1}
+                      id={index}
                     />
                     ;
                   </VerticalTimelineElement>
@@ -73,6 +74,7 @@ export default function MainTimeline({ eventsArray, session }) {
           ) : (
             <>
               {eventsArray.map((event, index) => {
+                console.log(event);
                 return (
                   <VerticalTimelineElement
                     key={index}
@@ -93,7 +95,7 @@ export default function MainTimeline({ eventsArray, session }) {
                       event={event}
                       key={event._id}
                       tit={eventCodes[index]}
-                      id={index + 1}
+                      id={index}
                       isRegistered={0}
                     />
                     ;
