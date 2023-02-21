@@ -2,7 +2,7 @@ import Timeline from "./Timeline";
 import React from "react";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
-import NotLoggedIn from "../NotLoggedIn";
+import NotLoggedIn from "../../components/NotLoggedIn";
 
 async function getEventsData() {
   const res = await fetch(
@@ -31,8 +31,7 @@ export default async function Home() {
       <>
         <Timeline
           eventsArray={eventsArray}
-          // userArray={userArray}
-          session={session}
+         
         ></Timeline>
       </>
     );

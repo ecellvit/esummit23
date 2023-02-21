@@ -5,7 +5,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
 
-export default function Card({ session, event, id, isRegistered, tit }) {
+export default function Card({ event, id, isRegistered, tit, handler, setHandler,reg,regHandler, setegHandler }) {
+  const { data: session, status } = useSession();
   const router = useRouter();
   const handleRegisterwithLogin = (e, id) => {
     if (!session) {
@@ -48,7 +49,10 @@ export default function Card({ session, event, id, isRegistered, tit }) {
           });
           return false;
         }
+        setHandler(!handler);
         toast("Event registered Successfully");
+
+      
         return true;
       });
     return true;

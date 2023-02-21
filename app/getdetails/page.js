@@ -1,6 +1,6 @@
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
-import NotLoggedIn from "../NotLoggedIn";
+import NotLoggedIn from "../../components/NotLoggedIn";
 import DetailsForm from "./DetailsForm";
 
 export default async function page() {

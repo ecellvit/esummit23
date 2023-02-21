@@ -3,9 +3,9 @@ import React, { useEffect, useState } from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { useRouter } from "next/navigation";
 
-export default function Card({ session, event, id, tit }) {
+export default function Card({ session, event, id, tit,setHandler,
+  handler }) {
   function handleDeRegister(eventCode) {
     fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user/register`, {
       method: "PATCH",
@@ -34,6 +34,7 @@ export default function Card({ session, event, id, tit }) {
           return false;
         }
         toast("Event deregistered Successfully");
+        setHandler((!handler));
         return true;
       });
     return true;
