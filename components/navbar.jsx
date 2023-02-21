@@ -1,8 +1,24 @@
 "use client"
 
 import { useState } from "react"
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 export default function Navbar() {
+
+  // status authenticated | unauthenticated
+  const { data: session, status } = useSession();
+
+  const logoutHandler = () => {
+    signOut({ callbackUrl: "/" });
+  };
+
+  const loginHandler = () => {
+    signIn("google", {
+      callbackUrl: "/getdetails",
+    });
+  };
 
   const [dropdown1, setDropdown1] = useState(false)
   const [dropdown2, setDropdown2] = useState(false)
@@ -52,7 +68,7 @@ export default function Navbar() {
               </div>
             </div>}
           </div>
-          <a class="dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 focus:shadow-outline mt-2 rounded-lg bg-transparent px-4 py-2 text-sm font-semibold hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0 md:ml-4" href="#">Signout</a>
+          <button onClick={()=>{status=="authenticated"?logoutHandler():loginHandler()}} class="dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 focus:shadow-outline mt-2 rounded-lg bg-transparent px-4 py-2 text-sm font-semibold hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0 md:ml-4" href="#">{status=="authenticated"?"Sign Out":"Sign In"}</button>
         </nav>
       </div>
     </div>
