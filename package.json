@@ -17,7 +17,7 @@
     "is-odd": "^3.0.1",
     "lucide-react": "^0.115.0",
     "next": "13.1.6",
-    "next-auth": "^4.19.2",
+    "next-auth": "^4.0.0-beta.7",
     "react": "18.2.0",
     "react-dom": "18.2.0",
     "react-toastify": "^9.1.1",
