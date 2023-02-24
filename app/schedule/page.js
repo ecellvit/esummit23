@@ -1,9 +1,10 @@
-import { Inter } from "@next/font/google";
+import Timeline from "./Timeline";
+import React from "react";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
-const inter = Inter({ subsets: ["latin"] });
-import MainTimeline from "../components/landing/mainTimeline";
-async function getData() {
+import NotLoggedIn from "../../components/NotLoggedIn";
+
+async function getEventsData() {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_SERVER}/api/events`,
     {
@@ -19,18 +20,22 @@ async function getData() {
 
   return res.json();
 }
+
 export default async function Home() {
   const session = await getServerSession(authOptions);
-  const eventData = await getData();
+  const eventData = await getEventsData();
 
   const eventsArray = await eventData.events;
-  return (
-    <>
-     
-      <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-        {session ? <>You are logged in</> : "YOu are not logged in"}
-      </h5>
-      <MainTimeline eventsArray={eventsArray}></MainTimeline>
-    </>
-  );
+  if (session) {
+    return (
+      <>
+        <Timeline
+          eventsArray={eventsArray}
+         
+        ></Timeline>
+      </>
+    );
+  } else {
+    return <NotLoggedIn />;
+  }
 }
