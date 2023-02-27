@@ -6,7 +6,7 @@ export default function Home() {
 
     return (
       <>
-        <Dashboard  eventName="eHack"/> 
+        <Dashboard  eventName="ehack"/> 
       </>
     )
   }

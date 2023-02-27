@@ -1,10 +1,12 @@
-import Navbar from "@/components/navbar";
+"use client"
+import Dashboard from "@/components/dashboard";
+
 
 export default function Home() {
 
     return (
       <>
-        impetus dashboard
+        <Dashboard  eventName="impetus"/> 
       </>
     )
   }

@@ -7,7 +7,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 export default function CreateTeam({eventName,handleTeamCreate }) {
   const { data: session, status } = useSession();
-
+  eventName = eventName.toLowerCase();
   const teamName = useRef("");
   const router = useRouter()
   const [isLoading, setisLoading] = useState(false);
@@ -20,7 +20,7 @@ export default function CreateTeam({eventName,handleTeamCreate }) {
       return;
     }
     setisLoading(true);
-    fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/ehack`, {
+    fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/${eventName}`, {
       method: "POST",
       body: JSON.stringify({
         teamName: teamName.current.value.trim(),
