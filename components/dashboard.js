@@ -16,6 +16,10 @@ export default function Dashboard({ eventName }) {
     setUseEffectTrigger((prevTeamStatus) => !prevTeamStatus);
   };
 
+  const handleMemberRemove = () => {
+    setUseEffectTrigger((prevTeamStatus) => !prevTeamStatus);
+  };
+
   const handleTeamDelete = (currentTeamStatus) => {
     setHasTeam(currentTeamStatus)
   }
@@ -57,12 +61,15 @@ export default function Dashboard({ eventName }) {
         userData={userData}
         eventName={eventName}
         handleMemberLeave={handleMemberLeave}
+        userRole={userRole}
       />
     ) : (
       <LeaderDashboard
         userData={userData}
         eventName={eventName}
         handleTeamDelete={handleTeamDelete}
+        userRole={userRole}
+        handleMemberRemove={handleMemberRemove}
       />
     )
   ) : (

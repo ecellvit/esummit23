@@ -3,6 +3,7 @@ import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { signIn, signOut, useSession } from 'next-auth/react'
 import { useRouter } from 'next/navigation'
+import UserCard from './userCard'
 
 export default function MemberDashboard({
   userData,
@@ -51,7 +52,7 @@ export default function MemberDashboard({
       <div className="grid grid-cols-2 gap-8  mt-20 mx-auto w-[70rem] text-center">
         {userData?.members?.map((data) => {
           console.log('member data', data)
-          return <MemberCard data={data} />
+          return <UserCard data={data} />
         })}
       </div>
       <div className="flex justify-center mt-16">
