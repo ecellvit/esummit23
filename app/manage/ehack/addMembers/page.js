@@ -1,8 +1,13 @@
+import AddMember from '@/components/addMember'
+import NotyNav from '@/components/notyNav'
 import React from 'react'
 
 function AddMembers() {
   return (
-    <div>AddMembers</div>
+    <div>
+      <NotyNav />
+      <AddMember />
+    </div>
   )
 }
 

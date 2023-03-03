@@ -20,7 +20,7 @@ export default function CreateTeam({eventName,handleTeamCreate }) {
       return;
     }
     setisLoading(true);
-    fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/${eventName}`, {
+    fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/${eventName}/team`, {
       method: "POST",
       body: JSON.stringify({
         teamName: teamName.current.value.trim(),

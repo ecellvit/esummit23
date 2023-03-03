@@ -12,12 +12,13 @@ export default function LeaderDashboard({
   userRole
 }) {
   const { data: session, status } = useSession()
+  console.log(session.accessTokenBackend)
   eventName = eventName.toLowerCase()
   console.log(eventName);
   const router = useRouter()
   console.log('dash', userData)
   function handleDelete(teamId) {
-    fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/${eventName}/${teamId}`, {
+    fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/${eventName}/team/${teamId}`, {
       method: 'DELETE',
 
       headers: {
@@ -30,6 +31,7 @@ export default function LeaderDashboard({
       .then((data) => {
         console.log(data)
         if (data.error?.errorCode) {
+          console.log(data.error)
           toast.error(`${data.message}`, {
             position: 'top-right',
             autoClose: 5000,
@@ -39,6 +41,7 @@ export default function LeaderDashboard({
             draggable: true,
             progress: undefined,
           })
+          return;
         }
         handleTeamDelete(false)
         toast('Team deleted Successfully')

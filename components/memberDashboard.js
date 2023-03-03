@@ -17,7 +17,7 @@ export default function MemberDashboard({
   console.log('dash', userData)
 
   function handleLeave(teamId) {
-    fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/${eventName}/${teamId}`, {
+    fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user/${eventName}/${teamId}`, {
       method: 'PATCH',
 
       headers: {
