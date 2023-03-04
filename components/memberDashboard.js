@@ -9,9 +9,9 @@ export default function MemberDashboard({
   userData,
   eventName,
   handleMemberLeave,
+  session
 }) {
 
-  const { data: session, status } = useSession()
   eventName = eventName.toLowerCase()
   console.log(eventName);
   console.log('dash', userData)

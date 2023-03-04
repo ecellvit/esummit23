@@ -14,6 +14,7 @@ specifiers:
   postcss: ^8.4.21
   react: 18.2.0
   react-dom: 18.2.0
+  react-nice-avatar: ^1.3.1
   react-toastify: ^9.1.1
   react-vertical-timeline-component: ^3.6.0
   tailwind-merge: ^1.9.1
@@ -32,6 +33,7 @@ dependencies:
   next-auth: 4.19.2_3vryta7zmbcsw4rrqf4axjqggm
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
+  react-nice-avatar: 1.3.1_react@18.2.0
   react-toastify: 9.1.1_biqbaboplfbrettd7655fr4n2y
   react-vertical-timeline-component: 3.6.0_react@18.2.0
   tailwind-merge: 1.9.1
@@ -552,6 +554,10 @@ packages:
       readdirp: 3.6.0
     optionalDependencies:
       fsevents: 2.3.2
+
+  /chroma-js/2.4.2:
+    resolution: {integrity: sha512-U9eDw6+wt7V8z5NncY2jJfZa+hUH8XEj8FQHgFJTrUFnJfXYf4Ml4adI2vXZOjqRDpFWtYVWypDfZwnJ+HIR4A==}
+    dev: false
 
   /class-variance-authority/0.4.0:
     resolution: {integrity: sha512-74enNN8O9ZNieycac/y8FxqgyzZhZbxmCitAtAeUrLPlxjSd5zA7LfpprmxEcOmQBnaGs5hYhiSGnJ0mqrtBLQ==}
@@ -2093,6 +2099,16 @@ packages:
 
   /react-is/16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
+    dev: false
+
+  /react-nice-avatar/1.3.1_react@18.2.0:
+    resolution: {integrity: sha512-I3+sPA9J4QvWPy/7CELmJMkPYJnEDty38zzpy/Gth8oNTPtH4U/DCJHs3IRldafDGpgYR+Hkgkftc55mfoWrhQ==}
+    peerDependencies:
+      react: '>=16.0.0'
+    dependencies:
+      chroma-js: 2.4.2
+      prop-types: 15.8.1
+      react: 18.2.0
     dev: false
 
   /react-toastify/9.1.1_biqbaboplfbrettd7655fr4n2y:

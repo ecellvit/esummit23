@@ -1,13 +1,16 @@
 import React from 'react'
 import { signIn, signOut, useSession } from 'next-auth/react'
 
-function MemberCard({ data, userRole, teamId, handleMemberRemove}) {
+function MemberCard({ data, teamId, handleMemberRemove, eventName }) {
   const { data: session, status } = useSession()
-
+  console.log("memeber card", data)
+  const userRole = data["eHack" + 'TeamRole']
   function handleRemove(teamId) {
-    fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user/${teamId}`, {
+    fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/ehack/remove/${teamId}`, {
       method: 'PATCH',
-
+      body:
+        JSON.stringify({ userId: data._id })
+      ,
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${session.accessTokenBackend}`,

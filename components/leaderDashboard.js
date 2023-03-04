@@ -1,22 +1,22 @@
 import MemberCard from './memberCard'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import { signIn, signOut, useSession } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 
 export default function LeaderDashboard({
   userData,
   eventName,
   handleTeamDelete,
   handleMemberRemove,
-  userRole
+  userRole,
+  session
 }) {
-  const { data: session, status } = useSession()
-  console.log(session.accessTokenBackend)
   eventName = eventName.toLowerCase()
-  console.log(eventName);
   const router = useRouter()
-  console.log('dash', userData)
+  const path = usePathname()
+  const refreshData = () => {
+    router.replace(path);
+  }
   function handleDelete(teamId) {
     fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/${eventName}/team/${teamId}`, {
       method: 'DELETE',
@@ -43,7 +43,7 @@ export default function LeaderDashboard({
           })
           return;
         }
-        handleTeamDelete(false)
+        refreshData();
         toast('Team deleted Successfully')
       })
   }
@@ -65,7 +65,7 @@ export default function LeaderDashboard({
       )}
       <div className="grid grid-cols-2 gap-8  mt-20 mx-auto w-[70rem] text-center">
         {userData?.members?.map((data) => {
-          return <MemberCard key={data} data={data} userRole={userRole} teamId={userData._id} handleMemberRemove={handleMemberRemove}/>
+          return <MemberCard key={data} data={data} teamId={userData._id} handleMemberRemove={handleMemberRemove} eventName={eventName} />
         })}
       </div>
       <div className="flex justify-center mt-16">

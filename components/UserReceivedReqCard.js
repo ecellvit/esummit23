@@ -5,14 +5,14 @@ import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import { useRouter } from 'next/navigation'
 
-// import Avatar, { genConfig } from 'react-nice-avatar'
+import Avatar, { genConfig } from 'react-nice-avatar'
 function UserReceivedReqCard({
   data,
   handleRejectedInvite,
   handleAcceptedInvite,
   eventName,
 }) {
-  // const config = genConfig(AvatarConfig)
+  const config = genConfig()
   const { data: session, status } = useSession()
   const router = useRouter()
   function handleRejectInvite(teamId) {
@@ -92,7 +92,7 @@ function UserReceivedReqCard({
     <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
       <div class="flex flex-col items-center pb-10">
         <div class="w-24 h-24 mb-3 rounded-full shadow-lg">
-          {/* <Avatar className="w-32 h-32" {...config} /> */}
+          <Avatar className="w-32 h-32" {...config} />
         </div>
         <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">
           {data.teamId.teamName}
