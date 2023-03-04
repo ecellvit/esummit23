@@ -5,11 +5,14 @@ import {
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-import Card from "@/components/LandingPageCard";
+import Card from "@/components/landing/LandingPageCard";
+import { signIn, signOut, useSession } from "next-auth/react";
 import SignBtn from "@/components/SignBtn";
-
-export default function MainTimeline({ eventsArray, session }) {
+export default function MainTimeline({ eventsArray }) {
+  const { data: session, status } = useSession();
   const [registeredEventsArray, setregisteredEventsArray] = useState([]);
+  const [handler, setHandler] = useState(false);
+  const [regHandler, setegHandler] = useState(false);
   const eventCodes = [
     "IMPETUS",
     "EHACK",
@@ -32,15 +35,18 @@ export default function MainTimeline({ eventsArray, session }) {
         .then((response) => response.json())
 
         .then((data) => setregisteredEventsArray(data.user.registeredEvents));
-  }, [session, registeredEventsArray]);
+  }, [handler, session]);
   return (
+
+  
     <VerticalTimeline lineColor={"black"}>
       <>
         <>
-          {session ? (
-            <>
+          {status === "authenticated" ? (
+           
+            <> {registeredEventsArray}
               {eventsArray.map((event, index) => {
-                console.log(event);
+              
                 return (
                   <VerticalTimelineElement
                     key={index}
@@ -57,14 +63,18 @@ export default function MainTimeline({ eventsArray, session }) {
                     }}
                   >
                     <Card
-                      isRegistered={registeredEventsArray[index]}
-                      session={session}
+                      isRegistered={(registeredEventsArray[index])}
+                   
+                      setHandler={setHandler}
+                      regHandler={regHandler}
+                      setegHandler={setegHandler}
+                      handler={handler}
                       event={event}
                       key={event._id}
                       tit={eventCodes[index]}
                       id={index}
                     />
-                    ;
+                    
                   </VerticalTimelineElement>
                 );
               })}
@@ -91,14 +101,18 @@ export default function MainTimeline({ eventsArray, session }) {
                     }}
                   >
                     <Card
-                      session={null}
+                    
                       event={event}
                       key={event._id}
                       tit={eventCodes[index]}
+                      setHandler={setHandler}
+                      regHandler={regHandler}
+                      setegHandler={setegHandler} 
+                      handler={handler}
                       id={index}
-                      isRegistered={0}
+                      isRegistered
                     />
-                    ;
+                    
                   </VerticalTimelineElement>
                 );
               })}

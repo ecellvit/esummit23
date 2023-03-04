@@ -1,4 +1,4 @@
-import Card from "@/components/LandingPageCard";
+import Card from "@/components/landing/LandingPageCard";
 
 async function getData() {
   const res = await fetch("https://dummyjson.com/products/1");

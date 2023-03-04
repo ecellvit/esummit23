@@ -2,7 +2,7 @@ import { Inter } from "@next/font/google";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
 const inter = Inter({ subsets: ["latin"] });
-import MainTimeline from "./mainTimeline";
+import MainTimeline from "../components/landing/mainTimeline";
 async function getData() {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_SERVER}/api/events`,
@@ -24,13 +24,13 @@ export default async function Home() {
   const eventData = await getData();
 
   const eventsArray = await eventData.events;
-  console.log(eventsArray);
   return (
     <>
+     
       <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
         {session ? <>You are logged in</> : "YOu are not logged in"}
       </h5>
-      <MainTimeline eventsArray={eventsArray} session={session}></MainTimeline>
+      <MainTimeline eventsArray={eventsArray}></MainTimeline>
     </>
   );
 }

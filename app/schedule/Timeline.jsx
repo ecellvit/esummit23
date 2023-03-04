@@ -1,5 +1,6 @@
 "use client";
 import React from "react";
+import { signIn, signOut, useSession } from "next-auth/react";
 import { useState, useEffect } from "react";
 import {
   VerticalTimeline,
@@ -9,8 +10,10 @@ import "react-vertical-timeline-component/style.min.css";
 
 import Card from "./Card";
 
-export default function Timeline({ eventsArray, session }) {
+export default function Timeline({ eventsArray }) {
   const [userArray, setUserArray] = useState([]);
+  const [handler, setHandler] = useState(false);
+  const { data: session, status } = useSession();
   useEffect(() => {
     session &&
       fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user`, {
@@ -24,7 +27,7 @@ export default function Timeline({ eventsArray, session }) {
         .then((response) => response.json())
 
         .then((data) => setUserArray(data.user.registeredEvents));
-  }, [session, userArray]);
+  }, [handler,session]);
 
   console.log(userArray);
   const eventCodes = [
@@ -36,7 +39,7 @@ export default function Timeline({ eventsArray, session }) {
     "EVENT_6",
   ];
 
-  console.log(eventsArray);
+  // console.log(eventsArray);
   if (userArray.includes(1)) {
     return (
       <VerticalTimeline lineColor={"black"}>
@@ -44,7 +47,8 @@ export default function Timeline({ eventsArray, session }) {
           <>
             <>
               {userArray.map((registered, index) => {
-                if (registered === 1) {
+                if (index === 0 || index === 1) {  //because only 2 events are coming from backend
+                      if (registered === 1) {
                   console.log(eventsArray[index]);
                   console.log(registered + " " + index);
 
@@ -63,18 +67,22 @@ export default function Timeline({ eventsArray, session }) {
                       }}
                     >
                       <Card
-                        //   isRegistered={registeredEventsArray[index + 1]}
+                    
                         event={eventsArray[index]}
                         session={session}
                         tit={eventCodes[index]}
                         id={index}
-                        // userArray={userArray}
-                        // setUserArray={setUserArray}
+                        setHandler={setHandler}
+                      handler={handler}
+                  
                       />
                       ;
                     </VerticalTimelineElement>
                   );
                 }
+                  
+                }
+            
               })}
             </>
           </>
