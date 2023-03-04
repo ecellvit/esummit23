@@ -1,19 +1,18 @@
 'use client'
-import React from 'react'
-import { signIn, signOut, useSession } from 'next-auth/react'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
+import refreshData from '@/app/utils/refresh'
 // import Avatar, { genConfig } from 'react-nice-avatar'
-function LeaderSentReqCard({ data,handleInviteDelete }) {
+
+function LeaderSentReqCard({ request,eventName,session }) {
   // const config = genConfig(AvatarConfig)
-  const { data: session, status } = useSession()
 
   function handleDeleteInvite(userId) {
     console.log('userid', userId)
     console.log('gg', data._id)
-    fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/eHack/addMember/${userId}`, {
+    eventName=eventName.toLowerCase();
+    fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/${eventName}/addMember/${userId}`, {
       method: 'DELETE',
-
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${session.accessTokenBackend}`,
@@ -36,7 +35,7 @@ function LeaderSentReqCard({ data,handleInviteDelete }) {
           return;
         }
         toast('Invite Deleted Successfully')
-        handleDeleteInvite();
+        refreshData();
         console.log('Invite Deleted')
       })
   }
@@ -47,14 +46,14 @@ function LeaderSentReqCard({ data,handleInviteDelete }) {
           {/* <Avatar className="w-32 h-32" {...config} /> */}
         </div>
         <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">
-          {data.firstName} {data.lastName}
+          {request.firstName} {request.lastName}
         </h5>
         <span class="text-sm text-gray-500 dark:text-gray-400">
-          {data.email}
+          {request.email}
         </span>
         <div class="flex mt-4 space-x-3 md:mt-6">
           <button
-            onClick={(e) => handleDeleteInvite(data?._id)}
+            onClick={(e) => handleDeleteInvite(request._id)}
             class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
             Delete invite
