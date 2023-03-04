@@ -3,13 +3,16 @@ import MemberCard from './memberCard'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import refreshData from '@/app/utils/refresh'
+import { useRouter } from 'next/navigation'
+
 
 export default function LeaderDashboard({
   userData,
   eventName,
   session
 }) {
-
+  const router = useRouter()
+  
   function handleDelete(teamId) {
     eventName = eventName.toLowerCase()
     fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/${eventName}/team/${teamId}`, {
