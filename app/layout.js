@@ -2,7 +2,6 @@ import Navbar from "@/components/navbar";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import "@/styles/globals.css"
 import { getServerSession } from "next-auth";
-import { SessionProvider } from "next-auth/react"
 import AuthContext from "./AuthContext";
 
 export default async function RootLayout({ children }) {
@@ -13,8 +12,7 @@ export default async function RootLayout({ children }) {
     <AuthContext session={session}>
       <html lang="en" class="dark">
         <head />
-       
-        <body> <Navbar/>{children}</body>
+        <body> <Navbar session={session} />{children}</body>
       </html>
     </AuthContext>
   )

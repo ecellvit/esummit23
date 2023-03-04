@@ -1,5 +1,4 @@
 import NextAuth from "next-auth";
-import { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 
 const GOOGLE_AUTHORIZATION_URL =

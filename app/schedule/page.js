@@ -2,7 +2,6 @@ import Timeline from "./Timeline";
 import React from "react";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
-import NotLoggedIn from "../../components/NotLoggedIn";
 
 async function getEventsData() {
   const res = await fetch(
@@ -22,20 +21,14 @@ async function getEventsData() {
 }
 
 export default async function Home() {
-  const session = await getServerSession(authOptions);
   const eventData = await getEventsData();
 
   const eventsArray = await eventData.events;
-  if (session) {
-    return (
-      <>
-        <Timeline
-          eventsArray={eventsArray}
-         
-        ></Timeline>
-      </>
-    );
-  } else {
-    return <NotLoggedIn />;
-  }
+  return (
+    <>
+      <Timeline
+        eventsArray={eventsArray}
+      ></Timeline>
+    </>
+  );
 }

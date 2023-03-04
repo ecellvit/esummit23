@@ -5,7 +5,6 @@ import DetailsForm from "./DetailsForm";
 
 export default async function page() {
   const session = await getServerSession(authOptions);
-  //   console.log(session);
   if (session) {
     async function getData() {
       const data = await fetch(
