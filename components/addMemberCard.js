@@ -1,15 +1,13 @@
 "use client"
-import React from 'react'
-import { signIn, signOut, useSession } from 'next-auth/react'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 // import Avatar, { genConfig } from 'react-nice-avatar'
-function AddMemberCard({data}) {
+function AddMemberCard({user,session}) {
     // const config = genConfig(AvatarConfig)
-    const { data: session, status } = useSession()
+   
     function handleInvite(userId) {
       console.log("userid",userId);
-      console.log("gg",data._id)
+      console.log("gg",user._id)
       fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/eHack/addMember/${userId}`, {
         method: 'POST',
   
@@ -45,10 +43,10 @@ function AddMemberCard({data}) {
         <div class="w-24 h-24 mb-3 rounded-full shadow-lg">
         {/* <Avatar className="w-32 h-32" {...config} /> */}
         </div>
-        <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">{data.firstName} {data.lastName}</h5>
-        <span class="text-sm text-gray-500 dark:text-gray-400">{data.email}</span>
+        <h5 class="mb-1 text-xl font-medium text-gray-900 dark:text-white">{user.firstName} {user.lastName}</h5>
+        <span class="text-sm text-gray-500 dark:text-gray-400">{user.email}</span>
         <div class="flex mt-4 space-x-3 md:mt-6">
-            <button  onClick={(e) => handleInvite(data?._id)} class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Send invite</button>
+            <button  onClick={(e) => handleInvite(user?._id)} class="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Send invite</button>
         </div>
     </div>
 </div>
