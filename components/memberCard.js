@@ -1,10 +1,11 @@
-import React from 'react'
-import { signIn, signOut, useSession } from 'next-auth/react'
+import refreshData from '@/app/utils/refresh'
 
-function MemberCard({ data, teamId, handleMemberRemove, eventName }) {
-  const { data: session, status } = useSession()
+function MemberCard({ session, data, teamId, eventName }) {
+
+
   console.log("memeber card", data)
   const userRole = data["eHack" + 'TeamRole']
+
   function handleRemove(teamId) {
     fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/ehack/remove/${teamId}`, {
       method: 'PATCH',
@@ -31,8 +32,8 @@ function MemberCard({ data, teamId, handleMemberRemove, eventName }) {
             progress: undefined,
           })
         }
-        handleMemberRemove()
-        toast('Team member removed Successfully')
+        refreshData();
+        toast('Team member removed Successfully');
       })
   }
   return (

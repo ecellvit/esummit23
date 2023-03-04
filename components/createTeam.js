@@ -1,25 +1,28 @@
-import { useRouter } from 'next/navigation'
-import { signIn, signOut, useSession } from "next-auth/react";
-import { useRef,useState} from 'react'
+"use client"
+import { usePathname, useRouter } from 'next/navigation'
+import { useRef } from 'react'
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 
-export default function CreateTeam({eventName,handleTeamCreate }) {
-  const { data: session, status } = useSession();
+export default function CreateTeam({ session, eventName }) {
   eventName = eventName.toLowerCase();
   const teamName = useRef("");
   const router = useRouter()
-  const [isLoading, setisLoading] = useState(false);
+  const path = usePathname()
+
+  const refreshData = () => {
+    router.replace(path);
+  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log("Submit btn clicked");
-     if (teamName.current.value.trim() === "") {
+    if (teamName.current.value.trim() === "") {
       toast.error("Please Don't Leave Name as Blank!");
       return;
     }
-    setisLoading(true);
+
     fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/${eventName}/team`, {
       method: "POST",
       body: JSON.stringify({
@@ -33,7 +36,7 @@ export default function CreateTeam({eventName,handleTeamCreate }) {
     })
       .then((data) => data.json())
       .then((data) => {
-        setisLoading(false);
+
         if (data.error?.errorCode) {
           toast.error(`${data.message}`, {
             position: "top-right",
@@ -47,20 +50,19 @@ export default function CreateTeam({eventName,handleTeamCreate }) {
           return;
         }
         toast("Details submitted successfully");
-        handleTeamCreate();
-        // router.reload();
+        refreshData();
         return;
       });
   };
 
   return (
- 
+
     <div className=" flex justify-center items-center mt-40 text-center">
       <div className=" bg-blue-700 h-96 w-/6 md:w-1/3  rounded-2xl	p-4 ">
 
         <div className="text-3xl text-white">Join a Team</div>
         <button onClick={(e) => {
-        router.push(`/manage/${eventName}/joinTeams`)
+          router.push(`/manage/${eventName}/joinTeams`)
         }} type="button" className="mt-4 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 w-2/3 font-medium rounded-lg text-md px-5 py-2.5 text-center mr-2 mb-2">Find Team</button>
 
         <h2 className="text-4xl font-bold mt-8">OR</h2>
@@ -73,9 +75,9 @@ export default function CreateTeam({eventName,handleTeamCreate }) {
             placeholder="Enter Team Name"
             required
           ></input>
-          <button type="button" 
-          onClick={(e) => handleSubmit(e)}
-          className="mt-4 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 w-2/3 font-medium rounded-lg text-md px-5 py-2.5 text-center mr-2 mb-2">Create Team</button>
+          <button type="button"
+            onClick={(e) => handleSubmit(e)}
+            className="mt-4 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 w-2/3 font-medium rounded-lg text-md px-5 py-2.5 text-center mr-2 mb-2">Create Team</button>
 
         </div>
       </div>
