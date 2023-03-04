@@ -4,7 +4,7 @@ import LeaderSentReq from '@/components/LeaderSentReq'
 
 
 async function leaderSentInvites(session) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/${eventName}/addMember`, {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/ehack/addMember`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
