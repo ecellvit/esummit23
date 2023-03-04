@@ -1,54 +1,73 @@
-'use client'
-import React, { useEffect, useState } from 'react'
-import { signIn, signOut, useSession } from 'next-auth/react'
-import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
-import { useRouter } from 'next/navigation'
+"use client";
+import React, { useEffect, useState } from "react";
+import { signIn, signOut, useSession } from "next-auth/react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
-export default function Card({ session, event, id, tit, setHandler, handler }) {
-  const router = useRouter()
+export default function Card({
+  session,
+  event,
+  id,
+  tit,
+  userArray,
+  setUserArray,
+}) {
+  const router = useRouter();
+  const path = usePathname();
+  const refreshData = () => {
+    router.replace(path);
+  };
   function handleDeRegister(eventCode) {
+    const newArray = userArray;
+    console.log(eventCode);
+    console.log(userArray);
     fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user/register`, {
-      method: 'PATCH',
+      method: "PATCH",
       body: JSON.stringify({
         op: 1,
         eventCode: eventCode,
       }),
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
         Authorization: `Bearer ${session.accessTokenBackend}`,
-        'Access-Control-Allow-Origin': '*',
+        "Access-Control-Allow-Origin": "*",
       },
     })
       .then((response) => response.json())
       .then((data) => {
         if (data.error?.errorCode) {
           toast.error(`${data.message}`, {
-            position: 'top-right',
+            position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-          })
-          return false
+          });
+          return false;
         }
-        toast('Event deregistered Successfully')
-        setHandler(!handler)
-        return true
-      })
-    return true
+        // newArray.splice(eventCode, 1, 0);
+        // console.log(newArray);
+        // setUserArray(newArray);
+        toast("Event deregistered Successfully");
+        refreshData();
+
+        return true;
+      });
+    return true;
   }
 
-  function handleNavigation(title){
-      const route = title.toLowerCase();
-      router.push(`/manage/${route}`);
+  function handleNavigation(title) {
+    const route = title.toLowerCase();
+    router.push(`/manage/${route}`);
   }
 
   return (
     <>
-      {' '}
+      {" "}
       <ToastContainer
         position="top-right"
         autoClose={5000}
@@ -103,12 +122,7 @@ export default function Card({ session, event, id, tit, setHandler, handler }) {
           </button>
           <button
             onClick={(e) =>
-    
-              !session ? (
-                handleRegisterwithLogin(e, id)
-              ) : (
-                handleNavigation(tit)
-              )
+              !session ? handleRegisterwithLogin(e, id) : handleNavigation(tit)
             }
             className="inline-flex items-center px-3 ml-10 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
@@ -130,5 +144,5 @@ export default function Card({ session, event, id, tit, setHandler, handler }) {
         </div>
       </div>
     </>
-  )
+  );
 }

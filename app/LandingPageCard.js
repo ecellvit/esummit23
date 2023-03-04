@@ -4,12 +4,17 @@ import { signIn, useSession } from "next-auth/react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 
-export default function Card({ event, id, isRegistered, tit, handler, setHandler, reg, regHandler, setegHandler }) {
+export default function Card({ event, id, isRegistered, tit }) {
+  const path = usePathname();
+
+  const refreshData = () => {
+    router.replace(path);
+  };
   const { data: session, status } = useSession();
   const router = useRouter();
   const handleRegisterwithLogin = (id) => {
-    e.preventDefault();
     console.log("clicked");
     localStorage.setItem("eventId", JSON.stringify(id));
     console.log(id);
@@ -21,7 +26,7 @@ export default function Card({ event, id, isRegistered, tit, handler, setHandler
 
   function handleRegister(eventCode) {
     if (!session) {
-      handleRegisterwithLogin(id)
+      handleRegisterwithLogin(id);
     }
 
     fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user/register`, {
@@ -50,12 +55,14 @@ export default function Card({ event, id, isRegistered, tit, handler, setHandler
           });
           return false;
         }
-        setHandler(!handler);
         toast("Event registered Successfully");
+        refreshData();
+
         return true;
       });
     return true;
   }
+
   useEffect(() => {
     if (localStorage.getItem("eventId")) {
       console.log(localStorage.getItem("eventId"));
@@ -66,6 +73,15 @@ export default function Card({ event, id, isRegistered, tit, handler, setHandler
     }
     return;
   }, []);
+
+  // if (localStorage.getItem("eventId")) {
+  //   console.log(localStorage.getItem("eventId"));
+  //   if (session) {
+  //     handleRegister(localStorage.getItem("eventId")) &&
+  //       localStorage.removeItem("eventId");
+  //   }
+  // }
+
   return (
     <>
       <ToastContainer
@@ -101,12 +117,12 @@ export default function Card({ event, id, isRegistered, tit, handler, setHandler
           </p>
           <button
             onClick={() => {
-              if (isRegistered === 0) {
-                return handleRegister(id)
+              console.log(isRegistered);
+              if (isRegistered === -1) {
+                return handleRegister(id);
               }
-              router.push("/schedule")
-            }
-            }
+              router.push("/schedule");
+            }}
             className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
             {!session ? (
