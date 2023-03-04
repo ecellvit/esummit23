@@ -1,28 +1,29 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { signIn, signOut, useSession } from "next-auth/react";
+import React, { useEffect } from "react";
+import { signIn, useSession } from "next-auth/react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
 
-export default function Card({ event, id, isRegistered, tit, handler, setHandler,reg,regHandler, setegHandler }) {
+export default function Card({ event, id, isRegistered, tit, handler, setHandler, reg, regHandler, setegHandler }) {
   const { data: session, status } = useSession();
   const router = useRouter();
-  const handleRegisterwithLogin = (e, id) => {
-    if (!session) {
-      e.preventDefault();
-      console.log("clicked");
-      localStorage.setItem("eventId", JSON.stringify(id));
-      console.log(id);
-      signIn("google", {
-        callbackUrl: "/getdetails",
-      });
-
-      return;
-    }
+  const handleRegisterwithLogin = (id) => {
+    e.preventDefault();
+    console.log("clicked");
+    localStorage.setItem("eventId", JSON.stringify(id));
+    console.log(id);
+    signIn("google", {
+      callbackUrl: "/getdetails",
+    });
+    return;
   };
 
   function handleRegister(eventCode) {
+    if (!session) {
+      handleRegisterwithLogin(id)
+    }
+
     fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user/register`, {
       method: "PATCH",
       body: JSON.stringify({
@@ -51,8 +52,6 @@ export default function Card({ event, id, isRegistered, tit, handler, setHandler
         }
         setHandler(!handler);
         toast("Event registered Successfully");
-
-      
         return true;
       });
     return true;
@@ -69,7 +68,6 @@ export default function Card({ event, id, isRegistered, tit, handler, setHandler
   }, []);
   return (
     <>
-      {" "}
       <ToastContainer
         position="top-right"
         autoClose={5000}
@@ -102,18 +100,12 @@ export default function Card({ event, id, isRegistered, tit, handler, setHandler
             {event.location}
           </p>
           <button
-            onClick={(e) =>
-              !session ? (
-                handleRegisterwithLogin(e, id)
-              ) : (
-                <>
-                  {isRegistered === 0 ? (
-                    <>{handleRegister(id)}</>
-                  ) : (
-                    <>{router.push("/schedule")}</>
-                  )}
-                </>
-              )
+            onClick={() => {
+              if (isRegistered === 0) {
+                return handleRegister(id)
+              }
+              router.push("/schedule")
+            }
             }
             className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >

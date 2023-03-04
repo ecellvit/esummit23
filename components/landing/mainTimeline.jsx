@@ -6,10 +6,8 @@ import {
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
 import Card from "@/components/landing/LandingPageCard";
-import { signIn, signOut, useSession } from "next-auth/react";
-import SignBtn from "@/components/SignBtn";
-export default function MainTimeline({ eventsArray }) {
-  const { data: session, status } = useSession();
+
+export default function MainTimeline({ eventsArray, session }) {
   const [registeredEventsArray, setregisteredEventsArray] = useState([]);
   const [handler, setHandler] = useState(false);
   const [regHandler, setegHandler] = useState(false);
@@ -22,6 +20,7 @@ export default function MainTimeline({ eventsArray }) {
     "EVENT_6",
   ];
 
+  // this can be fetched on ssr
   useEffect(() => {
     session &&
       fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user`, {
@@ -33,20 +32,16 @@ export default function MainTimeline({ eventsArray }) {
         },
       })
         .then((response) => response.json())
-
         .then((data) => setregisteredEventsArray(data.user.registeredEvents));
   }, [handler, session]);
-  return (
-
   
+  return (
     <VerticalTimeline lineColor={"black"}>
       <>
         <>
-          {status === "authenticated" ? (
-           
-            <> {registeredEventsArray}
+          {session ? (
+            <>
               {eventsArray.map((event, index) => {
-              
                 return (
                   <VerticalTimelineElement
                     key={index}
@@ -64,7 +59,6 @@ export default function MainTimeline({ eventsArray }) {
                   >
                     <Card
                       isRegistered={(registeredEventsArray[index])}
-                   
                       setHandler={setHandler}
                       regHandler={regHandler}
                       setegHandler={setegHandler}
@@ -74,17 +68,13 @@ export default function MainTimeline({ eventsArray }) {
                       tit={eventCodes[index]}
                       id={index}
                     />
-                    
                   </VerticalTimelineElement>
                 );
               })}
-
-              <SignBtn registered={1}></SignBtn>
             </>
           ) : (
             <>
               {eventsArray.map((event, index) => {
-                console.log(event);
                 return (
                   <VerticalTimelineElement
                     key={index}
@@ -101,22 +91,20 @@ export default function MainTimeline({ eventsArray }) {
                     }}
                   >
                     <Card
-                    
                       event={event}
                       key={event._id}
                       tit={eventCodes[index]}
                       setHandler={setHandler}
                       regHandler={regHandler}
-                      setegHandler={setegHandler} 
+                      setegHandler={setegHandler}
                       handler={handler}
                       id={index}
                       isRegistered
                     />
-                    
+
                   </VerticalTimelineElement>
                 );
               })}
-              <SignBtn registered={0}></SignBtn>
             </>
           )}
         </>

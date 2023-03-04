@@ -65,8 +65,7 @@ export default function LeaderDashboard({
       )}
       <div className="grid grid-cols-2 gap-8  mt-20 mx-auto w-[70rem] text-center">
         {userData?.members?.map((data) => {
-          console.log('member data', data)
-          return <MemberCard data={data} userRole={userRole} teamId={userData._id} handleMemberRemove={handleMemberRemove}/>
+          return <MemberCard key={data} data={data} userRole={userRole} teamId={userData._id} handleMemberRemove={handleMemberRemove}/>
         })}
       </div>
       <div className="flex justify-center mt-16">

@@ -61,7 +61,7 @@ export default function CreateTeam({eventName,handleTeamCreate }) {
         <div className="text-3xl text-white">Join a Team</div>
         <button onClick={(e) => {
         router.push(`/manage/${eventName}/joinTeams`)
-        }} type="button" class="mt-4 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 w-2/3 font-medium rounded-lg text-md px-5 py-2.5 text-center mr-2 mb-2">Find Team</button>
+        }} type="button" className="mt-4 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 w-2/3 font-medium rounded-lg text-md px-5 py-2.5 text-center mr-2 mb-2">Find Team</button>
 
         <h2 className="text-4xl font-bold mt-8">OR</h2>
         <div className="mt-2">
@@ -75,7 +75,7 @@ export default function CreateTeam({eventName,handleTeamCreate }) {
           ></input>
           <button type="button" 
           onClick={(e) => handleSubmit(e)}
-          class="mt-4 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 w-2/3 font-medium rounded-lg text-md px-5 py-2.5 text-center mr-2 mb-2">Create Team</button>
+          className="mt-4 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 w-2/3 font-medium rounded-lg text-md px-5 py-2.5 text-center mr-2 mb-2">Create Team</button>
 
         </div>
       </div>
