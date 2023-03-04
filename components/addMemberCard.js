@@ -2,13 +2,14 @@
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 // import Avatar, { genConfig } from 'react-nice-avatar'
-function AddMemberCard({user,session}) {
+function AddMemberCard({user,session,eventName}) {
     // const config = genConfig(AvatarConfig)
    
     function handleInvite(userId) {
       console.log("userid",userId);
       console.log("gg",user._id)
-      fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/eHack/addMember/${userId}`, {
+      eventName=eventName.toLowerCase();
+      fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/${eventName}/addMember/${userId}`, {
         method: 'POST',
   
         headers: {

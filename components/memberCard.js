@@ -4,10 +4,11 @@ function MemberCard({ session, data, teamId, eventName }) {
 
 
   console.log("memeber card", data)
-  const userRole = data["eHack" + 'TeamRole']
+  const userRole = data[eventName + 'TeamRole']
 
   function handleRemove(teamId) {
-    fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/ehack/remove/${teamId}`, {
+    eventName=eventName.toLowerCase();
+    fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/${eventName}/remove/${teamId}`, {
       method: 'PATCH',
       body:
         JSON.stringify({ userId: data._id })
