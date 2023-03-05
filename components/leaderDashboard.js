@@ -1,23 +1,21 @@
+"use client"
 import MemberCard from './memberCard'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import { signIn, signOut, useSession } from 'next-auth/react'
+import refreshData from '@/app/utils/refresh'
 import { useRouter } from 'next/navigation'
+
 
 export default function LeaderDashboard({
   userData,
   eventName,
-  handleTeamDelete,
-  handleMemberRemove,
-  userRole
+  session
 }) {
-  const { data: session, status } = useSession()
-  eventName = eventName.toLowerCase()
-  console.log(eventName);
   const router = useRouter()
-  console.log('dash', userData)
+  
   function handleDelete(teamId) {
-    fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/${eventName}/${teamId}`, {
+    eventName = eventName.toLowerCase()
+    fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/${eventName}/team/${teamId}`, {
       method: 'DELETE',
 
       headers: {
@@ -30,6 +28,7 @@ export default function LeaderDashboard({
       .then((data) => {
         console.log(data)
         if (data.error?.errorCode) {
+          console.log(data.error)
           toast.error(`${data.message}`, {
             position: 'top-right',
             autoClose: 5000,
@@ -39,8 +38,9 @@ export default function LeaderDashboard({
             draggable: true,
             progress: undefined,
           })
+          return;
         }
-        handleTeamDelete(false)
+        refreshData();
         toast('Team deleted Successfully')
       })
   }
@@ -51,7 +51,10 @@ export default function LeaderDashboard({
       {userData?.members?.length < 4 ? (
         <div className="flex justify-center mt-16">
           <button
-            onClick={(e) => router.push(`/manage/${eventName}/addMembers`)}
+            onClick={(e) => {
+              eventName = eventName.toLowerCase()
+              router.push(`/manage/${eventName}/addMembers`)
+            }}
             className="bg-green-700 w-40 rounded-md p-2"
           >
             Add Members
@@ -62,7 +65,7 @@ export default function LeaderDashboard({
       )}
       <div className="grid grid-cols-2 gap-8  mt-20 mx-auto w-[70rem] text-center">
         {userData?.members?.map((data) => {
-          return <MemberCard key={data} data={data} userRole={userRole} teamId={userData._id} handleMemberRemove={handleMemberRemove}/>
+          return <MemberCard key={data} data={data} teamId={userData._id} eventName={eventName} session={session} />
         })}
       </div>
       <div className="flex justify-center mt-16">

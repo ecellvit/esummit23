@@ -1,13 +1,18 @@
-import React from 'react'
-import { signIn, signOut, useSession } from 'next-auth/react'
+import refreshData from '@/app/utils/refresh'
 
-function MemberCard({ data, userRole, teamId, handleMemberRemove}) {
-  const { data: session, status } = useSession()
+function MemberCard({ session, data, teamId, eventName }) {
+
+
+  console.log("memeber card", data)
+  const userRole = data[eventName + 'TeamRole']
 
   function handleRemove(teamId) {
-    fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user/${teamId}`, {
+    eventName=eventName.toLowerCase();
+    fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/${eventName}/remove/${teamId}`, {
       method: 'PATCH',
-
+      body:
+        JSON.stringify({ userId: data._id })
+      ,
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${session.accessTokenBackend}`,
@@ -28,8 +33,8 @@ function MemberCard({ data, userRole, teamId, handleMemberRemove}) {
             progress: undefined,
           })
         }
-        handleMemberRemove()
-        toast('Team member removed Successfully')
+        refreshData();
+        toast('Team member removed Successfully');
       })
   }
   return (

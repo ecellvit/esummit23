@@ -1,16 +1,17 @@
-import AddMember from '@/components/addMember'
-import NotyNav from '@/components/notyNav'
 import { authOptions } from '@/pages/api/auth/[...nextauth]';
 import { getServerSession } from 'next-auth';
+import LeaderSentReq from '@/components/LeaderSentReq'
 
-async function ehackRegistered(session) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/innoventure/user`, {
+
+async function leaderSentInvites(session) {
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/ehack/addMember`, {
     method: 'GET',
     headers: {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${session.accessTokenBackend}`,
       'Access-Control-Allow-Origin': '*',
     },
+
   },
     {
       cache: "no-store",
@@ -23,15 +24,13 @@ async function ehackRegistered(session) {
   return res.json();
 }
 
-export default async function AddMembers() {
-  const eventName = "innoventure"
+export default async function LeaderSent() {
+  const eventName = "eHack"
   const session = await getServerSession(authOptions);
-  const data = await ehackRegistered(session);
-  const users = data.innoventureMembers;
+  const data = await leaderSentInvites(session);
+  const requests = data.requests;
   return (
-    <div>
-      <NotyNav />
-      <AddMember eventName={eventName} session={session} users={users}/>
-    </div>
+    <LeaderSentReq eventName={eventName} requests={requests}/>
   )
 }
+
