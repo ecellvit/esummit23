@@ -12,7 +12,7 @@ export default async function RootLayout({ children }) {
     <AuthContext session={session}>
       <html lang="en" class="dark">
         <head />
-        <body> <Navbar session={session} />{children}</body>
+        <body > <Navbar session={session} />{children}</body>
       </html>
     </AuthContext>
   )

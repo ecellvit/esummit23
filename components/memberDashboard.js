@@ -1,23 +1,22 @@
-import MemberCard from './memberCard'
+"use client"
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import { signIn, signOut, useSession } from 'next-auth/react'
-import { useRouter } from 'next/navigation'
+import refreshData from '@/app/utils/refresh'
 import UserCard from './userCard'
 
 export default function MemberDashboard({
   userData,
   eventName,
-  handleMemberLeave,
+  session
 }) {
 
-  const { data: session, status } = useSession()
-  eventName = eventName.toLowerCase()
   console.log(eventName);
   console.log('dash', userData)
-
+  
+  
   function handleLeave(teamId) {
-    fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/${eventName}/${teamId}`, {
+    eventName = eventName.toLowerCase()
+    fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user/${eventName}/${teamId}`, {
       method: 'PATCH',
 
       headers: {
@@ -40,7 +39,7 @@ export default function MemberDashboard({
             progress: undefined,
           })
         }
-        handleMemberLeave();
+        refreshData();
         toast('Team left Successfully')
       })
   }
@@ -52,7 +51,8 @@ export default function MemberDashboard({
       <div className="grid grid-cols-2 gap-8  mt-20 mx-auto w-[70rem] text-center">
         {userData?.members?.map((data) => {
           console.log('member data', data)
-          return <UserCard data={data} />
+          console.log("role",data[eventName+"TeamRole"])
+          return <UserCard data={data} userRole={data[eventName+"TeamRole"]}/>
         })}
       </div>
       <div className="flex justify-center mt-16">
