@@ -71,6 +71,8 @@ export default function Card({ event, id, isRegistered, tit }) {
           localStorage.removeItem("eventId");
       }
     }
+    refreshData();
+
     return;
   }, []);
 
@@ -81,7 +83,7 @@ export default function Card({ event, id, isRegistered, tit }) {
   //       localStorage.removeItem("eventId");
   //   }
   // }
-
+  console.log(isRegistered);
   return (
     <>
       <ToastContainer
@@ -118,7 +120,7 @@ export default function Card({ event, id, isRegistered, tit }) {
           <button
             onClick={() => {
               console.log(isRegistered);
-              if (isRegistered === -1) {
+              if (isRegistered === 0) {
                 return handleRegister(id);
               }
               router.push("/schedule");
