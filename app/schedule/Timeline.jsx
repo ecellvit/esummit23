@@ -10,24 +10,38 @@ import "react-vertical-timeline-component/style.min.css";
 
 import Card from "./Card";
 
-export default function Timeline({ eventsArray }) {
-  const [userArray, setUserArray] = useState([]);
-  const [handler, setHandler] = useState(false);
-  const { data: session, status } = useSession();
-  useEffect(() => {
-    session &&
-      fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${session.accessTokenBackend}`,
-          "Access-Control-Allow-Origin": "*",
-        },
-      })
-        .then((response) => response.json())
+export default function Timeline({ userArray, eventsArray, session }) {
+  // const { data: session, status } = useSession();
+  // console.log(user);
+  // const [userArray, setUserArray] = useState(user.registeredEvents);
+  // console.log(userArray);
+  // async function getData() {
+  //   const res = await fetch(
+  //     `${process.env.NEXT_PUBLIC_SERVER}/api/events`,
+  //     {
+  //       method: "GET",
+  //     }
+  //   );
+  //   if (!res.ok) {
+  //     throw new Error("Failed to fetch data");
+  //   }
 
-        .then((data) => setUserArray(data.user.registeredEvents));
-  }, [handler,session]);
+  //   return res.json();
+  // }
+  // useEffect(() => {
+  //   session &&
+  //     fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user`, {
+  //       method: "GET",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Authorization: `Bearer ${session.accessTokenBackend}`,
+  //         "Access-Control-Allow-Origin": "*",
+  //       },
+  //     })
+  //       .then((response) => response.json())
+
+  //       .then((data) => setUserArray(data.user.registeredEvents));
+  // }, [handler, session]);
 
   console.log(userArray);
   const eventCodes = [
@@ -47,42 +61,38 @@ export default function Timeline({ eventsArray }) {
           <>
             <>
               {userArray.map((registered, index) => {
-                if (index === 0 || index === 1) {  //because only 2 events are coming from backend
-                      if (registered === 1) {
-                  console.log(eventsArray[index]);
-                  console.log(registered + " " + index);
+                if (index === 0 || index === 1) {
+                  //because only 2 events are coming from backend
+                  if (registered === 1) {
+                    console.log(eventsArray[index]);
+                    console.log(registered + " " + index);
 
-                  return (
-                    <VerticalTimelineElement
-                      contentStyle={{
-                        background: "rgb(33, 150, 243)",
-                        color: "#000",
-                      }}
-                      contentArrowStyle={{
-                        borderRight: "7px solid  rgb(33, 150, 243)",
-                      }}
-                      iconStyle={{
-                        background: "rgb(33, 150, 243)",
-                        color: "#000",
-                      }}
-                    >
-                      <Card
-                    
-                        event={eventsArray[index]}
-                        session={session}
-                        tit={eventCodes[index]}
-                        id={index}
-                        setHandler={setHandler}
-                      handler={handler}
-                  
-                      />
-                      
-                    </VerticalTimelineElement>
-                  );
+                    return (
+                      <VerticalTimelineElement
+                        contentStyle={{
+                          background: "rgb(33, 150, 243)",
+                          color: "#000",
+                        }}
+                        contentArrowStyle={{
+                          borderRight: "7px solid  rgb(33, 150, 243)",
+                        }}
+                        iconStyle={{
+                          background: "rgb(33, 150, 243)",
+                          color: "#000",
+                        }}
+                      >
+                        <Card
+                          event={eventsArray[index]}
+                          session={session}
+                          tit={eventCodes[index]}
+                          id={index}
+                          // setUserArray={setUserArray}
+                          userArray={userArray}
+                        />
+                      </VerticalTimelineElement>
+                    );
+                  }
                 }
-                  
-                }
-            
               })}
             </>
           </>

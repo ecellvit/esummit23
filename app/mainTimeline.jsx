@@ -1,16 +1,16 @@
 "use client";
-import React, { useEffect, useState } from "react";
+// import React, { useEffect, useState } from "react";
 import {
   VerticalTimeline,
   VerticalTimelineElement,
 } from "react-vertical-timeline-component";
 import "react-vertical-timeline-component/style.min.css";
-import Card from "@/components/landing/LandingPageCard";
+import Card from "@/app/LandingPageCard";
 
-export default function MainTimeline({ eventsArray, session }) {
-  const [registeredEventsArray, setregisteredEventsArray] = useState([]);
-  const [handler, setHandler] = useState(false);
-  const [regHandler, setegHandler] = useState(false);
+export default function MainTimeline({ userArray, eventsArray, session }) {
+  // const [userArray, setuserArray] = useState([]);
+  // const [handler, setHandler] = useState(false);
+  // const [regHandler, setegHandler] = useState(false);
   const eventCodes = [
     "IMPETUS",
     "EHACK",
@@ -21,20 +21,20 @@ export default function MainTimeline({ eventsArray, session }) {
   ];
 
   // this can be fetched on ssr
-  useEffect(() => {
-    session &&
-      fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user`, {
-        method: "GET",
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${session.accessTokenBackend}`,
-          "Access-Control-Allow-Origin": "*",
-        },
-      })
-        .then((response) => response.json())
-        .then((data) => setregisteredEventsArray(data.user.registeredEvents));
-  }, [handler, session]);
-  
+  // useEffect(() => {
+  //   session &&
+  //     fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user`, {
+  //       method: "GET",
+  //       headers: {
+  //         "Content-Type": "application/json",
+  //         Authorization: `Bearer ${session.accessTokenBackend}`,
+  //         "Access-Control-Allow-Origin": "*",
+  //       },
+  //     })
+  //       .then((response) => response.json())
+  //       .then((data) => setuserArray(data.user.registeredEvents));
+  // }, [handler, session]);
+
   return (
     <VerticalTimeline lineColor={"black"}>
       <>
@@ -58,11 +58,7 @@ export default function MainTimeline({ eventsArray, session }) {
                     }}
                   >
                     <Card
-                      isRegistered={(registeredEventsArray[index])}
-                      setHandler={setHandler}
-                      regHandler={regHandler}
-                      setegHandler={setegHandler}
-                      handler={handler}
+                      isRegistered={userArray[index]}
                       event={event}
                       key={event._id}
                       tit={eventCodes[index]}
@@ -94,14 +90,9 @@ export default function MainTimeline({ eventsArray, session }) {
                       event={event}
                       key={event._id}
                       tit={eventCodes[index]}
-                      setHandler={setHandler}
-                      regHandler={regHandler}
-                      setegHandler={setegHandler}
-                      handler={handler}
                       id={index}
-                      isRegistered
+                      isRegistered={-1}
                     />
-
                   </VerticalTimelineElement>
                 );
               })}
