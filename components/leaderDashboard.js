@@ -1,49 +1,44 @@
-"use client"
-import MemberCard from './memberCard'
-import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
-import refreshData from '@/app/utils/refresh'
-import { usePathname, useRouter } from 'next/navigation'
+"use client";
+import MemberCard from "./memberCard";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import refreshData from "@/app/utils/refresh";
+import { usePathname, useRouter } from "next/navigation";
 
+export default function LeaderDashboard({ userData, eventName, session }) {
+  const router = useRouter();
+  const path = usePathname();
 
-export default function LeaderDashboard({
-  userData,
-  eventName,
-  session
-}) {
-  const router = useRouter()
-  const path = usePathname()
-  
   function handleDelete(teamId) {
-    eventName = eventName.toLowerCase()
+    eventName = eventName.toLowerCase();
     fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/${eventName}/team/${teamId}`, {
-      method: 'DELETE',
+      method: "DELETE",
 
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
         Authorization: `Bearer ${session.accessTokenBackend}`,
-        'Access-Control-Allow-Origin': '*',
+        "Access-Control-Allow-Origin": "*",
       },
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
+        console.log(data);
         if (data.error?.errorCode) {
-          console.log(data.error)
+          console.log(data.error);
           toast.error(`${data.message}`, {
-            position: 'top-right',
+            position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-          })
+          });
           return;
         }
-        refreshData(router,path);
-        toast('Team deleted Successfully')
-      })
+        refreshData(router, path);
+        toast("Team deleted Successfully");
+      });
   }
 
   return (
@@ -53,8 +48,8 @@ export default function LeaderDashboard({
         <div className="flex justify-center mt-16">
           <button
             onClick={(e) => {
-              eventName = eventName.toLowerCase()
-              router.push(`/manage/${eventName}/addMembers`)
+              eventName = eventName.toLowerCase();
+              router.push(`/manage/${eventName}/addMembers`);
             }}
             className="bg-green-700 w-40 rounded-md p-2"
           >
@@ -66,7 +61,15 @@ export default function LeaderDashboard({
       )}
       <div className="grid grid-cols-2 gap-8  mt-20 mx-auto w-[70rem] text-center">
         {userData?.members?.map((data) => {
-          return <MemberCard key={data} data={data} teamId={userData._id} eventName={eventName} session={session} />
+          return (
+            <MemberCard
+              key={data}
+              data={data}
+              teamId={userData._id}
+              eventName={eventName}
+              session={session}
+            />
+          );
         })}
       </div>
       <div className="flex justify-center mt-16">
@@ -76,7 +79,8 @@ export default function LeaderDashboard({
         >
           Delete Team
         </button>
+        <ToastContainer />
       </div>
     </div>
-  )
+  );
 }

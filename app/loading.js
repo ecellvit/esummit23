@@ -1,6 +1,7 @@
+"use client";
 import React from "react";
-// import styles from "./loading.module.css";
+import { InfinitySpin } from "react-loader-spinner";
 
 export default function loading() {
-  return <div>Loading</div>;
+  return <InfinitySpin width="200" color="#00FFFF" />;
 }
