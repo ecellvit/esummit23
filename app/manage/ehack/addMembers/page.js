@@ -4,6 +4,7 @@ import { authOptions } from '@/pages/api/auth/[...nextauth]';
 import { getServerSession } from 'next-auth';
 
 async function ehackRegistered(session) {
+
   const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/ehack/user`, {
     method: 'GET',
     headers: {
@@ -24,14 +25,16 @@ async function ehackRegistered(session) {
 }
 
 export default async function AddMembers() {
+
   const eventName = "eHack"
   const session = await getServerSession(authOptions);
   const data = await ehackRegistered(session);
-  const users = data.eHackMembers;
+  const users = data?.eHackMembers;
+  console.log(data)
   return (
     <div>
-      <NotyNav />
-      <AddMember eventName={eventName} session={session} users={users}/>
+      <NotyNav eventName={eventName} />
+      <AddMember eventName={eventName} session={session} users={users} />
     </div>
   )
 }
