@@ -1,7 +1,11 @@
+"use client"
 import refreshData from '@/app/utils/refresh'
+import { usePathname, useRouter } from 'next/navigation'
 
 function MemberCard({ session, data, teamId, eventName }) {
 
+  const router = useRouter()
+  const path = usePathname()
 
   console.log("memeber card", data)
   const userRole = data[eventName + 'TeamRole']
@@ -33,7 +37,7 @@ function MemberCard({ session, data, teamId, eventName }) {
             progress: undefined,
           })
         }
-        refreshData();
+        refreshData(router,path);
         toast('Team member removed Successfully');
       })
   }

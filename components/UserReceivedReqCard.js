@@ -1,8 +1,8 @@
 'use client'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import { useRouter } from 'next/navigation'
 import refreshData from '@/app/utils/refresh'
+import { usePathname, useRouter } from 'next/navigation'
 
 // import Avatar, { genConfig } from 'react-nice-avatar'
 function UserReceivedReqCard({
@@ -13,6 +13,7 @@ function UserReceivedReqCard({
   // const config = genConfig()
 
   const router = useRouter()
+  const path = usePathname()
 
   function handleRejectInvite(teamId) {
     console.log(teamId)
@@ -46,7 +47,7 @@ function UserReceivedReqCard({
           return
         }
         toast('Invite Rejected Successfully')
-        refreshData();
+        refreshData(router,path);
         console.log('Invite Rejected')
       })
   }
