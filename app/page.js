@@ -1,56 +1,42 @@
+import { Inter } from "@next/font/google";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
+const inter = Inter({ subsets: ["latin"] });
 
+import Section1 from "./Landing/Section1";
+import Section3 from "./Landing/Section3";
+import Faq from "./Landing/Faq";
+import "../styles/landing.css";
+import Section2 from "./Landing/Section2";
 import MainTimeline from "./mainTimeline";
-
 async function getData() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/events`, {
-    method: "GET",
-  });
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_SERVER}/api/events`,
+    {
+      method: "GET",
+    },
+    {
+      cache: "no-store",
+    }
+  );
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
 
   return res.json();
 }
-
-async function getUserData(session) {
-  console.log(session);
-  if (session) {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${session.accessTokenBackend}`,
-        "Access-Control-Allow-Origin": "*",
-      },
-    });
-    if (!res.ok) {
-      throw new Error("Failed to fetch data");
-    }
-
-    return res.json();
-  }
-}
-
 export default async function Home() {
   const session = await getServerSession(authOptions);
+  const eventData = await getData();
 
-  const { events: eventsArray } = await getData();
-  const userData = await getUserData(session);
-
-  const userArray = userData ? userData.user.registeredEvents : [];
-
+  const eventsArray = await eventData.events;
   return (
     <>
-      <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-        {session ? <>You are logged in </> : "You are not logged in"}
-      </h5>
-      <MainTimeline
-        userArray={userArray}
-        session={session}
-        eventsArray={eventsArray}
-      ></MainTimeline>
+      <Section1 />
+      <Section2 />
+      <Faq />
+      <MainTimeline eventsArray={eventsArray}></MainTimeline>
+      <Section3 />
     </>
   );
 }
