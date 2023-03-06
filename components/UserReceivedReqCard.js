@@ -16,9 +16,10 @@ function UserReceivedReqCard({
   const path = usePathname()
 
   function handleRejectInvite(teamId) {
+    eventName=eventName.toLowerCase();
     console.log(teamId)
     fetch(
-      `${process.env.NEXT_PUBLIC_SERVER}/api/user/ehack/addMember/${teamId}`,
+      `${process.env.NEXT_PUBLIC_SERVER}/api/user/${eventName}/addMember/${teamId}`,
       {
         method: 'POST',
         body: JSON.stringify({
@@ -52,9 +53,10 @@ function UserReceivedReqCard({
       })
   }
   function handleAcceptInvite(teamId) {
+    eventName=eventName.toLowerCase();
     console.log(teamId)
     fetch(
-      `${process.env.NEXT_PUBLIC_SERVER}/api/user/ehack/addMember/${teamId}`,
+      `${process.env.NEXT_PUBLIC_SERVER}/api/user/${eventName}/addMember/${teamId}`,
       {
         method: 'POST',
         body: JSON.stringify({
