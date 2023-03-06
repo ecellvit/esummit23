@@ -3,6 +3,11 @@ import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
 const inter = Inter({ subsets: ["latin"] });
 import MainTimeline from "../components/landing/mainTimeline";
+import Section1 from "./Landing/Section1";
+import Section3 from "./Landing/Section3";
+import Faq from "./Landing/Faq";
+import "../styles/landing.css";
+import Section2 from "./Landing/Section2";
 async function getData() {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_SERVER}/api/events`,
@@ -26,11 +31,11 @@ export default async function Home() {
   const eventsArray = await eventData.events;
   return (
     <>
-     
-      <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-        {session ? <>You are logged in</> : "YOu are not logged in"}
-      </h5>
+      <Section1 />
+      <Section2 />
+      <Faq />
       <MainTimeline eventsArray={eventsArray}></MainTimeline>
+      <Section3 />
     </>
   );
 }

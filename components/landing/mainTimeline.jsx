@@ -37,90 +37,85 @@ export default function MainTimeline({ eventsArray }) {
         .then((data) => setregisteredEventsArray(data.user.registeredEvents));
   }, [handler, session]);
   return (
-
-  
-    <VerticalTimeline lineColor={"black"}>
-      <>
+    <div className="sec-3 bg-[#DEE9EA]">
+      <VerticalTimeline lineColor={"black"}>
         <>
-          {status === "authenticated" ? (
-           
-            <> {registeredEventsArray}
-              {eventsArray.map((event, index) => {
-              
-                return (
-                  <VerticalTimelineElement
-                    key={index}
-                    contentStyle={{
-                      background: "rgb(33, 150, 243)",
-                      color: "#000",
-                    }}
-                    contentArrowStyle={{
-                      borderRight: "7px solid  rgb(33, 150, 243)",
-                    }}
-                    iconStyle={{
-                      background: "rgb(33, 150, 243)",
-                      color: "#000",
-                    }}
-                  >
-                    <Card
-                      isRegistered={(registeredEventsArray[index])}
-                   
-                      setHandler={setHandler}
-                      regHandler={regHandler}
-                      setegHandler={setegHandler}
-                      handler={handler}
-                      event={event}
-                      key={event._id}
-                      tit={eventCodes[index]}
-                      id={index}
-                    />
-                    
-                  </VerticalTimelineElement>
-                );
-              })}
-
-              <SignBtn registered={1}></SignBtn>
-            </>
-          ) : (
-            <>
-              {eventsArray.map((event, index) => {
-                console.log(event);
-                return (
-                  <VerticalTimelineElement
-                    key={index}
-                    contentStyle={{
-                      background: "rgb(33, 150, 243)",
-                      color: "#000",
-                    }}
-                    contentArrowStyle={{
-                      borderRight: "7px solid  rgb(33, 150, 243)",
-                    }}
-                    iconStyle={{
-                      background: "rgb(33, 150, 243)",
-                      color: "#000",
-                    }}
-                  >
-                    <Card
-                    
-                      event={event}
-                      key={event._id}
-                      tit={eventCodes[index]}
-                      setHandler={setHandler}
-                      regHandler={regHandler}
-                      setegHandler={setegHandler} 
-                      handler={handler}
-                      id={index}
-                      isRegistered
-                    />
-                    
-                  </VerticalTimelineElement>
-                );
-              })}
-              <SignBtn registered={0}></SignBtn>
-            </>
-          )}
+          <>
+            {status === "authenticated" ? (
+              <>
+                {" "}
+                {registeredEventsArray}
+                {eventsArray.map((event, index) => {
+                  return (
+                    <VerticalTimelineElement
+                      key={index}
+                      contentStyle={{
+                        background: "rgb(33, 150, 243)",
+                        color: "#000",
+                      }}
+                      contentArrowStyle={{
+                        borderRight: "7px solid  rgb(33, 150, 243)",
+                      }}
+                      iconStyle={{
+                        background: "rgb(33, 150, 243)",
+                        color: "#000",
+                      }}
+                    >
+                      <Card
+                        isRegistered={registeredEventsArray[index]}
+                        setHandler={setHandler}
+                        regHandler={regHandler}
+                        setegHandler={setegHandler}
+                        handler={handler}
+                        event={event}
+                        key={event._id}
+                        tit={eventCodes[index]}
+                        id={index}
+                      />
+                    </VerticalTimelineElement>
+                  );
+                })}
+                <SignBtn registered={1}></SignBtn>
+              </>
+            ) : (
+              <>
+                {eventsArray.map((event, index) => {
+                  console.log(event);
+                  return (
+                    <VerticalTimelineElement
+                      key={index}
+                      contentStyle={{
+                        background: "rgb(33, 150, 243)",
+                        color: "#000",
+                      }}
+                      contentArrowStyle={{
+                        borderRight: "7px solid  rgb(33, 150, 243)",
+                      }}
+                      iconStyle={{
+                        background: "rgb(33, 150, 243)",
+                        color: "#000",
+                      }}
+                    >
+                      <Card
+                        event={event}
+                        key={event._id}
+                        tit={eventCodes[index]}
+                        setHandler={setHandler}
+                        regHandler={regHandler}
+                        setegHandler={setegHandler}
+                        handler={handler}
+                        id={index}
+                        isRegistered
+                      />
+                    </VerticalTimelineElement>
+                  );
+                })}
+                <SignBtn registered={0}></SignBtn>
+              </>
+            )}
+          </>
         </>
-      </>
-    </VerticalTimeline>
+      </VerticalTimeline>
+    </div>
   );
 }
