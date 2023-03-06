@@ -30,7 +30,7 @@ export default async function AddMembers() {
   const users = data.innoventureMembers;
   return (
     <div>
-      <NotyNav />
+      <NotyNav eventName={eventName}/>
       <AddMember eventName={eventName} session={session} users={users}/>
     </div>
   )

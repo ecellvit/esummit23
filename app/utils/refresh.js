@@ -1,8 +1,4 @@
-"use client"
-import { usePathname, useRouter } from 'next/navigation'
 
-export default function refreshData () {
-    const router = useRouter()
-    const path = usePathname()
+export default function refreshData (router,path) {
     router.replace(path);
   }

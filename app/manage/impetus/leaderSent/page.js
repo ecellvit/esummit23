@@ -30,6 +30,6 @@ export default async function LeaderSent() {
   const data = await leaderSentInvites(session);
   const requests = data.requests;
   return (
-    <LeaderSentReq eventName={eventName} requests={requests}/>
+    <LeaderSentReq eventName={eventName} requests={requests} session={session}/>
   )
 }
