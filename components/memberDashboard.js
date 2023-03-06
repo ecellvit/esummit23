@@ -3,12 +3,16 @@ import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import refreshData from '@/app/utils/refresh'
 import UserCard from './userCard'
+import { usePathname, useRouter } from 'next/navigation'
 
 export default function MemberDashboard({
   userData,
   eventName,
   session
 }) {
+
+  const router = useRouter()
+  const path = usePathname()
 
   console.log(eventName);
   console.log('dash', userData)
@@ -39,7 +43,7 @@ export default function MemberDashboard({
             progress: undefined,
           })
         }
-        refreshData();
+        refreshData(router,path);
         toast('Team left Successfully')
       })
   }

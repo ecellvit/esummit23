@@ -5,15 +5,13 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
+import refreshData from "./utils/refresh";
 
 export default function Card({ event, id, isRegistered, tit }) {
   const path = usePathname();
-
-  const refreshData = () => {
-    router.replace(path);
-  };
-  const { data: session, status } = useSession();
   const router = useRouter();
+
+  const { data: session, status } = useSession();
   const handleRegisterwithLogin = (id) => {
     console.log("clicked");
     localStorage.setItem("eventId", JSON.stringify(id));
@@ -56,7 +54,7 @@ export default function Card({ event, id, isRegistered, tit }) {
           return false;
         }
         toast("Event registered Successfully");
-        refreshData();
+        refreshData(router,path);
 
         return true;
       });

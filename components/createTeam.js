@@ -3,6 +3,7 @@ import { usePathname, useRouter } from 'next/navigation'
 import { useRef } from 'react'
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import refreshData from '@/app/utils/refresh';
 
 
 export default function CreateTeam({ session, eventName }) {
@@ -10,10 +11,6 @@ export default function CreateTeam({ session, eventName }) {
   const teamName = useRef("");
   const router = useRouter()
   const path = usePathname()
-
-  const refreshData = () => {
-    router.replace(path);
-  }
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -50,7 +47,7 @@ export default function CreateTeam({ session, eventName }) {
           return;
         }
         toast("Details submitted successfully");
-        refreshData();
+        refreshData(router,path);
         return;
       });
   };

@@ -3,7 +3,7 @@ import MemberCard from './memberCard'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import refreshData from '@/app/utils/refresh'
-import { useRouter } from 'next/navigation'
+import { usePathname, useRouter } from 'next/navigation'
 
 
 export default function LeaderDashboard({
@@ -12,6 +12,7 @@ export default function LeaderDashboard({
   session
 }) {
   const router = useRouter()
+  const path = usePathname()
   
   function handleDelete(teamId) {
     eventName = eventName.toLowerCase()
@@ -40,7 +41,7 @@ export default function LeaderDashboard({
           })
           return;
         }
-        refreshData();
+        refreshData(router,path);
         toast('Team deleted Successfully')
       })
   }

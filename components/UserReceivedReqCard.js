@@ -1,8 +1,8 @@
 'use client'
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
-import { useRouter } from 'next/navigation'
 import refreshData from '@/app/utils/refresh'
+import { usePathname, useRouter } from 'next/navigation'
 
 // import Avatar, { genConfig } from 'react-nice-avatar'
 function UserReceivedReqCard({
@@ -13,11 +13,13 @@ function UserReceivedReqCard({
   // const config = genConfig()
 
   const router = useRouter()
+  const path = usePathname()
 
   function handleRejectInvite(teamId) {
+    eventName=eventName.toLowerCase();
     console.log(teamId)
     fetch(
-      `${process.env.NEXT_PUBLIC_SERVER}/api/user/ehack/addMember/${teamId}`,
+      `${process.env.NEXT_PUBLIC_SERVER}/api/user/${eventName}/addMember/${teamId}`,
       {
         method: 'POST',
         body: JSON.stringify({
@@ -46,14 +48,15 @@ function UserReceivedReqCard({
           return
         }
         toast('Invite Rejected Successfully')
-        refreshData();
+        refreshData(router,path);
         console.log('Invite Rejected')
       })
   }
   function handleAcceptInvite(teamId) {
+    eventName=eventName.toLowerCase();
     console.log(teamId)
     fetch(
-      `${process.env.NEXT_PUBLIC_SERVER}/api/user/ehack/addMember/${teamId}`,
+      `${process.env.NEXT_PUBLIC_SERVER}/api/user/${eventName}/addMember/${teamId}`,
       {
         method: 'POST',
         body: JSON.stringify({

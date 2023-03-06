@@ -4,7 +4,7 @@ import 'react-toastify/dist/ReactToastify.css'
 // import Avatar, { genConfig } from 'react-nice-avatar'
 function AddMemberCard({user,session,eventName}) {
     // const config = genConfig(AvatarConfig)
-   
+
     function handleInvite(userId) {
       console.log("userid",userId);
       console.log("gg",user._id)

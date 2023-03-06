@@ -2,14 +2,16 @@
 import { ToastContainer, toast } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
 import refreshData from '@/app/utils/refresh'
+import { usePathname, useRouter } from 'next/navigation'
 // import Avatar, { genConfig } from 'react-nice-avatar'
 
 function LeaderSentReqCard({ request,eventName,session }) {
   // const config = genConfig(AvatarConfig)
-
+  const router = useRouter()
+  const path = usePathname()
   function handleDeleteInvite(userId) {
     console.log('userid', userId)
-    console.log('gg', data._id)
+    console.log('gg', request._id)
     eventName=eventName.toLowerCase();
     fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/${eventName}/addMember/${userId}`, {
       method: 'DELETE',
@@ -35,7 +37,7 @@ function LeaderSentReqCard({ request,eventName,session }) {
           return;
         }
         toast('Invite Deleted Successfully')
-        refreshData();
+        refreshData(router,path);
         console.log('Invite Deleted')
       })
   }
