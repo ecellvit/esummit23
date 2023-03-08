@@ -1,45 +1,46 @@
-"use client"
-import refreshData from '@/app/utils/refresh'
-import { usePathname, useRouter } from 'next/navigation'
+"use client";
+import refreshData from "@/app/utils/refresh";
+import { usePathname, useRouter } from "next/navigation";
+import { ToastContainer, toast } from "react-toastify";
 
 function MemberCard({ session, data, teamId, eventName }) {
+  const router = useRouter();
+  const path = usePathname();
 
-  const router = useRouter()
-  const path = usePathname()
-
-  console.log("memeber card", data)
-  const userRole = data[eventName + 'TeamRole']
+  console.log("memeber card", data);
+  const userRole = data[eventName + "TeamRole"];
 
   function handleRemove(teamId) {
-    eventName=eventName.toLowerCase();
-    fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/${eventName}/remove/${teamId}`, {
-      method: 'PATCH',
-      body:
-        JSON.stringify({ userId: data._id })
-      ,
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${session.accessTokenBackend}`,
-        'Access-Control-Allow-Origin': '*',
-      },
-    })
+    eventName = eventName.toLowerCase();
+    fetch(
+      `${process.env.NEXT_PUBLIC_SERVER}/api/${eventName}/remove/${teamId}`,
+      {
+        method: "PATCH",
+        body: JSON.stringify({ userId: data._id }),
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${session.accessTokenBackend}`,
+          "Access-Control-Allow-Origin": "*",
+        },
+      }
+    )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
+        console.log(data);
         if (data.error?.errorCode) {
           toast.error(`${data.message}`, {
-            position: 'top-right',
+            position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-          })
+          });
         }
-        refreshData(router,path);
-        toast('Team member removed Successfully');
-      })
+        refreshData(router, path);
+        toast("Team member removed Successfully");
+      });
   }
   return (
     <div className="h-64 rounded-2xl hover:scale-105 ease-linear bg-blue-700 ">
@@ -54,8 +55,9 @@ function MemberCard({ session, data, teamId, eventName }) {
       ) : (
         <h2>Leader</h2>
       )}
+      <ToastContainer />
     </div>
-  )
+  );
 }
 
-export default MemberCard
+export default MemberCard;

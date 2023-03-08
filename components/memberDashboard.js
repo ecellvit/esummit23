@@ -1,51 +1,45 @@
-"use client"
-import { ToastContainer, toast } from 'react-toastify'
-import 'react-toastify/dist/ReactToastify.css'
-import refreshData from '@/app/utils/refresh'
-import UserCard from './userCard'
-import { usePathname, useRouter } from 'next/navigation'
+"use client";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import refreshData from "@/app/utils/refresh";
+import UserCard from "./userCard";
+import { usePathname, useRouter } from "next/navigation";
 
-export default function MemberDashboard({
-  userData,
-  eventName,
-  session
-}) {
-
-  const router = useRouter()
-  const path = usePathname()
+export default function MemberDashboard({ userData, eventName, session }) {
+  const router = useRouter();
+  const path = usePathname();
 
   console.log(eventName);
-  console.log('dash', userData)
-  
-  
+  console.log("dash", userData);
+
   function handleLeave(teamId) {
-    eventName = eventName.toLowerCase()
+    eventName = eventName.toLowerCase();
     fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user/${eventName}/${teamId}`, {
-      method: 'PATCH',
+      method: "PATCH",
 
       headers: {
-        'Content-Type': 'application/json',
+        "Content-Type": "application/json",
         Authorization: `Bearer ${session.accessTokenBackend}`,
-        'Access-Control-Allow-Origin': '*',
+        "Access-Control-Allow-Origin": "*",
       },
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data)
+        console.log(data);
         if (data.error?.errorCode) {
           toast.error(`${data.message}`, {
-            position: 'top-right',
+            position: "top-right",
             autoClose: 5000,
             hideProgressBar: false,
             closeOnClick: true,
             pauseOnHover: true,
             draggable: true,
             progress: undefined,
-          })
+          });
         }
-        refreshData(router,path);
-        toast('Team left Successfully')
-      })
+        refreshData(router, path);
+        toast("Team left Successfully");
+      });
   }
 
   return (
@@ -54,9 +48,11 @@ export default function MemberDashboard({
 
       <div className="grid grid-cols-2 gap-8  mt-20 mx-auto w-[70rem] text-center">
         {userData?.members?.map((data) => {
-          console.log('member data', data)
-          console.log("role",data[eventName+"TeamRole"])
-          return <UserCard data={data} userRole={data[eventName+"TeamRole"]}/>
+          console.log("member data", data);
+          console.log("role", data[eventName + "TeamRole"]);
+          return (
+            <UserCard data={data} userRole={data[eventName + "TeamRole"]} />
+          );
         })}
       </div>
       <div className="flex justify-center mt-16">
@@ -66,7 +62,8 @@ export default function MemberDashboard({
         >
           Leave Team
         </button>
+        <ToastContainer />
       </div>
     </div>
-  )
+  );
 }

@@ -54,7 +54,7 @@ export default function Card({ event, id, isRegistered, tit }) {
           return false;
         }
         toast("Event registered Successfully");
-        refreshData(router,path);
+        refreshData(router, path);
 
         return true;
       });
@@ -69,6 +69,8 @@ export default function Card({ event, id, isRegistered, tit }) {
           localStorage.removeItem("eventId");
       }
     }
+    refreshData();
+
     return;
   }, []);
 
@@ -79,7 +81,7 @@ export default function Card({ event, id, isRegistered, tit }) {
   //       localStorage.removeItem("eventId");
   //   }
   // }
-
+  console.log(isRegistered);
   return (
     <>
       <ToastContainer

@@ -91,7 +91,7 @@ export default function MainTimeline({ userArray, eventsArray, session }) {
                       key={event._id}
                       tit={eventCodes[index]}
                       id={index}
-                      isRegistered={-1}
+                      isRegistered={0}
                     />
                   </VerticalTimelineElement>
                 );
