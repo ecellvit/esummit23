@@ -1,13 +1,39 @@
 "use client"
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-export default function RoundOne() {
+export default function RoundOne({accessTokenBackend}) {
 
     const [file, setFile] = useState(null);
     const [warning, setWarning] = useState(null);
+    const [upFile, setUpFile] = useState(null);
+    const [progress, setProgress] = useState(null);
+    const [desc, setDesc] = useState();
+    const [done, setDone] = useState();
 
-    // asdf(file);
+    useEffect(()=>{
+        let descrip = document.getElementById("projDesc");
+        descrip.value = desc;
+    }, [desc])
+
+    useEffect(() => {
+        fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/ehack/roundOne`, {
+            method: "GET",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${accessTokenBackend}`,
+              "Access-Control-Allow-Origin": "*",
+            },
+          }).then(resp=>resp.json())
+          .then(data=>{
+            console.log(data)
+            if (data.fileUrl){
+                setUpFile(data.fileUrl)
+                setDesc(data.desc)
+            }
+          })
+        //   {message: 'File fetched successfully', desc: 'asdf', fileUrl: 'http://res.cloudinary.com/dz1lxpkck/image/upload/v1678380901/wtr4ok91pafcfx2bpuq1.pdf', fileId: 'wtr4ok91pafcfx2bpuq1'}
+    }, [])
 
     const onProgress = ({ isComputable, value }) => {
         console.log(isComputable, value)
@@ -15,42 +41,71 @@ export default function RoundOne() {
     }
 
     function handleFormSubmit(){
-        let a = document.getElementById("projDesc");
+        let desc = document.getElementById("projDesc");
         let format = file.name.split(".")[1]
         if (!file){
             setWarning("Please upload a file")
         } else if (format!=="ppt" && format!=="pptx" && format!=="pdf" ) {
             setWarning("Please upload only ppts or pdfs")
-        } else if (a.value===""){
+        } else if (desc.value===""){
             setWarning("Please fill the Project Description")
         } else {
+            setWarning()
             // send data to cloudinary
             const formData = new FormData();
             formData.append("file", file)
-            formData.append("upload_preset", CLOUDINARY_UPLOAD_PRESET);
-            fetch(CLOUDINARY_URL, {
-                method: "POST",
-                body: formData
-            }).then(response => {
-                return response.json();
-            }).then((data) => {
-                console.log(data)
-                // data.public_id and data.url
+            formData.append("upload_preset", process.env.NEXT_PUBLIC_CLOUDINARY_UPLOAD_PRESET)
+            
+            let request = new XMLHttpRequest();
+            request.open('POST', process.env.NEXT_PUBLIC_CLOUDINARY_URL);
+            // upload progress event
+            request.upload.addEventListener('progress', function(e) {
+                // upload progress as percentage
+                let percent_completed = Math.floor((e.loaded / e.total)*100);
+                console.log(percent_completed);
+                setProgress(percent_completed);
             });
+            // request finished event
+            request.addEventListener('load', function(e) {
+                const data = JSON.parse(request.response)
+                console.log(data)
+                fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/ehack/roundOne`, {
+                    method: "POST",
+                    headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${accessTokenBackend}`,
+                    "Access-Control-Allow-Origin": "*",
+                    },
+                    body: JSON.stringify({
+                        desc: desc.value,
+                        fileUrl: data.url,
+                        fileId: data.public_id
+                    })
+                }).then(resp=>resp.json())
+                .then(data=>{console.log(data); setDone(true)})
+            });
+            // send POST request to server
+            request.send(formData);
         }
     }
 
-    function fileChange(event) {
-        // client.uploadFile(event.target.files[0], { onProgress }).then(f=>setUploadFile(f))
-        // send file to cloudinary, get public id and url.
-        // send public id and url to backend.
-
+    function handleDescChange(event) {
+        let descrip = document.getElementById("projDesc");
+        fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/ehack/roundOne`, {
+            method: "POST",
+            headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${accessTokenBackend}`,
+            "Access-Control-Allow-Origin": "*",
+            },
+            body: JSON.stringify({
+                desc: descrip.value,
+                fileUrl: upFile,
+                fileId: upFile.split("/")[7]
+            })
+        }).then(resp=>resp.json())
+        .then(data=>console.log(data))
     };
-
-    function onFileChange(event) {
-        console.log("file change", event.target.files[0]);
-        setFile(event.target.files[0])
-    }
 
     return (
         <div class="content-center m-5 px-10 w-3/4">
@@ -60,6 +115,9 @@ export default function RoundOne() {
                 <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Describe your project breifly</label>
                 <textarea id="projDesc" rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Leave a comment..."></textarea>
             </div>
+            {upFile && <button onClick={handleDescChange} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
+                Save Changes
+            </button>}
 
             {!file && <div class="my-5">
                 <label for="message" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Upload your presentation. (Not more than 1MB)</label>
@@ -70,7 +128,7 @@ export default function RoundOne() {
                             <p class="mb-2 text-sm text-gray-500 dark:text-gray-400"><span class="font-semibold">Click to upload</span> or drag and drop</p>
                             <p class="text-xs text-gray-500 dark:text-gray-400">PDF, PPT, or PPTX (MAX. 1MB)</p>
                         </div>
-                        <input id="dropzone-file" type="file" class="hidden" onChange={onFileChange} />
+                        <input id="dropzone-file" type="file" class="hidden" onChange={(e)=>setFile(e.target.files[0])} />
                     </label>
                 </div>
             </div>}
@@ -83,13 +141,22 @@ export default function RoundOne() {
                 </button>
             </div>}
 
+            {upFile && <div class="mb-5"> Previously Uploaded : <a class="text-blue-500" href={upFile}>{upFile.split("/")[7]}</a> </div>}
+
             {warning && <div>
                 <text class="text-red-600">{warning}</text>
             </div>}
 
+            {progress?
+            <div class="w-full bg-gray-200 rounded-full dark:bg-gray-700">
+                <div class="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full" style={{width: `${progress}%`}}> {`${progress}%`}</div>
+            </div>
+            :
             <button onClick={handleFormSubmit} class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded">
                 Submit
-            </button>
+            </button>}
+
+            {done && <div class="mb-5 text-green-500">Done!</div>}
 
         </div>
     )

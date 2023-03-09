@@ -9,7 +9,7 @@ export default async function page(){
 
     if (session) {
         return (
-            <RoundOne/>
+            <RoundOne accessTokenBackend={session.accessTokenBackend}/>
         )
     } else {
         return (<NotLoggedIn></NotLoggedIn>)
