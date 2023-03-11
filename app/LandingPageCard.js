@@ -13,9 +13,9 @@ export default function Card({ event, id, isRegistered, tit }) {
 
   const { data: session, status } = useSession();
   const handleRegisterwithLogin = (id) => {
-    console.log("clicked");
+    // console.log("clicked");
     localStorage.setItem("eventId", JSON.stringify(id));
-    console.log(id);
+    // console.log(id);
     signIn("google", {
       callbackUrl: "/getdetails",
     });
@@ -63,7 +63,7 @@ export default function Card({ event, id, isRegistered, tit }) {
 
   useEffect(() => {
     if (localStorage.getItem("eventId")) {
-      console.log(localStorage.getItem("eventId"));
+      // console.log(localStorage.getItem("eventId"));
       if (session) {
         handleRegister(localStorage.getItem("eventId")) &&
           localStorage.removeItem("eventId");
@@ -75,13 +75,13 @@ export default function Card({ event, id, isRegistered, tit }) {
   }, []);
 
   // if (localStorage.getItem("eventId")) {
-  //   console.log(localStorage.getItem("eventId"));
+    // console.log(localStorage.getItem("eventId"));
   //   if (session) {
   //     handleRegister(localStorage.getItem("eventId")) &&
   //       localStorage.removeItem("eventId");
   //   }
   // }
-  console.log(isRegistered);
+  // console.log(isRegistered);
   return (
     <>
       <ToastContainer
@@ -117,7 +117,7 @@ export default function Card({ event, id, isRegistered, tit }) {
           </p>
           <button
             onClick={() => {
-              console.log(isRegistered);
+              // console.log(isRegistered);
               if (isRegistered === 0) {
                 return handleRegister(id);
               }

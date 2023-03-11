@@ -8,7 +8,7 @@ function UserReceivedReq({ eventName,requests,session }) {
       <div className='ml-20 mt-10'>
       {requests.length ? (
         requests.map((x) => {
-          return <UserReceivedReqCard request={x} eventName={eventName} session={session}/>
+          return <UserReceivedReqCard key={x} request={x} eventName={eventName} session={session}/>
         })
       ) : (
         <h1>No requests</h1>

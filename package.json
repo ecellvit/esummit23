@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@next/font": "13.1.6",
+    "@uploadcare/upload-client": "^6.2.1",
     "class-variance-authority": "^0.4.0",
     "clsx": "^1.2.1",
     "eslint": "8.34.0",
