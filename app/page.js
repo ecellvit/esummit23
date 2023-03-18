@@ -10,6 +10,7 @@ import Header from "./Landing/Header";
 import Footer from "./Landing/Footer";
 import Temp from "./Landing/temp";
 import DetailsForm from "./getdetails/DetailsForm";
+import { getSession } from "@/lib/session";
 async function getData() {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_SERVER}/api/events`,
@@ -28,7 +29,7 @@ async function getData() {
 }
 
 async function getUserData(session) {
-  console.log(session);
+  console.log("---------------------------!!!!",session);
   if (session) {
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user`, {
       method: "GET",
@@ -49,6 +50,7 @@ async function getUserData(session) {
 export default async function Home() {
   const eventData = await getData();
   const eventsArray = await eventData.events;
+  const session = await getSession()
   const userData = await getUserData(session);
   const userArray = userData.user.registeredEvents;
   console.log(userArray);

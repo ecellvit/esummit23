@@ -1,13 +1,15 @@
 import React from "react";
 import { useRouter } from "next/navigation";
+import { CloudCog } from "lucide-react";
 
 function UserNav({ eventName }) {
   const router = useRouter();
   console.log("noty", eventName);
+  eventName=eventName.toLowerCase();
 
   return (
     <div>
-      <h1>User nav</h1>
+      <h1>User nav1</h1>
       <div>
         <nav
           className="flex-no-wrap sticky top-0 flex w-full items-center justify-between bg-neutral-100 py-4 shadow-md shadow-black/5 dark:bg-neutral-600 dark:shadow-black/10 lg:flex-wrap lg:justify-start"
@@ -16,15 +18,15 @@ function UserNav({ eventName }) {
           <div>
             <div className="relative flex items-center ">
 
-              <div class="flex justify-center space-x-2 ml-2 ">
+              <div className="flex justify-center space-x-2 ml-2 ">
                 <div>
                   <button
                     onClick={(e) =>
-                      router.push(`/manage/${eventName}/leaderSent`)
+                      router.push(`/manage/${eventName}/user-sent`)
                     }
                     data-te-ripple-init
                     data-te-ripple-color="light"
-                    class="flex bg-blue-400 items-center rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg">
+                    className="flex bg-blue-400 items-center rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
@@ -44,12 +46,16 @@ function UserNav({ eventName }) {
                   </button>
                 </div>
               </div>
-              <div class="flex justify-center space-x-2 ml-2">
+              <div className="flex justify-center space-x-2 ml-2">
                 <div>
                   <button
+                    onClick={(e) =>{
+                      console.log("clicked")
+                      router.push(`/manage/${eventName}/user-received`)
+                    }}
                     data-te-ripple-init
                     data-te-ripple-color="light"
-                    class="flex  bg-blue-400 items-center rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg">
+                    className="flex  bg-blue-400 items-center rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"

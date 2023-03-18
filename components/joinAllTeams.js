@@ -86,7 +86,6 @@ function JoinAllTeams({ session, eventName }) {
                     console.log("in use effect--------------")
                     console.log("popoppop!!!!!!",data.paginatedResult.next);
                     setPrev(data.paginatedResult.previous);
-
                     setTeamData([]);
 
                     data.paginatedResult.results.map((currenTeam) => {
@@ -105,8 +104,7 @@ function JoinAllTeams({ session, eventName }) {
     };
 
     useEffect(() => {
-
-        fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/ehack?page=1&limit=9`, {
+        fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/ehack?page=1&limit=2`, {
             method: "GET",
             headers: {
                 "Content-Type": "application/json",
@@ -128,9 +126,10 @@ function JoinAllTeams({ session, eventName }) {
                     });
                 }
                 console.log("left!!!!", data.paginatedResult.next);
+                console.log("right!!!!", data.paginatedResult.previous);
                 setNext(data.paginatedResult.next);
                 setPrev(data.paginatedResult.previous);
-
+console.log("test data fetch",data.paginatedResult)
                 setTeamData([]);
 
                 data.paginatedResult.results.map((currenTeam) => {
