@@ -78,62 +78,112 @@ export default function DetailsForm({ accessTokenBackend }) {
         pauseOnHover
         theme="light"
       />
-      <form>
-        <div className="mb-6">
-          <label
-            htmlFor="email"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
-            First name
-          </label>
-          <input
-            type="text"
-            id="email"
-            ref={fnameRef}
-            className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
-            placeholder="Enter first name here"
-            required
-          />
+      <div className="form_section">
+        <div className="form_sec_l">
+          <h1 className="form_l_h1">
+            E-Hack
+            <br />‍
+          </h1>
+          <div className="form_desc_wrapper">
+            <p className="form_date">Date &amp; Time</p>
+            <p className="form_para">
+              Venue
+              <br />‍
+            </p>
+            <p className="form_para_small">
+              Prominent motivational speakers from the entrepreneurial
+              environment will be delivering a talk to inspire the students and
+              promote the ethos of entrepreneurship in the campus. This session
+              will also be open to questions from the audience, thus furnishing
+              the minds of the students with vivid ideas and a clearer picture
+              of the entrepreneurship realm.
+              <br />‍
+            </p>
+            <div className="form_price_wrap">
+              <div className="form_wrap">
+                <p className="para_med_form">1st</p>
+                <p className="para_bold">10,000</p>
+              </div>
+              <div className="form_wrap">
+                <p className="para_med_form">2nd</p>
+                <p className="para_bold">10,000</p>
+              </div>
+              <div className="form_wrap">
+                <p className="para_med_form">3rd</p>
+                <p className="para_bold">10,000</p>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="mb-6">
-          <label
-            htmlFor="lastn"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
-            Last name
-          </label>
-          <input
-            ref={lnameRef}
-            type="last name here"
-            id="lastn"
-            className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
-            required
-          />
+        <div className="form_sec_r">
+          <h1 className="form_r_h1">Enter your information</h1>
+          <div className="main_form_wrap w-form">
+            <form
+              id="wf-form-name"
+              name="wf-form-name"
+              method="get"
+              className="form_cont"
+            >
+              <label for="name" className="text_label">
+                First name
+              </label>
+              <input
+                type="text"
+                ref={fnameRef}
+                className="input_form w-input"
+                maxlength="256"
+                name="fname"
+                placeholder="Your name here"
+                id="fname"
+              />
+              <label for="lastn" className="text_label">
+                Last Name
+              </label>
+              <input
+                ref={lnameRef}
+                type="text"
+                className="input_form w-input"
+                maxlength="256"
+                name="lastn"
+                placeholder="Your reg.no here"
+                id="lastn"
+              />
+              {/* <label for="name-3" className="text_label">
+          Email-ID
+        </label>
+        <input
+          type="text"
+          className="input_form w-input"
+          maxlength="256"
+          name="name-3"
+          data-name="Name 3"
+          placeholder="Your email here"
+          id="name-3"
+        /> */}
+              <label for="mob" className="text_label">
+                Mobile number
+              </label>
+              <input
+                ref={mobileNumberRef}
+                type="number"
+                className="input_form w-input"
+                maxlength="256"
+                name="mob"
+                placeholder="Your phone no. here"
+                id="mob"
+              />
+              <button
+                onClick={(e) => handleSubmit(e)}
+                type="submit"
+                className="formbtn w-button"
+              >
+                Register
+              </button>
+            </form>
+          </div>
         </div>
-        <div className="mb-6">
-          <label
-            htmlFor="mob"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-          >
-            Mobile Number
-          </label>
-          <input
-            ref={mobileNumberRef}
-            type="number"
-            id="mob"
-            className="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light"
-            required
-          />
-        </div>
-
-        <button
-          onClick={(e) => handleSubmit(e)}
-          type="submit"
-          className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-        >
-          Submit
-        </button>
-      </form>
+      </div>
+      ;
     </>
   );
 }
