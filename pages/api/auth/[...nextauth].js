@@ -32,6 +32,7 @@ const getTokenFromYourAPIServer = async (user, account) => {
     });
   return tokenFromBackend;
 };
+
 export const authOptions = {
   providers: [
     GoogleProvider({

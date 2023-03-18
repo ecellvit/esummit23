@@ -69,6 +69,7 @@ export default function Timeline({ userArray, eventsArray, session }) {
 
                     return (
                       <VerticalTimelineElement
+                        key={index}
                         contentStyle={{
                           background: "rgb(33, 150, 243)",
                           color: "#000",
