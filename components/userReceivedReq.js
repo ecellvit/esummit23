@@ -1,7 +1,7 @@
 import UserReceivedReqCard from './UserReceivedReqCard'
 
 function UserReceivedReq({ eventName,requests,session }) {
-
+console.log("all requests!!!!!!!!!!!!!!!!!!!!!",requests);
   return (
     <div>
       <div>userReceivedReq</div>

@@ -57,7 +57,7 @@ export default function CreateTeam({ session, eventName }) {
         <div className="text-3xl text-white">Join a Team</div>
         <button
           onClick={(e) => {
-            router.push(`/manage/${eventName}/joinTeams`);
+            router.push(`/manage/${eventName}/join-teams`);
           }}
           type="button"
           className="mt-4 text-white bg-gradient-to-br from-purple-600 to-blue-500 hover:bg-gradient-to-bl focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 w-2/3 font-medium rounded-lg text-md px-5 py-2.5 text-center mr-2 mb-2"

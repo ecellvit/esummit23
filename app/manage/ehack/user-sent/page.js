@@ -1,13 +1,12 @@
-import Dashboard from '@/components/dashboard'
-import NotyNav from '@/components/notyNav'
+import UserReceivedReq from '@/components/userReceivedReq'
 import { authOptions } from '@/pages/api/auth/[...nextauth]';
 import { getServerSession } from 'next-auth';
 
-async function getUserData(session) {
+async function requestSentData(session) {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_SERVER}/api/user`,
+    `${process.env.NEXT_PUBLIC_SERVER}/api/user/ehack/requests`,
     {
-      method: "GET",
+      method: 'GET',
       headers: {
         'Content-Type': 'application/json',
         Authorization: `Bearer ${session.accessTokenBackend}`,
@@ -17,7 +16,7 @@ async function getUserData(session) {
     {
       cache: "no-store",
     }
-  );
+  )
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
@@ -28,18 +27,14 @@ async function getUserData(session) {
 export default async function UserSent() {
   const eventName = "ehack"
   const session = await getServerSession(authOptions);
-  const data = await getUserData(session);
-  const userData = data.user[eventName + 'TeamId']
-  const userRole = data.user[eventName + 'TeamRole']
-
-  let hasTeam = false;
-  if (userData) {
-    hasTeam = true;
-  }
+  const data = await requestSentData(session);
+  console.log(session)
+//   const requests = data;
+  console.log("pppp!!",data)
   return (
-    <>
-      <NotyNav eventName={eventName} />
-      <Dashboard eventName={eventName} session={session} hasTeam={hasTeam} userData={userData} userRole={userRole} />
-    </>
+    // <UserReceivedReq eventName={eventName} requests={requests} session={session} />
+
+    <h1>hi</h1>
   )
 }
+

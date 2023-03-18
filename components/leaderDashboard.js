@@ -49,7 +49,7 @@ export default function LeaderDashboard({ userData, eventName, session }) {
           <button
             onClick={(e) => {
               eventName = eventName.toLowerCase();
-              router.push(`/manage/${eventName}/addMembers`);
+              router.push(`/manage/${eventName}/add-members`);
             }}
             className="bg-green-700 w-40 rounded-md p-2"
           >

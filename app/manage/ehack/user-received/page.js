@@ -25,10 +25,11 @@ async function addMemberData(session) {
 }
 
 export default async function UserReceived() {
-  const eventName = "eHack"
+  const eventName = "ehack"
   const session = await getServerSession(authOptions);
   const data = await addMemberData(session);
   const requests = data.requests;
+  console.log("pppp!!",data)
   return (
     <UserReceivedReq eventName={eventName} requests={requests} session={session} />
   )
