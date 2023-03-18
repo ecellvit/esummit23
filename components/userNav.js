@@ -5,6 +5,7 @@ import { CloudCog } from "lucide-react";
 function UserNav({ eventName }) {
   const router = useRouter();
   console.log("noty", eventName);
+  eventName=eventName.toLowerCase();
 
   return (
     <div>

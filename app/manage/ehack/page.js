@@ -26,9 +26,10 @@ async function getUserData(session) {
 }
 
 export default async function UserSent() {
-  const eventName = "ehack"
+  const eventName = "eHack"
   const session = await getServerSession(authOptions);
   const data = await getUserData(session);
+  console.log("+!!!!!!!!!!!!!!!!",data);
   const userData = data.user[eventName + 'TeamId']
   const userRole = data.user[eventName + 'TeamRole']
 

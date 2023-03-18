@@ -1,6 +1,6 @@
-import UserReceivedReq from '@/components/userReceivedReq'
 import { authOptions } from '@/pages/api/auth/[...nextauth]';
 import { getServerSession } from 'next-auth';
+import UserSentComponent from '@/components/UserSentComponent';
 
 async function requestSentData(session) {
   const res = await fetch(
@@ -33,8 +33,7 @@ export default async function UserSent() {
   console.log("pppp!!",data)
   return (
     // <UserReceivedReq eventName={eventName} requests={requests} session={session} />
-
-    <h1>hi</h1>
+<UserSentComponent/>
   )
 }
 
