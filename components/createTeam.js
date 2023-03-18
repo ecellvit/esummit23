@@ -6,6 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import refreshData from "@/app/utils/refresh";
 
 export default function CreateTeam({ session, eventName }) {
+  console.log(session)
   eventName = eventName.toLowerCase();
   const teamName = useRef("");
   const router = useRouter();
@@ -26,7 +27,7 @@ export default function CreateTeam({ session, eventName }) {
       }),
       headers: {
         "Content-Type": "application/json",
-        Authorization: `Bearer ${session.accessTokenBackend}`,
+        Authorization: `Bearer ${session?.accessTokenBackend}`,
         "Access-Control-Allow-Origin": "*",
       },
     })
