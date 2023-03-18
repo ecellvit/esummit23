@@ -6,23 +6,24 @@ function LeaderNav({ eventName }) {
   const router = useRouter();
   return (
     <div>
-      <h1>Leader nav</h1>
       <div>
         <nav
-          className="flex-no-wrap relative flex w-full items-center justify-between bg-neutral-100 py-4 shadow-md shadow-black/5 dark:bg-neutral-600 dark:shadow-black/10 lg:flex-wrap lg:justify-start"
+          className="flex-no-wrap sticky top-0 flex w-full items-center justify-between bg-neutral-100 py-4 shadow-md shadow-black/5 dark:bg-neutral-600 dark:shadow-black/10 lg:flex-wrap lg:justify-start"
           data-te-navbar-ref
         >
           <div>
-            <div className="relative flex items-center">
-              <div className="relative" data-te-dropdown-ref>
-                <button
-                  className="hidden-arrow mr-4 flex items-center text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
-                  onClick={(e) =>
+            <div className="relative flex items-center ">
+              
+              <div class="flex justify-center space-x-2 ml-2 ">
+                <div>
+                  <button
+                    onClick={(e) =>
                     router.push(`/manage/${eventName}/leaderSent`)
                   }
-                >
-                  <span className="[&>svg]:w-5">
-                    <svg
+                    data-te-ripple-init
+                    data-te-ripple-color="light"
+                    class="flex bg-blue-400 items-center rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg">
+                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
                       fill="currentColor"
@@ -34,21 +35,24 @@ function LeaderNav({ eventName }) {
                         clipRule="evenodd"
                       />
                     </svg>
-                  </span>
-                  <span className="absolute -mt-2.5 ml-2 rounded-full bg-red-700 py-0 px-1.5 text-xs text-white">
-                    {/* 1 */}
-                  </span>
-                </button>
-              </div>
-              <div className="relative" data-te-dropdown-ref>
-                <button
-                  className="hidden-arrow mr-4 flex items-center text-neutral-500 hover:text-neutral-700 focus:text-neutral-700 disabled:text-black/30 dark:text-neutral-200 dark:hover:text-neutral-300 dark:focus:text-neutral-300 [&.active]:text-black/90 dark:[&.active]:text-neutral-400"
+                    {/* <span className="absolute -mt-2.5 ml-2 rounded-full bg-red-700 py-0 px-1.5 text-xs text-white">
+                    1
+                  </span> */}
+                    <div className="text-black">Sent</div>
+                  </button>
+                </div>
+                </div>
+              <div class="flex justify-center space-x-2 ml-2">
+                <div>
+                  <button
                   onClick={(e) =>
-                    router.push(`/manage/${eventName}/leaderReceived`)
+                    router.push(`/manage/${eventName}/receivedJoinRequest`)
                   }
-                >
-                  <span className="[&>svg]:w-5">
-                    <svg
+
+                    data-te-ripple-init
+                    data-te-ripple-color="light"
+                    class="flex  bg-blue-400 items-center rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg">
+                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
                       fill="currentColor"
@@ -60,11 +64,10 @@ function LeaderNav({ eventName }) {
                         clipRule="evenodd"
                       />
                     </svg>
-                  </span>
-                  <span className="absolute -mt-2.5 ml-2 rounded-full bg-red-700 py-0 px-1.5 text-xs text-white">
-                    {/* 1 */}
-                  </span>
-                </button>
+                    <div className="text-black">Received</div>
+                  </button>
+                </div>
+                
               </div>
             </div>
           </div>
