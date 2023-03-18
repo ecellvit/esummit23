@@ -1,7 +1,6 @@
 import { authOptions } from '@/pages/api/auth/[...nextauth]';
 import { getServerSession } from 'next-auth';
 import LeaderSentReq from '@/components/LeaderSentReq'
-import JoinAllTeams from '@/components/joinAllTeams';
 
 async function getUserData(session) {
     const res = await fetch(
@@ -25,9 +24,8 @@ async function getUserData(session) {
     return res.json();
 }
 
-async function getAllteams(session,page) {
-    // const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/ehack?page=${prev.page}&limit=${prev.limit}`, {
-    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/ehack?${page}=1&limit=9`, {
+async function leaderReceivedReq(session,teamId) {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/ehack/requests/${teamId}`, {
         method: 'GET',
         headers: {
             'Content-Type': 'application/json',
@@ -47,16 +45,14 @@ async function getAllteams(session,page) {
     return res.json();
 }
 
-export default async function JoinTeams() {
+export default async function receivedJoinRequest() {
     const eventName = "eHack"
     const session = await getServerSession(authOptions);
     const userData = await getUserData(session);
-    console.log("user data",userData);
-    // console.log("userID",userData?.user)
-    const data = await getAllteams(session,1);
-    //   const requests = data.requests;
-    console.log("yoyo",data.paginatedResult)
+    const data = await leaderReceivedReq(session, userData.user.eHackTeamId._id);
+      const requests = data.requests;
+    console.log(data)
     return (
-       <JoinAllTeams session={session} userData={userData} eventName={eventName}/>
+        <LeaderSentReq eventName={eventName} requests={requests} session={session}/>
     )
 }

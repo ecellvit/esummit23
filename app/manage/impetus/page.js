@@ -41,5 +41,6 @@ export default async function ManagePage() {
       <NotyNav eventName={eventName} />
       <Dashboard eventName={eventName} session={session} hasTeam={hasTeam} userData={userData} userRole={userRole} />
     </>
+    
   )
 }

@@ -62,7 +62,7 @@ function UserNav({ eventName }) {
                         clipRule="evenodd"
                       />
                     </svg>
-                    <div className="text-black">Recieved</div>
+                    <div className="text-black">Received</div>
                   </button>
                 </div>
               </div>

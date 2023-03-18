@@ -34,6 +34,7 @@ export default async function ManagePage() {
 
   let hasTeam = false;
   if (userData) {
+    
     hasTeam = true;
   }
   return (
