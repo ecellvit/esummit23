@@ -61,11 +61,9 @@ export default function Timeline({ userArray, eventsArray, session }) {
           <>
             <>
               {userArray.map((registered, index) => {
-                if (index === 0 || index === 1) {
-                  //because only 2 events are coming from backend
-                  if (registered === 1) {
-                    console.log(eventsArray[index]);
-                    console.log(registered + " " + index);
+                if (registered === 1) {
+                  console.log(eventsArray[index]);
+                  console.log(registered + " " + index);
 
                     return (
                       <VerticalTimelineElement

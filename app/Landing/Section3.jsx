@@ -2,14 +2,10 @@ import React from "react";
 
 export default function Section3() {
   return (
-    <div className="sec_3">
-      <div className="about_cont">
-        <div className="about_text_cont">
-          <h1 className="sec_heading">SOUNDS AWESOME ?</h1>
-          <a href="#" className="register_btn w-button">
-            View Events
-          </a>
-        </div>
+    <div class="expect_sec">
+      <div class="expect_wrapper">
+        <h1 class="expect_h1">Here’s What You Can Expect !</h1>
+        <div class="suprise_bx"></div>
       </div>
     </div>
   );

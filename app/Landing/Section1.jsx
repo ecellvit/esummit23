@@ -2,20 +2,46 @@ import React from "react";
 
 export default function Section1() {
   return (
-    <div class="header">
-      <div class="header-text">
-        <p class="para_small">E-Cell Vit Presents</p>
-        <h1 class="main_heading">ESUMMIT’23</h1>
-        <div class="para-medium">
-          The 4th edition of the biggest fest in South India
+    <div className="innovate_sec">
+      <div className="innovate_wrapper">
+        <div className="features">
+          <div className="feat_img">
+            <img src="feature1.svg" alt="" className="feature_img" />
+          </div>
+          <div className="feat_text">
+            <p className="feat_h1">Innovate</p>
+            <p className="feat_para">
+              Provide a unique and workable concept to stand out from the
+              competitors.
+            </p>
+          </div>
+          <div className="line-feat"></div>
         </div>
-        <div class="btn-cont">
-          <a href="#" class="main_btn">
-            Register Now
-          </a>
-          <a href="#" class="main_btn">
-            View Events
-          </a>
+        <div className="features">
+          <div className="feat_img">
+            <img src="feature2.svg" alt="" className="feature_img" />
+          </div>
+          <div className="feat_text">
+            <p className="feat_h1">Ideate</p>
+            <p className="feat_para">
+              Generate and explore creative ideas to solve a problem or achieve
+              a goal.
+            </p>
+          </div>
+          <div className="line-feat"></div>
+        </div>
+        <div className="features">
+          <div className="feat_img">
+            <img src="feature3.svg" alt="" className="feature_img" />
+          </div>
+          <div className="feat_text">
+            <p className="feat_h1">Actuate</p>
+            <p className="feat_para">
+              Execute a well-planned strategy or solution with precision and
+              agility, to produce tangible results and achieve the desired
+              outcome
+            </p>
+          </div>
         </div>
       </div>
     </div>
