@@ -1,3 +1,5 @@
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import { getServerSession } from "next-auth";
 import Section1 from "./Landing/Section1";
 import Section3 from "./Landing/Section3";
 import "../styles/landing.css";
@@ -48,6 +50,7 @@ async function getUserData(session) {
 }
 
 export default async function Home() {
+  const session = await getServerSession(authOptions);
   const eventData = await getData();
   const eventsArray = await eventData.events;
   const session = await getSession()

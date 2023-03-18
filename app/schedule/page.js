@@ -2,7 +2,7 @@ import Timeline from "./Timeline";
 import React from "react";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
-
+import "../../styles/landing.css";
 async function getUserData(session) {
   console.log(session);
   if (session) {

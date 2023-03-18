@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import Carousel from "./Carousel";
+
 import NewCard from "./NewCard";
 
 export default function Temp({ userArray, eventsArray, session }) {
@@ -85,6 +86,7 @@ export default function Temp({ userArray, eventsArray, session }) {
             );
           })}
         </div>
+        <Carousel />
       </div>
     </>
   );
