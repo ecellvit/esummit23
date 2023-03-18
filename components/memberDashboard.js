@@ -51,7 +51,7 @@ export default function MemberDashboard({ userData, eventName, session }) {
           console.log("member data", data);
           console.log("role", data[eventName + "TeamRole"]);
           return (
-            <UserCard data={data} userRole={data[eventName + "TeamRole"]} />
+            <UserCard key={data} data={data} userRole={data[eventName + "TeamRole"]} />
           );
         })}
       </div>
