@@ -28,8 +28,6 @@ export default function Navbar({ session }) {
   const [dropdown1, setDropdown1] = useState(false);
   const [dropdown2, setDropdown2] = useState(false);
 
-  console.log(pathname.split('/')[1])
-
   useEffect(()=>{
     document.addEventListener('click', (ev)=>{
       if (!(manageRef?.current.contains(ev.target) || manageRefSpan?.current.contains(ev.target) || eventsRef?.current.contains(ev.target) || eventsRefSpan?.current.contains(ev.target))){

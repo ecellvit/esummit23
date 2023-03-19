@@ -15,7 +15,6 @@ function UserReceivedReqCard({ request, eventName, session }) {
 
   function handleRejectInvite(teamId) {
     eventName = eventName.toLowerCase();
-    console.log(teamId);
     fetch(
       `${process.env.NEXT_PUBLIC_SERVER}/api/user/${eventName}/addMember/${teamId}`,
       {
@@ -32,7 +31,6 @@ function UserReceivedReqCard({ request, eventName, session }) {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         if (data.error?.errorCode) {
           toast.error(`${data.message}`, {
             position: "top-right",
@@ -52,7 +50,6 @@ function UserReceivedReqCard({ request, eventName, session }) {
   }
   function handleAcceptInvite(teamId) {
     eventName = eventName.toLowerCase();
-    console.log(teamId);
     fetch(
       `${process.env.NEXT_PUBLIC_SERVER}/api/user/${eventName}/addMember/${teamId}`,
       {
@@ -69,7 +66,6 @@ function UserReceivedReqCard({ request, eventName, session }) {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         if (data.error?.errorCode) {
           toast.error(`${data.message}`, {
             position: "top-right",
@@ -84,7 +80,6 @@ function UserReceivedReqCard({ request, eventName, session }) {
         }
         toast("Invite Accepted Successfully");
         router.push(`/manage/${eventName}`);
-        console.log("Invite Accepted");
       });
   }
   return (

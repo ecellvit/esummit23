@@ -25,7 +25,6 @@ export default async function AddMembers() {
   const session = await getServerSession(authOptions);
   const data = await ehackRegistered(session);
   const users = data?.eHackMembers;
-  console.log(data);
   return (
     <div>
       <NotyNav eventName={eventName} />

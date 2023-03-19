@@ -29,9 +29,7 @@ export default function LeaderDashboard({ userData, eventName, session }) {
     })
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         if (data.error?.errorCode) {
-          console.log(data.error);
           toast.error(`${data.message}`, {
             position: "top-right",
             autoClose: 5000,

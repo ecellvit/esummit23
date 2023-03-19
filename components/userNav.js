@@ -4,7 +4,6 @@ import { CloudCog } from "lucide-react";
 
 function UserNav({ eventName }) {
   const router = useRouter();
-  console.log("noty", eventName);
   eventName=eventName.toLowerCase();
 
   return (
@@ -49,7 +48,6 @@ function UserNav({ eventName }) {
                 <div>
                   <button
                     onClick={(e) =>{
-                      console.log("clicked")
                       router.push(`/manage/${eventName}/user-received`)
                     }}
                     data-te-ripple-init

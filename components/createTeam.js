@@ -6,7 +6,6 @@ import "react-toastify/dist/ReactToastify.css";
 import refreshData from "@/app/utils/refresh";
 
 export default function CreateTeam({ session, eventName }) {
-  console.log(session)
   eventName = eventName.toLowerCase();
   const teamName = useRef("");
   const router = useRouter();
@@ -14,7 +13,6 @@ export default function CreateTeam({ session, eventName }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Submit btn clicked");
     if (teamName.current.value.trim() === "") {
       toast.error("Please Don't Leave Name as Blank!");
       return;

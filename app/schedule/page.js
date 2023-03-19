@@ -4,7 +4,6 @@ import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
 import "../../styles/landing.css";
 async function getUserData(session) {
-  console.log(session);
   if (session) {
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user`, {
       method: "GET",

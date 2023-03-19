@@ -100,8 +100,6 @@ function JoinAllTeams({ session, eventName }) {
               progress: undefined,
             });
           }
-          console.log("in use effect--------------");
-          console.log("popoppop!!!!!!", data.paginatedResult.next);
           setPrev(data.paginatedResult.previous);
           setTeamData([]);
 
@@ -142,11 +140,8 @@ function JoinAllTeams({ session, eventName }) {
             progress: undefined,
           });
         }
-        console.log("left!!!!", data.paginatedResult.next);
-        console.log("right!!!!", data.paginatedResult.previous);
         setNext(data.paginatedResult.next);
         setPrev(data.paginatedResult.previous);
-        console.log("test data fetch", data.paginatedResult);
         setTeamData([]);
 
         data.paginatedResult.results.map((currenTeam) => {
@@ -158,8 +153,6 @@ function JoinAllTeams({ session, eventName }) {
         });
       });
   }, []);
-
-  console.log("ytoyoyo tean data", teamData);
 
   return (
     <>

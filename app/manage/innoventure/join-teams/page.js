@@ -50,11 +50,9 @@ export default async function JoinTeams() {
     const eventName = "innoventure"
     const session = await getServerSession(authOptions);
     const userData = await getUserData(session);
-    console.log("user data",userData);
     // console.log("userID",userData?.user)
     const data = await getAllteams(session,1);
     //   const requests = data.requests;
-    console.log("yoyo",data.paginatedResult)
     return (
        <JoinAllTeams session={session} userData={userData} eventName={eventName}/>
     )

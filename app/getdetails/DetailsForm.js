@@ -17,7 +17,6 @@ export default function DetailsForm({ accessTokenBackend }) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Submit btn clicked");
     if (
       mobileNumberRef.current.value === "" ||
       mobileNumberRef.current.value.length != 10 ||

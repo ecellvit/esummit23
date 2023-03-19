@@ -12,11 +12,7 @@ function LeaderReceivedRequestCard({ request, eventName, session, teamId }) {
   const router = useRouter();
   const path = usePathname();
 
-  console.log("Leader Card request", request);
-
   function handleDecline(userId) {
-    console.log("userid", userId);
-    console.log("gg", request._id);
     eventName = eventName.toLowerCase();
     fetch(
       `${process.env.NEXT_PUBLIC_SERVER}/api/${eventName}/requests/${teamId}`,
@@ -35,7 +31,6 @@ function LeaderReceivedRequestCard({ request, eventName, session, teamId }) {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         if (data.error?.errorCode) {
           toast.error(`${data.message}`, {
             position: "top-right",
@@ -55,8 +50,6 @@ function LeaderReceivedRequestCard({ request, eventName, session, teamId }) {
   }
 
     function handleAccept(userId) {
-        console.log("userid", userId);
-        console.log("gg", request._id);
         eventName = eventName.toLowerCase();
         fetch(
             `${process.env.NEXT_PUBLIC_SERVER}/api/${eventName}/requests/${teamId}`,
@@ -75,7 +68,6 @@ function LeaderReceivedRequestCard({ request, eventName, session, teamId }) {
         )
             .then((response) => response.json())
             .then((data) => {
-                console.log(data);
                 if (data.error?.errorCode) {
                     toast.error(`${data.message}`, {
                         position: "top-right",
