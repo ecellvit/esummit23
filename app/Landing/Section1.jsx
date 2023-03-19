@@ -15,7 +15,6 @@ export default function Section1() {
               competitors.
             </p>
           </div>
-          <div className="line-feat"></div>
         </div>
         <div className="features">
           <div className="feat_img">
@@ -28,9 +27,8 @@ export default function Section1() {
               a goal.
             </p>
           </div>
-          <div className="line-feat"></div>
         </div>
-        <div className="features">
+        <div className="features last">
           <div className="feat_img">
             <img src="feature3.svg" alt="" className="feature_img" />
           </div>
