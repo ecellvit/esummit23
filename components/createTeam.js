@@ -44,7 +44,7 @@ export default function CreateTeam({ session, eventName }) {
           return;
         }
         refreshData(router, path);
-        // toast("Details submitted successfully");
+        toast("Details submitted successfully");
         return;
       });
   };
@@ -57,38 +57,38 @@ export default function CreateTeam({ session, eventName }) {
       {/* <div className=""> */}
       <div className="w-1/3 md:w-[50%] rounded-md p-4 bg-slate-200 flex justify-center">
         <div className="w-1/2">
-        <div className="text-3xl text-black mt-4">Join a Team</div>
-        <button
-          onClick={(e) => {
-            router.push(`/manage/${eventName}/join-teams`);
-          }}
-          type="button"
-          className="mt-4 text-black bg-[#53B3B9] hover:text-black hover:bg-[#43A3A9] focus:ring-4 focus:outline-none dark:focus:ring-blue-800 w-2/3 font-medium rounded-lg text-md px-5 py-2.5 text-center mr-2 mb-2"
-        >
-          Find Team
-        </button>
-
-        <h2 className="text-4xl font-bold my-8">OR</h2>
-        <div className="my-2">
-          <div className="text-3xl text-black mt-3">Create your own Team</div>
-          <input
-            type="text"
-            ref={teamName}
-            className="bg-gray-50 border my-4 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
-            placeholder="Enter Team Name"
-            required
-          ></input>
+          <div className="text-3xl text-black mt-4">Join a Team</div>
           <button
+            onClick={(e) => {
+              router.push(`/manage/${eventName}/join-teams`);
+            }}
             type="button"
-            onClick={(e) => handleSubmit(e)}
-            className="mt-8 text-black bg-[#53B3B9] hover:bg-[#43A3A9] hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 w-2/3 font-medium rounded-lg text-md px-5 py-2.5 text-center mr-2 mb-2"
+            className="mt-4 text-black bg-[#53B3B9] hover:text-black hover:bg-[#43A3A9] focus:ring-4 focus:outline-none dark:focus:ring-blue-800 w-2/3 font-medium rounded-lg text-md px-5 py-2.5 text-center mr-2 mb-2"
           >
-            Create Team
+            Find Team
           </button>
-          <ToastContainer />
+
+          <h2 className="text-4xl font-bold my-8">OR</h2>
+          <div className="my-2">
+            <div className="text-3xl text-black mt-3">Create your own Team</div>
+            <input
+              type="text"
+              ref={teamName}
+              className="bg-gray-50 border my-4 border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-black dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Enter Team Name"
+              required
+            ></input>
+            <button
+              type="button"
+              onClick={(e) => handleSubmit(e)}
+              className="mt-8 text-black bg-[#53B3B9] hover:bg-[#43A3A9] hover:text-black focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 w-2/3 font-medium rounded-lg text-md px-5 py-2.5 text-center mr-2 mb-2"
+            >
+              Create Team
+            </button>
+            <ToastContainer />
+          </div>
         </div>
-        </div>
-      {/* </div> */}
+        {/* </div> */}
       </div>
     </div>
   );
