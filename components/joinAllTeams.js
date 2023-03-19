@@ -1,12 +1,15 @@
 "use client";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
 import JoinTeamsCard from "./joinTeamsCard";
 import styles from "../styles/joinTeams.module.css";
+import refreshData from "@/app/utils/refresh";
 
-function JoinAllTeams({ session, eventName }) {
+function JoinAllTeams({ session, eventName, userData, sentData }) {
+  const path = usePathname();
   const [next, setNext] = useState();
   const [prev, setPrev] = useState();
   const [teamData, setTeamData] = useState([]);
@@ -26,6 +29,16 @@ function JoinAllTeams({ session, eventName }) {
       return teamString.includes(searchInput.toLowerCase());
     });
     return filteredTeams;
+  }
+
+  function shouldRender(data, check) {
+    for (let i = 0; i < data.length; i++) {
+      if (data[i].teamId._id === check._id) {
+        return false;
+      }
+    }
+    // refreshData(router, path);
+    return true;
   }
 
   const handlePreviousButtonClick = () => {
@@ -119,7 +132,7 @@ function JoinAllTeams({ session, eventName }) {
   };
 
   useEffect(() => {
-    fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/ehack?page=1&limit=9`, {
+    fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/${eventName}?page=1&limit=9`, {
       method: "GET",
       headers: {
         "Content-Type": "application/json",
@@ -166,14 +179,16 @@ function JoinAllTeams({ session, eventName }) {
         />
         <div className={styles.Teams}>
           {search(teamData, searchInput)?.map((x, index) => {
-            return (
-              <JoinTeamsCard
-                teamData={x}
-                key={teamData._id}
-                session={session}
-                eventName={eventName}
-              />
-            );
+            if (shouldRender(sentData, x)) {
+              return (
+                <JoinTeamsCard
+                  teamData={x}
+                  key={teamData._id}
+                  session={session}
+                  eventName={eventName}
+                />
+              );
+            }
           })}
         </div>
       </div>
