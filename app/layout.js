@@ -16,7 +16,7 @@ export default async function RootLayout({ children }) {
           {" "}
           <Navbar session={session} />
           {children}
-          <Footer />
+          {/* <Footer /> */}
         </body>
       </html>
     </AuthContext>

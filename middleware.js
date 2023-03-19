@@ -39,23 +39,26 @@ export default withAuth({
 
             const userData = await getUserData(token.accessTokenFromBackend);
             const userArray = userData?.user.registeredEvents;
-            console.log("userArray!!!",userArray)
-            console.log("path",req.nextUrl.pathname)
+            console.log("userArray!!!", userArray)
+            console.log("path", req.nextUrl.pathname)
 
             if (req.nextUrl.pathname === "/manage/ehack") {
                 if (userArray[1] != 1) {
-                    return NextResponse.rewrite(new URL('/', req.url))
+                    return NextResponse.redirect(new URL('/', req.url))
                 }
             }
             else if (req.nextUrl.pathname === "/manage/impetus") {
                 if (userArray[0] != 1) {
-                    return NextResponse.rewrite(new URL('/', req.url))
+                    return NextResponse.redirect(new URL('/', req.url))
                 }
             }
             else if (req.nextUrl.pathname === "/manage/innoventure") {
                 console.log("in in")
-                if(userArray[2] != 1){
-                    return NextResponse.rewrite(new URL('/', req.url))
+                if (userArray[2] !== 1) {
+                    console.log("yoyo", req.url)
+                    // console.log("yoyo", req.nextUrl.pathname)
+                    // return true;
+                    return NextResponse.redirect(new URL('/', req.url))
                 }
             }
             return !!token.accessTokenFromBackend;

@@ -40,8 +40,7 @@ export default async function UserSent() {
         session={session}
         hasTeam={hasTeam}
         userData={userData}
-        userRole={userRole}
-      />
-    </>
+        userRole={userRole}/>
+      </div>
   );
 }
