@@ -46,7 +46,7 @@ async function leaderSentInvites(session) {
 export default async function AddMembers() {
   const eventName = "impetus";
   const session = await getServerSession(authOptions);
-  const data = await ehackRegistered(session);
+  const data = await impetusRegistered(session);
   const sentData = await leaderSentInvites(session);
   console.log(sentData.requests);
   const users = data.impetusMembers;
