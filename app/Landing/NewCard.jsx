@@ -57,10 +57,8 @@ export default function NewCard({ event, id, isRegistered }) {
           return false;
         }
 
-        // toast("Event registered Successfully");
+        toast("Event registered Successfully");
         router.push(`/schedule`);
-        // refreshData(router, path);
-
         return true;
       });
     return true;
