@@ -1,6 +1,5 @@
 import { authOptions } from '@/pages/api/auth/[...nextauth]';
 import { getServerSession } from 'next-auth';
-import LeaderSentReq from '@/components/LeaderSentReq'
 import JoinAllTeams from '@/components/joinAllTeams';
 
 async function getUserData(session) {

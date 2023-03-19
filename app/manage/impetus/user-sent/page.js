@@ -4,7 +4,7 @@ import UserSentComponent from '@/components/UserSentComponent';
 
 async function requestSentData(session) {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_SERVER}/api/user/ehack/requests`,
+    `${process.env.NEXT_PUBLIC_SERVER}/api/user/impetus/requests`,
     {
       method: 'GET',
       headers: {
