@@ -52,7 +52,7 @@ function AddMemberCard({ user, session, eventName }) {
           <h3 className={styles.Cardsh3}>{user.email}</h3>
           <div className="flex mt-4 space-x-3 md:mt-6">
             <button
-              className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="inline-flex bg-[#53B3B9] items-center px-4 py-2 text-sm font-medium text-center text-white rounded-lg hover:bg-[#43A3A9] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               onClick={(e) => handleInvite(user?._id)}
             >
               Send Invite
