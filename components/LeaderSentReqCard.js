@@ -41,8 +41,8 @@ function LeaderSentReqCard({ request, eventName, session }) {
           });
           return;
         }
-        toast("Invite Deleted Successfully");
         refreshData(router, path);
+        toast("Invite Deleted Successfully");
         console.log("Invite Deleted");
       });
   }

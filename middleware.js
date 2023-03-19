@@ -37,7 +37,7 @@ export default withAuth({
     callbacks: {
         async authorized({ req, token }) {
 
-            const userData = await getUserData(token.accessTokenFromBackend);
+            const userData = await getUserData(token?.accessTokenFromBackend);
             const userArray = userData?.user.registeredEvents;
             console.log("userArray!!!", userArray)
             console.log("path", req.nextUrl.pathname)

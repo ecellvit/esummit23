@@ -54,8 +54,8 @@ export default function Card({ event, id, isRegistered, tit }) {
           });
           return false;
         }
-        toast("Event registered Successfully");
         refreshData(router, path);
+        toast("Event registered Successfully");
 
         return true;
       });

@@ -33,7 +33,7 @@ function LeaderReceivedReq({ eventName, session, requests, teamId }) {
               })}
             </div>
           ) : (
-            <div className="flex justify-center mt-64">No Requests Sent</div>
+            <div className="flex justify-center mt-64">No Requests Received</div>
           )}
         </div>
       </div>

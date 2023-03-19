@@ -45,8 +45,8 @@ function UserSentCard({ request, eventName, session }) {
           });
           return;
         }
-        toast("Request Removed Successfully");
         refreshData(router, path);
+        toast("Request Removed Successfully");
         console.log("Request Removed");
       });
   }
