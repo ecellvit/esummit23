@@ -3,7 +3,7 @@ import NotyNav from "@/components/notyNav";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
 
-async function ehackRegistered(session) {
+async function innoventureRegistered(session) {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_SERVER}/api/innoventure/user`,
     {
@@ -46,7 +46,7 @@ async function leaderSentInvites(session) {
 export default async function AddMembers() {
   const eventName = "innoventure";
   const session = await getServerSession(authOptions);
-  const data = await ehackRegistered(session);
+  const data = await innoventureRegistered(session);
   const users = data.innoventureMembers;
   const sentData = await leaderSentInvites(session);
   console.log(sentData.requests);

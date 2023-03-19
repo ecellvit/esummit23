@@ -24,7 +24,6 @@ export default async function UserSent() {
   const eventName = "eHack";
   const session = await getServerSession(authOptions);
   const data = await getUserData(session);
-  console.log("+!!!!!!!!!!!!!!!!", data);
   const userData = data.user[eventName + "TeamId"];
   const userRole = data.user[eventName + "TeamRole"];
 
@@ -33,7 +32,7 @@ export default async function UserSent() {
     hasTeam = true;
   }
   return (
-    <div classname="">
+    <div>
       <NotyNav eventName={eventName} />
       <Dashboard
         eventName={eventName}

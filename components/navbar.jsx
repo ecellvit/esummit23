@@ -28,11 +28,9 @@ export default function Navbar({ session }) {
   const [dropdown1, setDropdown1] = useState(false);
   const [dropdown2, setDropdown2] = useState(false);
 
-  console.log(pathname.split('/')[1])
-
   useEffect(()=>{
     document.addEventListener('click', (ev)=>{
-      if (!(manageRef.current.contains(ev.target) || manageRefSpan.current.contains(ev.target) || eventsRef.current.contains(ev.target) || eventsRefSpan.current.contains(ev.target))){
+      if (!(manageRef?.current.contains(ev.target) || manageRefSpan?.current.contains(ev.target) || eventsRef?.current.contains(ev.target) || eventsRefSpan?.current.contains(ev.target))){
         setDropdown1(false)
         setDropdown2(false)
       }
@@ -78,13 +76,13 @@ export default function Navbar({ session }) {
             >
               Home
             </Link>
-            <Link
+            {session && <Link
               className={`dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 focus:shadow-outline mt-2 flex w-full flex-row items-center rounded-lg bg-transparent px-4 py-2 text-left text-sm font-semibold hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0 md:ml-4 md:inline md:w-auto`}
               style={{backgroundColor:(pathname==="/schedule")&&"#E5E7EB"}}
               href="/schedule"
             >
               Schedule
-            </Link>
+            </Link>}
             <div className="relative">
               <button ref={eventsRef}
                 onClick={() => {
@@ -156,7 +154,7 @@ export default function Navbar({ session }) {
                 </div>
               )}
             </div>
-            <div className="relative">
+            {session && <div className="relative" id="manage">
               <button ref={manageRef}
                 onClick={() => {
                   setDropdown2(!dropdown2);
@@ -205,7 +203,7 @@ export default function Navbar({ session }) {
                   </div>
                 </div>
               )}
-            </div>
+            </div>}
             <button
               onClick={() => {
                 session ? logoutHandler() : loginHandler();

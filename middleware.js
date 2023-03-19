@@ -39,8 +39,6 @@ export default withAuth(
         const token = await getToken({ req });
         const userData = await getUserData(token?.accessTokenFromBackend);
         const userArray = userData?.user.registeredEvents;
-        console.log("userArray!!!", userArray)
-        console.log("path", req.nextUrl.pathname)
         if (req.nextUrl.pathname === "/manage/ehack") {
             if (userArray[1] != 1) {
                 req.nextUrl.pathname = "/"
@@ -56,9 +54,7 @@ export default withAuth(
             }
         }
         else if (req.nextUrl.pathname === "/manage/innoventure") {
-            console.log("in in")
             if (userArray[2] !== 1) {
-                console.log("yoyo", req.url)
                 // console.log("yoyo", req.nextUrl.pathname)
                 // return true;
                 // req.nextUrl.pathname = "/"

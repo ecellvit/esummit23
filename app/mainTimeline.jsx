@@ -4,7 +4,6 @@ import Carousel from "./Landing/Carousel";
 import NewCard from "./Landing/NewCard";
 
 export default function Maintimeline({ userArray, eventsArray, session }) {
-  console.log(eventsArray);
   return (
     <>
       <div className="timeline_sec">
@@ -53,8 +52,6 @@ export default function Maintimeline({ userArray, eventsArray, session }) {
                   </div> */}
                   {session ? (
                     <>
-                      {" "}
-                      {console.log(id)}
                       <NewCard
                         isRegistered={userArray[id]}
                         event={event}

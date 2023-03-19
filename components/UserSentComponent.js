@@ -1,12 +1,8 @@
 "use client";
 import UserSentCard from "./userSentCard";
-import { useRouter } from "next/navigation";
 import styles from "../styles/joinTeams.module.css";
 
 function UserSentComponent({ eventName, requests, session }) {
-  const router = useRouter();
-
-  console.log("all requests!!!!!!!!!!!!!!!!!!!!!", requests);
   return (
     <div className={styles.Teams}>
       <div>User Sent </div>

@@ -7,7 +7,6 @@ function MemberCard({ session, data, teamId, eventName }) {
   const router = useRouter();
   const path = usePathname();
 
-  console.log("memeber card", data);
   const userRole = data[eventName + "TeamRole"];
 
   function handleRemove(teamId) {
@@ -26,7 +25,6 @@ function MemberCard({ session, data, teamId, eventName }) {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         if (data.error?.errorCode) {
           toast.error(`${data.message}`, {
             position: "top-right",

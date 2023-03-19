@@ -1,12 +1,9 @@
 "use client";
 import React from "react";
-import { signIn, signOut, useSession } from "next-auth/react";
-import { useState, useEffect } from "react";
 
 import Card from "./Card";
 
 export default function Timeline({ userArray, eventsArray, session }) {
-  console.log(userArray);
   const eventCodes = [
     "IMPETUS",
     "EHACK",
@@ -29,9 +26,6 @@ export default function Timeline({ userArray, eventsArray, session }) {
             </div>
             {userArray.map((registered, index) => {
               if (registered === 1) {
-                console.log(eventsArray[index]);
-                console.log(registered + " " + index);
-
                 return (
                   <>
                     <div className="timeline-element" key={index}>

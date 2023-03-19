@@ -3,7 +3,7 @@ import NotyNav from "@/components/notyNav";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
 
-async function ehackRegistered(session) {
+async function impetusRegistered(session) {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_SERVER}/api/impetus/user`,
     {
@@ -50,6 +50,9 @@ export default async function AddMembers() {
   const sentData = await leaderSentInvites(session);
   console.log(sentData.requests);
   const users = data.impetusMembers;
+  const registeredMembers = users.filter(
+    (user) => user.registeredEvents[0] == 1
+  );
   return (
     <div>
       <NotyNav eventName={eventName} />

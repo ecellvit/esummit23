@@ -10,8 +10,6 @@ function JoinTeamsCard({ teamData, session, eventName }) {
   // const config = genConfig(AvatarConfig)
 
   function handleJoinReq(teamId) {
-    console.log("teamID!!!!!!!", teamId);
-
     eventName = eventName.toLowerCase();
     fetch(
       `${process.env.NEXT_PUBLIC_SERVER}/api/user/${eventName}/requests/${teamId}`,
@@ -27,7 +25,6 @@ function JoinTeamsCard({ teamData, session, eventName }) {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         if (data.error?.errorCode) {
           toast.error(`${data.message}`, {
             position: "top-right",
@@ -40,7 +37,6 @@ function JoinTeamsCard({ teamData, session, eventName }) {
           });
         } else {
           toast.success("Join Request Sent Successfully");
-          console.log("Join Request Sent Successfully");
         }
       });
   }
@@ -62,7 +58,7 @@ function JoinTeamsCard({ teamData, session, eventName }) {
             Team Leader Email: {teamLeader?.email}
           </h3>
           <button
-            className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+            className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-[#53B3B9] rounded-lg hover:bg-[#43A3A9] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
             onClick={(e) => handleJoinReq(teamData?._id)}
           >
             Join Team

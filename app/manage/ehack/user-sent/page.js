@@ -27,10 +27,7 @@ export default async function UserSent() {
   const session = await getServerSession(authOptions);
   const data = await requestSentData(session);
 
-  console.log(session);
   const requests = data.requests;
-  console.log("pppp!!", data);
-  console.log("pppp2!!", requests);
   return (
     <UserSentComponent
       eventName={eventName}
