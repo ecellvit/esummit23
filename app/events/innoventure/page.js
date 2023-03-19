@@ -26,9 +26,10 @@ async function getUserData(token) {
 
 export default async function Home() {
   const session = await getServerSession(authOptions);
+  let userArray
   if (session){
     const userData = await getUserData(session)
-    const userArray = userData?.user.registeredEvents;
+    userArray = userData?.user.registeredEvents;
   }
   return (
     <>
