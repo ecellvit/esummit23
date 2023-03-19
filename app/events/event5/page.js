@@ -1,9 +1,37 @@
-"use client";
 import "../../../styles/landing.css";
+import { Link } from "lucide-react";
+import { getServerSession } from "next-auth";
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
 
-import { useRouter } from "next/navigation";
-export default function Home() {
-  const router = useRouter();
+async function getUserData(token) {
+  const res = await fetch(
+      `${process.env.NEXT_PUBLIC_SERVER}/api/user`,
+      {
+          method: "GET",
+          headers: {
+              'Content-Type': 'application/json',
+              Authorization: `Bearer ${token?.accessTokenBackend}`,
+              'Access-Control-Allow-Origin': '*',
+          },
+          cache: "no-store",
+      },
+  );
+  if (!res.ok) {
+      throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}
+
+export default async function Home() {
+
+  const session = await getServerSession(authOptions);
+  let userArray
+  if (session){
+    const userData = await getUserData(session)
+    userArray = userData?.user.registeredEvents;
+  }
+
   return (
     <>
       <div className="event-sec">
@@ -40,7 +68,9 @@ export default function Home() {
               <p className="para_bold_event">10,000</p>
             </div>
           </div>
-          <button className="eventbtn w-button">Go to Dashboard</button>
+          {session && userArray[4] && <Link className="eventbtn w-button" href="/manage/ehack">
+            Go to Dashboard
+          </Link>}
         </div>
       </div>
     </>

@@ -25,9 +25,10 @@ async function getUserData(token) {
 
 export default async function Home() {
   const session = await getServerSession(authOptions);
+  let userArray
   if (session){
     const userData = await getUserData(session)
-    const userArray = userData?.user.registeredEvents;
+    userArray = userData?.user.registeredEvents;
   }
   return (
     <>
@@ -35,12 +36,12 @@ export default async function Home() {
         <div className="event_wrapper">
           <h1 className="event_h1">
             E-Hack
-            <br />‍
+            <br />
           </h1>
           <p className="event_date">Date &amp; Time</p>
           <p className="event_para">
             Venue
-            <br />‍
+            <br />
           </p>
           <p className="form_para_small">
             Prominent motivational speakers from the entrepreneurial environment
@@ -49,7 +50,7 @@ export default async function Home() {
             open to questions from the audience, thus furnishing the minds of
             the students with vivid ideas and a clearer picture of the
             entrepreneurship realm.
-            <br />‍
+            <br />
           </p>
           <div className="evet_price_wrap">
             <div className="price_wrap">
