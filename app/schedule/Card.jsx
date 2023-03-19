@@ -80,66 +80,35 @@ export default function Card({
         pauseOnHover
         theme="light"
       />
-      <div className="max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
-        <a href="#">
-          <img className="rounded-t-lg" src="" alt="" />
-        </a>
-        <div className="p-5">
-          <a href="#">
-            <h5 className="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-              {tit}
-            </h5>
-          </a>
-          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-            {event.description}
-          </p>
-          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-            {event.date}
-          </p>
-          <p className="mb-3 font-normal text-gray-700 dark:text-gray-400">
-            {event.time}
-          </p>
-          <></>
+      <div className="timeline_wrapper">
+        <h1 className="date">{event.date}</h1>
+        <div className="card_cont">
+          <h1 className="card_h1">{event.title} </h1>
+          <p className="card_para">{event.description}</p>
+          <div className="card_time">
+            <div className="card_l">
+              <img src="clock.svg" alt="" className="svg_card" />
+              <p className="timepara">{event.time} hours</p>
+            </div>
+            <div className="card_r">
+              <img src="location.svg" alt="" className="svg_card" />
+              <p className="timepara">{event.location}</p>
+            </div>
+          </div>
           <button
+            className="card_btn w-button"
             onClick={(e) => handleDeRegister(id)}
-            className="inline-flex items-center px-3 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
             <>DeRegister event</>
-
-            <svg
-              aria-hidden="true"
-              className="w-4 h-4 ml-2 -mr-1"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fillRule="evenodd"
-                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                clipRule="evenodd"
-              ></path>
-            </svg>
+            <strong>→</strong>{" "}
           </button>
           <button
+            className="btn_card_last w-button"
             onClick={(e) =>
               !session ? handleRegisterwithLogin(e, id) : handleNavigation(tit)
             }
-            className="inline-flex items-center px-3 ml-10 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
           >
-            Manage Event
-            <svg
-              aria-hidden="true"
-              className="w-4 h-4 ml-2 -mr-1"
-              fill="currentColor"
-              viewBox="0 0 20 20"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                fillRule="evenodd"
-                d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z"
-                clipRule="evenodd"
-              ></path>
-            </svg>
+            Manage Event<strong>→</strong>{" "}
           </button>
         </div>
       </div>

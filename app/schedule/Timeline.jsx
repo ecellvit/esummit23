@@ -2,47 +2,10 @@
 import React from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
 import { useState, useEffect } from "react";
-import {
-  VerticalTimeline,
-  VerticalTimelineElement,
-} from "react-vertical-timeline-component";
-import "react-vertical-timeline-component/style.min.css";
 
 import Card from "./Card";
 
 export default function Timeline({ userArray, eventsArray, session }) {
-  // const { data: session, status } = useSession();
-  // console.log(user);
-  // const [userArray, setUserArray] = useState(user.registeredEvents);
-  // console.log(userArray);
-  // async function getData() {
-  //   const res = await fetch(
-  //     `${process.env.NEXT_PUBLIC_SERVER}/api/events`,
-  //     {
-  //       method: "GET",
-  //     }
-  //   );
-  //   if (!res.ok) {
-  //     throw new Error("Failed to fetch data");
-  //   }
-
-  //   return res.json();
-  // }
-  // useEffect(() => {
-  //   session &&
-  //     fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user`, {
-  //       method: "GET",
-  //       headers: {
-  //         "Content-Type": "application/json",
-  //         Authorization: `Bearer ${session.accessTokenBackend}`,
-  //         "Access-Control-Allow-Origin": "*",
-  //       },
-  //     })
-  //       .then((response) => response.json())
-
-  //       .then((data) => setUserArray(data.user.registeredEvents));
-  // }, [handler, session]);
-
   console.log(userArray);
   const eventCodes = [
     "IMPETUS",
@@ -56,47 +19,45 @@ export default function Timeline({ userArray, eventsArray, session }) {
   // console.log(eventsArray);
   if (userArray.includes(1)) {
     return (
-      <VerticalTimeline lineColor={"black"}>
-        <>
-          <>
-            <>
-              {userArray.map((registered, index) => {
-                if (registered === 1) {
-                  console.log(eventsArray[index]);
-                  console.log(registered + " " + index);
+      <>
+        {/*  */}
+        <div className="timeline_sec">
+          <div className="timeline-cont">
+            <div className="timeline_header">
+              <h1 className="about_h1">Registered Events By You</h1>
+              <div className="event_line"></div>
+            </div>
+            {userArray.map((registered, index) => {
+              if (registered === 1) {
+                console.log(eventsArray[index]);
+                console.log(registered + " " + index);
 
-                    return (
-                      <VerticalTimelineElement
-                        key={index}
-                        contentStyle={{
-                          background: "rgb(33, 150, 243)",
-                          color: "#000",
-                        }}
-                        contentArrowStyle={{
-                          borderRight: "7px solid  rgb(33, 150, 243)",
-                        }}
-                        iconStyle={{
-                          background: "rgb(33, 150, 243)",
-                          color: "#000",
-                        }}
-                      >
-                        <Card
-                          event={eventsArray[index]}
-                          session={session}
-                          tit={eventCodes[index]}
-                          id={index}
-                          // setUserArray={setUserArray}
-                          userArray={userArray}
-                        />
-                      </VerticalTimelineElement>
-                    );
-                  }
-                }
-              )}
-            </>
-          </>
-        </>
-      </VerticalTimeline>
+                return (
+                  <>
+                    <div className="timeline-element" key={index}>
+                      <div className="rod">
+                        <div className="outer_div">
+                          <div className="inner_div"></div>
+                        </div>
+                        <div className="linetimeline"></div>
+                      </div>
+                      <Card
+                        event={eventsArray[index]}
+                        session={session}
+                        tit={eventCodes[index]}
+                        id={index}
+                        // setUserArray={setUserArray}
+                        userArray={userArray}
+                      />
+                      {/* new timelin             */}
+                    </div>
+                  </>
+                );
+              }
+            })}
+          </div>
+        </div>
+      </>
     );
   } else {
     return <div>Please register something</div>;

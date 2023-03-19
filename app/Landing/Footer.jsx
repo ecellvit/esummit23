@@ -10,11 +10,15 @@ export default function Footer() {
           </div>
           <div className="contact_footer">
             <img src="call.png" width="23.5" alt="" />
-            <p className="contact_para">+918293622180</p>
+            <a href="tel:+918293622180" className="contact_para">
+              +918293622180
+            </a>
           </div>
           <div className="contact_footer">
             <img src="mail.png" width="28.5" alt="" className="image" />
-            <p className="contact_para">helloecellvit@gmail.com</p>
+            <a href="mailto:helloecellvit@gmail.com" className="contact_para">
+              helloecellvit@gmail.com
+            </a>
           </div>
         </div>
         <div className="mfoot">
