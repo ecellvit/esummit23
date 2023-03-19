@@ -5,7 +5,7 @@
   @apply bg-[#070f0f];
 }
 .SearchBar {
-  @apply mt-10 w-[33.33%] justify-center mb-[30px] m-auto p-2.5 border-[10px] border-solid border-[3px];
+  @apply mt-10 w-[33.33%] justify-center p-2.5;
   border-image-slice: 1;
   border-image-source: linear-gradient(to right, #02b6fd, #00ffff);
 }
@@ -13,7 +13,7 @@
   @apply absolute opacity-40;
 }
 .Teams {
-  @apply flex justify-center flex-wrap gap-[50px] min-w-full;
+  @apply flex justify-center flex-wrap gap-[30px];
 }
 .buttonPlacer {
   @apply flex justify-center flex-wrap gap-[50px];

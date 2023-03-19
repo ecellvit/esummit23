@@ -36,7 +36,6 @@ function AddMember({ session, users, eventName }) {
         value={searchInput}
         className={styles.SearchBar}
       />
-      
       <div className={styles.Teams}>
         {search(users, searchInput)?.map((x, index) => {
           return (
