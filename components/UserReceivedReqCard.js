@@ -45,8 +45,8 @@ function UserReceivedReqCard({ request, eventName, session }) {
           });
           return;
         }
-        toast("Invite Rejected Successfully");
         refreshData(router, path);
+        toast("Invite Rejected Successfully");
         console.log("Invite Rejected");
       });
   }

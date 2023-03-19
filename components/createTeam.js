@@ -45,8 +45,8 @@ export default function CreateTeam({ session, eventName }) {
           });
           return;
         }
-        toast("Details submitted successfully");
         refreshData(router, path);
+        toast("Details submitted successfully");
         return;
       });
   };

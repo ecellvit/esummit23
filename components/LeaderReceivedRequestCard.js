@@ -48,8 +48,8 @@ function LeaderReceivedRequestCard({ request, eventName, session, teamId }) {
           });
           return;
         }
-        toast("Invite Deleted Successfully");
         refreshData(router, path);
+        toast("Invite Deleted Successfully");
         console.log("Invite Deleted");
       });
   }
@@ -89,8 +89,8 @@ function LeaderReceivedRequestCard({ request, eventName, session, teamId }) {
                     return;
                 }
                
-                toast("Invite Accepted Successfully");
                 refreshData(router, path);
+                toast("Invite Accepted Successfully");
                 console.log("Invite Accepted");
             });
     }
