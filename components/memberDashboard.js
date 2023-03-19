@@ -43,7 +43,7 @@ export default function MemberDashboard({ userData, eventName, session }) {
   }
 
   return (
-    <div className="min-h-screen w-full bg-black text-white py-10 px-8">
+    <div className="min-h-screen w-full bg-neutral-100 text-white py-10 px-8">
       <h1 className="font-md text-4xl">{eventName} dashboard</h1>
 
       <div className="grid grid-cols-2 gap-8  mt-20 mx-auto w-[70rem] text-center">
