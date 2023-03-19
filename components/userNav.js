@@ -11,10 +11,11 @@ function UserNav({ eventName }) {
     <div>
       <div>
         <nav
-          className="flex-no-wrap sticky top-0 flex w-full items-center justify-between bg-neutral-100 py-4 shadow-md shadow-black/5 dark:bg-neutral-600 dark:shadow-black/10 lg:flex-wrap lg:justify-start"
+          className="flex-no-wrap sticky top-0 flex w-full items-center justify-around bg-neutral-100 py-4 shadow-md shadow-black/5 dark:bg-neutral-600 dark:shadow-black/10 lg:flex-wrap lg:justify-start"
           data-te-navbar-ref
         >
-          <div className="w-full">
+          <div className="w-full flex justify-around">
+          <div className="ml-10">Ehack</div>
             <div className="relative flex justify-end pr-10">
               <div className="flex justify-center space-x-2 ml-2 ">
                 <div>

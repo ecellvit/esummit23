@@ -51,8 +51,8 @@ export default function CreateTeam({ session, eventName }) {
       });
   };
 
-  // background: rgb(2,0,36);
-// background: linear-gradient(139deg, rgba(2,0,36,1) 0%, rgba(36,94,110,1) 0%, rgba(161,183,184,1) 100%);
+  // infinity spin center
+  // name on dash
 
   return (
     <div className=" flex justify-center items-center text-center pt-20">
@@ -65,7 +65,7 @@ export default function CreateTeam({ session, eventName }) {
             router.push(`/manage/${eventName}/join-teams`);
           }}
           type="button"
-          className="mt-4 text-black bg-white hover:text-white hover:bg-slate-400 focus:ring-4 focus:outline-none dark:focus:ring-blue-800 w-2/3 font-medium rounded-lg text-md px-5 py-2.5 text-center mr-2 mb-2"
+          className="mt-4 text-black bg-white hover:text-white hover:bg-[#306065] focus:ring-4 focus:outline-none dark:focus:ring-blue-800 w-2/3 font-medium rounded-lg text-md px-5 py-2.5 text-center mr-2 mb-2"
         >
           Find Team
         </button>
@@ -83,7 +83,7 @@ export default function CreateTeam({ session, eventName }) {
           <button
             type="button"
             onClick={(e) => handleSubmit(e)}
-            className="mt-4 text-black bg-white hover:bg-slate-400 hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 w-2/3 font-medium rounded-lg text-md px-5 py-2.5 text-center mr-2 mb-2"
+            className="mt-4 text-black bg-white hover:bg-[#306065] hover:text-white focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 w-2/3 font-medium rounded-lg text-md px-5 py-2.5 text-center mr-2 mb-2"
           >
             Create Team
           </button>
