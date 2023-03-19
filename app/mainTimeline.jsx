@@ -22,7 +22,9 @@ export default function Maintimeline({ userArray, eventsArray, session }) {
                     <div className="outer_div">
                       <div className="inner_div"></div>
                     </div>
-                    <div className="linetimeline"></div>
+                    <div
+                      className={`linetimeline  ${id === 4 ? "hide" : ""}`}
+                    ></div>
                   </div>
                   {/* Individual Card */}
                   {/* <div className="timeline_wrapper">

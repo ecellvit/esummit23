@@ -9,6 +9,7 @@ import Header from "./Landing/Header";
 import Footer from "./Landing/Footer";
 import { getSession } from "@/lib/session";
 import Maintimeline from "./mainTimeline";
+import Footer from "./Landing/Footer";
 
 async function getData() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/events`, {
@@ -34,7 +35,7 @@ async function getUserData(session) {
       },
       cache: "no-store",
     });
-    console.log(res)
+    console.log(res);
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
@@ -64,8 +65,7 @@ export default async function Home() {
       <Section4 />
       <Faqsection></Faqsection>
       <Section6></Section6>
-      {/* <DetailsForm></DetailsForm> */}
-      {/* <Footer></Footer> */}
+      <Footer />
     </div>
   );
 }
