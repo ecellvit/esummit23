@@ -3,10 +3,29 @@
 import { useState, useEffect, useRef  } from "react";
 import { signIn, signOut } from "next-auth/react";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { usePathname } from "next/navigation";
 
 export default function Navbar({ session }) {
+
+  const [regArray, setRegArray] = useState()
+
+  useEffect(()=>{
+    if (session){
+      fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user`,{
+        method: "GET",
+        headers: {
+          'Content-Type': 'application/json',
+          Authorization: `Bearer ${session?.accessTokenBackend}`,
+          'Access-Control-Allow-Origin': '*',
+          },
+          cache: "no-store",
+      }).then(resp=>resp.json())
+      .then(data=>{
+        setRegArray(data?.user?.registeredEvents)
+      })
+    }
+  }, [session])
+
   const logoutHandler = () => {
     signOut({ callbackUrl: "/" });
   };
@@ -179,27 +198,27 @@ export default function Navbar({ session }) {
               {dropdown2 && (
                 <div className="z-10 absolute right-0 mt-2 w-full origin-top-right rounded-md shadow-lg md:w-32">
                   <div className="dark-mode:bg-gray-800 rounded-md bg-white px-2 py-2 shadow">
-                    <Link
+                    {regArray[1] ? <Link
                       className="bg-gray-200 dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 focus:shadow-outline mt-2 block rounded-lg bg-transparent px-4 py-2 text-sm font-semibold hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0"
                       href="/manage/ehack"
                       style={{backgroundColor:(pathname=="/manage/ehack")&&"#E5E7EB"}}
                     >
                       Ehack
-                    </Link>
-                    <Link
+                    </Link> : null}
+                    {regArray[2] ? <Link
                       className="dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 focus:shadow-outline mt-2 block rounded-lg bg-transparent px-4 py-2 text-sm font-semibold hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0"
                       href="/manage/innoventure"
                       style={{backgroundColor:(pathname=="/manage/innoventure")&&"#E5E7EB"}}
                     >
                       Innoventure
-                    </Link>
-                    <Link
+                    </Link> : null}
+                    {regArray[0] ? <Link
                       className="dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 focus:shadow-outline mt-2 block rounded-lg bg-transparent px-4 py-2 text-sm font-semibold hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0"
                       href="/manage/impetus"
                       style={{backgroundColor:(pathname=="/manage/impetus")&&"#E5E7EB"}}
                     >
                       Impetus
-                    </Link>
+                    </Link> : null}
                   </div>
                 </div>
               )}

@@ -1,3 +1,5 @@
+import hasDetailsFilled from "@/app/utils/hasDetailsFIiled";
+import NotFilledDetails from "@/app/utils/NotFilledDetails";
 import Dashboard from "@/components/dashboard";
 import NotyNav from "@/components/notyNav";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
@@ -11,7 +13,7 @@ async function getUserData(session) {
       Authorization: `Bearer ${session.accessTokenBackend}`,
       "Access-Control-Allow-Origin": "*",
     },
-    cache: "no-store"
+    cache: "no-store",
   });
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -21,7 +23,6 @@ async function getUserData(session) {
 }
 
 export default async function UserSent() {
-  const eventName = "eHack";
   const session = await getServerSession(authOptions);
   const data = await getUserData(session);
   const userData = data.user[eventName + "TeamId"];
@@ -40,7 +41,8 @@ export default async function UserSent() {
         session={session}
         hasTeam={hasTeam}
         userData={userData}
-        userRole={userRole} />
+        userRole={userRole}
+      />
     </div>
   );
 }

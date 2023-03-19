@@ -1,6 +1,6 @@
-import { authOptions } from '@/pages/api/auth/[...nextauth]';
-import { getServerSession } from 'next-auth';
-import JoinAllTeams from '@/components/joinAllTeams';
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import { getServerSession } from "next-auth";
+import JoinAllTeams from "@/components/joinAllTeams";
 
 async function getUserData(session) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user`, {
@@ -12,6 +12,25 @@ async function getUserData(session) {
     },
     cache: "no-store",
   });
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}
+async function requestSentData(session) {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_SERVER}/api/user/ehack/requests`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${session.accessTokenBackend}`,
+        "Access-Control-Allow-Origin": "*",
+      },
+      cache: "no-store",
+    }
+  );
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
@@ -44,6 +63,8 @@ export default async function JoinTeams() {
   const eventName = "eHack";
   const session = await getServerSession(authOptions);
   const userData = await getUserData(session);
+  const sentData = await requestSentData(session);
+  console.log(sentData.requests);
   // console.log("userID",userData?.user)
   const data = await getAllteams(session, 1);
   //   const requests = data.requests;
@@ -53,6 +74,7 @@ export default async function JoinTeams() {
         session={session}
         userData={userData}
         eventName={eventName}
+        sentData={sentData.requests}
       />
     </>
   );
