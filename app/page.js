@@ -33,6 +33,7 @@ async function getUserData(session) {
       },
       cache: "no-store",
     });
+    console.log(res)
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
@@ -45,15 +46,11 @@ export default async function Home() {
   const eventData = await getData();
   const eventsArray = await eventData.events;
   const session = await getSession();
-  var userArray = [];
-  if (session) {
-    const userData = await getUserData(session);
-    userArray = userData.user.registeredEvents;
-    console.log(eventsArray);
-  }
 
+  const userData = session && (await getUserData(session));
+  const userArray = session ? userData?.user.registeredEvents : null;
   return (
-    <>
+    <div className="bg-white">
       <Header></Header>
       <Section1 />
       <Section2 />
@@ -66,6 +63,8 @@ export default async function Home() {
       <Section4 />
       <Faqsection></Faqsection>
       <Section6></Section6>
-    </>
+      {/* <DetailsForm></DetailsForm> */}
+      <Footer></Footer>
+    </div>
   );
 }

@@ -1,22 +1,18 @@
-import AddMember from '@/components/addMember'
-import NotyNav from '@/components/notyNav'
-import { authOptions } from '@/pages/api/auth/[...nextauth]';
-import { getServerSession } from 'next-auth';
+import AddMember from "@/components/addMember";
+import NotyNav from "@/components/notyNav";
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import { getServerSession } from "next-auth";
 
 async function ehackRegistered(session) {
-
   const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/ehack/user`, {
-    method: 'GET',
+    method: "GET",
     headers: {
-      'Content-Type': 'application/json',
+      "Content-Type": "application/json",
       Authorization: `Bearer ${session.accessTokenBackend}`,
-      'Access-Control-Allow-Origin': '*',
+      "Access-Control-Allow-Origin": "*",
     },
-  },
-    {
-      cache: "no-store",
-    }
-  );
+    cache: "no-store",
+  });
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
@@ -25,17 +21,15 @@ async function ehackRegistered(session) {
 }
 
 export default async function AddMembers() {
-
-  const eventName = "eHack"
+  const eventName = "eHack";
   const session = await getServerSession(authOptions);
   const data = await ehackRegistered(session);
   const users = data?.eHackMembers;
-  console.log(data)
+  console.log(data);
   return (
     <div>
       <NotyNav eventName={eventName} />
       <AddMember eventName={eventName} session={session} users={users} />
     </div>
-  )
+  );
 }
-

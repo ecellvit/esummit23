@@ -9,6 +9,13 @@ export default function LeaderDashboard({ userData, eventName, session }) {
   const router = useRouter();
   const path = usePathname();
 
+  // const userData = {
+  //   _id:123,
+  //   members:[
+  //     {data:"asdf", eventName:"fdsa", session:session}
+  //   ]
+  // }
+
   function handleDelete(teamId) {
     eventName = eventName.toLowerCase();
     fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/${eventName}/team/${teamId}`, {
@@ -42,7 +49,7 @@ export default function LeaderDashboard({ userData, eventName, session }) {
   }
 
   return (
-    <div className="min-h-screen w-full bg-black text-white py-10 px-8">
+    <div className="min-h-screen w-full bg-white text-black py-10 px-8">
       <h1 className="font-md text-4xl">{eventName} dashboard</h1>
       {userData?.members?.length < 4 ? (
         <div className="flex justify-center mt-16">

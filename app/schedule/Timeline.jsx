@@ -23,7 +23,7 @@ export default function Timeline({ userArray, eventsArray, session }) {
         {/*  */}
         <div className="timeline_sec">
           <div className="timeline-cont">
-            <div className="timeline_header">
+            <div className="timeline_header bg-transparent">
               <h1 className="about_h1">Registered Events By You</h1>
               <div className="event_line"></div>
             </div>

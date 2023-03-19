@@ -24,15 +24,10 @@ async function getUserData(session) {
 }
 
 async function getEventsData() {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_SERVER}/api/events`,
-    {
-      method: "GET",
-    },
-    {
-      cache: "no-store",
-    }
-  );
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/events`, {
+    method: "GET",
+    cache: "no-store",
+  });
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
@@ -45,7 +40,7 @@ export default async function Home() {
   const session = await getServerSession(authOptions);
   const eventsArray = eventData.events;
   const userData = await getUserData(session);
-  const userArray = userData.user.registeredEvents;
+  const userArray = userData?.user.registeredEvents;
 
   // console.log(userArray);
   return (

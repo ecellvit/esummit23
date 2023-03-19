@@ -13,13 +13,13 @@
   @apply absolute opacity-40;
 }
 .Teams {
-  @apply flex justify-center flex-wrap gap-[50px];
+  @apply flex justify-center flex-wrap gap-[50px] min-w-full;
 }
 .buttonPlacer {
   @apply flex justify-center flex-wrap gap-[50px];
 }
 .Cards {
-  @apply basis-[22.5px] shadow-[1px_1px_8px_rgba(0,0,0,0.25)] flex flex-col bg-[#13111a] pb-5 p-[50px] rounded-[30px] min-w-[30%]; /* border-color: pa;
+  @apply basis-[22.5px] shadow-[1px_1px_8px_rgba(0,0,0,0.25)] flex flex-col bg-[#13111a] pb-5 p-[50px] rounded-[30px] min-w-[30%] min-h-[30%]; /* border-color: pa;
       border-radius: 10px; */ /* border: 10px;
       border-color: white; */ /* background-image: linear-gradient(to right top, #070f0f, #001f27, #002e46, #003a68, #004187, #2a3f8c, #443d8f, #5a3890, #5c3382, #5b2e75, #592a68, #56275c); */
 }
