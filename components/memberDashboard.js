@@ -38,7 +38,7 @@ export default function MemberDashboard({ userData, eventName, session }) {
           });
         }
         refreshData(router, path);
-        toast("Team left Successfully");
+        // toast("Team left Successfully");
       });
   }
 
