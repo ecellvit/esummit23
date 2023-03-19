@@ -30,7 +30,7 @@ export default function Navbar({ session }) {
 
   useEffect(()=>{
     document.addEventListener('click', (ev)=>{
-      if (!(manageRef?.current.contains(ev.target) || manageRefSpan?.current.contains(ev.target) || eventsRef?.current.contains(ev.target) || eventsRefSpan?.current.contains(ev.target))){
+      if (!(manageRef.current?.contains(ev.target) || manageRefSpan.current?.contains(ev.target) || eventsRef.current?.contains(ev.target) || eventsRefSpan.current?.contains(ev.target))){
         setDropdown1(false)
         setDropdown2(false)
       }
