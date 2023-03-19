@@ -1,5 +1,7 @@
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
+import { toast, ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import LeaderSentReq from "@/components/LeaderSentReq";
 import JoinAllTeams from "@/components/joinAllTeams";
 
@@ -58,6 +60,12 @@ export default async function JoinTeams() {
   //   const requests = data.requests;
   console.log("yoyo", data.paginatedResult);
   return (
-    <JoinAllTeams session={session} userData={userData} eventName={eventName} />
+    <>
+      <JoinAllTeams
+        session={session}
+        userData={userData}
+        eventName={eventName}
+      />
+    </>
   );
 }
