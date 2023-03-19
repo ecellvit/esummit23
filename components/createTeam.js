@@ -30,7 +30,7 @@ export default function CreateTeam({ session, eventName }) {
       },
     })
       .then((data) => data.json())
-      .then(async (data) => {
+      .then((data) => {
         if (data.error?.errorCode) {
           toast.error(`${data.message}`, {
             position: "top-right",
