@@ -12,15 +12,10 @@ import Temp from "./Landing/temp";
 import DetailsForm from "./getdetails/DetailsForm";
 import { getSession } from "@/lib/session";
 async function getData() {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_SERVER}/api/events`,
-    {
-      method: "GET",
-    },
-    {
-      cache: "no-store",
-    }
-  );
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/events`, {
+    method: "GET",
+    cache: "no-store",
+  });
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
@@ -38,6 +33,7 @@ async function getUserData(session) {
         Authorization: `Bearer ${session.accessTokenBackend}`,
         "Access-Control-Allow-Origin": "*",
       },
+      cache: "no-store",
     });
     console.log(res)
     if (!res.ok) {
@@ -52,7 +48,7 @@ export default async function Home() {
   const eventData = await getData();
   const eventsArray = await eventData.events;
   const session = await getSession();
-  const userData = session && await getUserData(session);
+  const userData = session && (await getUserData(session));
   const userArray = session ? userData?.user.registeredEvents : null;
   console.log(userArray);
   return (

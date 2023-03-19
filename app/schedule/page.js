@@ -23,15 +23,10 @@ async function getUserData(session) {
 }
 
 async function getEventsData() {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_SERVER}/api/events`,
-    {
-      method: "GET",
-    },
-    {
-      cache: "no-store",
-    }
-  );
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/events`, {
+    method: "GET",
+    cache: "no-store",
+  });
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }

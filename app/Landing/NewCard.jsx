@@ -40,6 +40,7 @@ export default function NewCard({ event, id, isRegistered }) {
         Authorization: `Bearer ${session.accessTokenBackend}`,
         "Access-Control-Allow-Origin": "*",
       },
+      cache: "no-store",
     })
       .then((response) => response.json())
       .then((data) => {

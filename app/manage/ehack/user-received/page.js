@@ -13,8 +13,6 @@ async function addMemberData(session) {
         Authorization: `Bearer ${session.accessTokenBackend}`,
         "Access-Control-Allow-Origin": "*",
       },
-    },
-    {
       cache: "no-store",
     }
   );

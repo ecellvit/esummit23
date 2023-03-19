@@ -42,6 +42,7 @@ export default function DetailsForm({ accessTokenBackend }) {
         Authorization: `Bearer ${accessTokenBackend}`,
         "Access-Control-Allow-Origin": "*",
       },
+      cache: "no-store",
     })
       .then((data) => data.json())
       .then((data) => {
