@@ -2,9 +2,9 @@
 const nextConfig = {
   experimental: {
     appDir: true,
-    images: {
-      domains: ["res.cloudinary.com"],
-    },
+  },
+  images: {
+    domains: ["res.cloudinary.com"],
   },
   env: {
     NEXT_PUBLIC_SERVER: process.env.NEXT_PUBLIC_SERVER
