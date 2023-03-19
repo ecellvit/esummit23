@@ -20,7 +20,8 @@ export default function Maintimeline({ userArray, eventsArray, session }) {
                 <div className="timeline-element" key={id}>
                   <div className="rod">
                     <div className="outer_div">
-                      <div className="inner_div"></div>
+                      {/* <div className="inner_div"></div> */}
+                      <img src="gola.svg" className="image"></img>
                     </div>
                     <div
                       className={`linetimeline  ${id === 4 ? "hide" : ""}`}
