@@ -37,7 +37,7 @@ function MemberCard({ session, data, teamId, eventName }) {
           });
         }
         refreshData(router, path);
-        // toast("Team member removed Successfully");
+        toast("Team member removed Successfully");
       });
   }
   return (
