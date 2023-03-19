@@ -3,8 +3,13 @@ import { ToastContainer, toast } from "react-toastify";
 import styles from "../styles/joinTeams.module.css";
 
 import "react-toastify/dist/ReactToastify.css";
+import refreshData from "@/app/utils/refresh";
+import { useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 // import Avatar, { genConfig } from 'react-nice-avatar'
 function AddMemberCard({ user, session, eventName }) {
+  const router = useRouter();
+  const path = usePathname();
   // const config = genConfig(AvatarConfig)
 
   function handleInvite(userId) {
@@ -37,6 +42,7 @@ function AddMemberCard({ user, session, eventName }) {
             progress: undefined,
           });
         } else {
+          refreshData(router, path);
           toast.success("Invite Sent Successfully");
           console.log("invite sent");
         }

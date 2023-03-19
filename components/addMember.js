@@ -6,7 +6,7 @@ import AddMemberCard from "./addMemberCard";
 import { useRouter } from "next/navigation";
 import styles from "../styles/joinTeams.module.css";
 
-function AddMember({ session, users, eventName, eventCode }) {
+function AddMember({ session, users, eventName, eventCode, sentData }) {
   const router = useRouter();
   const searchBar = () => {};
   const [searchInput, setSearchInput] = useState("");
@@ -25,6 +25,14 @@ function AddMember({ session, users, eventName, eventCode }) {
       return userString.includes(searchInput.toLowerCase());
     });
     return filteredUsers;
+  }
+  function shouldRender(data, check) {
+    for (let i = 0; i < data.length; i++) {
+      if (data[i].userId._id === check._id) {
+        return false;
+      }
+    }
+    return true;
   }
 
   return (
@@ -45,7 +53,11 @@ function AddMember({ session, users, eventName, eventCode }) {
       </button>
       <div className={styles.Teams}>
         {search(users, searchInput)?.map((x, index) => {
-          if (x.registeredEvents[eventCode] === 1) {
+          console.log(sentData);
+          if (
+            x.registeredEvents[eventCode] === 1 &&
+            shouldRender(sentData, x)
+          ) {
             console.log(x);
             return (
               <AddMemberCard
