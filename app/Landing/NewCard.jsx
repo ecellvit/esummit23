@@ -57,7 +57,7 @@ export default function NewCard({ event, id, isRegistered }) {
           return false;
         }
 
-        toast("Event registered Successfully");
+        // toast("Event registered Successfully");
         router.push(`/schedule`);
         // refreshData(router, path);
 
@@ -74,7 +74,7 @@ export default function NewCard({ event, id, isRegistered }) {
           localStorage.removeItem("eventId");
       }
     }
-    refreshData();
+    refreshData(router, path);
 
     return;
   }, []);

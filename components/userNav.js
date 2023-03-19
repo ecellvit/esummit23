@@ -11,10 +11,11 @@ function UserNav({ eventName }) {
     <div>
       <div>
         <nav
-          className="flex-no-wrap sticky top-0 flex w-full items-center justify-between bg-neutral-100 py-4 shadow-md shadow-black/5 dark:bg-neutral-600 dark:shadow-black/10 lg:flex-wrap lg:justify-start"
+          className="flex-no-wrap sticky top-0 flex w-full items-center justify-around bg-neutral-100 py-4 shadow-md shadow-black/5 dark:bg-neutral-600 dark:shadow-black/10 lg:flex-wrap lg:justify-start"
           data-te-navbar-ref
         >
-          <div className="w-full">
+          <div className="w-full flex">
+          <div className="flex-1 ml-[45vw] text-xl font-semibold">{eventName.toUpperCase()}</div>
             <div className="relative flex justify-end pr-10">
               <div className="flex justify-center space-x-2 ml-2 ">
                 <div>
@@ -24,7 +25,7 @@ function UserNav({ eventName }) {
                     }
                     data-te-ripple-init
                     data-te-ripple-color="light"
-                    className="flex bg-blue-400 items-center rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg">
+                    className="flex bg-[#53B3B9] items-center rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"
@@ -53,7 +54,7 @@ function UserNav({ eventName }) {
                     }}
                     data-te-ripple-init
                     data-te-ripple-color="light"
-                    className="flex  bg-blue-400 items-center rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg">
+                    className="flex  bg-[#53aab9] items-center rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg">
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       viewBox="0 0 24 24"

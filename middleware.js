@@ -1,5 +1,7 @@
 import { withAuth } from "next-auth/middleware"
 import { NextResponse } from 'next/server'
+import { redirect } from "next/navigation";
+import { getToken } from "next-auth/jwt";
 
 const eventCodes = [
     "IMPETUS",
@@ -20,10 +22,8 @@ async function getUserData(token) {
                 Authorization: `Bearer ${token}`,
                 'Access-Control-Allow-Origin': '*',
             },
-        },
-        {
             cache: "no-store",
-        }
+        },
     );
     if (!res.ok) {
         throw new Error("Failed to fetch data");
@@ -33,34 +33,53 @@ async function getUserData(token) {
 }
 
 
-export default withAuth({
-    callbacks: {
-        async authorized({ req, token }) {
+export default withAuth(
 
-            const userData = await getUserData(token.accessTokenFromBackend);
-            const userArray = userData?.user.registeredEvents;
-            console.log("userArray!!!",userArray)
-            console.log("path",req.nextUrl.pathname)
+    async function middleware(req) {
+        const token = await getToken({ req });
+        const userData = await getUserData(token?.accessTokenFromBackend);
+        const userArray = userData?.user.registeredEvents;
+        console.log("userArray!!!", userArray)
+        console.log("path", req.nextUrl.pathname)
+        if (req.nextUrl.pathname === "/manage/ehack") {
+            if (userArray[1] != 1) {
+                req.nextUrl.pathname = "/"
+                // return NextResponse.redirect(req.nextUrl)
+                return NextResponse.redirect(new URL("/", req.url))
+            }
+        }
+        else if (req.nextUrl.pathname === "/manage/impetus") {
+            if (userArray[0] != 1) {
+                req.nextUrl.pathname = "/"
+                // return NextResponse.redirect(req.nextUrl)
+                return NextResponse.redirect(new URL("/", req.url))
+            }
+        }
+        else if (req.nextUrl.pathname === "/manage/innoventure") {
+            console.log("in in")
+            if (userArray[2] !== 1) {
+                console.log("yoyo", req.url)
+                // console.log("yoyo", req.nextUrl.pathname)
+                // return true;
+                // req.nextUrl.pathname = "/"
+                // console.log("next url",req.nextUrl)
+                return NextResponse.redirect(new URL("/", req.url))
+                // redirect('/')
+            }
+        }
+        return null;
+    }
+    , {
 
-            if (req.nextUrl.pathname === "/manage/ehack") {
-                if (userArray[1] != 1) {
-                    return NextResponse.rewrite(new URL('/', req.url))
-                }
+        callbacks: {
+            async authorized({ req, token }) {
+
+
+                // return !!token.accessTokenFromBackend ;
+                return true;
             }
-            else if (req.nextUrl.pathname === "/manage/impetus") {
-                if (userArray[0] != 1) {
-                    return NextResponse.rewrite(new URL('/', req.url))
-                }
-            }
-            else if (req.nextUrl.pathname === "/manage/innoventure") {
-                console.log("in in")
-                if(userArray[2] != 1){
-                    return NextResponse.rewrite(new URL('/', req.url))
-                }
-            }
-            return !!token.accessTokenFromBackend;
         }
     }
-})
+)
 
 export const config = { matcher: ["/schedule", "/manage/:path*"] }

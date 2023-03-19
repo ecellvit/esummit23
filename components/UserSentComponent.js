@@ -10,12 +10,6 @@ function UserSentComponent({ eventName, requests, session }) {
   return (
     <div className={styles.Teams}>
       <div>User Sent </div>
-      <button
-        onClick={() => router.back()}
-        className="fixed bottom-2 left-35 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
-      >
-        Go Back
-      </button>
       <div className={styles.Teams}>
         {requests.length ? (
           requests.map((x) => {
