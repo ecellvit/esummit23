@@ -10,7 +10,7 @@ async function getUserData(token) {
           method: "GET",
           headers: {
               'Content-Type': 'application/json',
-              Authorization: `Bearer ${token.accessTokenBackend}`,
+              Authorization: `Bearer ${token?.accessTokenBackend}`,
               'Access-Control-Allow-Origin': '*',
           },
           cache: "no-store",
@@ -25,8 +25,10 @@ async function getUserData(token) {
 
 export default async function Home() {
   const session = await getServerSession(authOptions);
-  const userData = await getUserData(session)
-  const userArray = userData?.user.registeredEvents;
+  if (session){
+    const userData = await getUserData(session)
+    const userArray = userData?.user.registeredEvents;
+  }
   return (
     <>
       <div className="event-sec">
