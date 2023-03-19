@@ -31,7 +31,6 @@ export default async function page() {
       <>
         {!response?.hasFilledDetails ? (
           <DetailsForm
-            DetailsForm
             accessTokenBackend={session.accessTokenBackend}
           ></DetailsForm>
         ) : (

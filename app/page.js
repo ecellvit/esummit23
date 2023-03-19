@@ -2,15 +2,13 @@ import Section1 from "./Landing/Section1";
 import Section3 from "./Landing/Section3";
 import "../styles/landing.css";
 import Section2 from "./Landing/Section2";
-// import MainTimeline from "./mainTimeline";
 import Section4 from "./Landing/Section4";
 import Section6 from "./Landing/Section6";
 import Faqsection from "./Landing/Faqsection";
 import Header from "./Landing/Header";
-import Footer from "./Landing/Footer";
-import Temp from "./Landing/temp";
-import DetailsForm from "./getdetails/DetailsForm";
+
 import { getSession } from "@/lib/session";
+import Maintimeline from "./mainTimeline";
 async function getData() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/events`, {
     method: "GET",
@@ -48,17 +46,20 @@ export default async function Home() {
   const eventData = await getData();
   const eventsArray = await eventData.events;
   const session = await getSession();
+
   const userData = session && (await getUserData(session));
   const userArray = session ? userData?.user.registeredEvents : null;
-  console.log(userArray);
   return (
     <div className="bg-white">
       <Header></Header>
       <Section1 />
       <Section2 />
       <Section3 />
-      {/* <MainTimeline eventsArray={eventsArray}></MainTimeline> */}
-      <Temp eventsArray={eventsArray} userArray={userArray} session={session} />
+      <Maintimeline
+        eventsArray={eventsArray}
+        userArray={userArray}
+        session={session}
+      />
       <Section4 />
       <Faqsection></Faqsection>
       <Section6></Section6>
