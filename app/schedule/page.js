@@ -44,7 +44,7 @@ export default async function Home() {
   const session = await getServerSession(authOptions);
   const eventsArray = eventData.events;
   const userData = await getUserData(session);
-  const userArray = userData.user.registeredEvents;
+  const userArray = userData?.user.registeredEvents;
 
   // console.log(userArray);
   return (

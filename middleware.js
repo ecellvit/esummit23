@@ -37,7 +37,7 @@ export default withAuth({
         async authorized({ req, token }) {
 
             const userData = await getUserData(token.accessTokenFromBackend);
-            const userArray = userData.user.registeredEvents;
+            const userArray = userData?.user.registeredEvents;
             console.log("userArray!!!",userArray)
 
             console.log("next auth token!!!!!", token)

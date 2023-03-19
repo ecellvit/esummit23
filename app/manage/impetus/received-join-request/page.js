@@ -52,7 +52,7 @@ export default async function receivedJoinRequest() {
     const data = await leaderReceivedReq(session, userData.user.eHackTeamId._id);
     const requests = data.requests;
     console.log(data)
-    const teamId = userData.user[eventName+"TeamId"]._id;
+    const teamId = userData?.user[eventName+"TeamId"]._id;
     return (
         <LeaderReceivedReq eventName={eventName} teamId={teamId} requests={requests} session={session} />
     )
