@@ -21,7 +21,7 @@
     @apply inline-block bg-[#3898ec] text-[white] leading-[inherit] no-underline cursor-pointer px-[15px] py-[9px] rounded-none border-0;
   }
   .header {
-    @apply flex min-h-[70vh] flex-col justify-center items-center bg-[url("/bg.png")] bg-[50%_100%] bg-cover pb-[20vh];
+    @apply flex min-h-[70vh] flex-col justify-center items-center bg-[url("https://res.cloudinary.com/dchq25bxl/image/upload/v1679244337/bg_f6aif4.png")] bg-[50%_100%] bg-cover pb-[20vh];
   }
   .innovate_sec {
     @apply flex w-[90vw] min-h-[30vh] flex-row justify-around items-center mx-auto py-[20px];
@@ -104,7 +104,7 @@
     @apply w-[80vw] min-h-[50vh] mt-[10vh] mx-auto pb-[140px];
   }
   .outer_div {
-    @apply relative z-[1] flex w-[50px] h-[50px] flex-row justify-center flex-nowrap items-stretch bg-black rounded-[83px];
+    @apply relative z-[1] flex w-[50px] mt-[-1px] h-[50px] flex-row justify-center flex-nowrap items-stretch bg-black rounded-[83px];
   }
   .inner_div {
     @apply block w-[20px] h-[20px] bg-[#fcfcfc] text-center m-auto rounded-[55px];
@@ -116,7 +116,7 @@
     @apply pb-[5vh];
   }
   .linetimeline {
-    @apply w-[1vw] h-full bg-[#303030];
+    @apply w-[1vw] mt-[-1px] h-full bg-[#303030];
   }
   .linetimeline.hide {
     @apply hidden;
@@ -131,7 +131,7 @@
     @apply w-full h-px bg-black mt-0;
   }
   .date {
-    @apply text-2xl font-bold ml-[5vw] mt-[20px] mb-[10px];
+    @apply text-2xl font-bold ml-[5vw]  mb-[10px];
     font-family: Inter, sans-serif;
   }
   .whiteline {
@@ -208,7 +208,7 @@
     @apply min-w-[10vw] mb-[10px];
   }
   .card_cont {
-    @apply static max-h-full max-w-[70%] min-w-[50vw] min-h-[40vh] bg-[url("https://uploads-ssl.webflow.com/6409243a8291c6786ef92994/640a4e8971eb549bc0464cb9\_image%206%20(1).png")] bg-[50%_50%] bg-cover bg-no-repeat text-white ml-[5vw] px-[40px] py-[20px] rounded-[20px] left-[10%] right-[15%] top-[5%] bottom-auto;
+    @apply static max-h-full max-w-[70%] min-w-[50vw] min-h-[40vh]  bg-[50%_50%] bg-cover bg-no-repeat text-white ml-[5vw] px-[40px] py-[20px] rounded-[20px] left-[10%] right-[15%] top-[5%] bottom-auto;
   }
   .card_cont.dual {
     @apply mb-[20px];
@@ -239,7 +239,7 @@
     @apply flex min-h-screen;
   }
   .form_sec_l {
-    @apply w-[50vw] bg-[url("https://uploads-ssl.webflow.com/6409243a8291c6786ef92994/640924e8e54305e45f9b7e30\_template%201.jpg")] bg-[50%_50%] bg-cover text-white pl-[20px];
+    @apply w-[50vw] bg-[url("https://res.cloudinary.com/dchq25bxl/image/upload/v1679244337/bg_f6aif4.png")] bg-[50%_50%] bg-cover text-white pl-[20px];
   }
   .form_sec_r {
     @apply w-[60vw] mt-[10vh];
@@ -823,7 +823,7 @@
   @apply flex min-h-screen;
 }
 .event-sec {
-  @apply w-screen min-h-screen bg-[url("/bg.png")] bg-[50%_50%] bg-cover text-white text-base leading-5 font-normal mt-0 mx-auto pl-0;
+  @apply w-screen min-h-screen bg-[url("https://res.cloudinary.com/dchq25bxl/image/upload/v1679244337/bg_f6aif4.png")] bg-[50%_50%] bg-cover text-white text-base leading-5 font-normal mt-0 mx-auto pl-0;
   font-family: Inter, sans-serif;
 }
 .form_sec_r {
