@@ -6,19 +6,14 @@ import Section4 from "./Landing/Section4";
 import Section6 from "./Landing/Section6";
 import Faqsection from "./Landing/Faqsection";
 import Header from "./Landing/Header";
-import Footer from "./Landing/Footer";
+
 import { getSession } from "@/lib/session";
 import Maintimeline from "./mainTimeline";
 async function getData() {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_SERVER}/api/events`,
-    {
-      method: "GET",
-    },
-    {
-      cache: "no-store",
-    }
-  );
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/events`, {
+    method: "GET",
+    cache: "no-store",
+  });
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
@@ -71,8 +66,6 @@ export default async function Home() {
       <Section4 />
       <Faqsection></Faqsection>
       <Section6></Section6>
-
-      <Footer></Footer>
     </>
   );
 }
