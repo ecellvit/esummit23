@@ -20,15 +20,26 @@ async function ehackRegistered(session) {
   return res.json();
 }
 
+const eventCodes = [
+  "IMPETUS",
+  "EHACK",
+  "INNOVENTURE",
+  "EVENT_4",
+  "EVENT_5",
+  "EVENT_6",
+];
+
 export default async function AddMembers() {
   const eventName = "eHack";
   const session = await getServerSession(authOptions);
   const data = await ehackRegistered(session);
   const users = data?.eHackMembers;
+  const registeredMembers = users.filter(user => user.registeredEvents[1] == 1);
+
   return (
     <div>
       <NotyNav eventName={eventName} />
-      <AddMember eventName={eventName} session={session} users={users} />
+      <AddMember eventName={eventName} session={session} users={registeredMembers} />
     </div>
   );
 }
