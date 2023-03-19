@@ -2,13 +2,13 @@
 const nextConfig = {
   experimental: {
     appDir: true,
+    images: {
+      domains: ["res.cloudinary.com"],
+    },
   },
   env: {
-    NEXT_PUBLIC_SERVER: process.env.NEXT_PUBLIC_SERVER,
-  },
-  images: {
-    domains: ["res.cloudinary.com"],
-  },
+    NEXT_PUBLIC_SERVER: process.env.NEXT_PUBLIC_SERVER
+  }
 };
 
 module.exports = nextConfig;

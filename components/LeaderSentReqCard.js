@@ -12,8 +12,6 @@ function LeaderSentReqCard({ request, eventName, session }) {
   const router = useRouter();
   const path = usePathname();
   function handleDeleteInvite(userId) {
-    console.log("userid", userId);
-    console.log("gg", request._id);
     eventName = eventName.toLowerCase();
     fetch(
       `${process.env.NEXT_PUBLIC_SERVER}/api/${eventName}/addMember/${userId}`,
@@ -28,7 +26,6 @@ function LeaderSentReqCard({ request, eventName, session }) {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         if (data.error?.errorCode) {
           toast.error(`${data.message}`, {
             position: "top-right",

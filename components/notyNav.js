@@ -24,15 +24,12 @@ function NotyNav({ eventName }) {
         .then((response) => response.json())
 
         .then((data) => {
-          console.log('fetchedopopo', data)
           setData(data?.user)
           const user = data?.user
           if (user[eventName + 'TeamId']) {
-            console.log('yoyohihihihi id', user[eventName + 'TeamId'])
             setHasTeam(true)
           }
           if (user[eventName + 'TeamRole'] == 0) {
-            console.log('yoyohihihihi role', user[eventName + 'TeamRole'])
             setIsLeader(true)
           }
         })

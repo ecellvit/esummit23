@@ -45,7 +45,6 @@ function AddMember({ session, users, eventName }) {
       </button>
       <div className={styles.Teams}>
         {search(users, searchInput)?.map((x, index) => {
-          console.log(x);
           return (
             <AddMemberCard
               user={x}

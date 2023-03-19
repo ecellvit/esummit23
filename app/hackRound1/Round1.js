@@ -27,7 +27,6 @@ export default function RoundOne({ accessTokenBackend }) {
     })
       .then((resp) => resp.json())
       .then((data) => {
-        console.log(data);
         if (data.fileUrl) {
           setUpFile(data.fileUrl);
           setDesc(data.desc);
@@ -37,7 +36,6 @@ export default function RoundOne({ accessTokenBackend }) {
   }, []);
 
   const onProgress = ({ isComputable, value }) => {
-    console.log(isComputable, value);
     setProgress(Math.floor(value * 100));
   };
 
@@ -66,13 +64,11 @@ export default function RoundOne({ accessTokenBackend }) {
       request.upload.addEventListener("progress", function (e) {
         // upload progress as percentage
         let percent_completed = Math.floor((e.loaded / e.total) * 100);
-        console.log(percent_completed);
         setProgress(percent_completed);
       });
       // request finished event
       request.addEventListener("load", function (e) {
         const data = JSON.parse(request.response);
-        console.log(data);
         fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/ehack/roundOne`, {
           method: "POST",
           headers: {
@@ -89,7 +85,6 @@ export default function RoundOne({ accessTokenBackend }) {
         })
           .then((resp) => resp.json())
           .then((data) => {
-            console.log(data);
             setDone(true);
           });
       });
@@ -201,7 +196,6 @@ export default function RoundOne({ accessTokenBackend }) {
           <button
             onClick={() => {
               setFile(null);
-              console.log("cancel");
             }}
           >
             <svg

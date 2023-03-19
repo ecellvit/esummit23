@@ -15,7 +15,6 @@ function UserSentCard({ request, eventName, session }) {
 
   function handleRemoveRequest(teamId) {
     eventName = eventName.toLowerCase();
-    console.log(teamId);
     fetch(
       `${process.env.NEXT_PUBLIC_SERVER}/api/user/${eventName}/requests/${teamId}`,
       {
@@ -32,7 +31,6 @@ function UserSentCard({ request, eventName, session }) {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         if (data.error?.errorCode) {
           toast.error(`${data.message}`, {
             position: "top-right",

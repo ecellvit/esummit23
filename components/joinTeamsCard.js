@@ -10,8 +10,6 @@ function JoinTeamsCard({ teamData, session, eventName }) {
   // const config = genConfig(AvatarConfig)
 
   function handleJoinReq(teamId) {
-    console.log("teamID!!!!!!!", teamId);
-
     eventName = eventName.toLowerCase();
     fetch(
       `${process.env.NEXT_PUBLIC_SERVER}/api/user/${eventName}/requests/${teamId}`,
@@ -27,7 +25,6 @@ function JoinTeamsCard({ teamData, session, eventName }) {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         if (data.error?.errorCode) {
           toast.error(`${data.message}`, {
             position: "top-right",
@@ -40,7 +37,6 @@ function JoinTeamsCard({ teamData, session, eventName }) {
           });
         } else {
           toast.success("Join Request Sent Successfully");
-          console.log("Join Request Sent Successfully");
         }
       });
   }

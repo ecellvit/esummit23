@@ -8,8 +8,6 @@ function AddMemberCard({ user, session, eventName }) {
   // const config = genConfig(AvatarConfig)
 
   function handleInvite(userId) {
-    console.log("userid", userId);
-    console.log("gg", user._id);
     eventName = eventName.toLowerCase();
     fetch(
       `${process.env.NEXT_PUBLIC_SERVER}/api/${eventName}/addMember/${userId}`,
@@ -25,7 +23,6 @@ function AddMemberCard({ user, session, eventName }) {
     )
       .then((response) => response.json())
       .then((data) => {
-        console.log(data);
         if (data.error?.errorCode) {
           toast.error(`${data.message}`, {
             position: "top-right",
@@ -38,7 +35,6 @@ function AddMemberCard({ user, session, eventName }) {
           });
         } else {
           toast.success("Invite Sent Successfully");
-          console.log("invite sent");
         }
       });
   }

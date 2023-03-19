@@ -21,8 +21,6 @@ export default function Card({
   };
   function handleDeRegister(eventCode) {
     const newArray = userArray;
-    console.log(eventCode);
-    console.log(userArray);
     fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user/register`, {
       method: "PATCH",
       body: JSON.stringify({

@@ -2,7 +2,6 @@ import UserReceivedReqCard from "./UserReceivedReqCard";
 import styles from "../styles/joinTeams.module.css";
 
 function UserReceivedReq({ eventName, requests, session }) {
-  console.log("all requests!!!!!!!!!!!!!!!!!!!!!", requests);
   return (
     <div>
       <div>userReceivedReq</div>

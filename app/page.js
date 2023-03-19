@@ -23,7 +23,6 @@ async function getData() {
 }
 
 async function getUserData(session) {
-  console.log("---------------------------!!!!", session);
   if (session) {
     const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user`, {
       method: "GET",
@@ -34,7 +33,6 @@ async function getUserData(session) {
       },
       cache: "no-store",
     });
-    console.log(res);
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
@@ -49,7 +47,6 @@ export default async function Home() {
   const session = await getSession()
   const userData = await getUserData(session);
   const userArray = userData?.user.registeredEvents;
-  console.log(userArray);
   return (
     <div className="bg-white">
       <Header></Header>

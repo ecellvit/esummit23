@@ -26,7 +26,6 @@ export default async function page() {
       return data.json();
     }
     const response = await getData();
-    // console.log(response);
     return (
       <>
         {!response?.hasFilledDetails ? (
