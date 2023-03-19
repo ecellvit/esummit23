@@ -8,12 +8,11 @@ function LeaderNav({ eventName }) {
     <div>
       <div>
         <nav
-          className="flex-no-wrap sticky top-0 flex w-full items-center justify-between bg-neutral-100 py-4 shadow-md shadow-black/5 dark:bg-neutral-600 dark:shadow-black/10 lg:flex-wrap lg:justify-start"
+          className="flex-no-wrap sticky top-0 flex w-full bg-neutral-100 py-4 shadow-md shadow-black/5 dark:bg-neutral-600 dark:shadow-black/10 lg:flex-wrap lg:justify-end  "
           data-te-navbar-ref
         >
-          <div>
-            <div className="relative flex items-center ">
-              
+          <div className="float-right w-full">
+            <div className="relative flex justify-end pr-10">
               <div className="flex justify-center space-x-2 ml-2 ">
                 <div>
                   <button
