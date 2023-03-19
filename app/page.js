@@ -44,7 +44,7 @@ async function getUserData(session) {
 export default async function Home() {
   const eventData = await getData();
   const eventsArray = await eventData.events;
-  const session = await getSession()
+  const session = await getSession();
   const userData = await getUserData(session);
   const userArray = userData?.user.registeredEvents;
   return (
@@ -52,7 +52,8 @@ export default async function Home() {
       <Header></Header>
       <Section1 />
       <Section2 />
-      <Section3 />
+      {/* section 3 here is what you can expect */}
+      {/* <Section3 /> */}
       <Maintimeline
         eventsArray={eventsArray}
         userArray={userArray}
