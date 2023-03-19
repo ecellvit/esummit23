@@ -6,7 +6,7 @@ import "react-toastify/dist/ReactToastify.css";
 import refreshData from "@/app/utils/refresh";
 
 export default function CreateTeam({ session, eventName }) {
-  console.log(session)
+  console.log(session);
   eventName = eventName.toLowerCase();
   const teamName = useRef("");
   const router = useRouter();
@@ -56,9 +56,7 @@ export default function CreateTeam({ session, eventName }) {
 
   return (
     <div className=" flex justify-center items-center text-center pt-20">
-      <div 
-        className="h-96 w-/6 md:w-1/3  rounded-2xl	p-4"
-        >
+      <div className="h-96 w-/6 md:w-1/3  rounded-2xl	p-4">
         <div className="text-3xl text-white">Join a Team</div>
         <button
           onClick={(e) => {

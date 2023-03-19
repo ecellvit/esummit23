@@ -20,6 +20,23 @@ async function ehackRegistered(session) {
   return res.json();
 }
 
+// async function checkRegistered(session, data) {
+//   data?.map(async (user) => {
+//     const res = await fetch(
+//       `${process.env.NEXT_PUBLIC_SERVER}/api/ehack/user`,
+//       {
+//         method: "GET",
+//         headers: {
+//           "Content-Type": "application/json",
+//           Authorization: `Bearer ${session.accessTokenBackend}`,
+//           "Access-Control-Allow-Origin": "*",
+//         },
+//         cache: "no-store",
+//       }
+//     );
+//   });
+// }
+
 export default async function AddMembers() {
   const eventName = "eHack";
   const session = await getServerSession(authOptions);
@@ -29,7 +46,12 @@ export default async function AddMembers() {
   return (
     <div>
       <NotyNav eventName={eventName} />
-      <AddMember eventName={eventName} session={session} users={users} />
+      <AddMember
+        eventName={eventName}
+        session={session}
+        users={users}
+        eventCode={1}
+      />
     </div>
   );
 }

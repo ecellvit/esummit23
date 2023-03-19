@@ -31,7 +31,12 @@ export default async function AddMembers() {
   return (
     <div>
       <NotyNav eventName={eventName} />
-      <AddMember eventName={eventName} session={session} users={users} />
+      <AddMember
+        eventName={eventName}
+        session={session}
+        users={users}
+        eventCode={2}
+      />
     </div>
   );
 }
