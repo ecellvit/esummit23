@@ -9,7 +9,6 @@ import Header from "./Landing/Header";
 import Footer from "./Landing/Footer";
 import { getSession } from "@/lib/session";
 import Maintimeline from "./mainTimeline";
-import Footer from "./Landing/Footer";
 
 async function getData() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/events`, {
