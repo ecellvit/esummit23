@@ -23,25 +23,43 @@ async function innoventureRegistered(session) {
   return res.json();
 }
 
-const eventCodes = [
-  "IMPETUS",
-  "EHACK",
-  "INNOVENTURE",
-  "EVENT_4",
-  "EVENT_5",
-  "EVENT_6",
-];
+async function leaderSentInvites(session) {
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_SERVER}/api/innoventure/addMember`,
+    {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${session.accessTokenBackend}`,
+        "Access-Control-Allow-Origin": "*",
+      },
+      cache: "no-store",
+    }
+  );
+  if (!res.ok) {
+    throw new Error("Failed to fetch data");
+  }
+
+  return res.json();
+}
 
 export default async function AddMembers() {
   const eventName = "innoventure";
   const session = await getServerSession(authOptions);
   const data = await innoventureRegistered(session);
   const users = data.innoventureMembers;
-  const registeredMembers = users.filter(user => user.registeredEvents[2] == 1);
+  const sentData = await leaderSentInvites(session);
+  console.log(sentData.requests);
   return (
     <div>
       <NotyNav eventName={eventName} />
-      <AddMember eventName={eventName} session={session} users={registeredMembers} />
+      <AddMember
+        eventName={eventName}
+        session={session}
+        users={users}
+        eventCode={2}
+        sentData={sentData.requests}
+      />
     </div>
   );
 }

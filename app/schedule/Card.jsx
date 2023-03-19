@@ -5,6 +5,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
+import refreshData from "../utils/refresh";
 
 export default function Card({
   session,
@@ -16,9 +17,7 @@ export default function Card({
 }) {
   const router = useRouter();
   const path = usePathname();
-  const refreshData = () => {
-    router.replace(path);
-  };
+
   function handleDeRegister(eventCode) {
     const newArray = userArray;
     fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user/register`, {
@@ -102,7 +101,7 @@ export default function Card({
             className="card_btn w-button"
             onClick={(e) => handleDeRegister(id)}
           >
-            <>DeRegister event</>
+            <>De-Register event</>
             <strong>→</strong>{" "}
           </button>
           <button
