@@ -39,6 +39,7 @@ async function getUserData(session) {
         "Access-Control-Allow-Origin": "*",
       },
     });
+    console.log(res)
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
@@ -51,8 +52,8 @@ export default async function Home() {
   const eventData = await getData();
   const eventsArray = await eventData.events;
   const session = await getSession();
-  const userData = await getUserData(session);
-  const userArray = session ? userData.user.registeredEvents : null;
+  const userData = session && await getUserData(session);
+  const userArray = session ? userData?.user.registeredEvents : null;
   console.log(userArray);
   return (
     <>
