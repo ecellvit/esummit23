@@ -1,22 +1,22 @@
-import { authOptions } from "@/pages/api/auth/[...nextauth]";
-import { getServerSession } from "next-auth";
-import UserSentComponent from "@/components/UserSentComponent";
+import { authOptions } from '@/pages/api/auth/[...nextauth]';
+import { getServerSession } from 'next-auth';
+import UserSentComponent from '@/components/UserSentComponent';
 
 async function requestSentData(session) {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_SERVER}/api/user/ehack/requests`,
     {
-      method: "GET",
+      method: 'GET',
       headers: {
-        "Content-Type": "application/json",
+        'Content-Type': 'application/json',
         Authorization: `Bearer ${session.accessTokenBackend}`,
-        "Access-Control-Allow-Origin": "*",
+        'Access-Control-Allow-Origin': '*',
       },
     },
     {
       cache: "no-store",
     }
-  );
+  )
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
@@ -25,10 +25,9 @@ async function requestSentData(session) {
 }
 
 export default async function UserSent() {
-  const eventName = "ehack";
+  const eventName = "innoventure"
   const session = await getServerSession(authOptions);
   const data = await requestSentData(session);
-
   console.log(session)
   const requests = data.requests;
   console.log("pppp!!", data)
@@ -36,5 +35,5 @@ export default async function UserSent() {
   return (
     <UserSentComponent eventName={eventName} requests={requests} session={session} />
   )
-
 }
+
