@@ -1,8 +1,7 @@
 "use client";
 import React from "react";
-import Carousel from "./Carousel";
-
-import NewCard from "./NewCard";
+import Carousel from "./Landing/Carousel";
+import NewCard from "./Landing/NewCard";
 
 export default function Maintimeline({ userArray, eventsArray, session }) {
   console.log(eventsArray);
