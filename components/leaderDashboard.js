@@ -49,16 +49,15 @@ export default function LeaderDashboard({ userData, eventName, session }) {
   }
 
   return (
-    <div className="min-h-screen w-full bg-white text-black py-10 px-8">
-      <h1 className="font-md text-4xl">{eventName} dashboard</h1>
+    <div className=" text-black px-8">
       {userData?.members?.length < 4 ? (
-        <div className="flex justify-center mt-16">
+        <div className="flex justify-center mt-10">
           <button
             onClick={(e) => {
               eventName = eventName.toLowerCase();
               router.push(`/manage/${eventName}/add-members`);
             }}
-            className="bg-green-700 w-40 rounded-md p-2"
+            className="bg-white w-40 rounded-md p-2"
           >
             Add Members
           </button>
@@ -66,7 +65,7 @@ export default function LeaderDashboard({ userData, eventName, session }) {
       ) : (
         <div></div>
       )}
-      <div className="grid grid-cols-2 gap-8  mt-20 mx-auto w-[70rem] text-center">
+      <div className="grid grid-cols-2 gap-8  mt-10 mx-auto w-[50rem] text-center">
         {userData?.members?.map((data) => {
           return (
             <MemberCard
@@ -82,7 +81,7 @@ export default function LeaderDashboard({ userData, eventName, session }) {
       <div className="flex justify-center mt-16">
         <button
           onClick={(e) => handleDelete(userData._id)}
-          className="bg-red-700 w-40 rounded-md p-2"
+          className="bg-red-700 w-40 text-white rounded-md p-2"
         >
           Delete Team
         </button>
