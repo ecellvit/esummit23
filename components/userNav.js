@@ -13,6 +13,7 @@ function UserNav({ eventName }) {
           data-te-navbar-ref
         >
           <div className="w-full flex">
+          {<button onClick={()=>{router.push(`/manage/${eventName}`)}}>Back</button>}
           <div className="flex-1 ml-[45vw] text-xl font-semibold">{eventName.toUpperCase()}</div>
             <div className="relative flex justify-end pr-10">
               <div className="flex justify-center space-x-2 ml-2 ">
