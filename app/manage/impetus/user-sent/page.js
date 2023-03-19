@@ -25,7 +25,7 @@ async function requestSentData(session) {
 }
 
 export default async function UserSent() {
-  const eventName = "ehack"
+  const eventName = "impetus"
   const session = await getServerSession(authOptions);
   const data = await requestSentData(session);
   console.log(session)

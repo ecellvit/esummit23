@@ -46,7 +46,7 @@ async function leaderReceivedReq(session, teamId) {
 }
 
 export default async function receivedJoinRequest() {
-    const eventName = "eHack"
+    const eventName = "innoventure"
     const session = await getServerSession(authOptions);
     const userData = await getUserData(session);
     const data = await leaderReceivedReq(session, userData.user.eHackTeamId._id);
