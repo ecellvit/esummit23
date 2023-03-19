@@ -1,6 +1,8 @@
-import Even from "@/app/Landing/even";
+"use client";
 import "../../../styles/landing.css";
+import { useRouter } from "next/navigation";
 export default function Home() {
+  const router = useRouter();
   return (
     <>
       <div className="event-sec">
@@ -37,7 +39,14 @@ export default function Home() {
               <p className="para_bold_event">10,000</p>
             </div>
           </div>
-          <button className="eventbtn w-button">Go to Dashboard</button>
+          <button
+            className="eventbtn w-button"
+            onClick={() => {
+              router.push("/manage/innoventure");
+            }}
+          >
+            Go to Dashboard
+          </button>
         </div>
       </div>
     </>

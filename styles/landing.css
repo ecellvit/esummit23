@@ -116,7 +116,7 @@
     @apply pb-[5vh];
   }
   .linetimeline {
-    @apply w-[1vw] h-full bg-[#fa4d4d];
+    @apply w-[1vw] h-full bg-[#303030];
   }
   .linetimeline.hide {
     @apply hidden;
@@ -823,7 +823,7 @@
   @apply flex min-h-screen;
 }
 .event-sec {
-  @apply w-screen min-h-screen bg-[url("https://uploads-ssl.webflow.com/6416e2d25aac6527968d4f08/6416e2e921beab13afd0f5c2\_template%201.jpg")] bg-[50%_50%] bg-cover text-white text-base leading-5 font-normal mt-0 mx-auto pl-0;
+  @apply w-screen min-h-screen bg-[url("/bg.png")] bg-[50%_50%] bg-cover text-white text-base leading-5 font-normal mt-0 mx-auto pl-0;
   font-family: Inter, sans-serif;
 }
 .form_sec_r {

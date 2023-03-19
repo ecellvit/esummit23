@@ -42,6 +42,6 @@ export default async function UserSent() {
         userData={userData}
         userRole={userRole}
       />
-    </>
+    </div>
   );
 }

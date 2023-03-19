@@ -52,8 +52,8 @@ export default function Card({
         // newArray.splice(eventCode, 1, 0);
         // console.log(newArray);
         // setUserArray(newArray);
-        toast("Event deregistered Successfully");
         refreshData();
+        toast("Event deregistered Successfully");
 
         return true;
       });
