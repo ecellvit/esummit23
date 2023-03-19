@@ -38,6 +38,7 @@ export default function Card({ event, id, isRegistered, tit }) {
         Authorization: `Bearer ${session.accessTokenBackend}`,
         "Access-Control-Allow-Origin": "*",
       },
+      cache: "no-store",
     })
       .then((response) => response.json())
       .then((data) => {
@@ -75,7 +76,7 @@ export default function Card({ event, id, isRegistered, tit }) {
   }, []);
 
   // if (localStorage.getItem("eventId")) {
-    // console.log(localStorage.getItem("eventId"));
+  // console.log(localStorage.getItem("eventId"));
   //   if (session) {
   //     handleRegister(localStorage.getItem("eventId")) &&
   //       localStorage.removeItem("eventId");

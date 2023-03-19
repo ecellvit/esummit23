@@ -20,8 +20,8 @@ export default async function page() {
             Authorization: `Bearer ${session.accessTokenBackend}`,
             "Access-Control-Allow-Origin": "*",
           },
-        },
-        { cache: "no-store" }
+          cache: "no-store",
+        }
       );
       return data.json();
     }

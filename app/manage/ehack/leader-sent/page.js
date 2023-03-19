@@ -1,19 +1,17 @@
-import { authOptions } from '@/pages/api/auth/[...nextauth]';
-import { getServerSession } from 'next-auth';
-import LeaderSentReq from '@/components/LeaderSentReq'
-
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import { getServerSession } from "next-auth";
+import LeaderSentReq from "@/components/LeaderSentReq";
 
 async function leaderSentInvites(session) {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/ehack/addMember`, {
-    method: 'GET',
-    headers: {
-      'Content-Type': 'application/json',
-      Authorization: `Bearer ${session.accessTokenBackend}`,
-      'Access-Control-Allow-Origin': '*',
-    },
-
-  },
+  const res = await fetch(
+    `${process.env.NEXT_PUBLIC_SERVER}/api/ehack/addMember`,
     {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${session.accessTokenBackend}`,
+        "Access-Control-Allow-Origin": "*",
+      },
       cache: "no-store",
     }
   );
@@ -25,12 +23,15 @@ async function leaderSentInvites(session) {
 }
 
 export default async function LeaderSent() {
-  const eventName = "eHack"
+  const eventName = "eHack";
   const session = await getServerSession(authOptions);
   const data = await leaderSentInvites(session);
   const requests = data.requests;
   return (
-    <LeaderSentReq eventName={eventName} requests={requests} session={session}/>
-  )
+    <LeaderSentReq
+      eventName={eventName}
+      requests={requests}
+      session={session}
+    />
+  );
 }
-

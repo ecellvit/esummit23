@@ -6,20 +6,15 @@ import LeaderSentReq from "@/components/LeaderSentReq";
 import JoinAllTeams from "@/components/joinAllTeams";
 
 async function getUserData(session) {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_SERVER}/api/user`,
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${session.accessTokenBackend}`,
-        "Access-Control-Allow-Origin": "*",
-      },
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${session.accessTokenBackend}`,
+      "Access-Control-Allow-Origin": "*",
     },
-    {
-      cache: "no-store",
-    }
-  );
+    cache: "no-store",
+  });
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
@@ -38,8 +33,6 @@ async function getAllteams(session, page) {
         Authorization: `Bearer ${session.accessTokenBackend}`,
         "Access-Control-Allow-Origin": "*",
       },
-    },
-    {
       cache: "no-store",
     }
   );

@@ -12,8 +12,6 @@ async function requestSentData(session) {
         Authorization: `Bearer ${session.accessTokenBackend}`,
         "Access-Control-Allow-Origin": "*",
       },
-    },
-    {
       cache: "no-store",
     }
   );
@@ -29,12 +27,15 @@ export default async function UserSent() {
   const session = await getServerSession(authOptions);
   const data = await requestSentData(session);
 
-  console.log(session)
+  console.log(session);
   const requests = data.requests;
-  console.log("pppp!!", data)
-  console.log("pppp2!!", requests)
+  console.log("pppp!!", data);
+  console.log("pppp2!!", requests);
   return (
-    <UserSentComponent eventName={eventName} requests={requests} session={session} />
-  )
-
+    <UserSentComponent
+      eventName={eventName}
+      requests={requests}
+      session={session}
+    />
+  );
 }
