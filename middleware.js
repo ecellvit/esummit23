@@ -1,4 +1,5 @@
 import { withAuth } from "next-auth/middleware"
+import { NextResponse } from 'next/server'
 
 const eventCodes = [
     "IMPETUS",
@@ -39,21 +40,22 @@ export default withAuth({
             const userData = await getUserData(token.accessTokenFromBackend);
             const userArray = userData?.user.registeredEvents;
             console.log("userArray!!!",userArray)
+            console.log("path",req.nextUrl.pathname)
 
-            console.log("next auth token!!!!!", token)
             if (req.nextUrl.pathname === "/manage/ehack") {
                 if (userArray[1] != 1) {
-                    return false;
+                    return NextResponse.rewrite(new URL('/', req.url))
                 }
             }
-            else if (req.nextUrl.pathname === "manage/impetus") {
+            else if (req.nextUrl.pathname === "/manage/impetus") {
                 if (userArray[0] != 1) {
-                    return false;
+                    return NextResponse.rewrite(new URL('/', req.url))
                 }
             }
-            else if (req.nextUrl.pathname === "manage/innoventure") {
+            else if (req.nextUrl.pathname === "/manage/innoventure") {
+                console.log("in in")
                 if(userArray[2] != 1){
-                    return false;
+                    return NextResponse.rewrite(new URL('/', req.url))
                 }
             }
             return !!token.accessTokenFromBackend;
