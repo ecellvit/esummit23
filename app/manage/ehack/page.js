@@ -11,7 +11,7 @@ async function getUserData(session) {
       Authorization: `Bearer ${session.accessTokenBackend}`,
       "Access-Control-Allow-Origin": "*",
     },
-    cache: "no-store",
+    cache: "no-store"
   });
   if (!res.ok) {
     throw new Error("Failed to fetch data");
@@ -27,6 +27,7 @@ export default async function UserSent() {
   const userData = data.user[eventName + "TeamId"];
   const userRole = data.user[eventName + "TeamRole"];
 
+  console.log("userData ran", userData);
   let hasTeam = false;
   if (userData) {
     hasTeam = true;
@@ -39,7 +40,7 @@ export default async function UserSent() {
         session={session}
         hasTeam={hasTeam}
         userData={userData}
-        userRole={userRole}/>
-      </div>
+        userRole={userRole} />
+    </div>
   );
 }
