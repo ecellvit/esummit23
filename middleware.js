@@ -22,10 +22,8 @@ async function getUserData(token) {
                 Authorization: `Bearer ${token}`,
                 'Access-Control-Allow-Origin': '*',
             },
-        },
-        {
             cache: "no-store",
-        }
+        },
     );
     if (!res.ok) {
         throw new Error("Failed to fetch data");
@@ -38,7 +36,7 @@ async function getUserData(token) {
 export default withAuth(
 
     async function middleware(req) {
-        const token = await getToken({req});
+        const token = await getToken({ req });
         const userData = await getUserData(token?.accessTokenFromBackend);
         const userArray = userData?.user.registeredEvents;
         console.log("userArray!!!", userArray)
@@ -47,14 +45,14 @@ export default withAuth(
             if (userArray[1] != 1) {
                 req.nextUrl.pathname = "/"
                 // return NextResponse.redirect(req.nextUrl)
-                return NextResponse.redirect(new URL("/",req.url))
+                return NextResponse.redirect(new URL("/", req.url))
             }
         }
         else if (req.nextUrl.pathname === "/manage/impetus") {
             if (userArray[0] != 1) {
                 req.nextUrl.pathname = "/"
                 // return NextResponse.redirect(req.nextUrl)
-                return NextResponse.redirect(new URL("/",req.url))
+                return NextResponse.redirect(new URL("/", req.url))
             }
         }
         else if (req.nextUrl.pathname === "/manage/innoventure") {
@@ -65,7 +63,7 @@ export default withAuth(
                 // return true;
                 // req.nextUrl.pathname = "/"
                 // console.log("next url",req.nextUrl)
-                return NextResponse.redirect(new URL("/",req.url))
+                return NextResponse.redirect(new URL("/", req.url))
                 // redirect('/')
             }
         }

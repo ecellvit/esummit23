@@ -11,6 +11,22 @@ function JoinAllTeams({ session, eventName }) {
   const [prev, setPrev] = useState();
   const [teamData, setTeamData] = useState([]);
   const router = useRouter();
+  const searchBar = () => {};
+  const [searchInput, setSearchInput] = useState("");
+  const handleChange = (e) => {
+    e.preventDefault();
+    setSearchInput(e.target.value);
+  };
+
+  function search(teamData, searchInput) {
+    // Filter the users array based on the search input
+    const filteredTeams = teamData.filter((team) => {
+      // Combine all user fields into a single string to search for the search input
+      const teamString = Object.values(team).join("").toLowerCase();
+      return teamString.includes(searchInput.toLowerCase());
+    });
+    return filteredTeams;
+  }
 
   const handlePreviousButtonClick = () => {
     if (prev) {
@@ -148,16 +164,31 @@ function JoinAllTeams({ session, eventName }) {
   return (
     <>
       <div className={styles.Teams}>
-        {teamData?.map((x) => {
-          return (
-            <JoinTeamsCard
-              teamData={x}
-              key={teamData._id}
-              session={session}
-              eventName={eventName}
-            />
-          );
-        })}
+        <input
+          type="text"
+          placeholder="Search here"
+          onChange={handleChange}
+          value={searchInput}
+          className={styles.SearchBar}
+        />
+        <button
+          onClick={() => router.back()}
+          className="fixed bottom-2 left-35 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
+        >
+          Go Back
+        </button>
+        <div className={styles.Teams}>
+          {search(teamData, searchInput)?.map((x, index) => {
+            return (
+              <JoinTeamsCard
+                teamData={x}
+                key={teamData._id}
+                session={session}
+                eventName={eventName}
+              />
+            );
+          })}
+        </div>
       </div>
       <div className={styles.buttonPlacer}>
         <button

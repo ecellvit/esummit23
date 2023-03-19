@@ -37,24 +37,55 @@ export default function Footer() {
           <div className="foot_line"></div>
           <h1 className="develop_h1">Developed and designed by:</h1>
           <div className="dev_img_wrap">
-            <div className="developers">
+            <a
+              href="https://www.linkedin.com/in/chiranjeev-vishnoi-345b481b0/"
+              className="developers"
+            >
+              <img
+                src="https://avatars.githubusercontent.com/u/66114276?s=400&u=adc66f8db25530b281768008cfd45fd11cde7970&v=4"
+                alt="Chiru"
+                className="img_dev"
+              />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/sai-sreekar/"
+              className="developers"
+            >
+              <img src="developers.jpg" alt="Sai" className="img_dev" />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/pratyush-kongalla-995b73209/"
+              className="developers"
+            >
+              <img
+                src="https://avatars.githubusercontent.com/u/44525862?v=4"
+                alt="Pratyush"
+                className="img_dev"
+              />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/anjaneya-gupta/"
+              className="developers"
+            >
+              <img
+                src="https://avatars.githubusercontent.com/u/92802904?v=4"
+                alt="anjy"
+                className="img_dev"
+              />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/naitik-kapadia/"
+              className="developers"
+            >
+              <img
+                src="https://avatars.githubusercontent.com/u/88614335?v=4"
+                alt="naitik"
+                className="img_dev"
+              />
+            </a>
+            <a className="developers">
               <img src="developer.jpg" alt="" className="img_dev" />
-            </div>
-            <div className="developers">
-              <img src="developer.jpg" alt="" className="img_dev" />
-            </div>
-            <div className="developers">
-              <img src="developer.jpg" alt="" className="img_dev" />
-            </div>
-            <div className="developers">
-              <img src="developer.jpg" alt="" className="img_dev" />
-            </div>
-            <div className="developers">
-              <img src="developer.jpg" alt="" className="img_dev" />
-            </div>
-            <div className="developers">
-              <img src="developer.jpg" alt="" className="img_dev" />
-            </div>
+            </a>
           </div>
         </div>
         <div className="rfoot">

@@ -32,7 +32,7 @@ export default function CreateTeam({ session, eventName }) {
       },
     })
       .then((data) => data.json())
-      .then((data) => {
+      .then(async (data) => {
         if (data.error?.errorCode) {
           toast.error(`${data.message}`, {
             position: "top-right",
@@ -46,7 +46,7 @@ export default function CreateTeam({ session, eventName }) {
           return;
         }
         refreshData(router, path);
-        toast("Details submitted successfully");
+        // toast("Details submitted successfully");
         return;
       });
   };

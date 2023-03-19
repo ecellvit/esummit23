@@ -57,7 +57,7 @@ export default function NewCard({ event, id, isRegistered }) {
           return false;
         }
 
-        toast("Event registered Successfully");
+        // toast("Event registered Successfully");
         router.push(`/schedule`);
         // refreshData(router, path);
 
@@ -74,7 +74,7 @@ export default function NewCard({ event, id, isRegistered }) {
           localStorage.removeItem("eventId");
       }
     }
-    refreshData();
+    refreshData(router, path);
 
     return;
   }, []);
@@ -96,7 +96,12 @@ export default function NewCard({ event, id, isRegistered }) {
 
       <div className="timeline_wrapper">
         <h1 className="date">{event.date}</h1>
-        <div className="card_cont">
+        <div
+          className={`card_cont`}
+          style={{
+            backgroundImage: `url(${event.imgUrl})`,
+          }}
+        >
           <h1 className="card_h1">{event.title} </h1>
           <p className="card_para">{event.description}</p>
           <div className="card_time">
