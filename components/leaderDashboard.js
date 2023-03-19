@@ -42,7 +42,7 @@ export default function LeaderDashboard({ userData, eventName, session }) {
           return;
         }
         refreshData(router, path);
-        // toast("Team deleted Successfully");
+        toast("Team deleted Successfully");
       });
   }
 

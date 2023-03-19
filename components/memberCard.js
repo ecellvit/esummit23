@@ -37,7 +37,7 @@ function MemberCard({ session, data, teamId, eventName }) {
           });
         }
         refreshData(router, path);
-        // toast("Team member removed Successfully");
+        toast("Team member removed Successfully");
       });
   }
   return (
@@ -46,7 +46,7 @@ function MemberCard({ session, data, teamId, eventName }) {
       {userRole ? (
         <button
           onClick={(e) => handleRemove(teamId)}
-          className="bg-red-700 mt-40 w-40 rounded-md p-2"
+          className="bg-red-700 mt-5 w-40 rounded-md p-2"
         >
           Remove
         </button>

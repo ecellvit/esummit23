@@ -10,7 +10,7 @@ async function getUserData(token) {
           method: "GET",
           headers: {
               'Content-Type': 'application/json',
-              Authorization: `Bearer ${token.accessTokenBackend}`,
+              Authorization: `Bearer ${token?.accessTokenBackend}`,
               'Access-Control-Allow-Origin': '*',
           },
           cache: "no-store",
@@ -25,20 +25,23 @@ async function getUserData(token) {
 
 export default async function Home() {
   const session = await getServerSession(authOptions);
-  const userData = await getUserData(session)
-  const userArray = userData?.user.registeredEvents;
+  let userArray
+  if (session){
+    const userData = await getUserData(session)
+    userArray = userData?.user.registeredEvents;
+  }
   return (
     <>
       <div className="event-sec">
         <div className="event_wrapper">
           <h1 className="event_h1">
             E-Hack
-            <br />‍
+            <br />
           </h1>
           <p className="event_date">Date &amp; Time</p>
           <p className="event_para">
             Venue
-            <br />‍
+            <br />
           </p>
           <p className="form_para_small">
             Prominent motivational speakers from the entrepreneurial environment
@@ -47,7 +50,7 @@ export default async function Home() {
             open to questions from the audience, thus furnishing the minds of
             the students with vivid ideas and a clearer picture of the
             entrepreneurship realm.
-            <br />‍
+            <br />
           </p>
           <div className="evet_price_wrap">
             <div className="price_wrap">

@@ -1,10 +1,10 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import { signIn, signOut, useSession } from "next-auth/react";
+import React from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
+import refreshData from "../utils/refresh";
 
 export default function Card({
   session,
@@ -16,9 +16,7 @@ export default function Card({
 }) {
   const router = useRouter();
   const path = usePathname();
-  const refreshData = () => {
-    router.replace(path);
-  };
+
   function handleDeRegister(eventCode) {
     const newArray = userArray;
     fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user/register`, {
@@ -51,7 +49,7 @@ export default function Card({
         // console.log(newArray);
         // setUserArray(newArray);
         refreshData(router, path);
-        // toast("Event deregistered Successfully");
+        toast("Event deregistered Successfully");
 
         return true;
       });
@@ -102,7 +100,7 @@ export default function Card({
             className="card_btn w-button"
             onClick={(e) => handleDeRegister(id)}
           >
-            <>DeRegister event</>
+            <>De-Register event</>
             <strong>→</strong>{" "}
           </button>
           <button
