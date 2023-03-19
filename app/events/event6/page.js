@@ -1,6 +1,9 @@
-import Even from "@/app/Landing/even";
+"use client";
 import "../../../styles/landing.css";
+
+import { useRouter } from "next/navigation";
 export default function Home() {
+  const router = useRouter();
   return (
     <>
       <div className="event-sec">
