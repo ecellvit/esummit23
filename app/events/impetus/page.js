@@ -1,5 +1,4 @@
 import "../../../styles/landing.css";
-import { useRouter } from "next/navigation";
 import { Link } from "lucide-react";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
