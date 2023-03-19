@@ -43,8 +43,8 @@ function MemberCard({ session, data, teamId, eventName }) {
       });
   }
   return (
-    <div className="h-64 rounded-2xl hover:scale-105 ease-linear bg-blue-700 ">
-      <h2>{data.email}</h2>
+    <div className="h-40 rounded-2xl hover:scale-105 ease-linear bg-white">
+      <h2 className="mt-5">{data.email}</h2>
       {userRole ? (
         <button
           onClick={(e) => handleRemove(teamId)}
