@@ -56,7 +56,7 @@ export default async function Home() {
   const userArray = session ? userData?.user.registeredEvents : null;
   console.log(userArray);
   return (
-    <>
+    <div className="bg-white">
       <Header></Header>
       <Section1 />
       <Section2 />
@@ -68,6 +68,6 @@ export default async function Home() {
       <Section6></Section6>
       {/* <DetailsForm></DetailsForm> */}
       <Footer></Footer>
-    </>
+    </div>
   );
 }

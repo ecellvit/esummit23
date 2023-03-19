@@ -38,9 +38,9 @@ export default async function UserSent() {
     hasTeam = true;
   }
   return (
-    <>
+    <div classname="min-h-[100vh]">
       <NotyNav eventName={eventName} />
       <Dashboard eventName={eventName} session={session} hasTeam={hasTeam} userData={userData} userRole={userRole} />
-    </>
+    </div>
   )
 }

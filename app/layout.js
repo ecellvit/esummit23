@@ -11,7 +11,7 @@ export default async function RootLayout({ children }) {
     <AuthContext session={session}>
       <html lang="en" className="dark">
         <head />
-        <body>
+        <body className="min-h-screen bg-gradient-to-br from-[#245E6E] to-[#A1B7B8]">
           {" "}
           <Navbar session={session} />
           {children}
