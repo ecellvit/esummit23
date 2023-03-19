@@ -5,9 +5,9 @@
   @apply bg-[#070f0f];
 }
 .SearchBar {
-  @apply w-[33.33%] justify-center mb-[30px] m-auto p-2.5 border-[10px] border-solid border-[3px];
+  @apply mt-10 w-[33.33%] justify-center mb-[30px] m-auto p-2.5 border-[10px] border-solid border-[3px];
   border-image-slice: 1;
-  border-image-source: linear-gradient(to right, #743ad5, #d53a9d);
+  border-image-source: linear-gradient(to right, #02b6fd, #00ffff);
 }
 .images {
   @apply absolute opacity-40;
