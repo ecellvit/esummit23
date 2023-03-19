@@ -348,7 +348,8 @@
     @apply flex flex-row justify-between flex-nowrap items-center;
   }
   .spkr_card {
-    @apply flex flex-col justify-between items-center border ml-[20px] pl-0 border-solid border-[#ccc];
+    @apply flex flex-col justify-between items-center border  pl-0 border-solid border-[#ccc];
+    /*ml-[20px]*/
   }
   .spkr_card.one {
     @apply items-start;
@@ -795,4 +796,146 @@
   vertical-align: middle;
   background-color: #ffffff;
   border: 1px solid #cccccc;
+}
+
+/* Details Page*/
+.form_para_small {
+  @apply text-[1.2rem] leading-[35px] font-normal mb-2.5;
+  font-family: Inter, sans-serif;
+}
+.event_wrapper {
+  @apply w-[75vw] text-left mx-auto pt-0;
+}
+.form_r_h1 {
+  @apply font-bold mt-5 mb-2.5 pl-[60px];
+}
+.eventbtn {
+  @apply block w-[20vw] bg-transparent text-white text-base leading-5 font-medium text-center mt-5 mx-auto rounded-[20px] border-solid border-2 border-white hover:text-black hover:border-black;
+  font-family: Poppins, sans-serif;
+}
+.text_label {
+  @apply text-[#787878] text-base leading-5 font-normal mb-[5px];
+}
+.price_wrap {
+  @apply flex flex-col items-center text-2xl leading-[25px];
+}
+.form_section {
+  @apply flex min-h-screen;
+}
+.event-sec {
+  @apply w-screen min-h-screen bg-[url("https://uploads-ssl.webflow.com/6416e2d25aac6527968d4f08/6416e2e921beab13afd0f5c2\_template%201.jpg")] bg-[50%_50%] bg-cover text-white text-base leading-5 font-normal mt-0 mx-auto pl-0;
+  font-family: Inter, sans-serif;
+}
+.form_sec_r {
+  @apply w-[60vw] mt-[10vh];
+}
+.event_date {
+  @apply text-2xl leading-5 font-semibold text-center mb-2.5;
+  font-family: Inter, sans-serif;
+}
+.main_form_wrap {
+  @apply mb-[15px];
+}
+.event_h1 {
+  @apply text-[5rem] leading-10 font-bold text-center mx-auto my-0 pt-[15vh];
+  font-family: Inter, sans-serif;
+}
+.form_cont {
+  @apply px-[60px];
+}
+.event_para {
+  @apply text-2xl leading-5 font-normal text-center mt-5 mb-2.5;
+  font-family: Inter, sans-serif;
+}
+.input_form {
+  @apply text-base leading-5 font-normal mb-2.5 px-3 py-2 rounded-[13px] border-[3px] border-solid border-[#c4c4c4];
+}
+.para_med_event {
+  @apply text-2xl leading-[25px] font-medium mb-2.5;
+}
+.para_bold_event {
+  @apply text-2xl leading-[25px] font-bold mb-2.5;
+}
+.evet_price_wrap {
+  @apply flex flex-row justify-around items-center text-sm leading-5;
+
+  font-family: Inter, sans-serif;
+}
+@media screen and (max-width: 991px) {
+  .eventbtn {
+    @apply w-[25vw];
+  }
+}
+@media screen and (max-width: 767px) {
+  .form_para_small {
+    @apply leading-[35px] text-center mb-2.5;
+  }
+  .event_wrapper {
+    @apply w-screen max-w-[80%] text-center;
+  }
+  .form_r_h1 {
+    @apply pl-5;
+  }
+  .eventbtn {
+    @apply w-[40vw] text-center;
+  }
+  .price_wrap {
+    @apply text-[0.9rem];
+  }
+  .form_sec_r {
+    @apply w-[50vw];
+  }
+  .event_date {
+    @apply font-semibold text-left;
+  }
+  .event_h1 {
+    @apply text-5xl leading-[25px] text-center pt-[10vh] pb-2.5;
+  }
+  .form_cont {
+    @apply pl-5;
+  }
+  .event_para {
+    @apply text-left mb-2.5;
+  }
+  .input_form {
+    @apply w-[40vw];
+  }
+}
+@media screen and (max-width: 479px) {
+  .form_para_small {
+    @apply text-base leading-[22px] text-left;
+  }
+  .event_wrapper {
+    @apply w-[80vw];
+  }
+  .form_r_h1 {
+    @apply text-[2.5rem];
+  }
+  .eventbtn {
+    @apply w-[45vw] text-[0.9rem] mb-10 px-5;
+  }
+  .form_section {
+    @apply flex-col justify-center items-center;
+  }
+  .event-sec {
+    @apply w-screen;
+  }
+  .form_sec_r {
+    @apply w-[90vw] mt-[5vh];
+  }
+  .event_date {
+    @apply text-center;
+  }
+  .event_h1 {
+    @apply w-[80vw] leading-[25px] my-0;
+  }
+  .event_para {
+    @apply text-center;
+  }
+  .input_form {
+    @apply w-[70vw];
+  }
+  .evet_price_wrap {
+    @apply gap-x-2.5 gap-y-2.5 pb-5;
+  }
 }

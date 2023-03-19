@@ -1,86 +1,92 @@
 "use client";
-// import React, { useEffect, useState } from "react";
-import {
-  VerticalTimeline,
-  VerticalTimelineElement,
-} from "react-vertical-timeline-component";
-import "react-vertical-timeline-component/style.min.css";
-import Card from "@/app/LandingPageCard";
-import NewTimeline from "./Landing/NewTimeline";
+import React from "react";
+import Carousel from "./Carousel";
 
-export default function MainTimeline({
-  userArray,
-  eventsArray,
-  session,
-  setUserArray,
-}) {
+import NewCard from "./NewCard";
+
+export default function Maintimeline({ userArray, eventsArray, session }) {
+  console.log(eventsArray);
   return (
     <>
-      <NewTimeline></NewTimeline>
-      <VerticalTimeline lineColor={"black"}>
-        <>
-          <>
-            {session ? (
+      <div className="timeline_sec">
+        <div className="timeline-cont">
+          <div className="timeline_header">
+            <h1 className="about_h1">Events</h1>
+            <div className="event_line"></div>
+          </div>
+
+          {eventsArray.map((event, id) => {
+            return (
               <>
-                {eventsArray.map((event, index) => {
-                  console.log(userArray[index]);
-                  return (
-                    <VerticalTimelineElement
-                      key={index}
-                      contentStyle={{
-                        background: "rgb(33, 150, 243)",
-                        color: "#000",
-                      }}
-                      contentArrowStyle={{
-                        borderRight: "7px solid  rgb(33, 150, 243)",
-                      }}
-                      iconStyle={{
-                        background: "rgb(33, 150, 243)",
-                        color: "#000",
-                      }}
-                    >
-                      <Card
-                        isRegistered={userArray[index]}
+                <div className="timeline-element" key={id}>
+                  <div className="rod">
+                    <div className="outer_div">
+                      <div className="inner_div"></div>
+                    </div>
+                    <div className="linetimeline"></div>
+                  </div>
+                  {/* Individual Card */}
+                  {/* <div className="timeline_wrapper">
+                    <h1 className="date">{event.date}</h1>
+                    <div className="card_cont">
+                      <h1 className="card_h1">{event.title}</h1>
+                      <p className="card_para">{event.description}</p>
+                      <div className="card_time">
+                        <div className="card_l">
+                          <img src="clock.svg" alt="" className="svg_card" />
+                          <p className="timepara">{event.time} hours</p>
+                        </div>
+                        <div className="card_r">
+                          <img src="location.svg" alt="" className="svg_card" />
+                          <p className="timepara">{event.location}</p>
+                        </div>
+                      </div>
+                      <button className="card_btn w-button">
+                        Register Now<strong>→</strong>{" "}
+                      </button>
+                      <button className="btn_card_last w-button">
+                        View Details<strong>→</strong>{" "}
+                      </button>
+                    </div>
+                  </div> */}
+                  {session ? (
+                    <>
+                      {" "}
+                      {console.log(id)}
+                      <NewCard
+                        isRegistered={userArray[id]}
                         event={event}
                         key={event._id}
-                        id={index}
+                        id={id}
+                        userArray={userArray}
+                        //   setUserArray,
                       />
-                    </VerticalTimelineElement>
-                  );
-                })}
-              </>
-            ) : (
-              <>
-                {eventsArray.map((event, index) => {
-                  return (
-                    <VerticalTimelineElement
-                      key={index}
-                      contentStyle={{
-                        background: "rgb(33, 150, 243)",
-                        color: "#000",
-                      }}
-                      contentArrowStyle={{
-                        borderRight: "7px solid  rgb(33, 150, 243)",
-                      }}
-                      iconStyle={{
-                        background: "rgb(33, 150, 243)",
-                        color: "#000",
-                      }}
-                    >
-                      <Card
+                    </>
+                  ) : (
+                    <>
+                      {" "}
+                      <NewCard
                         event={event}
                         key={event._id}
-                        id={index}
-                        isRegistered={-1}
+                        id={id}
+                        isRegistered={0}
                       />
-                    </VerticalTimelineElement>
-                  );
-                })}
+                    </>
+                  )}
+                </div>
+
+                {/* <Card
+                  event={event}
+                  key={event._id}
+                  id={index}
+                  isRegistered={-1}
+                        /> */}
               </>
-            )}
-          </>
-        </>
-      </VerticalTimeline>
+            );
+          })}
+        </div>
+        <Carousel />
+      </div>
     </>
   );
 }
