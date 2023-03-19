@@ -164,12 +164,6 @@ function JoinAllTeams({ session, eventName }) {
           value={searchInput}
           className={styles.SearchBar}
         />
-        <button
-          onClick={() => router.back()}
-          className="fixed bottom-2 left-35 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
-        >
-          Go Back
-        </button>
         <div className={styles.Teams}>
           {search(teamData, searchInput)?.map((x, index) => {
             return (
@@ -185,7 +179,7 @@ function JoinAllTeams({ session, eventName }) {
       </div>
       <div className={styles.buttonPlacer}>
         <button
-          className="fixed bottom-20 left-20 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
+          className="fixed bottom-20 left-20 text-black bg-white hover:bg-[#53B3B9] font-bold py-2 px-4 rounded"
           onClick={() => {
             handlePreviousButtonClick();
           }}
@@ -193,7 +187,7 @@ function JoinAllTeams({ session, eventName }) {
           Previous
         </button>
         <button
-          className="fixed bottom-20 right-20 bg-blue-500 hover:bg-blue-400 text-white font-bold py-2 px-4 border-b-4 border-blue-700 hover:border-blue-500 rounded"
+          className="fixed bottom-20 right-20 bg-white hover:bg-[#53B3B9] text-black font-bold py-2 px-4 rounded"
           onClick={() => {
             handleNextButtonClick();
           }}
