@@ -3,6 +3,7 @@ import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import "@/styles/globals.css";
 import { getServerSession } from "next-auth";
 import AuthContext from "./AuthContext";
+import Footer from "./Landing/Footer";
 
 export default async function RootLayout({ children }) {
   const session = await getServerSession(authOptions);
@@ -11,10 +12,11 @@ export default async function RootLayout({ children }) {
     <AuthContext session={session}>
       <html lang="en" className="dark">
         <head />
-        <body>
+        <body className="min-h-screen bg-gradient-to-br from-[#245E6E] to-[#A1B7B8]">
           {" "}
           <Navbar session={session} />
           {children}
+          <Footer />
         </body>
       </html>
     </AuthContext>

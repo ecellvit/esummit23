@@ -1,23 +1,18 @@
-import Dashboard from '@/components/dashboard'
-import NotyNav from '@/components/notyNav'
-import { authOptions } from '@/pages/api/auth/[...nextauth]';
-import { getServerSession } from 'next-auth';
+import Dashboard from "@/components/dashboard";
+import NotyNav from "@/components/notyNav";
+import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import { getServerSession } from "next-auth";
 
 async function getUserData(session) {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_SERVER}/api/user`,
-    {
-      method: "GET",
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${session.accessTokenBackend}`,
-        'Access-Control-Allow-Origin': '*',
-      },
+  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: `Bearer ${session.accessTokenBackend}`,
+      "Access-Control-Allow-Origin": "*",
     },
-    {
-      cache: "no-store",
-    }
-  );
+    cache: "no-store",
+  });
   if (!res.ok) {
     throw new Error("Failed to fetch data");
   }
@@ -26,21 +21,27 @@ async function getUserData(session) {
 }
 
 export default async function UserSent() {
-  const eventName = "eHack"
+  const eventName = "eHack";
   const session = await getServerSession(authOptions);
   const data = await getUserData(session);
-  console.log("+!!!!!!!!!!!!!!!!",data);
-  const userData = data.user[eventName + 'TeamId']
-  const userRole = data.user[eventName + 'TeamRole']
+  console.log("+!!!!!!!!!!!!!!!!", data);
+  const userData = data.user[eventName + "TeamId"];
+  const userRole = data.user[eventName + "TeamRole"];
 
   let hasTeam = false;
   if (userData) {
     hasTeam = true;
   }
   return (
-    <>
+    <div classname="min-h-[100vh]">
       <NotyNav eventName={eventName} />
-      <Dashboard eventName={eventName} session={session} hasTeam={hasTeam} userData={userData} userRole={userRole} />
+      <Dashboard
+        eventName={eventName}
+        session={session}
+        hasTeam={hasTeam}
+        userData={userData}
+        userRole={userRole}
+      />
     </>
-  )
+  );
 }

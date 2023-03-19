@@ -1,0 +1,58 @@
+/* * {
+  box-sizing: border-box;
+} */
+.Home {
+  @apply bg-[#070f0f];
+}
+.SearchBar {
+  @apply w-[33.33%] justify-center mb-[30px] m-auto p-2.5 border-[10px] border-solid border-[3px];
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to right, #743ad5, #d53a9d);
+}
+.images {
+  @apply absolute opacity-40;
+}
+.Teams {
+  @apply flex justify-center flex-wrap gap-[50px] min-w-full;
+}
+.buttonPlacer {
+  @apply flex justify-center flex-wrap gap-[50px];
+}
+.Cards {
+  @apply basis-[22.5px] shadow-[1px_1px_8px_rgba(0,0,0,0.25)] flex flex-col bg-[#13111a] pb-5 p-[50px] rounded-[30px] min-w-[30%] min-h-[30%]; /* border-color: pa;
+      border-radius: 10px; */ /* border: 10px;
+      border-color: white; */ /* background-image: linear-gradient(to right top, #070f0f, #001f27, #002e46, #003a68, #004187, #2a3f8c, #443d8f, #5a3890, #5c3382, #5b2e75, #592a68, #56275c); */
+}
+.border_gradient {
+  @apply border-[10px] border-solid border-[3px];
+  border-image-slice: 1;
+  border-image-source: linear-gradient(to right, #743ad5, #d53a9d);
+}
+.CardsImg {
+  @apply w-full h-auto object-cover mb-2.5 rounded-[25px];
+  align-self: left;
+}
+.Cardsh3 {
+  @apply min-h-full text-[100%] leading-[30px] text-[white] font-thin text-xs sm:text-xs lg:text-sm xl:text-xl;
+  font-family: Arial, sans-serif;
+}
+.Cardsh4 {
+  @apply text-[15px] text-center text-[white] font-extrabold;
+}
+.info-group {
+  @apply flex justify-center items-center;
+}
+.info-group > img {
+  @apply h-[11px] text-center; /* margin-left: auto; */ /* margin-right: auto; */
+}
+.info-group > p {
+  @apply text-[10px] text-[white] text-center;
+  margin-block: 1px;
+}
+.button:active::after {
+  @apply opacity-100 transition-[0s] m-0 p-0;
+}
+
+.warning {
+  @apply text-[10px] text-[red] font-extrabold max-w-[300px] text-center;
+}

@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 import React, { useRef, useState } from "react";
-
+import "../../styles/landing.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 export default function DetailsForm({ accessTokenBackend }) {
@@ -42,6 +42,7 @@ export default function DetailsForm({ accessTokenBackend }) {
         Authorization: `Bearer ${accessTokenBackend}`,
         "Access-Control-Allow-Origin": "*",
       },
+      cache: "no-store",
     })
       .then((data) => data.json())
       .then((data) => {
@@ -133,7 +134,7 @@ export default function DetailsForm({ accessTokenBackend }) {
                 className="input_form w-input"
                 maxlength="256"
                 name="fname"
-                placeholder="Your name here"
+                placeholder="Enter Your first name here"
                 id="fname"
               />
               <label for="lastn" className="text_label">
@@ -145,7 +146,7 @@ export default function DetailsForm({ accessTokenBackend }) {
                 className="input_form w-input"
                 maxlength="256"
                 name="lastn"
-                placeholder="Your reg.no here"
+                placeholder="Enter Your last name here"
                 id="lastn"
               />
               {/* <label for="name-3" className="text_label">
@@ -183,7 +184,6 @@ export default function DetailsForm({ accessTokenBackend }) {
           </div>
         </div>
       </div>
-      ;
     </>
   );
 }
