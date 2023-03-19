@@ -54,45 +54,46 @@ function LeaderReceivedRequestCard({ request, eventName, session, teamId }) {
       });
   }
 
-  function handleAccept(userId) {
-    console.log("userid", userId);
-    console.log("gg", request._id);
-    eventName = eventName.toLowerCase();
-    fetch(
-      `${process.env.NEXT_PUBLIC_SERVER}/api/${eventName}/addMember/${userId}`,
-      {
-        method: "POST",
-        body: JSON.stringify({
-          userId: userId,
-          status: 1,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${session.accessTokenBackend}`,
-          "Access-Control-Allow-Origin": "*",
-        },
-      }
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        if (data.error?.errorCode) {
-          toast.error(`${data.message}`, {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
-          return;
-        }
-        toast("Invite Deleted Successfully");
-        refreshData(router, path);
-        console.log("Invite Deleted");
-      });
-  }
+    function handleAccept(userId) {
+        console.log("userid", userId);
+        console.log("gg", request._id);
+        eventName = eventName.toLowerCase();
+        fetch(
+            `${process.env.NEXT_PUBLIC_SERVER}/api/${eventName}/requests/${teamId}`,
+            {
+                method: "POST",
+                body: JSON.stringify({
+                    userId:userId,
+                    status: 1,
+                }),
+                headers: {
+                    "Content-Type": "application/json",
+                    Authorization: `Bearer ${session.accessTokenBackend}`,
+                    "Access-Control-Allow-Origin": "*",
+                },
+            }
+        )
+            .then((response) => response.json())
+            .then((data) => {
+                console.log(data);
+                if (data.error?.errorCode) {
+                    toast.error(`${data.message}`, {
+                        position: "top-right",
+                        autoClose: 5000,
+                        hideProgressBar: false,
+                        closeOnClick: true,
+                        pauseOnHover: true,
+                        draggable: true,
+                        progress: undefined,
+                    });
+                    return;
+                }
+               
+                toast("Invite Accepted Successfully");
+                refreshData(router, path);
+                console.log("Invite Accepted");
+            });
+    }
 
   return (
     <div className={styles.Cards}>

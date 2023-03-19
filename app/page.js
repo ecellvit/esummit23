@@ -46,10 +46,10 @@ async function getUserData(session) {
 export default async function Home() {
   const eventData = await getData();
   const eventsArray = await eventData.events;
-  const session = await getSession();
-
-  const userData = session && (await getUserData(session));
-  const userArray = session ? userData?.user.registeredEvents : null;
+  const session = await getSession()
+  const userData = await getUserData(session);
+  const userArray = userData?.user.registeredEvents;
+  console.log(userArray);
   return (
     <div className="bg-white">
       <Header></Header>

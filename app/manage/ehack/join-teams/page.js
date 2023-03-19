@@ -1,9 +1,6 @@
-import { authOptions } from "@/pages/api/auth/[...nextauth]";
-import { getServerSession } from "next-auth";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
-import LeaderSentReq from "@/components/LeaderSentReq";
-import JoinAllTeams from "@/components/joinAllTeams";
+import { authOptions } from '@/pages/api/auth/[...nextauth]';
+import { getServerSession } from 'next-auth';
+import JoinAllTeams from '@/components/joinAllTeams';
 
 async function getUserData(session) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user`, {

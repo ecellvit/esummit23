@@ -21,7 +21,7 @@ async function getUserData(session) {
 
 async function leaderReceivedReq(session, teamId) {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_SERVER}/api/ehack/requests/${teamId}`,
+    `${process.env.NEXT_PUBLIC_SERVER}/api/impetus/requests/${teamId}`,
     {
       method: "GET",
       headers: {

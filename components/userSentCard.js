@@ -50,43 +50,7 @@ function UserSentCard({ request, eventName, session }) {
         console.log("Request Removed");
       });
   }
-  function handleAcceptInvite(teamId) {
-    eventName = eventName.toLowerCase();
-    console.log(teamId);
-    fetch(
-      `${process.env.NEXT_PUBLIC_SERVER}/api/user/${eventName}/addMember/${teamId}`,
-      {
-        method: "POST",
-        body: JSON.stringify({
-          status: 1,
-        }),
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `Bearer ${session.accessTokenBackend}`,
-          "Access-Control-Allow-Origin": "*",
-        },
-      }
-    )
-      .then((response) => response.json())
-      .then((data) => {
-        console.log(data);
-        if (data.error?.errorCode) {
-          toast.error(`${data.message}`, {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
-          return;
-        }
-        toast("Invite Accepted Successfully");
-        router.push(`/manage/${eventName}`);
-        console.log("Invite Accepted");
-      });
-  }
+
   return (
     <div className={styles.Cards}>
       <div className={styles.infogroup}>
