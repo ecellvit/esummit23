@@ -32,7 +32,7 @@ export default async function UserSent() {
     hasTeam = true;
   }
   return (
-    <div classname="">
+    <div>
       <NotyNav eventName={eventName} />
       <Dashboard
         eventName={eventName}
