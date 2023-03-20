@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 
 function UserNav({ eventName }) {
   const router = useRouter();
-  eventName=eventName.toLowerCase();
+  eventName = eventName.toLowerCase();
   return (
     <>
       {" "}

@@ -959,7 +959,7 @@
 }
 /*Create Team*/
 .create_cont {
-  @apply min-h-screen bg-[-webkit-gradient(linear,left_top,left_bottom,from(#245e6e),to(#245e6e))] bg-[linear-gradient(180deg,#245e6e,#245e6e)] text-black text-base font-normal;
+  @apply min-h-screen  text-black text-base font-normal;
   font-family: Inter, sans-serif;
 }
 .subnav {
@@ -969,7 +969,7 @@
   @apply flex min-w-[20vw] items-center;
 }
 .recieved {
-  @apply text-black text-base leading-5 ml-2.5 px-[15px] py-[9px] rounded-[5px];
+  @apply text-white text-base leading-5 ml-2.5 px-[15px] py-[9px] rounded-[5px] bg-[#53B3B9];
 }
 .ehack_cont {
   @apply flex w-[70vw] min-h-[60vh] flex-col items-center bg-[#e7e7e7] mx-auto my-[10vh] p-2.5;
@@ -978,7 +978,7 @@
   @apply min-w-[50vw] mb-2.5 mx-auto pb-2 px-3;
 }
 .managebtn {
-  @apply min-w-[4vw] text-black text-center px-[15px] py-[9px] rounded-[5px];
+  @apply min-w-[4vw] text-white text-center px-[15px] py-[9px] bg-[#53B3B9] rounded-[5px];
 }
 .left_sub {
   @apply flex min-w-[70vw] flex-row justify-around items-center font-normal;
@@ -994,13 +994,13 @@
   @apply font-bold mt-5 mb-2.5;
 }
 .handleteam {
-  @apply w-[20vw] text-black text-center px-[15px] py-[9px] rounded-[5px];
+  @apply w-[20vw] text-white text-center bg-[#53B3B9] px-[15px] py-[9px] rounded-[5px];
 }
 .send {
-  @apply text-black text-base leading-5 text-center ml-2.5 px-[15px] py-[9px] rounded-[5px];
+  @apply text-base leading-5  text-white text-center bg-[#53B3B9] ml-2.5 px-[15px] py-[9px] rounded-[5px];
 }
 .teams_sec {
-  @apply static min-h-screen bg-[#245e6e];
+  @apply static min-h-screen;
 }
 .teamcard_cont {
   @apply flex w-[90vw] min-h-[70vh] flex-row flex-wrap items-center gap-x-[2vw] gap-y-[2vw] mt-2.5 mx-auto px-10 py-5;
@@ -1025,11 +1025,11 @@
   @apply static flex justify-center items-center gap-x-[10vw] gap-y-[10vw] px-0 top-auto bottom-[0%] inset-x-[0%];
 }
 .navigation_card_btn {
-  @apply min-w-[20vw] text-black text-base leading-5 text-center ml-0 mb-[10vh] px-[15px] py-[9px] rounded-[5px];
+  @apply min-w-[20vw] text-white text-base leading-5 bg-[#53B3B9] text-center ml-0 mb-[10vh] px-[15px] py-[9px] rounded-[5px];
   font-family: Inter, sans-serif;
 }
 .join_team {
-  @apply min-w-[10vw] text-black text-base leading-5 text-center px-[15px] py-[9px] rounded-[5px];
+  @apply min-w-[10vw] text-white  bg-[#53B3B9] text-base leading-5  text-center px-[15px] py-[9px] rounded-[5px];
   font-family: Inter, sans-serif;
 }
 @media screen and (max-width: 991px) {
@@ -1063,7 +1063,7 @@
     @apply min-h-[50vh] pb-2.5;
   }
   .managebtn {
-    @apply min-w-[20vw] text-center mb-0;
+    @apply min-w-[20vw] text-center bg-[#53B3B9] mb-0;
   }
   .left_sub {
     @apply flex max-w-[50vw] min-w-[100vw] flex-row-reverse justify-around flex-nowrap items-center;

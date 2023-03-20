@@ -6,26 +6,49 @@ import "react-toastify/dist/ReactToastify.css";
 
 function UserSentComponent({ eventName, requests, session }) {
   return (
-    <div className={styles.Teams}>
-      <ToastContainer />
-      <div>User Sent </div>
-      <div className={styles.Teams}>
-        {requests.length ? (
-          requests.map((x) => {
-            return (
-              <UserSentCard
-                key={x}
-                request={x}
-                eventName={eventName}
-                session={session}
-              />
-            );
-          })
-        ) : (
-          <h1>No requests</h1>
-        )}
-      </div>
-    </div>
+    <>
+      {" "}
+      <div class="team_card_holder">
+        {" "}
+        <ToastContainer />
+        <div class="teamcard_cont">
+          {requests.length ? (
+            requests.map((x) => {
+              return (
+                <UserSentCard
+                  key={x}
+                  request={x}
+                  eventName={eventName}
+                  session={session}
+                />
+              );
+            })
+          ) : (
+            <h1>No requests</h1>
+          )}
+        </div>
+      </div>{" "}
+      {/* <div className={styles.Teams}>
+        <ToastContainer />
+        <div>User Sent </div>
+        <div className={styles.Teams}>
+          {requests.length ? (
+            requests.map((x) => {
+              return (
+                <UserSentCard
+                  key={x}
+                  request={x}
+                  eventName={eventName}
+                  session={session}
+                />
+              );
+            })
+          ) : (
+            <h1>No requests</h1>
+          )}
+        </div>
+      </div> */}
+    </>
   );
 }
 

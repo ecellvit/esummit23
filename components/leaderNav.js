@@ -6,50 +6,40 @@ function LeaderNav({ eventName }) {
   const router = useRouter();
   return (
     <>
-      {/* {" "}
+      {" "}
       <div class="create_cont">
-        <div class="subnav">
+        <div class="subnav !bg-neutral-300 uppercase">
           <div class="left_sub">
-            <a href="#" class="managebtn w-button">
+            <button
+              onClick={() => {
+                router.push(`/manage/${eventName}`);
+              }}
+              class="managebtn w-button text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700"
+            >
               Back
-            </a>
-            <h1 class="subnav_h1">Innoventure</h1>
+            </button>
+            <h1 class="subnav_h1"> {eventName.toUpperCase()}</h1>
           </div>
           <div class="right_subnav">
-            <a href="#" class="send w-button">
+            <button
+              class="send w-button text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700 "
+              onClick={(e) => router.push(`/manage/${eventName}/leader-sent`)}
+            >
               Sent
-            </a>
-            <a href="#" class="recieved w-button">
+            </button>
+            <button
+              button
+              class="recieved w-button bg-[#53B3B9] uppercase"
+              onClick={(e) =>
+                router.push(`/manage/${eventName}/received-join-request`)
+              }
+            >
               Recieved
-            </a>
+            </button>
           </div>
-        </div>
-        <div class="ehack_cont">
-          <h1 class="join_h1">Join a Team</h1>
-          <a href="#" class="handleteam w-button">
-            Find Team
-          </a>
-          <h1 class="join_h1 bold">Or</h1>
-          <h1 class="join_h1">Create Your Team</h1>
-          <div class="w-form">
-            <input
-              type="text"
-              class="team w-input"
-              maxlength="256"
-              name="name"
-              data-name="Name"
-              placeholder=""
-              id="name"
-            />
-          </div>
-          <a href="#" class="handleteam w-button">
-            Create Team
-          </a>
         </div>
       </div>
-      {/*
-       */}{" "}
-      <div>
+      {/* <div>
         <div>
           <nav
             className="flex-no-wrap sticky top-0 flex w-full bg-neutral-300 py-4 shadow-md shadow-black/5 dark:bg-neutral-600 dark:shadow-black/10 lg:flex-wrap lg:justify-end  "
@@ -94,9 +84,7 @@ function LeaderNav({ eventName }) {
                           clipRule="evenodd"
                         />
                       </svg>
-                      {/* <span className="absolute -mt-2.5 ml-2 rounded-full bg-red-700 py-0 px-1.5 text-xs text-white">
-                    1
-                  </span> */}
+                    
                       <div className="ml-2 text-white">Sent</div>
                     </button>
                   </div>
@@ -133,7 +121,7 @@ function LeaderNav({ eventName }) {
             </div>
           </nav>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }
