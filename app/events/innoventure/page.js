@@ -41,16 +41,10 @@ export default async function Home() {
           <br />
         </p>
         <p className="form_para_small">
-          A business simulation event which gives the participants an
-          entrepreneurial ecosystem and platform to deploy their skills and
-          ideas about the aspects of product development, business analysis,
-          while inculcating knowledge about the trends in the current market and
-          economic conditions faced by business owners of all sizes everyday.
-          Innoventure is your portal to a world full of possibilities and
-          creative problem solving.
+          A business simulation event which gives the participants an entrepreneurial ecosystem and platform to deploy their skills and ideas about the aspects of product development, business analysis, while inculcating knowledge about the trends in the current market and economic conditions faced by business owners of all sizes everyday. Innoventure is your portal to a world full of possibilities and creative problem solving.
           <br />
         </p>
-        <div className="evet_price_wrap">
+        {/* <div className="evet_price_wrap">
           <div className="price_wrap">
             <p className="para_med_event">1st</p>
             <p className="para_bold_event">Coming Soon</p>
@@ -63,7 +57,7 @@ export default async function Home() {
             <p className="para_med_event">3rd</p>
             <p className="para_bold_event">Coming Soon</p>
           </div>
-        </div>
+        </div> */}
 
         <Link
           className="eventbtn w-button"
