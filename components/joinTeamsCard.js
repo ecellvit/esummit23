@@ -50,19 +50,18 @@ function JoinTeamsCard({ teamData, session, eventName }) {
 
   return (
     <>
-      {" "}
       <div class="singlecard">
         <div class="team_text">
           <p class="team_details font-semibold break-all">
-            TeamName: <br />
+            TeamName : {" "}
             {teamData?.teamName}
           </p>
           <p class="team_details font-semibold break-all">
-            Team Leader: <br />
+            Team Leader : {" "}
             {teamLeader?.email}
           </p>
           <p class="team_details font-semibold break-all">
-            Email: <br />
+            Email : {" "}
             {teamLeader?.email}
           </p>
         </div>
