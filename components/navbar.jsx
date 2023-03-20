@@ -21,7 +21,10 @@ export default function Navbar({ session }) {
       })
         .then((resp) => resp.json())
         .then((data) => {
-          setRegArray(data?.user?.registeredEvents);
+          console.log(data?.user?.registeredEvents);
+          if(data?.user?.registeredEvents?.length >= 0){
+            setRegArray(data?.user?.registeredEvents);
+          }
         });
     }
   }, [session]);
