@@ -1,5 +1,5 @@
-import { withAuth } from "next-auth/middleware"
-import { NextResponse } from 'next/server'
+import { withAuth } from "next-auth/middleware";
+import { NextResponse } from "next/server";
 import { redirect } from "next/navigation";
 import { getToken } from "next-auth/jwt";
 
@@ -11,8 +11,6 @@ const eventCodes = [
     "EVENT_5",
     "EVENT_6",
 ];
-
-
 
 async function getUserData(token) {
     const res = await fetch(
@@ -57,7 +55,6 @@ async function getDetails(token, idToken, email) {
 
     return res.json();
 }
-
 
 export default withAuth(
     async function middleware(req) {
@@ -161,5 +158,3 @@ export default withAuth(
     },
 }
 )
-
-export const config = { matcher: ["/schedule", "/manage/:path*"] }

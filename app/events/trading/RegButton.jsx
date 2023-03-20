@@ -12,9 +12,9 @@ export default function RegButton({ userArray, check }) {
   const router = useRouter();
   const { data: session, status } = useSession();
   const handleRegisterwithLogin = (id) => {
-    // console.log("clicked");
+    // //console.log("clicked");
     localStorage.setItem("eventId", JSON.stringify(id));
-    // console.log(id);
+    // //console.log(id);
     signIn("google", {
       callbackUrl: "/getdetails",
     });
@@ -26,7 +26,7 @@ export default function RegButton({ userArray, check }) {
       handleRegisterwithLogin(4);
     }
     if (session) {
-      console.log("here");
+      //console.log("here");
       fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user/register`, {
         method: "PATCH",
         body: JSON.stringify({
@@ -64,9 +64,9 @@ export default function RegButton({ userArray, check }) {
   }
 
   useEffect(() => {
-    console.log("hello");
+    //console.log("hello");
     if (localStorage.getItem("eventId")) {
-      // console.log(localStorage.getItem("eventId"));
+      // //console.log(localStorage.getItem("eventId"));
       if (session) {
         handleRegister(localStorage.getItem("eventId")) &&
           localStorage.removeItem("eventId");
@@ -80,17 +80,17 @@ export default function RegButton({ userArray, check }) {
     <button
       className="eventbtn w-button"
       onClick={() => {
-        // console.log(isRegistered);
+        // //console.log(isRegistered);
         if (userArray) {
-          console.log(userArray);
+          //console.log(userArray);
           if (userArray[4]) {
             router.push("/schedule");
           } else {
-            console.log("here");
+            //console.log("here");
             return handleRegister(4);
           }
         } else {
-          console.log("here");
+          //console.log("here");
           return handleRegister(4);
         }
       }}

@@ -29,7 +29,7 @@ export default async function Home() {
     const userData = await getUserData(session);
     userArray = userData?.user.registeredEvents;
   }
-  console.log(userArray);
+  //console.log(userArray);
   const check = session && userArray[4];
   return (
     <div className="event-sec">

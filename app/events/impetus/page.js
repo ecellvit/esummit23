@@ -27,7 +27,7 @@ export default async function Home() {
   let userArray;
   if (session) {
     const userData = await getUserData(session);
-    console.log(userData);
+    //console.log(userData);
     userArray = userData?.user.registeredEvents;
   }
   const check = session && userArray[0];

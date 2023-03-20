@@ -27,11 +27,11 @@ export default async function UserSent() {
   const eventName = "eHack";
   const session = await getServerSession(authOptions);
   const data = await getUserData(session);
-  console.log("!!!!!!!@22221!!!!!",data.user);
+  //console.log("!!!!!!!@22221!!!!!",data.user);
   const userData = data.user[eventName + "TeamId"];
   const userRole = data.user[eventName + "TeamRole"];
 
-  console.log("userData ran", userData);
+  //console.log("userData ran", userData);
   let hasTeam = false;
   if (userData) {
     hasTeam = true;

@@ -49,7 +49,7 @@ export default async function AddMembers() {
   const session = await getServerSession(authOptions);
   const data = await impetusRegistered(session);
   const sentData = await leaderSentInvites(session);
-  console.log(sentData.requests);
+  //console.log(sentData.requests);
   const users = data.impetusMembers;
   const registeredMembers = users.filter(
     (user) => user.registeredEvents[0] == 1

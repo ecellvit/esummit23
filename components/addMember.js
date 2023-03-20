@@ -51,12 +51,12 @@ function AddMember({ session, users, eventName, eventCode, sentData }) {
         />
         <div className={styles.Teams}>
           {search(users, searchInput)?.map((x, index) => {
-            console.log(sentData);
+            //console.log(sentData);
             if (
               x.registeredEvents[eventCode] === 1 &&
               shouldRender(sentData, x)
             ) {
-              console.log(x);
+              //console.log(x);
               return (
                 <AddMemberCard
                   user={x}
@@ -89,12 +89,12 @@ function AddMember({ session, users, eventName, eventCode, sentData }) {
         <div className="team_card_holder">
           <div className="teamcard_cont">
             {search(users, searchInput)?.map((x, index) => {
-              console.log(sentData);
+              //console.log(sentData);
               if (
                 x.registeredEvents[eventCode] === 1 &&
                 shouldRender(sentData, x)
               ) {
-                console.log(x);
+                //console.log(x);
                 return (
                   <AddMemberCard
                     user={x}
