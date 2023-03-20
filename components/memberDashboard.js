@@ -60,31 +60,73 @@ export default function MemberDashboard({ userData, eventName, session }) {
     //     <ToastContainer />
     //   </div>
     // </div>
-
-    <div className=" px-8">
-      <div className="text-center mt-8 font-medium text-2xl">
-        Team Name : {userData.teamName}
-      </div>
-      <div className="grid grid-cols-2 gap-8  mt-10 mx-auto w-[50rem] text-center">
-        {userData?.members?.map((data) => {
-          return (
-            <UserCard
-              key={data}
-              data={data}
-              userRole={data[eventName + "TeamRole"]}
-            />
-          );
-        })}
-      </div>
-      <div className="flex justify-center mt-8">
-        <button
-          onClick={(e) => handleLeave(userData._id)}
-          className="bg-red-700 w-40 text-white rounded-md p-2"
-        >
-          Leave Team
-        </button>
+    <>
+      {" "}
+      <div class="teams_sec mt-[-5vh]">
         <ToastContainer />
+        <div class="search">
+          <div class="w-form text-center w-[100%] text-[2rem]">
+            Team Name : {userData.teamName}
+          </div>
+        </div>
+        <div class="team_card_holder">
+          <div class="teamcard_cont">
+            {userData?.members?.map((data) => {
+              return (
+                <UserCard
+                  key={data}
+                  data={data}
+                  userRole={data[eventName + "TeamRole"]}
+                />
+              );
+            })}
+          </div>
+        </div>
+        <div class="navigation_cont mt-[-10vh]">
+          {/* <button
+            class="navigation_card_btn w-button"
+            onClick={(e) => {
+              eventName = eventName.toLowerCase();
+              router.push(`/manage/${eventName}/add-members`);
+            }}
+          >
+            {" "}
+            Add Members
+          </button> */}
+          <button
+            class="navigation_card_btn w-button !bg-red-700 w-40 text-white"
+            onClick={(e) => handleLeave(userData._id)}
+          >
+            {" "}
+            Leave Team
+          </button>
+        </div>{" "}
       </div>
-    </div>
+      {/* <div className=" px-8">
+        <div className="text-center mt-8 font-medium text-2xl">
+          Team Name : {userData.teamName}
+        </div>
+        <div className="grid grid-cols-2 gap-8  mt-10 mx-auto w-[50rem] text-center">
+          {userData?.members?.map((data) => {
+            return (
+              <UserCard
+                key={data}
+                data={data}
+                userRole={data[eventName + "TeamRole"]}
+              />
+            );
+          })}
+        </div>
+        <div className="flex justify-center mt-8">
+          <button
+            onClick={(e) => handleLeave(userData._id)}
+            className="bg-red-700 w-40 text-white rounded-md p-2"
+          >
+            Leave Team
+          </button>
+          <ToastContainer />
+        </div>
+      </div> */}
+    </>
   );
 }

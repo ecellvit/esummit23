@@ -1,14 +1,14 @@
 "use client";
 import UserReceivedReqCard from "./UserReceivedReqCard";
-import styles from "../styles/joinTeams.module.css";
+import "../styles/landing.css";
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 function UserReceivedReq({ eventName, requests, session }) {
   return (
-    <div>
+    <div class="team_card_holder">
       <ToastContainer />
-      <div className={styles.Teams}>
+      <div class="teamcard_cont">
         {requests.length ? (
           requests.map((x) => {
             return (

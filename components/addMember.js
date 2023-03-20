@@ -38,35 +38,77 @@ function AddMember({ session, users, eventName, eventCode, sentData }) {
   }
 
   return (
-    <div>
-      <ToastContainer />
-      <input
-        type="text"
-        placeholder="Search here"
-        onChange={handleChange}
-        value={searchInput}
-        className={styles.SearchBar}
-      />
-      <div className={styles.Teams}>
-        {search(users, searchInput)?.map((x, index) => {
-          console.log(sentData);
-          if (
-            x.registeredEvents[eventCode] === 1 &&
-            shouldRender(sentData, x)
-          ) {
-            console.log(x);
-            return (
-              <AddMemberCard
-                user={x}
-                key={x._id}
-                session={session}
-                eventName={eventName}
-              />
-            );
-          }
-        })}
+    <>
+      {/* {" "}
+      <div>
+        <ToastContainer />
+        <input
+          type="text"
+          placeholder="Search here"
+          onChange={handleChange}
+          value={searchInput}
+          className={styles.SearchBar}
+        />
+        <div className={styles.Teams}>
+          {search(users, searchInput)?.map((x, index) => {
+            console.log(sentData);
+            if (
+              x.registeredEvents[eventCode] === 1 &&
+              shouldRender(sentData, x)
+            ) {
+              console.log(x);
+              return (
+                <AddMemberCard
+                  user={x}
+                  key={x._id}
+                  session={session}
+                  eventName={eventName}
+                />
+              );
+            }
+          })}
+        </div>
+      </div>{" "} */}
+      <div class="teams_sec">
+        <ToastContainer></ToastContainer>
+        <div class="search">
+          <div class="w-form">
+            <input
+              type="text"
+              class="team w-input"
+              maxlength="256"
+              name="name-3"
+              data-name="Name 3"
+              placeholder="Search here"
+              onChange={handleChange}
+              value={searchInput}
+              id="name-3"
+            />
+          </div>
+        </div>
+        <div class="team_card_holder">
+          <div class="teamcard_cont">
+            {search(users, searchInput)?.map((x, index) => {
+              console.log(sentData);
+              if (
+                x.registeredEvents[eventCode] === 1 &&
+                shouldRender(sentData, x)
+              ) {
+                console.log(x);
+                return (
+                  <AddMemberCard
+                    user={x}
+                    key={x._id}
+                    session={session}
+                    eventName={eventName}
+                  />
+                );
+              }
+            })}
+          </div>
+        </div>
       </div>
-    </div>
+    </>
   );
 }
 

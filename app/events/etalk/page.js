@@ -34,12 +34,13 @@ export default async function Home() {
       <div className="event-sec">
         <div className="event_wrapper">
           <h1 className="event_h1">
-            Etalk
+            E-Talk
             <br />‍
           </h1>
-          <p className="event_date">Date &amp; Time</p>
+          <p className="event_date">Date &amp; Time : 30th March 2023, 2:00 PM
+          </p>
           <p className="event_para">
-            Venue
+            Venue: Anna Auditorium
             <br />‍
           </p>
           <p className="form_para_small">
@@ -52,25 +53,25 @@ export default async function Home() {
             vivid ideas and a clearer picture of the entrepreneurship realm.
             <br />‍
           </p>
-          <div className="evet_price_wrap">
+          {/* <div className="evet_price_wrap">
             <div className="price_wrap">
               <p className="para_med_event">1st</p>
-              <p className="para_bold_event">10,000</p>
+              <p className="para_bold_event">Coming Soon</p>
             </div>
             <div className="price_wrap">
               <p className="para_med_event">2nd</p>
-              <p className="para_bold_event">10,000</p>
+              <p className="para_bold_event">Coming Soon</p>
             </div>
             <div className="price_wrap">
               <p className="para_med_event">3rd</p>
-              <p className="para_bold_event">10,000</p>
+              <p className="para_bold_event">Coming Soon</p>
             </div>
-          </div>
+          </div> */}
           <Link
             className="eventbtn w-button"
             href={`${check ? "/schedule" : "/"}`}
           >
-            {`${check ? "Go to Schedule" : "Go to Register"}`}
+            {`${check ? "Go to Schedule" : "Register Now"}`}
           </Link>
         </div>
       </div>

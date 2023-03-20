@@ -36,44 +36,36 @@ export default async function Home() {
         <div className="event_wrapper">
           <h1 className="event_h1">
             Impetus
-            <br />‍
+            <br />
           </h1>
-          <p className="event_date">Date &amp; Time</p>
+          <p className="event_date mt-10">Date &amp; Time : 02nd April 2023, 10:00 AM</p>
           <p className="event_para">
-            Venue
-            <br />‍
+            Venue : TT Gallery-2
+            <br />
           </p>
           <p className="form_para_small">
-            A pitch-deck competition that would involve crafting unique startup
-            ideas and business models to impress a jury of experienced
-            professionals. With numerous startups flourishing in India, this
-            event seeks to nurture the growing spirit of entrepreneurship within
-            young minds. Making your team, investors and users believe in your
-            vision goes a long way in building a successful product with a
-            strong foundation. From getting funded to deploying the first
-            iteration of your product to the public, there’s only one road
-            that’s taken; Pitching
-            <br />‍
+            {`A pitch-deck competition that would involve crafting unique startup ideas and business models to impress a jury of experienced professionals. With numerous startups flourishing in India, this event seeks to nurture the growing spirit of entrepreneurship within young minds. Making your team, investors and users believe in your vision goes a long way in building a successful product with a strong foundation. From getting funded to deploying the first iteration of your product to the public, there’s only one road that’s taken; Pitching`}
+            <br />
           </p>
-          <div className="evet_price_wrap">
+          {/* <div className="evet_price_wrap">
             <div className="price_wrap">
               <p className="para_med_event">1st</p>
-              <p className="para_bold_event">10,000</p>
+              <p className="para_bold_event">Coming Soon</p>
             </div>
             <div className="price_wrap">
               <p className="para_med_event">2nd</p>
-              <p className="para_bold_event">10,000</p>
+              <p className="para_bold_event">Coming Soon</p>
             </div>
             <div className="price_wrap">
               <p className="para_med_event">3rd</p>
-              <p className="para_bold_event">10,000</p>
+              <p className="para_bold_event">Coming Soon</p>
             </div>
-          </div>
+          </div> */}
           <Link
             className="eventbtn w-button"
             href={`${check ? "/manage/impetus" : "/"}`}
           >
-            {`${check ? "Go to Dashboard" : "Go to Register"}`}
+            {`${check ? "Go to Dashboard" : "Register Now"}`}
           </Link>
         </div>
       </div>

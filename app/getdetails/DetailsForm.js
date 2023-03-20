@@ -108,20 +108,20 @@ export default function DetailsForm({ accessTokenBackend }) {
               of the entrepreneurship realm.
               <br />‍
             </p>
-            <div className="form_price_wrap">
+            {/* <div className="form_price_wrap">
               <div className="form_wrap">
                 <p className="para_med_form">1st</p>
-                <p className="para_bold">10,000</p>
+                <p className="para_bold">Coming Soon</p>
               </div>
               <div className="form_wrap">
                 <p className="para_med_form">2nd</p>
-                <p className="para_bold">10,000</p>
+                <p className="para_bold">Coming Soon</p>
               </div>
               <div className="form_wrap">
                 <p className="para_med_form">3rd</p>
-                <p className="para_bold">10,000</p>
+                <p className="para_bold">Coming Soon</p>
               </div>
-            </div>
+            </div> */}
           </div>
         </div>
         <div className="form_sec_r">
