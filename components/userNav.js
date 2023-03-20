@@ -9,7 +9,7 @@ function UserNav({ eventName }) {
     <>
       {" "}
       <div className="subnav">
-        <div className="left_sub">
+        <div className="left_sub ml-[-1.2rem] md:ml-[6rem]  lg:ml-[-3.4rem]">
           <button
             onClick={() => {
               router.push(`/manage/${eventName}`);
@@ -31,7 +31,7 @@ function UserNav({ eventName }) {
             onClick={(e) => {
               router.push(`/manage/${eventName}/user-received`);
             }}
-            className="recieved w-button"
+            className="recieved w-button mr-[1.5rem] "
           >
             Received
           </button>
