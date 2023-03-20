@@ -23,6 +23,7 @@ function AddMemberCard({ user, session, eventName }) {
           Authorization: `Bearer ${session.accessTokenBackend}`,
           "Access-Control-Allow-Origin": "*",
         },
+        cache: "no-store",
       }
     )
       .then((response) => response.json())

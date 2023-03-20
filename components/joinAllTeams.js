@@ -55,6 +55,7 @@ function JoinAllTeams({ session, eventName, userData, sentData }) {
             Authorization: `Bearer ${session.accessTokenBackend}`,
             "Access-Control-Allow-Origin": "*",
           },
+          cache: "no-store",
         }
       )
         .then((data) => data.json())
@@ -102,6 +103,7 @@ function JoinAllTeams({ session, eventName, userData, sentData }) {
             Authorization: `Bearer ${session.accessTokenBackend}`,
             "Access-Control-Allow-Origin": "*",
           },
+          cache: "no-store",
         }
       )
         .then((data) => data.json())
@@ -145,6 +147,7 @@ function JoinAllTeams({ session, eventName, userData, sentData }) {
         Authorization: `Bearer ${session.accessTokenBackend}`,
         "Access-Control-Allow-Origin": "*",
       },
+      cache: "no-store",
     })
       .then((data) => data.json())
       .then((data) => {

@@ -28,6 +28,7 @@ export default function CreateTeam({ session, eventName }) {
         Authorization: `Bearer ${session?.accessTokenBackend}`,
         "Access-Control-Allow-Origin": "*",
       },
+      cache: "no-store",
     })
       .then((data) => data.json())
       .then((data) => {
