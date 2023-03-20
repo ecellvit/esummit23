@@ -55,6 +55,7 @@ function JoinAllTeams({ session, eventName, userData, sentData }) {
             Authorization: `Bearer ${session.accessTokenBackend}`,
             "Access-Control-Allow-Origin": "*",
           },
+          cache: "no-store",
         }
       )
         .then((data) => data.json())
@@ -102,6 +103,7 @@ function JoinAllTeams({ session, eventName, userData, sentData }) {
             Authorization: `Bearer ${session.accessTokenBackend}`,
             "Access-Control-Allow-Origin": "*",
           },
+          cache: "no-store",
         }
       )
         .then((data) => data.json())
@@ -145,6 +147,7 @@ function JoinAllTeams({ session, eventName, userData, sentData }) {
         Authorization: `Bearer ${session.accessTokenBackend}`,
         "Access-Control-Allow-Origin": "*",
       },
+      cache: "no-store",
     })
       .then((data) => data.json())
       .then((data) => {
@@ -176,13 +179,13 @@ function JoinAllTeams({ session, eventName, userData, sentData }) {
   return (
     <>
       {" "}
-      <div class="teams_sec">
+      <div className="teams_sec">
         <ToastContainer></ToastContainer>
-        <div class="search">
-          <div class="w-form">
+        <div className="search">
+          <div className="w-form">
             <input
               type="text"
-              class="team w-input"
+              className="team w-input"
               maxlength="256"
               name="name-3"
               onChange={handleChange}
@@ -193,8 +196,8 @@ function JoinAllTeams({ session, eventName, userData, sentData }) {
             />
           </div>
         </div>
-        <div class="team_card_holder">
-          <div class="teamcard_cont">
+        <div className="team_card_holder">
+          <div className="teamcard_cont">
             {search(teamData, searchInput)?.map((x, index) => {
               if (shouldRender(sentData, x)) {
                 return (
@@ -209,9 +212,9 @@ function JoinAllTeams({ session, eventName, userData, sentData }) {
             })}
           </div>
         </div>
-        <div class="navigation_cont">
+        <div className="navigation_cont">
           <button
-            class="navigation_card_btn w-button text-black bg-white hover:bg-[#53B3B9] "
+            className="navigation_card_btn w-button text-black bg-white hover:bg-[#53B3B9] "
             onClick={() => {
               handlePreviousButtonClick();
             }}
@@ -219,7 +222,7 @@ function JoinAllTeams({ session, eventName, userData, sentData }) {
             Previous
           </button>
           <button
-            class="navigation_card_btn w-button text-black bg-white hover:bg-[#53B3B9] "
+            className="navigation_card_btn w-button text-black bg-white hover:bg-[#53B3B9] "
             onClick={() => {
               handleNextButtonClick();
             }}

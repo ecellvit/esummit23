@@ -88,28 +88,28 @@ function LeaderReceivedRequestCard({ request, eventName, session, teamId }) {
 
   return (
     <>
-      <div class="singlecard">
-        <div class="team_text">
-          <p class="team_details">
+      <div className="singlecard">
+        <div className="team_text">
+          <p className="team_details">
             Name: <br />
             {request.firstName} {request.lastName}
           </p>
 
-          <p class="team_details">
+          <p className="team_details">
             Email: <br />
             {request.email}
           </p>
         </div>
 
         <button
-          class="join_team w-button"
+          className="join_team w-button"
           onClick={(e) => handleAccept(request._id)}
         >
           {" "}
           Accept Request
         </button>
         <button
-          class="join_team w-button mt-2"
+          className="join_team w-button mt-2"
           onClick={(e) => handleDecline(request._id)}
         >
           {" "}

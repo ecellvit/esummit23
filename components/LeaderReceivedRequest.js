@@ -9,10 +9,10 @@ function LeaderReceivedReq({ eventName, session, requests, teamId }) {
   return (
     <>
       {" "}
-      <div class="teams_sec">
+      <div className="teams_sec">
         <ToastContainer />
-        <div class="team_card_holder">
-          <div class="teamcard_cont">
+        <div className="team_card_holder">
+          <div className="teamcard_cont">
             {requests.length ? (
               <div>
                 {requests.map((x) => {
@@ -30,11 +30,11 @@ function LeaderReceivedReq({ eventName, session, requests, teamId }) {
                 })}
               </div>
             ) : (
-              <div class="singlecard">
-                <div class="team_text">
-                  <p class="team_details">No requests Recieved</p>
+              <div className="singlecard">
+                <div className="team_text">
+                  <p className="team_details">No requests Recieved</p>
                 </div>
-                {/* <button class="join_team w-button ">Back</button> */}
+                {/* <button className="join_team w-button ">Back</button> */}
               </div>
             )}
           </div>

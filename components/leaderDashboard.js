@@ -19,6 +19,7 @@ export default function LeaderDashboard({ userData, eventName, session }) {
         Authorization: `Bearer ${session.accessTokenBackend}`,
         "Access-Control-Allow-Origin": "*",
       },
+      cache: "no-store",
     })
       .then((response) => response.json())
       .then((data) => {
@@ -83,15 +84,15 @@ export default function LeaderDashboard({ userData, eventName, session }) {
           <ToastContainer />
         </div>
       </div>{" "} */}
-      <div class="teams_sec">
+      <div className="teams_sec">
         <ToastContainer />
         <div className="mt-[10px]">
-          <div class="w-form text-center w-[100%] text-[2rem]">
+          <div className="w-form text-center w-[100%] text-[2rem]">
             Team Name : {userData.teamName}
           </div>
         </div>
-        <div class="team_card_holder">
-          <div class="teamcard_cont">
+        <div className="team_card_holder">
+          <div className="teamcard_cont">
             {userData?.members?.map((data) => {
               return (
                 <MemberCard
@@ -105,14 +106,14 @@ export default function LeaderDashboard({ userData, eventName, session }) {
             })}
           </div>
         </div>
-        <div class="navigation_cont ">
+        <div className="navigation_cont ">
           {userData?.members?.length < 4 ? (
             <button
               onClick={(e) => {
                 eventName = eventName.toLowerCase();
                 router.push(`/manage/${eventName}/add-members`);
               }}
-              class="navigation_card_btn w-button"
+              className="navigation_card_btn w-button"
             >
               Add Members
             </button>
@@ -120,7 +121,7 @@ export default function LeaderDashboard({ userData, eventName, session }) {
             <div></div>
           )}
           {/* <button
-            class="navigation_card_btn w-button"
+            className="navigation_card_btn w-button"
             onClick={(e) => {
               eventName = eventName.toLowerCase();
               router.push(`/manage/${eventName}/add-members`);
@@ -130,7 +131,7 @@ export default function LeaderDashboard({ userData, eventName, session }) {
             Add Members
           </button> */}
           <button
-            class="navigation_card_btn w-button !bg-red-700 w-40 text-white"
+            className="navigation_card_btn w-button !bg-red-700 w-40 text-white"
             onClick={(e) => handleDelete(userData._id)}
           >
             {" "}

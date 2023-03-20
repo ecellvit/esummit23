@@ -2,8 +2,7 @@ import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
 import NotLoggedIn from "../../components/NotLoggedIn";
 import DetailsForm from "./DetailsForm";
-import { signOut } from "next-auth/react";
-import { NextResponse } from 'next/server'
+import { redirect } from "next/navigation";
 
 async function getData(session) {
   if (session) {
@@ -25,11 +24,9 @@ async function getData(session) {
     );
 
     if (!res.ok) {
-      if (res.status === 401) {
-        signOut({ callbackUrl: "/" });
-      }
-      return NextResponse.redirect(new URL("/", req.url))
+      throw new Error("Failed to fetch data");
     }
+
     return res.json();
   }
 }
@@ -38,15 +35,18 @@ export default async function page() {
   const session = await getServerSession(authOptions);
 
   const response = await getData(session);
+
+  if (response?.hasFilledDetails) {
+    return redirect("/")
+  }
+
+  if (!session) {
+    return < NotLoggedIn />
+  }
+
   return (
-    <>
-      {!response?.hasFilledDetails ? (
-        <DetailsForm
-          accessTokenBackend={session?.accessTokenBackend}
-        ></DetailsForm>
-      ) : (
-        <NotLoggedIn></NotLoggedIn>
-      )}
-    </>
+    <DetailsForm
+      accessTokenBackend={session?.accessTokenBackend}
+    ></DetailsForm>
   );
 } 

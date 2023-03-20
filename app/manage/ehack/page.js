@@ -38,7 +38,7 @@ export default async function UserSent() {
   }
   return (
     <>
-      <div class="create_cont">
+      <div className="create_cont">
         <Taskbar eventName={eventName} />
         <Dashboard
           eventName={eventName}

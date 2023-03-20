@@ -69,25 +69,25 @@ function AddMember({ session, users, eventName, eventCode, sentData }) {
           })}
         </div>
       </div>{" "} */}
-      <div class="teams_sec">
+      <div className="teams_sec">
         <ToastContainer></ToastContainer>
-        <div class="search">
-          <div class="w-form">
+        <div className="search">
+          <div className="w-form">
             <input
               type="text"
-              class="team w-input"
+              className="team w-input"
               maxlength="256"
               name="name-3"
               data-name="Name 3"
-              placeholder="Search here"
+              placeholder="Search Users"
               onChange={handleChange}
               value={searchInput}
               id="name-3"
             />
           </div>
         </div>
-        <div class="team_card_holder">
-          <div class="teamcard_cont">
+        <div className="team_card_holder">
+          <div className="teamcard_cont">
             {search(users, searchInput)?.map((x, index) => {
               console.log(sentData);
               if (

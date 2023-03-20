@@ -9,6 +9,7 @@ import Header from "./Landing/Header";
 import Footer from "./Landing/Footer";
 import { getSession } from "@/lib/session";
 import Maintimeline from "./mainTimeline";
+import NotLoggedIn from "@/components/NotLoggedIn";
 
 async function getData() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/events`, {
@@ -34,9 +35,8 @@ async function getUserData(session) {
       cache: "no-store",
     });
     if (!res.ok) {
-      throw new Error("Failed to fetch data");
+      return "error"
     }
-
     return res.json();
   }
 }
@@ -46,7 +46,12 @@ export default async function Home() {
   const eventsArray = await eventData.events;
   const session = await getSession();
   const userData = await getUserData(session);
-  const userArray = userData?.user.registeredEvents;
+  const userArray = userData?.user?.registeredEvents;
+
+  if (userData === "error") {
+    return <NotLoggedIn />;
+  }
+
   return (
     <div className="bg-white">
       <Header></Header>

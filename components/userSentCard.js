@@ -51,23 +51,23 @@ function UserSentCard({ request, eventName, session }) {
   return (
     <>
       {" "}
-      <div class="singlecard">
-        <div class="team_text">
-          <p class="team_details">
+      <div className="singlecard">
+        <div className="team_text">
+          <p className="team_details">
             TeamName: <br />
             {request.teamId.teamName}
           </p>
-          <p class="team_details">
+          <p className="team_details">
             Team Leader: <br />
             {request?.teamId?.teamLeaderId?.email}
           </p>
-          {/* <p class="team_details">
+          {/* <p className="team_details">
         Email: <br />
         naitikjkapadia@gmail.com
       </p> */}
         </div>
         <button
-          class="join_team w-button"
+          className="join_team w-button"
           onClick={(e) => handleRemoveRequest(request.teamId?._id)}
         >
           {" "}

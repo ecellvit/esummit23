@@ -8,22 +8,22 @@ function UserNav({ eventName }) {
   return (
     <>
       {" "}
-      <div class="subnav">
-        <div class="left_sub">
+      <div className="subnav">
+        <div className="left_sub">
           <button
             onClick={() => {
               router.push(`/manage/${eventName}`);
             }}
-            class="managebtn w-button"
+            className="managebtn w-button"
           >
             Back
           </button>
-          <h1 class="subnav_h1"> {eventName.toUpperCase()}</h1>
+          <h1 className="subnav_h1"> {eventName.toUpperCase()}</h1>
         </div>
-        <div class="right_subnav">
+        <div className="right_subnav">
           <button
             onClick={(e) => router.push(`/manage/${eventName}/user-sent`)}
-            class="send w-button"
+            className="send w-button"
           >
             Sent
           </button>
@@ -31,7 +31,7 @@ function UserNav({ eventName }) {
             onClick={(e) => {
               router.push(`/manage/${eventName}/user-received`);
             }}
-            class="recieved w-button"
+            className="recieved w-button"
           >
             Received
           </button>

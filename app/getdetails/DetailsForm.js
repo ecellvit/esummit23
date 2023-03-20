@@ -88,39 +88,15 @@ export default function DetailsForm({ accessTokenBackend }) {
       />
       <div className="form_section">
         <div className="form_sec_l">
-          <h1 className="form_l_h1">
-            E-Hack
-            <br />‍
-          </h1>
-          <div className="form_desc_wrapper">
-            <p className="form_date">Date &amp; Time</p>
-            <p className="form_para">
-              Venue
+          <div className="form_logo">
+            <img src="logo_ecel.png" alt="logo" className="image" />
+          </div>
+          <div className="text_form">
+            <h1 className="form_l_h1">
+              E-Hack
               <br />‍
-            </p>
-            <p className="form_para_small">
-              Prominent motivational speakers from the entrepreneurial
-              environment will be delivering a talk to inspire the students and
-              promote the ethos of entrepreneurship in the campus. This session
-              will also be open to questions from the audience, thus furnishing
-              the minds of the students with vivid ideas and a clearer picture
-              of the entrepreneurship realm.
-              <br />‍
-            </p>
-            {/* <div className="form_price_wrap">
-              <div className="form_wrap">
-                <p className="para_med_form">1st</p>
-                <p className="para_bold">Coming Soon</p>
-              </div>
-              <div className="form_wrap">
-                <p className="para_med_form">2nd</p>
-                <p className="para_bold">Coming Soon</p>
-              </div>
-              <div className="form_wrap">
-                <p className="para_med_form">3rd</p>
-                <p className="para_bold">Coming Soon</p>
-              </div>
-            </div> */}
+            </h1>
+            <p className="form_date">30th March-2nd april</p>
           </div>
         </div>
         <div className="form_sec_r">

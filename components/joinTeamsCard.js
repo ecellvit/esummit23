@@ -1,7 +1,7 @@
 "use client";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
-import "../styles/landing.css"
+import "../styles/landing.css";
 
 // import Avatar, { genConfig } from 'react-nice-avatar'
 
@@ -20,6 +20,7 @@ function JoinTeamsCard({ teamData, session, eventName }) {
           Authorization: `Bearer ${session.accessTokenBackend}`,
           "Access-Control-Allow-Origin": "*",
         },
+        cache: "no-store",
       }
     )
       .then((response) => response.json())
@@ -58,27 +59,25 @@ function JoinTeamsCard({ teamData, session, eventName }) {
     }
   });
 
-  console.log(teamLeader);
-
   return (
     <>
-      <div class="singlecard">
-        <div class="team_text">
-          <p class="team_details font-semibold break-all">
+      <div className="singlecard">
+        <div className="team_text">
+          <p className="team_details font-semibold break-all">
             TeamName : {" "}
             {teamData?.teamName}
           </p>
-          <p class="team_details font-semibold break-all">
+          <p className="team_details font-semibold break-all">
             Team Leader : {" "}
-            {teamLeader?.email}
+            {teamLeader?.firstName + " " + teamLeader?.lastName}
           </p>
-          <p class="team_details font-semibold break-all">
+          <p className="team_details font-semibold break-all">
             Email : {" "}
             {teamLeader?.email}
           </p>
         </div>
         <button
-          class="join_team w-button  text-white "
+          className="join_team w-button  text-white "
           onClick={(e) => handleJoinReq(teamData?._id)}
         >
           Join Team

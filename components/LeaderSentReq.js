@@ -10,10 +10,10 @@ function LeaderSentReq({ eventName, session, requests }) {
   const router = useRouter();
   return (
     <>
-      <div class="teams_sec">
+      <div className="teams_sec">
         <ToastContainer />
-        <div class="team_card_holder">
-          <div class="teamcard_cont">
+        <div className="team_card_holder">
+          <div className="teamcard_cont">
             {requests.length ? (
               <div className={styles.Teams}>
                 {requests.map((x) => {
@@ -28,11 +28,11 @@ function LeaderSentReq({ eventName, session, requests }) {
                 })}
               </div>
             ) : (
-              <div class="singlecard">
-                <div class="team_text">
-                  <p class="team_details">No requests sent</p>
+              <div className="singlecard">
+                <div className="team_text">
+                  <p className="team_details">No requests sent</p>
                 </div>
-                {/* <button class="join_team w-button ">Back</button> */}
+                {/* <button className="join_team w-button ">Back</button> */}
               </div>
             )}
           </div>

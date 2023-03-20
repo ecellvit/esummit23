@@ -8,10 +8,10 @@ function UserSentComponent({ eventName, requests, session }) {
   return (
     <>
       {" "}
-      <div class="team_card_holder">
+      <div className="team_card_holder">
         {" "}
         <ToastContainer />
-        <div class="teamcard_cont">
+        <div className="teamcard_cont">
           {requests.length ? (
             requests.map((x) => {
               return (
@@ -24,11 +24,11 @@ function UserSentComponent({ eventName, requests, session }) {
               );
             })
           ) : (
-            <div class="singlecard">
-              <div class="team_text">
-                <p class="team_details">No requests </p>
+            <div className="singlecard">
+              <div className="team_text">
+                <p className="team_details">No requests </p>
               </div>
-              {/* <button class="join_team w-button ">Back</button> */}
+              {/* <button className="join_team w-button ">Back</button> */}
             </div>
           )}
         </div>

@@ -1,7 +1,18 @@
+"use client";
 import Link from "next/link";
 import React from "react";
+import { signIn, signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 export default function Section2() {
+  const router = useRouter();
+  const session = useSession();
+  console.log(session);
+  const loginHandler = () => {
+    signIn("google", {
+      callbackUrl: "/getdetails",
+    });
+  };
   return (
     <div className="about_sec">
       <div className="about_wrapper">
@@ -20,9 +31,18 @@ export default function Section2() {
             enlivening events, enthralling workshops, and exciting expos, and
             the perfect panel of spectacular speakers.
           </p>
-          <Link href="#" className="primary_btn w-button">
-            View Events
-          </Link>
+          {/* <Link href="#" className="primary_btn w-button">
+            Get Started{" "}
+          </Link> */}
+          <button
+            onClick={() => {
+              session.data ? router.push("/schedule") : loginHandler();
+            }}
+            className="primary_btn w-button"
+            href="#"
+          >
+            {session.data ? "View Registered Events" : "Get Started"}
+          </button>
         </div>
       </div>
     </div>

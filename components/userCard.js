@@ -3,16 +3,16 @@ import React from "react";
 function UserCard({ data, userRole }) {
   return (
     <>
-      <div class="singlecard">
-        <div class="team_text">
-          <p class="team_details">
+      <div className="singlecard">
+        <div className="team_text">
+          <p className="team_details">
             Email: <br />
             {data.email}
           </p>
           {userRole ? (
-            <p class="team_details">Member</p>
+            <p className="team_details">Member</p>
           ) : (
-            <p class="team_details">Leader</p>
+            <p className="team_details">Leader</p>
           )}
         </div>
       </div>
