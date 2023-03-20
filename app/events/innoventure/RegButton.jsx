@@ -75,7 +75,6 @@ export default function RegButton({ userArray, check }) {
     refreshData(router, path);
     return;
   }, []);
-
   return (
     <button
       className="eventbtn w-button"
@@ -84,18 +83,46 @@ export default function RegButton({ userArray, check }) {
         if (userArray) {
           console.log(userArray);
           if (userArray[2]) {
-            router.push("/manage/innoventure");
+            router.push("/manage/impetus");
           } else {
+            if (userArray[0] != 1) {
+              console.log("here");
+              return handleRegister(2);
+            }
+          }
+        } else {
+          if (userArray[0] != 1) {
             console.log("here");
             return handleRegister(2);
           }
-        } else {
-          console.log("here");
-          return handleRegister(2);
         }
       }}
     >
-      {`${check ? "Go to Dashboard" : "Register Now"}`}
+      {userArray[0] === 1
+        ? "Clashing With Impetus"
+        : `${check ? "Go to Dashboard" : "Register Now"}`}
     </button>
   );
+  // return (
+  //   <button
+  //     className="eventbtn w-button"
+  //     onClick={() => {
+  //       // console.log(isRegistered);
+  //       if (userArray) {
+  //         console.log(userArray);
+  //         if (userArray[2]) {
+  //           router.push("/manage/innoventure");
+  //         } else {
+  //           console.log("here");
+  //           return handleRegister(2);
+  //         }
+  //       } else {
+  //         console.log("here");
+  //         return handleRegister(2);
+  //       }
+  //     }}
+  //   >
+  //     {`${check ? "Go to Dashboard" : "Register Now"}`}
+  //   </button>
+  // );
 }

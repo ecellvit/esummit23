@@ -86,16 +86,22 @@ export default function RegButton({ userArray, check }) {
           if (userArray[0]) {
             router.push("/manage/impetus");
           } else {
+            if (userArray[2] != 1) {
+              console.log("here");
+              return handleRegister(0);
+            }
+          }
+        } else {
+          if (userArray[2] != 1) {
             console.log("here");
             return handleRegister(0);
           }
-        } else {
-          console.log("here");
-          return handleRegister(0);
         }
       }}
     >
-      {`${check ? "Go to Dashboard" : "Register Now"}`}
+      {userArray[2] === 1
+        ? "Clashing With Innoventure"
+        : `${check ? "Go to Dashboard" : "Register Now"}`}
     </button>
   );
 }
