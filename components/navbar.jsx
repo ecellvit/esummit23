@@ -76,6 +76,7 @@ export default function Navbar({ session }) {
           <div className="flex flex-row items-center justify-between p-4">
             <Link
               className="dark-mode:text-white focus:shadow-outline rounded-lg text-lg font-semibold tracking-widest text-gray-900 focus:outline-none"
+              onClick={()=>{setRespHidden(true)}}
               href={"/"}
             >
               Esummit
@@ -113,6 +114,7 @@ export default function Navbar({ session }) {
             <Link
               className={`dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 focus:shadow-outline mt-2 flex w-full flex-row items-center rounded-lg bg-transparent px-4 py-2 text-left text-sm font-semibold hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0 md:ml-4 md:inline md:w-auto`}
               style={{ backgroundColor: pathname === "/" && "#E5E7EB" }}
+              onClick={()=>{setRespHidden(true)}}
               href="/"
             >
               Home
@@ -123,6 +125,7 @@ export default function Navbar({ session }) {
                 style={{
                   backgroundColor: pathname === "/schedule" && "#E5E7EB",
                 }}
+                onClick={()=>{setRespHidden(true)}}
                 href="/schedule"
               >
                 Schedule
@@ -159,6 +162,7 @@ export default function Navbar({ session }) {
                   <div className="dark-mode:bg-gray-800 rounded-md bg-white px-2 py-2 shadow">
                     <Link
                       className="dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 focus:shadow-outline mt-2 block rounded-lg bg-transparent px-4 py-2 text-sm font-semibold hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0"
+                      onClick={()=>{setRespHidden(true)}}
                       href="/events/ehack"
                       style={{
                         backgroundColor:
@@ -169,6 +173,7 @@ export default function Navbar({ session }) {
                     </Link>
                     <Link
                       className="dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 focus:shadow-outline mt-2 block rounded-lg bg-transparent px-4 py-2 text-sm font-semibold hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0"
+                      onClick={()=>{setRespHidden(true)}}
                       href="/events/innoventure"
                       style={{
                         backgroundColor:
@@ -179,6 +184,7 @@ export default function Navbar({ session }) {
                     </Link>
                     <Link
                       className="dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 focus:shadow-outline mt-2 block rounded-lg bg-transparent px-4 py-2 text-sm font-semibold hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0"
+                      onClick={()=>{setRespHidden(true)}}
                       href="/events/impetus"
                       style={{
                         backgroundColor:
@@ -189,6 +195,7 @@ export default function Navbar({ session }) {
                     </Link>
                     <Link
                       className="dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 focus:shadow-outline mt-2 block rounded-lg bg-transparent px-4 py-2 text-sm font-semibold hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0"
+                      onClick={()=>{setRespHidden(true)}}
                       href="/events/etalk"
                       style={{
                         backgroundColor:
@@ -199,6 +206,7 @@ export default function Navbar({ session }) {
                     </Link>
                     {/* <Link
                       className="dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 focus:shadow-outline mt-2 block rounded-lg bg-transparent px-4 py-2 text-sm font-semibold hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0"
+                      onClick={()=>{setRespHidden(true)}}
                       href="/events/ehack"
                       style={{
                         backgroundColor:
@@ -209,6 +217,7 @@ export default function Navbar({ session }) {
                     </Link> */}
                     <Link
                       className="dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 focus:shadow-outline mt-2 block rounded-lg bg-transparent px-4 py-2 text-sm font-semibold hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0"
+                      onClick={()=>{setRespHidden(true)}}
                       href="/events/trading"
                       style={{
                         backgroundColor:
@@ -255,6 +264,7 @@ export default function Navbar({ session }) {
                       {regArray[1] ? (
                         <Link
                           className="bg-gray-200 dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 focus:shadow-outline mt-2 block rounded-lg bg-transparent px-4 py-2 text-sm font-semibold hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0"
+                          onClick={()=>{setRespHidden(true)}}
                           href="/manage/ehack"
                           style={{
                             backgroundColor:
@@ -267,6 +277,7 @@ export default function Navbar({ session }) {
                       {regArray[2] ? (
                         <Link
                           className="dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 focus:shadow-outline mt-2 block rounded-lg bg-transparent px-4 py-2 text-sm font-semibold hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0"
+                          onClick={()=>{setRespHidden(true)}}
                           href="/manage/innoventure"
                           style={{
                             backgroundColor:
@@ -279,6 +290,7 @@ export default function Navbar({ session }) {
                       {regArray[0] ? (
                         <Link
                           className="dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 focus:shadow-outline mt-2 block rounded-lg bg-transparent px-4 py-2 text-sm font-semibold hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0"
+                          onClick={()=>{setRespHidden(true)}}
                           href="/manage/impetus"
                           style={{
                             backgroundColor:
@@ -295,7 +307,7 @@ export default function Navbar({ session }) {
             )}
             <button
               onClick={() => {
-                session ? logoutHandler() : loginHandler();
+                session ? logoutHandler() : loginHandler();setRespHidden(true)
               }}
               className="dark-mode:bg-transparent dark-mode:hover:bg-gray-600 dark-mode:focus:bg-gray-600 dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:text-gray-200 focus:shadow-outline mt-2 rounded-lg bg-transparent px-4 py-2 text-sm font-semibold hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0 md:ml-4"
               href="#"
