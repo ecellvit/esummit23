@@ -34,7 +34,7 @@ async function getUserData(token) {
     return res.json();
 }
 
-async function getDetails(token,idToken,email){
+async function getDetails(token, idToken, email) {
     const res = await fetch(
         `${process.env.NEXT_PUBLIC_SERVER}/api/user/details`,
         {
@@ -42,7 +42,7 @@ async function getDetails(token,idToken,email){
             body: JSON.stringify({
                 token: idToken,
                 email: email,
-              }),
+            }),
             headers: {
                 'Content-Type': 'application/json',
                 Authorization: `Bearer ${token}`,
@@ -65,25 +65,25 @@ export default withAuth(
     async function middleware(req) {
         // const session = await getServerSession(authOptions);
         const token = await getToken({ req });
-        console.log("---------------------------",token);
+        console.log("---------------------------", token);
         const userData = await getUserData(token?.accessTokenFromBackend);
         const idToken = token.idToken;
         const email = token.user.email;
-        const userDetails = await getDetails(token?.accessTokenFromBackend,idToken,email);
-        console.log("helloooo!!!!!!",userData);
-        console.log("yoyooy!!!",userDetails);
+        const userDetails = await getDetails(token?.accessTokenFromBackend, idToken, email);
+        console.log("helloooo!!!!!!", userData);
+        console.log("yoyooy!!!", userDetails);
         const hasFilledDetails = userDetails.hasFilledDetails;
         const eHackTeamRole = userData.user.eHackTeamRole;
         const impetusTeamRole = userData.user.impetusTeamRole;
         const innoventureTeamRole = userData.user.innoventureTeamRole;
-        
-        const userArray = userData?.user.registeredEvents;
-        console.log("helloooo!!!!!!",userArray);
 
-        if(req.nextUrl.pathname.startsWith("/")){
+        const userArray = userData?.user.registeredEvents;
+        console.log("helloooo!!!!!!", userArray);
+
+        if (idToken && req.nextUrl.pathname.startsWith("/")) {
             console.log("working!!!!!!!")
-            console.log("------------------------",hasFilledDetails)
-            if(!hasFilledDetails){
+            console.log("------------------------", hasFilledDetails)
+            if (!hasFilledDetails) {
                 return NextResponse.redirect(new URL("/getdetails", req.url))
             }
         }
@@ -93,26 +93,26 @@ export default withAuth(
                 // return NextResponse.redirect(req.nextUrl)
                 return NextResponse.redirect(new URL("/", req.url))
             }
-            console.log("eHackTeamRole!!!",eHackTeamRole);
+            console.log("eHackTeamRole!!!", eHackTeamRole);
 
             //Leader routes block for User and Member
-            if((eHackTeamRole === null || eHackTeamRole === 1)  && (req.nextUrl.pathname.startsWith("/manage/ehack/leader-sent") || req.nextUrl.pathname.startsWith("/manage/ehack/leader-received") || req.nextUrl.pathname.startsWith("/manage/ehack/add-members") )){
+            if ((eHackTeamRole === null || eHackTeamRole === 1) && (req.nextUrl.pathname.startsWith("/manage/ehack/leader-sent") || req.nextUrl.pathname.startsWith("/manage/ehack/leader-received") || req.nextUrl.pathname.startsWith("/manage/ehack/add-members"))) {
                 req.nextUrl.pathname = "/"
                 // return NextResponse.redirect(req.nextUrl)
                 return NextResponse.redirect(new URL("/", req.url))
             }
 
             //Member routes block for User and Leader
-            if((eHackTeamRole === 0)  && (req.nextUrl.pathname.startsWith("/manage/ehack/user-sent") || req.nextUrl.pathname.startsWith("/manage/ehack/user-received") || req.nextUrl.pathname.startsWith("/manage/ehack/received-join-teams") )){
+            if ((eHackTeamRole === 0) && (req.nextUrl.pathname.startsWith("/manage/ehack/user-sent") || req.nextUrl.pathname.startsWith("/manage/ehack/user-received") || req.nextUrl.pathname.startsWith("/manage/ehack/received-join-teams"))) {
                 req.nextUrl.pathname = "/"
                 // return NextResponse.redirect(req.nextUrl)
                 return NextResponse.redirect(new URL("/", req.url))
             }
 
         }
-        
+
         else if (req.nextUrl.pathname.startsWith("/manage/impetus")) {
-            
+
             if (userArray[2] === 1) {
                 req.nextUrl.pathname = "/"
                 // return NextResponse.redirect(req.nextUrl)
@@ -126,14 +126,14 @@ export default withAuth(
             }
 
             //Leader routes block for User and Member
-            if((impetusTeamRole === null || impetusTeamRole === 1)  && (req.nextUrl.pathname.startsWith("/manage/impetus/leader-sent") || req.nextUrl.pathname.startsWith("/manage/impetus/leader-received") || req.nextUrl.pathname.startsWith("/manage/impetus/add-members") )){
+            if ((impetusTeamRole === null || impetusTeamRole === 1) && (req.nextUrl.pathname.startsWith("/manage/impetus/leader-sent") || req.nextUrl.pathname.startsWith("/manage/impetus/leader-received") || req.nextUrl.pathname.startsWith("/manage/impetus/add-members"))) {
                 req.nextUrl.pathname = "/"
                 // return NextResponse.redirect(req.nextUrl)
                 return NextResponse.redirect(new URL("/", req.url))
             }
 
-             //User routes block for member and Leader
-             if((impetusTeamRole === 0)  && (req.nextUrl.pathname.startsWith("/manage/impetus/user-sent") || req.nextUrl.pathname.startsWith("/manage/impetus/user-received") || req.nextUrl.pathname.startsWith("/manage/impetus/received-join-teams") )){
+            //User routes block for member and Leader
+            if ((impetusTeamRole === 0) && (req.nextUrl.pathname.startsWith("/manage/impetus/user-sent") || req.nextUrl.pathname.startsWith("/manage/impetus/user-received") || req.nextUrl.pathname.startsWith("/manage/impetus/received-join-teams"))) {
                 req.nextUrl.pathname = "/"
                 // return NextResponse.redirect(req.nextUrl)
                 return NextResponse.redirect(new URL("/", req.url))
@@ -155,21 +155,31 @@ export default withAuth(
             }
 
             //Leader routes block for User and Member
-            if((innoventureTeamRole === null || innoventureTeamRole === 1)  && (req.nextUrl.pathname.startsWith("/manage/innoventure/leader-sent") || req.nextUrl.pathname.startsWith("/manage/innoventure/leader-received") || req.nextUrl.pathname.startsWith("/manage/innoventure/add-members") )){
+            if ((innoventureTeamRole === null || innoventureTeamRole === 1) && (req.nextUrl.pathname.startsWith("/manage/innoventure/leader-sent") || req.nextUrl.pathname.startsWith("/manage/innoventure/leader-received") || req.nextUrl.pathname.startsWith("/manage/innoventure/add-members"))) {
                 req.nextUrl.pathname = "/"
                 // return NextResponse.redirect(req.nextUrl)
                 return NextResponse.redirect(new URL("/", req.url))
             }
 
             //User routes block for member and Leader
-            if((innoventureTeamRole === 0)  && (req.nextUrl.pathname.startsWith("/manage/innoventure/user-sent") || req.nextUrl.pathname.startsWith("/manage/innoventure/user-received") || req.nextUrl.pathname.startsWith("/manage/innoventure/received-join-teams") )){
+            if ((innoventureTeamRole === 0) && (req.nextUrl.pathname.startsWith("/manage/innoventure/user-sent") || req.nextUrl.pathname.startsWith("/manage/innoventure/user-received") || req.nextUrl.pathname.startsWith("/manage/innoventure/received-join-teams"))) {
                 req.nextUrl.pathname = "/"
                 // return NextResponse.redirect(req.nextUrl)
                 return NextResponse.redirect(new URL("/", req.url))
             }
         }
-        return null;
+        return NextResponse.redirect(new URL("/", req.url));
+    },
+    {
+        callbacks: {
+            async authorized() {
+                // This is a work-around for handling redirect on auth pages.
+                // We return true here so that the middleware function above
+                // is always called.
+                return true
+            },
+        },
     }
 )
 
-export const config = { matcher: ["/schedule", "/manage/:path*"] }
+export const config = { matcher: ["/:path+", "/schedule", "/manage/:path*"] };
