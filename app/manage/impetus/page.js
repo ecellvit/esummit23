@@ -34,7 +34,6 @@ export default async function ManagePage() {
   if (userData) {
     hasTeam = true;
   }
-  if (hasDetailsFIiled) {
     return (
       <>
         <NotyNav eventName={eventName} />
@@ -47,7 +46,4 @@ export default async function ManagePage() {
         />
       </>
     );
-  } else {
-    <NotFilledDetails />;
-  }
 }

@@ -28,12 +28,10 @@ export default async function ManagePage() {
   const data = await getUserData(session);
   const userData = data.user[eventName + "TeamId"];
   const userRole = data.user[eventName + "TeamRole"];
-
-  if (hasDetailsFIiled) {
     let hasTeam = false;
     if (userData) {
       hasTeam = true;
-    }
+
     return (
       <>
         <NotyNav eventName={eventName} />
@@ -46,7 +44,5 @@ export default async function ManagePage() {
         />
       </>
     );
-  } else {
-    return <NotFilledDetails />;
-  }
+  } 
 }
