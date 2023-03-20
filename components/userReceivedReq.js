@@ -1,3 +1,4 @@
+"use client";
 import UserReceivedReqCard from "./UserReceivedReqCard";
 import styles from "../styles/joinTeams.module.css";
 import { ToastContainer } from "react-toastify";
