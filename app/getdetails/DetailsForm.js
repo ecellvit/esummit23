@@ -49,10 +49,9 @@ export default function DetailsForm({ accessTokenBackend }) {
       .then((data) => {
         setisLoading(false);
         if (data.error?.errorCode) {
-          if(data.error.errorCode === 401){
+          if (data.error.errorCode === 401) {
             signOut({ callbackUrl: "/" });
-          }
-          else{
+          } else {
             router.push("/");
             toast.error(`${data.message}`, {
               position: "top-right",
@@ -133,50 +132,50 @@ export default function DetailsForm({ accessTokenBackend }) {
               method="get"
               className="form_cont"
             >
-              <label for="name" className="text_label">
+              <label htmlFor="name" className="text_label">
                 First name
               </label>
               <input
                 type="text"
                 ref={fnameRef}
                 className="input_form w-input"
-                maxlength="256"
+                maxLength="256"
                 name="fname"
                 placeholder="Enter Your first name here"
                 id="fname"
               />
-              <label for="lastn" className="text_label">
+              <label htmlFor="lastn" className="text_label">
                 Last Name
               </label>
               <input
                 ref={lnameRef}
                 type="text"
                 className="input_form w-input"
-                maxlength="256"
+                maxLength="256"
                 name="lastn"
                 placeholder="Enter Your last name here"
                 id="lastn"
               />
-              {/* <label for="name-3" className="text_label">
+              {/* <label htmlFor="name-3" className="text_label">
           Email-ID
         </label>
         <input
           type="text"
           className="input_form w-input"
-          maxlength="256"
+          maxLength="256"
           name="name-3"
           data-name="Name 3"
           placeholder="Your email here"
           id="name-3"
         /> */}
-              <label for="mob" className="text_label">
+              <label htmlFor="mob" className="text_label">
                 Mobile number
               </label>
               <input
                 ref={mobileNumberRef}
                 type="number"
                 className="input_form w-input"
-                maxlength="256"
+                maxLength="256"
                 name="mob"
                 placeholder="Your phone no. here"
                 id="mob"

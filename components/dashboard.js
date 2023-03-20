@@ -1,9 +1,15 @@
-import CreateTeam from './createTeam'
-import LeaderDashboard from './leaderDashboard'
-import MemberDashboard from './memberDashboard'
+import CreateTeam from "./createTeam";
+import LeaderDashboard from "./leaderDashboard";
+import MemberDashboard from "./memberDashboard";
 
-
-export default function Dashboard({ eventName, hasTeam, userData, userRole, session }) {
+import "../styles/landing.css";
+export default function Dashboard({
+  eventName,
+  hasTeam,
+  userData,
+  userRole,
+  session,
+}) {
   return hasTeam ? (
     userRole ? (
       <MemberDashboard
@@ -21,5 +27,5 @@ export default function Dashboard({ eventName, hasTeam, userData, userRole, sess
     )
   ) : (
     <CreateTeam eventName={eventName} session={session} />
-  )
+  );
 }

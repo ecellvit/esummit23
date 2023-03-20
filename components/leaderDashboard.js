@@ -83,7 +83,7 @@ export default function LeaderDashboard({ userData, eventName, session }) {
           <ToastContainer />
         </div>
       </div>{" "} */}
-      <div class="teams_sec mt-[-5vh]">
+      <div class="teams_sec ">
         <ToastContainer />
         <div class="search">
           <div class="w-form text-center w-[100%] text-[2rem]">
@@ -105,7 +105,7 @@ export default function LeaderDashboard({ userData, eventName, session }) {
             })}
           </div>
         </div>
-        <div class="navigation_cont mt-[-10vh]">
+        <div class="navigation_cont ">
           {userData?.members?.length < 4 ? (
             <button
               onClick={(e) => {

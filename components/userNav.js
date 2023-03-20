@@ -33,7 +33,7 @@ function UserNav({ eventName }) {
             }}
             class="recieved w-button"
           >
-            Recieved
+            Received
           </button>
         </div>
       </div>

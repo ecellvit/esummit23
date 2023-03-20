@@ -5,7 +5,7 @@ import refreshData from "@/app/utils/refresh";
 import UserCard from "./userCard";
 import MemberCard from "./memberCard";
 import { usePathname, useRouter } from "next/navigation";
-
+import "../styles/landing.css";
 export default function MemberDashboard({ userData, eventName, session }) {
   const router = useRouter();
   const path = usePathname();
@@ -82,7 +82,7 @@ export default function MemberDashboard({ userData, eventName, session }) {
             })}
           </div>
         </div>
-        <div class="navigation_cont mt-[-10vh]">
+        <div class="navigation_cont ">
           {/* <button
             class="navigation_card_btn w-button"
             onClick={(e) => {
@@ -94,7 +94,7 @@ export default function MemberDashboard({ userData, eventName, session }) {
             Add Members
           </button> */}
           <button
-            class="navigation_card_btn w-button !bg-red-700 w-40 text-white"
+            class="navigation_card_btn w-button !bg-red-700  text-white"
             onClick={(e) => handleLeave(userData._id)}
           >
             {" "}

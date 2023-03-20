@@ -2,6 +2,7 @@ import "../../../styles/landing.css";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import Link from "next/link";
+import RegButton from "./RegButton";
 
 async function getUserData(token) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user`, {
@@ -35,13 +36,21 @@ export default async function Home() {
           Innoventure
           <br />
         </h1>
-        <p className="event_date mt-8">Date &amp; Time: 2nd April 2023, 10:00 AM</p>
+        <p className="event_date mt-8">
+          Date &amp; Time: 2nd April 2023, 10:00 AM
+        </p>
         <p className="event_para">
           Venue: Sarojini Naidu SJT
           <br />
         </p>
         <p className="form_para_small">
-          A business simulation event which gives the participants an entrepreneurial ecosystem and platform to deploy their skills and ideas about the aspects of product development, business analysis, while inculcating knowledge about the trends in the current market and economic conditions faced by business owners of all sizes everyday. Innoventure is your portal to a world full of possibilities and creative problem solving.
+          A business simulation event which gives the participants an
+          entrepreneurial ecosystem and platform to deploy their skills and
+          ideas about the aspects of product development, business analysis,
+          while inculcating knowledge about the trends in the current market and
+          economic conditions faced by business owners of all sizes everyday.
+          Innoventure is your portal to a world full of possibilities and
+          creative problem solving.
           <br />
         </p>
         {/* <div className="evet_price_wrap">
@@ -58,13 +67,7 @@ export default async function Home() {
             <p className="para_bold_event">Coming Soon</p>
           </div>
         </div> */}
-
-        <Link
-          className="eventbtn w-button"
-          href={`${check ? "/manage/innoventure" : "/"}`}
-        >
-          {`${check ? "Go to Dashboard" : "Register Now"}`}
-        </Link>
+        <RegButton check={check} userArray={userArray} />
       </div>
     </div>
   );
