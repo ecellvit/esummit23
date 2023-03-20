@@ -10,9 +10,6 @@ import refreshData from "../utils/refresh";
 export default function NewCard({ event, id, isRegistered }) {
   const path = usePathname();
   const router = useRouter();
-  const refreshData = () => {
-    router.replace(path);
-  };
   const { data: session, status } = useSession();
   const handleRegisterwithLogin = (id) => {
     // console.log("clicked");
@@ -56,8 +53,8 @@ export default function NewCard({ event, id, isRegistered }) {
           });
           return false;
         }
-
         toast("Event registered Successfully");
+        refreshData(router, path);
         router.push(`/schedule`);
         return true;
       });
@@ -73,7 +70,6 @@ export default function NewCard({ event, id, isRegistered }) {
       }
     }
     refreshData(router, path);
-
     return;
   }, []);
 
