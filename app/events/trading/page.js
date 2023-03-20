@@ -35,42 +35,36 @@ export default async function Home() {
       <div className="event_wrapper">
         <h1 className="event_h1">
           Trading Workshop
-          <br />‍
+          <br />
         </h1>
-        <p className="event_date">Date &amp; Time</p>
+        <p className="event_date mt-8">Date &amp; Time : 01st April 2023, 4:00 PM</p>
         <p className="event_para">
-          Venue
-          <br />‍
+          Venue : Ambedkar Auditorium
+          <br />
         </p>
         <p className="form_para_small">
-          A concrete talk session featuring well-known figures from the industry
-          to provide you with a deeper understanding of the entrepreneurial
-          journey. These insightful, captivating, and interactive speeches will
-          act as a portal to their grind and hard work will definitely leave you
-          inspired. The session will also be open to questions, thus furnishing
-          the minds of the students with vivid ideas and a clearer picture of
-          the entrepreneurship realm.
-          <br />‍
+          From spotting trends to developing effective risk management strategies to maximizing profits, get ready to take your trading game to the next level.
+          <br />
         </p>
-        <div className="evet_price_wrap">
+        {/* <div className="evet_price_wrap">
           <div className="price_wrap">
             <p className="para_med_event">1st</p>
-            <p className="para_bold_event">10,000</p>
+            <p className="para_bold_event">Coming Soon</p>
           </div>
           <div className="price_wrap">
             <p className="para_med_event">2nd</p>
-            <p className="para_bold_event">10,000</p>
+            <p className="para_bold_event">Coming Soon</p>
           </div>
           <div className="price_wrap">
             <p className="para_med_event">3rd</p>
-            <p className="para_bold_event">10,000</p>
+            <p className="para_bold_event">Coming Soon</p>
           </div>
-        </div>
+        </div> */}
         <Link
           className="eventbtn w-button"
           href={`${check ? "/schedule" : "/"}`}
         >
-          {`${check ? "Go to Schedule" : "Go to Dashboard"}`}
+          {`${check ? "Go to Schedule" : "Register Now"}`}
         </Link>
       </div>
     </div>
