@@ -5,7 +5,7 @@ import DetailsForm from "./DetailsForm";
 import { signOut } from "next-auth/react";
 import { NextResponse } from 'next/server'
 
-async function getData() {
+async function getData(session) {
   if (session) {
     const res = await fetch(
       `${process.env.NEXT_PUBLIC_SERVER}/api/user/details`,
@@ -37,12 +37,12 @@ async function getData() {
 export default async function page() {
   const session = await getServerSession(authOptions);
 
-  const response = session ?? await getData(session);
+  const response = await getData(session);
   return (
     <>
       {!response?.hasFilledDetails ? (
         <DetailsForm
-          accessTokenBackend={session.accessTokenBackend}
+          accessTokenBackend={session?.accessTokenBackend}
         ></DetailsForm>
       ) : (
         <NotLoggedIn></NotLoggedIn>
