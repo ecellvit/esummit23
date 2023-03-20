@@ -83,7 +83,7 @@
     font-family: Inter, sans-serif;
   }
   .about_h1 {
-    @apply text-black text-5xl leading-[44px] font-medium text-left my-[3vh] mt-[40px];
+    @apply text-black text-5xl leading-[44px] font-medium text-left my-[3vh] mt-[10vh];
     font-family: Inter, sans-serif;
   }
   .about_h1.sound {
