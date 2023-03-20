@@ -66,8 +66,8 @@ export default async function JoinTeams() {
   const session = await getServerSession(authOptions);
   const userData = await getUserData(session);
   const sentData = await requestSentData(session);
-  console.log(sentData.requests);
-  // console.log("userID",userData?.user)
+  //console.log(sentData.requests);
+  // //console.log("userID",userData?.user)
   const data = await getAllteams(session, 1);
   //   const requests = data.requests;
   return (

@@ -41,7 +41,7 @@ export default async function Home() {
   const userData = await getUserData(session);
   const userArray = userData?.user.registeredEvents;
 
-  // console.log(userArray);
+  // //console.log(userArray);
   return (
     <>
       <Timeline

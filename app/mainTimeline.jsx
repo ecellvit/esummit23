@@ -15,8 +15,8 @@ const eventCodes = [
 ];
 
 export default function Maintimeline({ userArray, eventsArray, session }) {
-  console.log("Events array",eventsArray);
-  console.log("User array",userArray);
+  //console.log("Events array",eventsArray);
+  //console.log("User array",userArray);
   return (
     <>
       <ToastContainer

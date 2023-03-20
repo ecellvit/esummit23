@@ -6,16 +6,22 @@ import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 import refreshData from "../utils/refresh";
 
-export default function NewCard({ event, id, isRegistered ,userArray,eventsArray}) {
+export default function NewCard({
+  event,
+  id,
+  isRegistered,
+  userArray,
+  eventsArray,
+}) {
   const path = usePathname();
   const router = useRouter();
-  console.log("event id !!!!",id)
-  console.log("event Name !!!!",event)
+  //console.log("event id !!!!", id);
+  //console.log("event Name !!!!", event);
   const { data: session, status } = useSession();
   const handleRegisterwithLogin = (id) => {
-    // console.log("clicked");
+    // //console.log("clicked");
     localStorage.setItem("eventId", JSON.stringify(id));
-    // console.log(id);
+    // //console.log(id);
     signIn("google", {
       callbackUrl: "/getdetails",
     });
@@ -63,11 +69,31 @@ export default function NewCard({ event, id, isRegistered ,userArray,eventsArray
   }
 
   useEffect(() => {
+    console.log(localStorage.getItem("eventId"));
     if (localStorage.getItem("eventId")) {
-      // console.log(localStorage.getItem("eventId"));
+      console.log(session);
+      console.log(localStorage.getItem("eventId"));
       if (session) {
-        handleRegister(localStorage.getItem("eventId")) &&
-          localStorage.removeItem("eventId");
+        if (localStorage.getItem("eventId") == 2) {
+          if (userArray[0] === 0) {
+            handleRegister(localStorage.getItem("eventId")) &&
+              localStorage.removeItem("eventId");
+          } else {
+            console.log("Events Clashing");
+            toast("Event's Clashing");
+            localStorage.removeItem("eventId");
+          }
+        }
+        if (localStorage.getItem("eventId") == 0) {
+          if (userArray[2] === 0) {
+            handleRegister(localStorage.getItem("eventId")) &&
+              localStorage.removeItem("eventId");
+          } else {
+            console.log("Events Clashing");
+            toast("Event's Clashing");
+            localStorage.removeItem("eventId");
+          }
+        }
       }
     }
     refreshData(router, path);
@@ -99,11 +125,11 @@ export default function NewCard({ event, id, isRegistered ,userArray,eventsArray
           <button
             className="card_btn w-button"
             onClick={() => {
-              // console.log(isRegistered);
-              if(id === 0 && userArray[2] === 1){
+              // //console.log(isRegistered);
+              if (id === 0 && userArray[2] === 1) {
                 return;
               }
-              if(id === 2 && userArray[0] === 1){
+              if (id === 2 && userArray[0] === 1) {
                 return;
               }
               if (isRegistered === 0) {
@@ -114,11 +140,50 @@ export default function NewCard({ event, id, isRegistered ,userArray,eventsArray
           >
             {!session ? (
               <>Register event</>
+            ) : id === 0 ? (
+              <>
+                {isRegistered === 0 ? (
+                  userArray[2] != 1 ? (
+                    <>
+                      Register<strong>→</strong>{" "}
+                    </>
+                  ) : (
+                    <>Clashing with Innoventure</>
+                  )
+                ) : (
+                  <>
+                    Go to schedule<strong>→</strong>{" "}
+                  </>
+                )}
+              </>
+            ) : id === 2 ? (
+              <>
+                {isRegistered === 0 ? (
+                  userArray[0] != 1 ? (
+                    <>
+                      Register<strong>→</strong>{" "}
+                    </>
+                  ) : (
+                    <>Clashing with Impetus</>
+                  )
+                ) : (
+                  <>
+                    Go to schedule<strong>→</strong>{" "}
+                  </>
+                )}
+              </>
             ) : (
-              (id === 0)?(
-              <>{isRegistered === 0 ? (( userArray[2] != 1 )? <>Register<strong>→</strong>{" "}</> : <>Clashing with Innoventure</>) : <>Go to schedule<strong>→</strong>{" "}</>}</>
-              ): (id === 2) ? (<>{isRegistered === 0 ? (( userArray[0] != 1 )? <>Register<strong>→</strong>{" "}</> : <>Clashing with Impetus</>) : <>Go to schedule<strong>→</strong>{" "}</>}</>)
-              :(<>{isRegistered === 0 ? <>Register<strong>→</strong>{" "}</> : <>Go to schedule<strong>→</strong>{" "}</>}</>) 
+              <>
+                {isRegistered === 0 ? (
+                  <>
+                    Register<strong>→</strong>{" "}
+                  </>
+                ) : (
+                  <>
+                    Go to schedule<strong>→</strong>{" "}
+                  </>
+                )}
+              </>
             )}
             {/* <strong>→</strong>{" "} */}
           </button>

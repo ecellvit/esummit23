@@ -43,7 +43,7 @@ function UserReceivedReqCard({ request, eventName, session }) {
         }
         refreshData(router, path);
         toast("Invite Rejected Successfully");
-        // console.log("Invite Rejected");
+        // //console.log("Invite Rejected");
       });
   }
   function handleAcceptInvite(teamId) {

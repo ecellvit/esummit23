@@ -7,7 +7,7 @@ import { useRouter } from "next/navigation";
 export default function Section2() {
   const router = useRouter();
   const session = useSession();
-  console.log(session);
+  //console.log(session);
   const loginHandler = () => {
     signIn("google", {
       callbackUrl: "/getdetails",
