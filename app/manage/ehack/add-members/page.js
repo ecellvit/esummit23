@@ -63,9 +63,9 @@ export default async function AddMembers() {
   const session = await getServerSession(authOptions);
   const data = await ehackRegistered(session);
   const sentData = await leaderSentInvites(session);
-  console.log(sentData.requests);
+  //console.log(sentData.requests);
   const users = data?.eHackMembers;
-  console.log(data);
+  //console.log(data);
   return (
     <div>
       <Taskbar eventName={eventName} />

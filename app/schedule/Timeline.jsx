@@ -15,7 +15,7 @@ export default function Timeline({ userArray, eventsArray, session }) {
     "EVENT_6",
   ];
 
-  // console.log(eventsArray);
+  // //console.log(eventsArray);
   if (userArray.includes(1)) {
     return (
       <>
@@ -56,6 +56,8 @@ export default function Timeline({ userArray, eventsArray, session }) {
       </>
     );
   } else {
-    return <div className="flex justify-center mt-10">Please register something</div>
+    return (
+      <div className="flex justify-center mt-10">Please register something</div>
+    );
   }
 }
