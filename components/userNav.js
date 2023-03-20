@@ -3,7 +3,7 @@ import { useRouter } from "next/navigation";
 
 function UserNav({ eventName }) {
   const router = useRouter();
-  eventName=eventName.toLowerCase();
+  eventName = eventName.toLowerCase();
   return (
     <div>
       <div>
@@ -12,17 +12,22 @@ function UserNav({ eventName }) {
           data-te-navbar-ref
         >
           <div className="w-full flex">
-          <div className="flex ml-5">
-          {<button onClick={()=>{router.push(`/manage/${eventName}`)}} className="flex bg-[#53B3B9] items-center rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg">
-            Back</button>}
-          </div>
-          <div className="flex-1 ml-[45vw] text-xl font-semibold">{eventName.toUpperCase()}</div>
+            <div className="flex ml-5">
+              {<button onClick={() => { 
+                eventName.toLowerCase();
+                router.push(`/manage/${eventName}`); 
+                }} className="flex bg-[#53B3B9] items-center rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700 hover:shadow-lg focus:bg-primary-700 focus:shadow-lg focus:outline-none focus:ring-0 active:bg-primary-800 active:shadow-lg">
+                Back</button>}
+            </div>
+            <div className="flex-1 ml-[45vw] text-xl font-semibold">{eventName.toUpperCase()}</div>
             <div className="relative flex justify-end pr-10">
               <div className="flex justify-center space-x-2 ml-2 ">
                 <div>
                   <button
-                    onClick={(e) =>
+                    onClick={(e) => {
+                      eventName.toLowerCase();
                       router.push(`/manage/${eventName}/user-sent`)
+                    }
                     }
                     data-te-ripple-init
                     data-te-ripple-color="light"
@@ -49,7 +54,8 @@ function UserNav({ eventName }) {
               <div className="flex justify-center space-x-2 ml-2">
                 <div>
                   <button
-                    onClick={(e) =>{
+                    onClick={(e) => {
+                      eventName.toLowerCase();
                       router.push(`/manage/${eventName}/user-received`)
                     }}
                     data-te-ripple-init
