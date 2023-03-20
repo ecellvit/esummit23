@@ -59,8 +59,8 @@ export default async function Home() {
         userArray={userArray}
         session={session}
       />
-      <Section4 />
-      <Faqsection></Faqsection>
+      {/* <Section4 /> */}
+      {/* <Faqsection></Faqsection> */}
       <Section6></Section6>
       <Footer />
     </div>

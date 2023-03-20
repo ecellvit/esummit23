@@ -58,8 +58,9 @@ export default function DetailsForm({ accessTokenBackend }) {
           });
           return;
         }
-        toast("Details submitted successfully");
         router.push("/");
+        toast("Details submitted successfully");
+
         return;
       });
   };

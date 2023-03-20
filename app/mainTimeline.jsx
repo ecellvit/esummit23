@@ -95,10 +95,84 @@ export default function Maintimeline({ userArray, eventsArray, session }) {
               </div>
             </>
           ) : (
-            <></>
+            <>
+              {" "}
+              <>
+                <div className="timeline-element">
+                  <div className="rod">
+                    <div className="outer_div">
+                      <div className="inner_div"></div>
+                    </div>
+                    <div className="linetimeline"></div>
+                  </div>
+                  <NewCard
+                    isRegistered={0}
+                    event={eventsArray[3]}
+                    id={3}
+                    userArray={userArray}
+                  ></NewCard>
+                </div>{" "}
+                <div className="timeline-element">
+                  <div className="rod">
+                    <div className="outer_div">
+                      <div className="inner_div"></div>
+                    </div>
+                    <div className="linetimeline"></div>
+                  </div>
+                  <NewCard
+                    isRegistered={0}
+                    event={eventsArray[1]}
+                    id={1}
+                    userArray={userArray}
+                  ></NewCard>
+                </div>
+                <div className="timeline-element">
+                  <div className="rod">
+                    <div className="outer_div">
+                      <div className="inner_div"></div>
+                    </div>
+                    <div className="linetimeline"></div>
+                  </div>
+                  <NewCard
+                    isRegistered={0}
+                    event={eventsArray[4]}
+                    id={4}
+                    userArray={userArray}
+                  ></NewCard>
+                </div>
+                <div className="timeline-element">
+                  <div className="rod">
+                    <div className="outer_div">
+                      <div className="inner_div"></div>
+                    </div>
+                    <div className="linetimeline"></div>
+                  </div>
+                  <NewCard
+                    isRegistered={0}
+                    event={eventsArray[2]}
+                    id={2}
+                    userArray={userArray}
+                  ></NewCard>
+                </div>{" "}
+                <div className="timeline-element">
+                  <div className="rod">
+                    <div className="outer_div">
+                      <div className="inner_div"></div>
+                    </div>
+                    <div className="linetimeline hide"></div>
+                  </div>{" "}
+                  <NewCard
+                    isRegistered={0}
+                    event={eventsArray[0]}
+                    id={0}
+                    userArray={userArray}
+                  ></NewCard>
+                </div>
+              </>
+            </>
           )}
         </div>
-        <Carousel />
+        {/* <Carousel /> */}
       </div>
     </>
   );

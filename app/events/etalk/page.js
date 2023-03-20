@@ -68,9 +68,9 @@ export default async function Home() {
           </div>
           <Link
             className="eventbtn w-button"
-            href={`${check ? "/manage/etalk" : "/"}`}
+            href={`${check ? "/schedule" : "/"}`}
           >
-            {`${check ? "Go to Dashboard" : "Go to Register"}`}
+            {`${check ? "Go to Schedule" : "Go to Register"}`}
           </Link>
         </div>
       </div>
