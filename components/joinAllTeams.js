@@ -42,6 +42,7 @@ function JoinAllTeams({ session, eventName, userData, sentData }) {
   }
 
   const handlePreviousButtonClick = () => {
+    console.log(prev);
     if (prev) {
       fetch(
         `${process.env.NEXT_PUBLIC_SERVER}/api/${eventName}?page=${prev.page}&limit=${prev.limit}`,
@@ -88,6 +89,7 @@ function JoinAllTeams({ session, eventName, userData, sentData }) {
   };
 
   const handleNextButtonClick = () => {
+    console.log(next);
     if (next) {
       fetch(
         `${process.env.NEXT_PUBLIC_SERVER}/api/${eventName}?page=${next.page}&limit=${next.limit}`,
@@ -113,7 +115,9 @@ function JoinAllTeams({ session, eventName, userData, sentData }) {
               progress: undefined,
             });
           }
+          setNext(data.paginatedResult.next);
           setPrev(data.paginatedResult.previous);
+
           setTeamData([]);
 
           data.paginatedResult.results.map((currenTeam) => {
