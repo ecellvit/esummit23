@@ -44,9 +44,7 @@ function MemberCard({ session, data, teamId, eventName }) {
     <>
       <div class="singlecard">
         <div class="team_text">
-          <p class="team_details">
-            {data.firstName + " " + data.lastName}
-          </p>
+          <p class="team_details">{data.firstName + " " + data.lastName}</p>
         </div>
         {userRole ? (
           <button

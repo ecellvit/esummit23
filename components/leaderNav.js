@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import { usePathname, useRouter } from "next/navigation";
 import "../styles/landing.css";
@@ -30,7 +30,7 @@ function LeaderNav({ eventName }) {
             </button>
             <button
               button
-              class="recieved w-button bg-[#53B3B9] uppercase"
+              class="recieved w-button bg-[#53B3B9] "
               onClick={(e) =>
                 router.push(`/manage/${eventName}/received-join-request`)
               }
