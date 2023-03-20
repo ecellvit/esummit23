@@ -43,10 +43,22 @@ function JoinTeamsCard({ teamData, session, eventName }) {
   let teamLeader;
 
   teamData?.members.map((x) => {
-    if (x[eventName + "TeamRole"] == 0) {
-      teamLeader = x;
+    if (eventName == "ehack") {
+      if (x.eHackTeamRole == 0) {
+        teamLeader = x;
+      }
+    } else if (eventName == "innoventure") {
+      if (x.innoventureTeamRole == 0) {
+        teamLeader = x;
+      }
+    } else if (eventName == "impetus") {
+      if (x.impetusTeamRole == 0) {
+        teamLeader = x;
+      }
     }
   });
+
+  console.log(teamLeader);
 
   return (
     <>
@@ -59,7 +71,7 @@ function JoinTeamsCard({ teamData, session, eventName }) {
           </p>
           <p class="team_details font-semibold break-all">
             Team Leader: <br />
-            {teamLeader?.email}
+            {teamLeader?.firstName}
           </p>
           <p class="team_details font-semibold break-all">
             Email: <br />
