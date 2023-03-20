@@ -34,7 +34,7 @@ export default async function Home() {
   return (
     <div className="event-sec">
       <div className="event_wrapper">
-        <h1 className="event_h1">
+        <h1 className="event_h2">
           Trading Workshop
           <br />
         </h1>
