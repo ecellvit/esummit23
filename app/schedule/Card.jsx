@@ -103,8 +103,11 @@ export default function Card({
             <>De-Register event</>
             <strong>→</strong>{" "}
           </button>
+
           <button
-            className="btn_card_last w-button"
+            className={`btn_card_last w-button ${
+              (id == 4 || id === 3) && "hidden"
+            }`}
             onClick={(e) =>
               !session ? handleRegisterwithLogin(e, id) : handleNavigation(tit)
             }
