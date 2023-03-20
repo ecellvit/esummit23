@@ -995,7 +995,7 @@
   @apply font-bold mt-5 mb-2.5;
 }
 .handleteam {
-  @apply w-[20vw] text-white text-center bg-[#53B3B9] px-[15px] py-[9px] rounded-[5px];
+  @apply w-[20vw] text-white text-center !bg-[#53B3B9] px-[15px] py-[9px] rounded-[5px];
 }
 .send {
   @apply text-base leading-5  text-white text-center bg-[#53B3B9] ml-2.5 px-[15px] py-[9px] rounded-[5px];
