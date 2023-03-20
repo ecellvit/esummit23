@@ -2,6 +2,7 @@ import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
 import JoinAllTeams from "@/components/joinAllTeams";
 import NotyNav from "@/components/notyNav";
+import Taskbar from "@/app/componentsSSR/taskbar";
 
 async function getUserData(session) {
   const res = await fetch(
@@ -80,7 +81,7 @@ export default async function JoinTeams() {
   //   const requests = data.requests;
   return (
     <>
-      <NotyNav eventName={eventName} />
+      <Taskbar eventName={eventName} />
       <JoinAllTeams
         session={session}
         userData={userData}

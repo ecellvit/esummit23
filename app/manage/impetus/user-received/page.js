@@ -1,3 +1,4 @@
+import Taskbar from "@/app/componentsSSR/taskbar";
 import NotyNav from "@/components/notyNav";
 import UserReceivedReq from "@/components/userReceivedReq";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
@@ -30,7 +31,7 @@ export default async function UserReceived() {
   const requests = data.requests;
   return (
     <>
-      <NotyNav eventName={eventName} />
+      <Taskbar eventName={eventName} />
       <UserReceivedReq
         eventName={eventName}
         requests={requests}

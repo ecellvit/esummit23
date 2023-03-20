@@ -3,6 +3,7 @@ import NotyNav from "@/components/notyNav";
 
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
+import Taskbar from "@/app/componentsSSR/taskbar";
 
 async function addMemberData(session) {
   const res = await fetch(
@@ -31,7 +32,7 @@ export default async function UserReceived() {
   const requests = data.requests;
   return (
     <>
-      <NotyNav eventName={eventName} />
+      <Taskbar eventName={eventName} />
 
       <UserReceivedReq
         eventName={eventName}
