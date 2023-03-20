@@ -46,9 +46,14 @@ export default async function Home() {
           <br />
         </p>
         <p className="form_para_small">
-          From spotting trends to developing effective risk management
-          strategies to maximizing profits, get ready to take your trading game
-          to the next level.
+          Graphs, Candlestick, F&O, Fundamental and Technical Analysis are the
+          buzzwords of today’s more progressive and aware youth interested in
+          creating value and personal wealth. This trading workshop from the
+          Industry Experts will pave the path for a stronger fundamental
+          understanding of the stock market and the trends. This workshop will
+          provide you a great insight of this equity market, from understanding
+          strategies to patterns and everything in between; Trading Workshop is
+          the place to be.
           <br />
         </p>
         {/* <div className="evet_price_wrap">

@@ -35,23 +35,18 @@ export default async function Home() {
       <div className="event_wrapper">
         <h1 className="event_h1">
           E-Hack
-          <br />‍
+          <br />
         </h1>
-        <p className="event_date">Date &amp; Time : 31st March 2023, 9:00 PM</p>
+        <p className="event_date mt-8">Date &amp; Time : 31st March 2023, 9:00 PM</p>
         <p className="event_para">
           Venue: Sarojini Naidu SJT
-          <br />‍
+          <br />
         </p>
         <p className="form_para_small">
-          Prominent motivational speakers from the entrepreneurial environment
-          will be delivering a talk to inspire the students and promote the
-          ethos of entrepreneurship in the campus. This session will also be
-          open to questions from the audience, thus furnishing the minds of the
-          students with vivid ideas and a clearer picture of the
-          entrepreneurship realm.
-          <br />‍
+          An overnight hackathon that provides an opportunity for participants to put their problem-solving skills to test. With different tracks covering various real world problems in the business hemisphere, participants will be able to showcase their expertise and creativity while working alongside like-minded individuals. Whether you are a seasoned hacker or just starting out, "E-Hack" is a unique chance to work on challenging projects and build your skills in this competitive arena of entrepreneurship and technology.
+          <br />
         </p>
-        <div className="evet_price_wrap">
+        {/* <div className="evet_price_wrap">
           <div className="price_wrap">
             <p className="para_med_event">1st</p>
             <p className="para_bold_event">Coming Soon</p>
@@ -64,7 +59,7 @@ export default async function Home() {
             <p className="para_med_event">3rd</p>
             <p className="para_bold_event">Coming Soon</p>
           </div>
-        </div>
+        </div> */}
 
         <RegButton check={check} userArray={userArray} />
       </div>

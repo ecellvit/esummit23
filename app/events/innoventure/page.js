@@ -53,7 +53,7 @@ export default async function Home() {
           creative problem solving.
           <br />
         </p>
-        <div className="evet_price_wrap">
+        {/* <div className="evet_price_wrap">
           <div className="price_wrap">
             <p className="para_med_event">1st</p>
             <p className="para_bold_event">Coming Soon</p>
@@ -66,7 +66,7 @@ export default async function Home() {
             <p className="para_med_event">3rd</p>
             <p className="para_bold_event">Coming Soon</p>
           </div>
-        </div>
+        </div> */}
         <RegButton check={check} userArray={userArray} />
       </div>
     </div>
