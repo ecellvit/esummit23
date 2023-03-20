@@ -54,7 +54,7 @@ function UserSentCard({ request, eventName, session }) {
         <div>
           <h3 className={styles.Cardsh3}> {request.teamId.teamName}</h3>
           <h3 className={styles.Cardsh3}>
-            {request.teamId.teamLeaderId.email}
+            {request?.teamId?.teamLeaderId?.email}
           </h3>
           <div className="flex mt-4 space-x-3 md:mt-6">
             <button
