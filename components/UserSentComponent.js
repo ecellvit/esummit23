@@ -24,7 +24,12 @@ function UserSentComponent({ eventName, requests, session }) {
               );
             })
           ) : (
-            <h1>No requests</h1>
+            <div class="singlecard">
+              <div class="team_text">
+                <p class="team_details">No requests </p>
+              </div>
+              {/* <button class="join_team w-button ">Back</button> */}
+            </div>
           )}
         </div>
       </div>{" "}

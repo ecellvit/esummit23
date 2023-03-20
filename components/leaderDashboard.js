@@ -83,9 +83,9 @@ export default function LeaderDashboard({ userData, eventName, session }) {
           <ToastContainer />
         </div>
       </div>{" "} */}
-      <div class="teams_sec ">
+      <div class="teams_sec">
         <ToastContainer />
-        <div class="search">
+        <div className="mt-[10px]">
           <div class="w-form text-center w-[100%] text-[2rem]">
             Team Name : {userData.teamName}
           </div>
