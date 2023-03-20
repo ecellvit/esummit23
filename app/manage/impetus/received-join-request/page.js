@@ -44,7 +44,7 @@ export default async function receivedJoinRequest() {
   const eventName = "impetus";
   const session = await getServerSession(authOptions);
   const userData = await getUserData(session);
-  const data = await leaderReceivedReq(session, userData?.user.eHackTeamId._id);
+  const data = await leaderReceivedReq(session, userData?.user.impetusTeamId._id);
   const requests = data.requests;
   const teamId = userData?.user[eventName + "TeamId"]._id;
   return (

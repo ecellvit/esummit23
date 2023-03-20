@@ -75,6 +75,6 @@ export default async function Home() {
     </div>
   );
 }
-// {session && userArray[1] && <Link className="eventbtn w-button" href="/manage/ehack">
+// {session && userArray[1] && <Link classNameName="eventbtn w-button" href="/manage/ehack">
 // Go to Dashboard
 // </Link>}
