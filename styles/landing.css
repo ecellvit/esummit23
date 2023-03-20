@@ -244,6 +244,13 @@
   .form_section {
     @apply flex min-h-screen bg-white;
   }
+  .text_form {
+    @apply flex flex-col items-center mx-auto;
+  }
+  .form_logo {
+    @apply max-w-[80%] text-center mx-auto;
+  }
+
   .form_sec_l {
     @apply w-[50vw] bg-[url("https://res.cloudinary.com/dchq25bxl/image/upload/v1679337272/template_1-min_iils6g.png")] bg-[50%_50%] bg-cover text-white pl-[20px];
   }
@@ -260,7 +267,7 @@
     @apply flex flex-col items-center text-2xl leading-[25px];
   }
   .form_l_h1 {
-    @apply w-[40vw] text-[5rem] leading-[40px] font-bold text-left mt-[100px] mb-0 mx-auto;
+    @apply w-[40vw] text-[5rem] leading-10 font-bold text-center mt-0 mb-5 mx-auto;
     font-family: Inter, sans-serif;
   }
   .form_date {
@@ -724,6 +731,7 @@
     .form_l_h1 {
       @apply w-[80vw] leading-[30px] mt-[60px] mb-0;
     }
+
     .form_para_small {
       @apply text-base leading-[22px];
     }
@@ -843,7 +851,6 @@
 .event-sec {
   @apply w-screen min-h-[91vh] bg-[url("https://res.cloudinary.com/dchq25bxl/image/upload/v1679244337/bg_f6aif4.png")] bg-[50%_50%] bg-cover text-white text-base leading-5 font-normal mt-0 mx-auto pl-0;
   font-family: Inter, sans-serif;
-
 }
 .form_sec_r {
   @apply w-[60vw] mt-[10vh];
