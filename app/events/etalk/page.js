@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { getServerSession } from "next-auth";
 import "../../../styles/landing.css";
+import RegButton from "./RegButton";
 
 async function getUserData(token) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user`, {
@@ -37,7 +38,8 @@ export default async function Home() {
             E-Talk
             <br />‍
           </h1>
-          <p className="event_date">Date &amp; Time : 30th March 2023, 2:00 PM
+          <p className="event_date">
+            Date &amp; Time : 30th March 2023, 2:00 PM
           </p>
           <p className="event_para">
             Venue: Anna Auditorium
@@ -67,12 +69,7 @@ export default async function Home() {
               <p className="para_bold_event">Coming Soon</p>
             </div>
           </div> */}
-          <Link
-            className="eventbtn w-button"
-            href={`${check ? "/schedule" : "/"}`}
-          >
-            {`${check ? "Go to Schedule" : "Register Now"}`}
-          </Link>
+          <RegButton check={check} userArray={userArray} />
         </div>
       </div>
     </>

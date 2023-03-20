@@ -121,7 +121,7 @@ export default function RoundOne({ accessTokenBackend }) {
 
       <div className="my-5">
         <label
-          for="message"
+          htmlFor="message"
           className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
         >
           Describe your project breifly
@@ -145,14 +145,14 @@ export default function RoundOne({ accessTokenBackend }) {
       {!file && (
         <div className="my-5">
           <label
-            for="message"
+            htmlFor="message"
             className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
           >
             Upload your presentation. (Not more than 1MB)
           </label>
           <div className="flex items-center justify-center w-full">
             <label
-              for="dropzone-file"
+              htmlFor="dropzone-file"
               className="flex flex-col items-center justify-center w-full h-64 border-2 border-gray-300 border-dashed rounded-lg cursor-pointer bg-gray-50 dark:hover:bg-bray-800 dark:bg-gray-700 hover:bg-gray-100 dark:border-gray-600 dark:hover:border-gray-500 dark:hover:bg-gray-600"
             >
               <div className="flex flex-col items-center justify-center pt-5 pb-6">
