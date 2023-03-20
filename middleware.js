@@ -96,7 +96,7 @@ export default withAuth(
       }
 
       //Member routes block for User and Leader
-      if ((eHackTeamRole === 0) && (req.nextUrl.pathname.startsWith("/manage/ehack/user-sent") || req.nextUrl.pathname.startsWith("/manage/ehack/user-received") || req.nextUrl.pathname.startsWith("/manage/ehack/received-join-teams"))) {
+      if ((eHackTeamRole === 0) && (req.nextUrl.pathname.startsWith("/manage/ehack/user-sent") || req.nextUrl.pathname.startsWith("/manage/ehack/user-received") || req.nextUrl.pathname.startsWith("/manage/ehack/received-join-teams")  || req.nextUrl.pathname.startsWith("/manage/ehack/join-teams") )) {
         req.nextUrl.pathname = "/"
         return NextResponse.redirect(new URL("/", req.url))
       }
@@ -122,7 +122,7 @@ export default withAuth(
       }
 
       //User routes block for member and Leader
-      if ((impetusTeamRole === 0) && (req.nextUrl.pathname.startsWith("/manage/impetus/user-sent") || req.nextUrl.pathname.startsWith("/manage/impetus/user-received") || req.nextUrl.pathname.startsWith("/manage/impetus/received-join-teams"))) {
+      if ((impetusTeamRole === 0) && (req.nextUrl.pathname.startsWith("/manage/impetus/user-sent") || req.nextUrl.pathname.startsWith("/manage/impetus/user-received") || req.nextUrl.pathname.startsWith("/manage/impetus/received-join-teams") || req.nextUrl.pathname.startsWith("/manage/impetus/join-teams"))) {
         req.nextUrl.pathname = "/"
         return NextResponse.redirect(new URL("/", req.url))
       }
@@ -147,7 +147,7 @@ export default withAuth(
       }
 
       //User routes block for member and Leader
-      if ((innoventureTeamRole === 0) && (req.nextUrl.pathname.startsWith("/manage/innoventure/user-sent") || req.nextUrl.pathname.startsWith("/manage/innoventure/user-received") || req.nextUrl.pathname.startsWith("/manage/innoventure/received-join-teams"))) {
+      if ((innoventureTeamRole === 0) && (req.nextUrl.pathname.startsWith("/manage/innoventure/user-sent") || req.nextUrl.pathname.startsWith("/manage/innoventure/user-received") || req.nextUrl.pathname.startsWith("/manage/innoventure/received-join-teams") || req.nextUrl.pathname.startsWith("/manage/innoventure/join-teams"))) {
         req.nextUrl.pathname = "/"
         return NextResponse.redirect(new URL("/", req.url))
       }
