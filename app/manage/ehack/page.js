@@ -1,5 +1,3 @@
-import hasDetailsFilled from "@/app/utils/hasDetailsFIiled";
-import NotFilledDetails from "@/app/utils/NotFilledDetails";
 import Dashboard from "@/components/dashboard";
 import NotyNav from "@/components/notyNav";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";

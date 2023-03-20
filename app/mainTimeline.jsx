@@ -2,6 +2,14 @@
 import React from "react";
 import Carousel from "./Landing/Carousel";
 import NewCard from "./Landing/NewCard";
+const eventCodes = [
+  "IMPETUS",
+  "EHACK",
+  "INNOVENTURE",
+  "EVENT_4",
+  "EVENT_5",
+  "EVENT_6",
+];
 
 export default function Maintimeline({ userArray, eventsArray, session }) {
   return (
@@ -13,43 +21,103 @@ export default function Maintimeline({ userArray, eventsArray, session }) {
             <div className="event_line"></div>
           </div>
 
+          {session ? (
+            <>
+              <div className="timeline-element">
+                <div className="rod">
+                  <div className="outer_div">
+                    <div className="inner_div"></div>
+                  </div>
+                  <div className="linetimeline"></div>
+                </div>
+                <NewCard
+                  isRegistered={userArray[3]}
+                  event={eventsArray[3]}
+                  id={3}
+                  userArray={userArray}
+                ></NewCard>
+              </div>{" "}
+              <div className="timeline-element">
+                <div className="rod">
+                  <div className="outer_div">
+                    <div className="inner_div"></div>
+                  </div>
+                  <div className="linetimeline"></div>
+                </div>
+                <NewCard
+                  isRegistered={userArray[1]}
+                  event={eventsArray[1]}
+                  id={1}
+                  userArray={userArray}
+                ></NewCard>
+              </div>
+              <div className="timeline-element">
+                <div className="rod">
+                  <div className="outer_div">
+                    <div className="inner_div"></div>
+                  </div>
+                  <div className="linetimeline"></div>
+                </div>
+                <NewCard
+                  isRegistered={userArray[4]}
+                  event={eventsArray[4]}
+                  id={4}
+                  userArray={userArray}
+                ></NewCard>
+              </div>
+              <div className="timeline-element">
+                <div className="rod">
+                  <div className="outer_div">
+                    <div className="inner_div"></div>
+                  </div>
+                  <div className="linetimeline"></div>
+                </div>
+                <NewCard
+                  isRegistered={userArray[2]}
+                  event={eventsArray[2]}
+                  id={2}
+                  userArray={userArray}
+                ></NewCard>
+              </div>{" "}
+              <div className="timeline-element">
+                <div className="rod">
+                  <div className="outer_div">
+                    <div className="inner_div"></div>
+                  </div>
+                  <div className="linetimeline hide"></div>
+                </div>{" "}
+                <NewCard
+                  isRegistered={userArray[0]}
+                  event={eventsArray[0]}
+                  id={0}
+                  userArray={userArray}
+                ></NewCard>
+              </div>
+            </>
+          ) : (
+            <></>
+          )}
+        </div>
+        <Carousel />
+      </div>
+    </>
+  );
+}
+{
+  /* 
           {eventsArray.map((event, id) => {
             return (
               <>
                 <div className="timeline-element" key={id}>
                   <div className="rod">
                     <div className="outer_div">
-                      {/* <div className="inner_div"></div> */}
                       <img src="gola.svg" className="image"></img>
                     </div>
                     <div
                       className={`linetimeline  ${id === 4 ? "hide" : ""}`}
                     ></div>
                   </div>
-                  {/* Individual Card */}
-                  {/* <div className="timeline_wrapper">
-                    <h1 className="date">{event.date}</h1>
-                    <div className="card_cont">
-                      <h1 className="card_h1">{event.title}</h1>
-                      <p className="card_para">{event.description}</p>
-                      <div className="card_time">
-                        <div className="card_l">
-                          <img src="clock.svg" alt="" className="svg_card" />
-                          <p className="timepara">{event.time} hours</p>
-                        </div>
-                        <div className="card_r">
-                          <img src="location.svg" alt="" className="svg_card" />
-                          <p className="timepara">{event.location}</p>
-                        </div>
-                      </div>
-                      <button className="card_btn w-button">
-                        Register Now<strong>→</strong>{" "}
-                      </button>
-                      <button className="btn_card_last w-button">
-                        View Details<strong>→</strong>{" "}
-                      </button>
-                    </div>
-                  </div> */}
+
                   {session ? (
                     <>
                       <NewCard
@@ -73,19 +141,7 @@ export default function Maintimeline({ userArray, eventsArray, session }) {
                     </>
                   )}
                 </div>
-
-                {/* <Card
-                  event={event}
-                  key={event._id}
-                  id={index}
-                  isRegistered={-1}
-                        /> */}
               </>
             );
-          })}
-        </div>
-        <Carousel />
-      </div>
-    </>
-  );
+          })} */
 }

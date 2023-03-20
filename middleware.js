@@ -65,17 +65,6 @@ export default withAuth(
         }
         return null;
     }
-    , {
-
-        callbacks: {
-            async authorized({ req, token }) {
-
-
-                // return !!token.accessTokenFromBackend ;
-                return true;
-            }
-        }
-    }
 )
 
 export const config = { matcher: ["/schedule", "/manage/:path*"] }

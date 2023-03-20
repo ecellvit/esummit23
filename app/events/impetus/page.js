@@ -44,12 +44,15 @@ export default async function Home() {
             <br />‍
           </p>
           <p className="form_para_small">
-            Prominent motivational speakers from the entrepreneurial environment
-            will be delivering a talk to inspire the students and promote the
-            ethos of entrepreneurship in the campus. This session will also be
-            open to questions from the audience, thus furnishing the minds of
-            the students with vivid ideas and a clearer picture of the
-            entrepreneurship realm.
+            A pitch-deck competition that would involve crafting unique startup
+            ideas and business models to impress a jury of experienced
+            professionals. With numerous startups flourishing in India, this
+            event seeks to nurture the growing spirit of entrepreneurship within
+            young minds. Making your team, investors and users believe in your
+            vision goes a long way in building a successful product with a
+            strong foundation. From getting funded to deploying the first
+            iteration of your product to the public, there’s only one road
+            that’s taken; Pitching
             <br />‍
           </p>
           <div className="evet_price_wrap">
