@@ -28,9 +28,9 @@ async function getUserData(token) {
         },
     );
     if (!res.ok) {
+        console.log(res.ok)
         throw new Error("Failed to fetch data");
     }
-
     return res.json();
 }
 

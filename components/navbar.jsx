@@ -68,7 +68,7 @@ export default function Navbar({ session }) {
 
   return (
     <>
-      <div className="max-h-[10vh] dark-mode:text-gray-200 dark-mode:bg-gray-800 w-full bg-white text-gray-700">
+      <div className="dark-mode:text-gray-200 dark-mode:bg-gray-800 w-full bg-white text-gray-700">
         <div
           x-data="{ open: false }"
           className="mx-auto flex max-w-screen-xl flex-col px-4 md:flex-row md:items-center md:justify-between md:px-6 lg:px-8"
@@ -117,7 +117,7 @@ export default function Navbar({ session }) {
             >
               Home
             </Link>
-            {session && (
+            {!(regArray[0] === 0 && regArray[1] === 0 && regArray[2] === 0) && session && (
               <Link
                 className={`dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 focus:shadow-outline mt-2 flex w-full flex-row items-center rounded-lg bg-transparent px-4 py-2 text-left text-sm font-semibold hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0 md:ml-4 md:inline md:w-auto`}
                 style={{
