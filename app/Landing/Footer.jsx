@@ -51,7 +51,7 @@ export default function Footer() {
               href="https://www.linkedin.com/in/sai-sreekar/"
               className="developers"
             >
-              <img src="developers.jpg" alt="Sai" className="img_dev" />
+              <img src="https://avatars.githubusercontent.com/u/91886335?v=4" alt="Sai" className="img_dev" />
             </a>
             <a
               href="https://www.linkedin.com/in/pratyush-kongalla-995b73209/"

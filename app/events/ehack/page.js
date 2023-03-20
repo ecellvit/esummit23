@@ -2,6 +2,7 @@ import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
 import Link from "next/link";
 import "../../../styles/landing.css";
+import RegButton from "./RegButton";
 
 async function getUserData(token) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user`, {
@@ -60,12 +61,7 @@ export default async function Home() {
           </div>
         </div> */}
 
-        <Link
-          className="eventbtn w-button"
-          href={`${check ? "/manage/ehack" : "/"}`}
-        >
-          {`${check ? "Go to Dashboard" : "Register Now"}`}
-        </Link>
+        <RegButton check={check} userArray={userArray} />
       </div>
     </div>
   );

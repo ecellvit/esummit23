@@ -1,7 +1,7 @@
 "use client"
 import React from "react";
 import { usePathname, useRouter } from "next/navigation";
-
+import "../styles/landing.css";
 function LeaderNav({ eventName }) {
   eventName = eventName.toLowerCase();
   const router = useRouter();
@@ -35,7 +35,7 @@ function LeaderNav({ eventName }) {
                 router.push(`/manage/${eventName}/received-join-request`)
               }
             >
-              Recieved
+              Received
             </button>
           </div>
         </div>

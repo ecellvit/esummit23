@@ -15,7 +15,7 @@ export default function Create() {
             Sent
           </a>
           <a href="#" class="recieved w-button">
-            Recieved
+            Received
           </a>
         </div>
       </div>
