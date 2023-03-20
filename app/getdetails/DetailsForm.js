@@ -93,7 +93,7 @@ export default function DetailsForm({ accessTokenBackend }) {
           </div>
           <div className="text_form">
             <h1 className="form_l_h1">
-              E-Hack
+              E-Summit
               <br />‍
             </h1>
             <p className="form_date">30th March-2nd april</p>
