@@ -126,7 +126,7 @@ function UserReceivedReqCard({ request, eventName, session }) {
           Reject Team
         </button>
         <button
-          class="join_team w-button px-4"
+          class="join_team w-button px-4 mt-2"
           onClick={(e) => handleAcceptInvite(request.teamId?._id)}
         >
           {" "}

@@ -1,6 +1,6 @@
 import React from "react";
 import { usePathname, useRouter } from "next/navigation";
-
+import "../styles/landing.css";
 function LeaderNav({ eventName }) {
   eventName = eventName.toLowerCase();
   const router = useRouter();

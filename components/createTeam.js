@@ -4,7 +4,7 @@ import { useRef } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import refreshData from "@/app/utils/refresh";
-
+import "../styles/landing.css";
 export default function CreateTeam({ session, eventName }) {
   eventName = eventName.toLowerCase();
   const teamName = useRef("");
@@ -81,7 +81,7 @@ export default function CreateTeam({ session, eventName }) {
         <button
           type="button"
           onClick={(e) => handleSubmit(e)}
-          class="handleteam w-button"
+          class="handleteam w-button "
         >
           Create Team
         </button>
