@@ -1,3 +1,4 @@
+import Taskbar from "@/app/componentsSSR/taskbar";
 import Dashboard from "@/components/dashboard";
 import NotyNav from "@/components/notyNav";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
@@ -33,7 +34,7 @@ export default async function ManagePage() {
   }
   return (
     <>
-      <NotyNav eventName={eventName} />
+      <Taskbar eventName={eventName} />
       <Dashboard
         eventName={eventName}
         session={session}

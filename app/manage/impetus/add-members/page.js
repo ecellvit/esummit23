@@ -1,3 +1,4 @@
+import Taskbar from "@/app/componentsSSR/taskbar";
 import AddMember from "@/components/addMember";
 import NotyNav from "@/components/notyNav";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
@@ -55,7 +56,7 @@ export default async function AddMembers() {
   );
   return (
     <div>
-      <NotyNav eventName={eventName} />
+      <Taskbar eventName={eventName} />
       <AddMember
         eventName={eventName}
         session={session}

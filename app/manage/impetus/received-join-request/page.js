@@ -2,6 +2,7 @@ import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
 import LeaderReceivedReq from "@/components/LeaderReceivedRequest";
 import NotyNav from "@/components/notyNav";
+import Taskbar from "@/app/componentsSSR/taskbar";
 
 async function getUserData(session) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user`, {
@@ -49,7 +50,7 @@ export default async function receivedJoinRequest() {
   const teamId = userData?.user[eventName + "TeamId"]._id;
   return (
     <>
-      <NotyNav eventName={eventName} />
+      <Taskbar eventName={eventName} />
       <LeaderReceivedReq
         eventName={eventName}
         teamId={teamId}
