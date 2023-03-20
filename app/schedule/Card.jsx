@@ -60,7 +60,7 @@ export default function Card({
     const route = title.toLowerCase();
     router.push(`/manage/${route}`);
   }
-
+  refreshData(router, path);
   return (
     <>
       {" "}

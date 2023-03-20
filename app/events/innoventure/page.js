@@ -41,12 +41,13 @@ export default async function Home() {
           <br />‍
         </p>
         <p class="form_para_small">
-          Prominent motivational speakers from the entrepreneurial environment
-          will be delivering a talk to inspire the students and promote the
-          ethos of entrepreneurship in the campus. This session will also be
-          open to questions from the audience, thus furnishing the minds of the
-          students with vivid ideas and a clearer picture of the
-          entrepreneurship realm.
+          A business simulation event which gives the participants an
+          entrepreneurial ecosystem and platform to deploy their skills and
+          ideas about the aspects of product development, business analysis,
+          while inculcating knowledge about the trends in the current market and
+          economic conditions faced by business owners of all sizes everyday.
+          Innoventure is your portal to a world full of possibilities and
+          creative problem solving.
           <br />‍
         </p>
         <div class="evet_price_wrap">
