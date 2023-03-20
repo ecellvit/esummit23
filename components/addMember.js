@@ -79,7 +79,7 @@ function AddMember({ session, users, eventName, eventCode, sentData }) {
               maxlength="256"
               name="name-3"
               data-name="Name 3"
-              placeholder="Search here"
+              placeholder="Search Users"
               onChange={handleChange}
               value={searchInput}
               id="name-3"
