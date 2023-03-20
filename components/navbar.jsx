@@ -43,7 +43,7 @@ export default function Navbar({ session }) {
   const manageRefSpan = useRef(null);
   const eventsRefSpan = useRef(null);
 
-  const [respHidden, setRespHidden] = useState(false);
+  const [respHidden, setRespHidden] = useState(true);
   const [dropdown1, setDropdown1] = useState(false);
   const [dropdown2, setDropdown2] = useState(false);
 

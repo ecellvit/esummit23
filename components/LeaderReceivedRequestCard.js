@@ -94,10 +94,7 @@ function LeaderReceivedRequestCard({ request, eventName, session, teamId }) {
             Name: <br />
             {request.firstName} {request.lastName}
           </p>
-          <p class="team_details">
-            Email: <br />
-            naitikjkapadia@gmail.com
-          </p>
+
           <p class="team_details">
             Email: <br />
             {request.email}
