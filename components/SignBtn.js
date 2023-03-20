@@ -1,6 +1,7 @@
 "use client";
 import React from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
+
 export default function SignBtn({ registered }) {
   const logoutHandler = () => {
     signOut({ callbackUrl: "/" });

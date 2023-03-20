@@ -1,6 +1,7 @@
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
 import JoinAllTeams from "@/components/joinAllTeams";
+import NotyNav from "@/components/notyNav";
 
 async function getUserData(session) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user`, {
@@ -70,6 +71,7 @@ export default async function JoinTeams() {
   //   const requests = data.requests;
   return (
     <>
+      <NotyNav eventName={eventName} />
       <JoinAllTeams
         session={session}
         userData={userData}
