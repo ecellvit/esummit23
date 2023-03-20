@@ -66,20 +66,26 @@ export default withAuth(
         // const session = await getServerSession(authOptions);
         const token = await getToken({ req });
         console.log("---------------------------", token);
-        const userData = await getUserData(token?.accessTokenFromBackend);
         const idToken = token.idToken;
         const email = token.user.email;
-        const userDetails = await getDetails(token?.accessTokenFromBackend, idToken, email);
-        console.log("helloooo!!!!!!", userData);
-        console.log("yoyooy!!!", userDetails);
-        const hasFilledDetails = userDetails.hasFilledDetails;
-        const eHackTeamRole = userData.user.eHackTeamRole;
-        const impetusTeamRole = userData.user.impetusTeamRole;
-        const innoventureTeamRole = userData.user.innoventureTeamRole;
+        let userData; 
+        let userDetails;
+     if(idToken){
+
+         userData = await getUserData(token?.accessTokenFromBackend);
+         userDetails = await getDetails(token?.accessTokenFromBackend, idToken, email);
+     }
+        
+        // console.log("helloooo!!!!!!", userData);
+        // console.log("yoyooy!!!", userDetails);
+        const hasFilledDetails = userDetails?.hasFilledDetails;
+        const eHackTeamRole = userData?.user?.eHackTeamRole;
+        const impetusTeamRole = userData?.user?.impetusTeamRole;
+        const innoventureTeamRole = userData?.user?.innoventureTeamRole;
 
         const userArray = userData?.user.registeredEvents;
         console.log("helloooo!!!!!!", userArray);
-
+        
         if (idToken && req.nextUrl.pathname.startsWith("/")) {
             console.log("working!!!!!!!")
             console.log("------------------------", hasFilledDetails)
