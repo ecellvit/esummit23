@@ -34,7 +34,7 @@ function LeaderNav({ eventName }) {
                 router.push(`/manage/${eventName}/received-join-request`)
               }
             >
-              Recieved
+              Received
             </button>
           </div>
         </div>
