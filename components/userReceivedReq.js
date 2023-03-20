@@ -1,5 +1,6 @@
 import UserReceivedReqCard from "./UserReceivedReqCard";
 import styles from "../styles/joinTeams.module.css";
+import NotyNav from "./notyNav";
 
 function UserReceivedReq({ eventName, requests, session }) {
   return (
