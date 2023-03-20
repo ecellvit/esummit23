@@ -1,7 +1,15 @@
+"use client";
 import Link from "next/link";
 import React from "react";
+import { signIn, signOut, useSession } from "next-auth/react";
 
 export default function Section6() {
+  const session = useSession();
+  const loginHandler = () => {
+    signIn("google", {
+      callbackUrl: "/getdetails",
+    });
+  };
   return (
     <div className="sound_sec">
       <div className="sound_section">
@@ -10,9 +18,15 @@ export default function Section6() {
         </div>
         <div className="sound_r">
           <h1 className="about_h1 sound">Sounds Awesome?</h1>
-          <Link href="/" className="btn2 w-button">
-            View Events
-          </Link>
+          <button
+            onClick={() => {
+              session.data ? router.push("/schedule") : loginHandler();
+            }}
+            className="primary_btn w-button"
+            href="#"
+          >
+            {session.data ? "View Registered Events" : "Get Started"}
+          </button>
         </div>
       </div>
     </div>

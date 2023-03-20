@@ -11,7 +11,7 @@ export default function CardsTeam() {
             maxlength="256"
             name="name-3"
             data-name="Name 3"
-            placeholder="Search Here"
+            placeholder="Search Teams"
             id="name-3"
           />
         </div>
