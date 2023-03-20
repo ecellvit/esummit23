@@ -31,7 +31,6 @@ export default async function UserReceived() {
   return (
     <div>
       <Taskbar eventName={eventName} />
-
       <UserReceivedReq
         eventName={eventName}
         requests={requests}

@@ -40,7 +40,6 @@ export default async function UserSent() {
     <>
       <div class="create_cont">
         <Taskbar eventName={eventName} />
-
         <Dashboard
           eventName={eventName}
           session={session}

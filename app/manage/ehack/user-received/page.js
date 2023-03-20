@@ -33,7 +33,6 @@ export default async function UserReceived() {
   return (
     <>
       <Taskbar eventName={eventName} />
-
       <UserReceivedReq
         eventName={eventName}
         requests={requests}
