@@ -81,30 +81,60 @@ function UserReceivedReqCard({ request, eventName, session }) {
       });
   }
   return (
-    <div className={styles.Cards}>
-      <div className={styles.infogroup}>
-        <div>
-          <h3 className={styles.Cardsh3}> {request.teamId.teamName}</h3>
-          <h3 className={styles.Cardsh3}>
-            {request.teamId.teamLeaderId.email}
-          </h3>
-          <div className="flex mt-4 space-x-3 md:mt-6">
-            <button
-              className="inline-flex bg-[#53B3B9] items-center px-4 py-2 text-sm font-medium text-center text-white rounded-lg hover:bg-[#43A3A9] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-              onClick={(e) => handleRejectInvite(request.teamId?._id)}
-            >
-              Reject Team
-            </button>
-            <button
-              className="inline-flex bg-[#53B3B9] items-center px-4 py-2 text-sm font-medium text-center text-white rounded-lg hover:bg-[#43A3A9] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-              onClick={(e) => handleAcceptInvite(request.teamId?._id)}
-            >
-              Accept Team
-            </button>
+    <>
+      {" "}
+      {/* <div className={styles.Cards}>
+        <div className={styles.infogroup}>
+          <div>
+            <h3 className={styles.Cardsh3}> {request.teamId.teamName}</h3>
+            <h3 className={styles.Cardsh3}>
+              {request.teamId.teamLeaderId.email}
+            </h3>
+            <div className="flex mt-4 space-x-3 md:mt-6">
+              <button
+                className="inline-flex bg-[#53B3B9] items-center px-4 py-2 text-sm font-medium text-center text-white rounded-lg hover:bg-[#43A3A9] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                onClick={(e) => handleRejectInvite(request.teamId?._id)}
+              >
+                Reject Team
+              </button>
+              <button
+                className="inline-flex bg-[#53B3B9] items-center px-4 py-2 text-sm font-medium text-center text-white rounded-lg hover:bg-[#43A3A9] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+                onClick={(e) => handleAcceptInvite(request.teamId?._id)}
+              >
+                Accept Team
+              </button>
+            </div>
           </div>
         </div>
+      </div>{" "} */}
+      <div class="singlecard">
+        <div class="team_text">
+          <p class="team_details">
+            TeamName: <br />
+            {request.teamId.teamName}
+          </p>
+          <p class="team_details">
+            Team Leader: <br />
+            {request?.teamId?.teamLeaderId?.email}
+          </p>
+        </div>
+        <button
+          class="join_team w-button"
+          onClick={(e) => handleRejectInvite(request.teamId?._id)}
+        >
+          {" "}
+          Reject Team
+        </button>
+        <button
+          class="join_team w-button px-4"
+          onClick={(e) => handleAcceptInvite(request.teamId?._id)}
+        >
+          {" "}
+          Accept Team
+        </button>
       </div>
-    </div>
+    </>
+
     // <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
     //   <div className="flex flex-col items-center pb-10">
     //     <div className="w-24 h-24 mb-3 rounded-full shadow-lg">
