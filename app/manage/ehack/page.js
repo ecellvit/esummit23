@@ -1,5 +1,3 @@
-import hasDetailsFilled from "@/app/utils/hasDetailsFIiled";
-import NotFilledDetails from "@/app/utils/NotFilledDetails";
 import Dashboard from "@/components/dashboard";
 import NotyNav from "@/components/notyNav";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
@@ -23,6 +21,7 @@ async function getUserData(session) {
 }
 
 export default async function UserSent() {
+  const eventName = "eHack"
   const session = await getServerSession(authOptions);
   const data = await getUserData(session);
   const userData = data.user[eventName + "TeamId"];
