@@ -82,6 +82,7 @@ export default withAuth(
 
         if(req.nextUrl.pathname.startsWith("/")){
             console.log("working!!!!!!!")
+            console.log("------------------------",hasFilledDetails)
             if(!hasFilledDetails){
                 return NextResponse.redirect(new URL("/getdetails", req.url))
             }
