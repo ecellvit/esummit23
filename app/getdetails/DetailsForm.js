@@ -5,6 +5,8 @@ import React, { useRef, useState } from "react";
 import "../../styles/landing.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { signIn, signOut } from "next-auth/react";
+
 export default function DetailsForm({ accessTokenBackend }) {
   const lnameRef = useRef("");
   const fnameRef = useRef("");
@@ -47,18 +49,24 @@ export default function DetailsForm({ accessTokenBackend }) {
       .then((data) => {
         setisLoading(false);
         if (data.error?.errorCode) {
-          toast.error(`${data.message}`, {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
+          if(data.error.errorCode === 401){
+            signOut({ callbackUrl: "/" });
+          }
+          else{
+            router.push("/");
+            toast.error(`${data.message}`, {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            });
+          }
           return;
         }
-        toast("Details submitted successfully");
+        // toast("Details submitted successfully");
         router.push("/");
         return;
       });
