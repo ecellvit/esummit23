@@ -1,7 +1,8 @@
-import "../../../styles/landing.css";
-import { getServerSession } from "next-auth";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import Link from "next/link";
+
+import { getServerSession } from "next-auth";
+import "../../../styles/landing.css";
 
 async function getUserData(token) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user`, {
@@ -27,12 +28,13 @@ export default async function Home() {
     const userData = await getUserData(session);
     userArray = userData?.user.registeredEvents;
   }
-  const check = session && userArray[2];
+  console.log(userArray);
+  const check = session && userArray[4];
   return (
     <div className="event-sec">
       <div className="event_wrapper">
         <h1 className="event_h1">
-          Innoventure
+          Trading Workshop
           <br />‍
         </h1>
         <p className="event_date">Date &amp; Time</p>
@@ -41,13 +43,13 @@ export default async function Home() {
           <br />‍
         </p>
         <p className="form_para_small">
-          A business simulation event which gives the participants an
-          entrepreneurial ecosystem and platform to deploy their skills and
-          ideas about the aspects of product development, business analysis,
-          while inculcating knowledge about the trends in the current market and
-          economic conditions faced by business owners of all sizes everyday.
-          Innoventure is your portal to a world full of possibilities and
-          creative problem solving.
+          A concrete talk session featuring well-known figures from the industry
+          to provide you with a deeper understanding of the entrepreneurial
+          journey. These insightful, captivating, and interactive speeches will
+          act as a portal to their grind and hard work will definitely leave you
+          inspired. The session will also be open to questions, thus furnishing
+          the minds of the students with vivid ideas and a clearer picture of
+          the entrepreneurship realm.
           <br />‍
         </p>
         <div className="evet_price_wrap">
@@ -64,12 +66,11 @@ export default async function Home() {
             <p className="para_bold_event">10,000</p>
           </div>
         </div>
-
         <Link
           className="eventbtn w-button"
-          href={`${check ? "/manage/innoventure" : "/"}`}
+          href={`${check ? "/schedule" : "/"}`}
         >
-          {`${check ? "Go to Dashboard" : "Go to Register"}`}
+          {`${check ? "Go to Schedule" : "Go to Dashboard"}`}
         </Link>
       </div>
     </div>

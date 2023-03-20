@@ -1,3 +1,4 @@
+import NotyNav from "@/components/notyNav";
 import UserReceivedReq from "@/components/userReceivedReq";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
@@ -28,10 +29,13 @@ export default async function UserReceived() {
   const data = await addMemberData(session);
   const requests = data.requests;
   return (
-    <UserReceivedReq
-      eventName={eventName}
-      requests={requests}
-      session={session}
-    />
+    <>
+      <NotyNav eventName={eventName} />
+      <UserReceivedReq
+        eventName={eventName}
+        requests={requests}
+        session={session}
+      />
+    </>
   );
 }

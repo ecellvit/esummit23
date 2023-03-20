@@ -83,9 +83,9 @@ export default function Footer() {
                 className="img_dev"
               />
             </a>
-            <a className="developers">
+            {/* <a className="developers">
               <img src="developer.jpg" alt="" className="img_dev" />
-            </a>
+            </a> */}
           </div>
         </div>
         <div className="rfoot">

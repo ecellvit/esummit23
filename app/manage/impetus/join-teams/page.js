@@ -1,6 +1,7 @@
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
 import JoinAllTeams from "@/components/joinAllTeams";
+import NotyNav from "@/components/notyNav";
 
 async function getUserData(session) {
   const res = await fetch(
@@ -78,11 +79,14 @@ export default async function JoinTeams() {
   console.log(data.paginatedResult.results);
   //   const requests = data.requests;
   return (
-    <JoinAllTeams
-      session={session}
-      userData={userData}
-      eventName={eventName}
-      sentData={sentData.requests}
-    />
+    <>
+      <NotyNav eventName={eventName} />
+      <JoinAllTeams
+        session={session}
+        userData={userData}
+        eventName={eventName}
+        sentData={sentData.requests}
+      />
+    </>
   );
 }

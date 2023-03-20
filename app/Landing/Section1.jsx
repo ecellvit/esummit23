@@ -11,8 +11,9 @@ export default function Section1() {
           <div className="feat_text">
             <p className="feat_h1">Innovate</p>
             <p className="feat_para">
-              Provide a unique and workable concept to stand out from the
-              competitors.
+              Finding innovative solutions to complex real world problems to
+              create an edge over your competitors while providing a viable
+              alternative.
             </p>
           </div>
         </div>
@@ -23,8 +24,8 @@ export default function Section1() {
           <div className="feat_text">
             <p className="feat_h1">Ideate</p>
             <p className="feat_para">
-              Generate and explore creative ideas to solve a problem or achieve
-              a goal.
+              Generate and brainstorm creative ideas to solve a problem and
+              achieve goals through the way.
             </p>
           </div>
         </div>
@@ -35,9 +36,8 @@ export default function Section1() {
           <div className="feat_text">
             <p className="feat_h1">Actuate</p>
             <p className="feat_para">
-              Execute a well-planned strategy or solution with precision and
-              agility, to produce tangible results and achieve the desired
-              outcome
+              Execute a well-planned strategy with precision and agility, to
+              produce tangible results while achieving desirable outcomes.
             </p>
           </div>
         </div>

@@ -11,14 +11,14 @@ export default function Section2() {
         <div className="about_txt_wrap">
           <h1 className="about_h1">About E-Summit’23</h1>
           <p className="about_para">
-            <strong className="bld">E-Summit</strong> is the conclave that opens
-            the doors to the world of entrepreneurship. Masquerading as a single
-            event, it is a fusion of visionary activities and insightful
-            sessions that open the realm of networking and broaden the horizon
-            of business in students&#x27; minds. With its exclusive class of
-            exhilarating events, interesting workshops, exciting expos and
-            spectacular speakers, E-Summit aims at instilling innovation in
-            young minds.
+            <strong className="bld">E-Summit</strong> is the conclave that
+            insinuates attendees to the entrepreneurial world. It is a fusion of
+            insightful sessions and visionary activities disguised as a single
+            event that opens the realm of networking and broadens your
+            perspective on business. E-Summit aims to inculcate a sense of
+            innovation in young people through its exclusive collection of
+            enlivening events, enthralling workshops, and exciting expos, and
+            the perfect panel of spectacular speakers.
           </p>
           <Link href="#" className="primary_btn w-button">
             View Events

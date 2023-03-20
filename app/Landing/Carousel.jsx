@@ -14,12 +14,12 @@ export default function Carousel() {
   };
   const settings = {
     arrows: false,
-    dots: false,
+    dots: true,
     infinite: true,
     speed: 500,
     slidesToShow: 3,
     slidesToScroll: 3,
-    // centerPadding: "30vw",
+    centerPadding: "30vw",
     initialSlide: 3,
     responsive: [
       {
@@ -56,11 +56,11 @@ export default function Carousel() {
       </div>
       <div className="spkr_cont max-w-[80vw]">
         {" "}
-        <div className="prev" onClick={previous}>
+        {/* <div className="prev" onClick={previous}>
           <img src="arrowleft.svg" width="22" alt="" />
-        </div>
+        </div> */}
         <div className="max-w-[80%] mr-[20px]">
-          <Slider ref={sliderRef} {...settings} className=" overflow-hidden">
+          <Slider ref={sliderRef} {...settings} className=" overflow">
             {/* <div className="spkr_card none " style={{ margin: "0 10px" }}>
             <div className="spkr_img_wrap">
               <img
@@ -135,9 +135,9 @@ export default function Carousel() {
             </div>
           </Slider>
         </div>
-        <div className="next ml-[20px]" onClick={next}>
+        {/* <div className="next ml-[20px]" onClick={next}>
           <img src="arrowright.svg" width="22" alt="" />
-        </div>
+        </div> */}
       </div>
     </div>
   );

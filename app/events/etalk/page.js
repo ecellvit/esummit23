@@ -34,7 +34,7 @@ export default async function Home() {
       <div className="event-sec">
         <div className="event_wrapper">
           <h1 className="event_h1">
-            Event 4
+            Etalk
             <br />‍
           </h1>
           <p className="event_date">Date &amp; Time</p>
@@ -43,12 +43,13 @@ export default async function Home() {
             <br />‍
           </p>
           <p className="form_para_small">
-            Prominent motivational speakers from the entrepreneurial environment
-            will be delivering a talk to inspire the students and promote the
-            ethos of entrepreneurship in the campus. This session will also be
-            open to questions from the audience, thus furnishing the minds of
-            the students with vivid ideas and a clearer picture of the
-            entrepreneurship realm.
+            A concrete talk session featuring well-known figures from the
+            industry to provide you with a deeper understanding of the
+            entrepreneurial journey. These insightful, captivating, and
+            interactive speeches will act as a portal to their grind and hard
+            work will definitely leave you inspired. The session will also be
+            open to questions, thus furnishing the minds of the students with
+            vivid ideas and a clearer picture of the entrepreneurship realm.
             <br />‍
           </p>
           <div className="evet_price_wrap">
@@ -67,9 +68,9 @@ export default async function Home() {
           </div>
           <Link
             className="eventbtn w-button"
-            href={`${check ? "/manage/ehack" : "/"}`}
+            href={`${check ? "/schedule" : "/"}`}
           >
-            {`${check ? "Go to Dashboard" : "Go to Register"}`}
+            {`${check ? "Go to Schedule" : "Go to Register"}`}
           </Link>
         </div>
       </div>

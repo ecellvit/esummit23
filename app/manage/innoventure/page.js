@@ -41,6 +41,6 @@ export default async function ManagePage() {
         userData={userData}
         userRole={userRole}
       />
-    </>
-  );
+    </>
+  );
 }

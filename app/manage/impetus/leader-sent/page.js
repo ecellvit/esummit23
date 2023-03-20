@@ -1,6 +1,7 @@
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
 import LeaderSentReq from "@/components/LeaderSentReq";
+import NotyNav from "@/components/notyNav";
 
 async function leaderSentInvites(session) {
   const res = await fetch(
@@ -28,10 +29,13 @@ export default async function LeaderSent() {
   const data = await leaderSentInvites(session);
   const requests = data.requests;
   return (
-    <LeaderSentReq
-      eventName={eventName}
-      requests={requests}
-      session={session}
-    />
+    <>
+      <NotyNav eventName={eventName} />
+      <LeaderSentReq
+        eventName={eventName}
+        requests={requests}
+        session={session}
+      />
+    </>
   );
 }
