@@ -32,7 +32,6 @@ export default async function UserSent() {
   return (
     <>
       <Taskbar eventName={eventName} />
-
       <UserSentComponent
         eventName={eventName}
         requests={requests}
