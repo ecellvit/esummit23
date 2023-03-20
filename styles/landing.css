@@ -1007,13 +1007,13 @@
   @apply flex w-[90vw] min-h-[70vh] flex-row flex-wrap items-center gap-x-[2vw] gap-y-[2vw] mt-2.5 mx-auto px-10 py-5;
 }
 .singlecard {
-  @apply flex overflow-scroll min-h-[20vh] min-w-[25vw] flex-col justify-center flex-wrap items-center bg-white object-contain mx-auto p-5 rounded-[20px];
+  @apply flex break-all min-h-[20vh] min-w-[25vw] flex-col justify-center flex-wrap items-center bg-white object-contain mx-auto p-5 rounded-[20px];
 }
 .team_card_holder {
   @apply flex;
 }
 .team_details {
-  @apply overflow-scroll text-black text-[0.9rem] leading-[25px] text-center object-cover mb-2.5;
+  @apply break-all text-black text-[0.9rem] leading-[25px] text-center object-cover mb-2.5;
   font-family: Inter, sans-serif;
 }
 .team_text {
@@ -1126,7 +1126,7 @@
     @apply ml-10;
   }
   .singlecard {
-    @apply overflow-scroll min-w-[70vw] object-cover mt-5;
+    @apply break-all  min-w-[70vw] object-cover mt-5;
   }
   .team_text {
     @apply max-w-full;
