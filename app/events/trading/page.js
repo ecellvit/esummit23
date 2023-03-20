@@ -1,5 +1,6 @@
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import Link from "next/link";
+import RegButton from "./RegButton";
 
 import { getServerSession } from "next-auth";
 import "../../../styles/landing.css";
@@ -37,13 +38,22 @@ export default async function Home() {
           Trading Workshop
           <br />
         </h1>
-        <p className="event_date mt-8">Date &amp; Time : 01st April 2023, 4:00 PM</p>
+        <p className="event_date mt-8">
+          Date &amp; Time : 01st April 2023, 4:00 PM
+        </p>
         <p className="event_para">
           Venue : Ambedkar Auditorium
           <br />
         </p>
         <p className="form_para_small">
-          Graphs, Candlestick, F&O, Fundamental and Technical Analysis are the buzzwords of today’s more progressive and aware youth interested in creating value and personal wealth. This trading workshop from the Industry Experts will pave the path for a stronger fundamental understanding of the stock market and the trends. This workshop will provide you a great insight of this equity market, from understanding strategies to patterns and everything in between; Trading Workshop is the place to be.
+          Graphs, Candlestick, F&O, Fundamental and Technical Analysis are the
+          buzzwords of today’s more progressive and aware youth interested in
+          creating value and personal wealth. This trading workshop from the
+          Industry Experts will pave the path for a stronger fundamental
+          understanding of the stock market and the trends. This workshop will
+          provide you a great insight of this equity market, from understanding
+          strategies to patterns and everything in between; Trading Workshop is
+          the place to be.
           <br />
         </p>
         {/* <div className="evet_price_wrap">
@@ -60,12 +70,7 @@ export default async function Home() {
             <p className="para_bold_event">Coming Soon</p>
           </div>
         </div> */}
-        <Link
-          className="eventbtn w-button"
-          href={`${check ? "/schedule" : "/"}`}
-        >
-          {`${check ? "Go to Schedule" : "Register Now"}`}
-        </Link>
+        <RegButton check={check} userArray={userArray} />
       </div>
     </div>
   );

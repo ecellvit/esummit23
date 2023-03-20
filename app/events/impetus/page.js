@@ -3,6 +3,7 @@ import "../../../styles/landing.css";
 import { getServerSession } from "next-auth";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import Link from "next/link";
+import RegButton from "./RegButton";
 
 async function getUserData(token) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user`, {
@@ -38,7 +39,9 @@ export default async function Home() {
             Impetus
             <br />
           </h1>
-          <p className="event_date mt-10">Date &amp; Time : 02nd April 2023, 10:00 AM</p>
+          <p className="event_date mt-10">
+            Date &amp; Time : 02nd April 2023, 10:00 AM
+          </p>
           <p className="event_para">
             Venue : TT Gallery-2
             <br />
@@ -61,12 +64,7 @@ export default async function Home() {
               <p className="para_bold_event">Coming Soon</p>
             </div>
           </div> */}
-          <Link
-            className="eventbtn w-button"
-            href={`${check ? "/manage/impetus" : "/"}`}
-          >
-            {`${check ? "Go to Dashboard" : "Register Now"}`}
-          </Link>
+          <RegButton check={check} userArray={userArray} />
         </div>
       </div>
     </>
