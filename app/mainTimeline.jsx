@@ -51,6 +51,7 @@ export default function Maintimeline({ userArray, eventsArray, session }) {
                   isRegistered={userArray[3]}
                   event={eventsArray[3]}
                   id={3}
+                  eventsArray={eventsArray}
                   userArray={userArray}
                 ></NewCard>
               </div>{" "}
@@ -65,6 +66,7 @@ export default function Maintimeline({ userArray, eventsArray, session }) {
                   isRegistered={userArray[1]}
                   event={eventsArray[1]}
                   id={1}
+                  eventsArray={eventsArray}
                   userArray={userArray}
                 ></NewCard>
               </div>
@@ -79,6 +81,7 @@ export default function Maintimeline({ userArray, eventsArray, session }) {
                   isRegistered={userArray[4]}
                   event={eventsArray[4]}
                   id={4}
+                  eventsArray={eventsArray}
                   userArray={userArray}
                 ></NewCard>
               </div>
@@ -93,6 +96,7 @@ export default function Maintimeline({ userArray, eventsArray, session }) {
                   isRegistered={userArray[2]}
                   event={eventsArray[2]}
                   id={2}
+                  eventsArray={eventsArray}
                   userArray={userArray}
                 ></NewCard>
               </div>{" "}
@@ -107,6 +111,7 @@ export default function Maintimeline({ userArray, eventsArray, session }) {
                   isRegistered={userArray[0]}
                   event={eventsArray[0]}
                   id={0}
+                  eventsArray={eventsArray}
                   userArray={userArray}
                 ></NewCard>
               </div>
@@ -126,6 +131,7 @@ export default function Maintimeline({ userArray, eventsArray, session }) {
                     isRegistered={0}
                     event={eventsArray[3]}
                     id={3}
+                    eventsArray={eventsArray}
                     userArray={userArray}
                   ></NewCard>
                 </div>{" "}
@@ -140,6 +146,7 @@ export default function Maintimeline({ userArray, eventsArray, session }) {
                     isRegistered={0}
                     event={eventsArray[1]}
                     id={1}
+                    eventsArray={eventsArray}
                     userArray={userArray}
                   ></NewCard>
                 </div>
@@ -154,6 +161,7 @@ export default function Maintimeline({ userArray, eventsArray, session }) {
                     isRegistered={0}
                     event={eventsArray[4]}
                     id={4}
+                    eventsArray={eventsArray}
                     userArray={userArray}
                   ></NewCard>
                 </div>
@@ -168,6 +176,7 @@ export default function Maintimeline({ userArray, eventsArray, session }) {
                     isRegistered={0}
                     event={eventsArray[2]}
                     id={2}
+                    eventsArray={eventsArray}
                     userArray={userArray}
                   ></NewCard>
                 </div>{" "}
@@ -182,6 +191,7 @@ export default function Maintimeline({ userArray, eventsArray, session }) {
                     isRegistered={0}
                     event={eventsArray[0]}
                     id={0}
+                    eventsArray={eventsArray}
                     userArray={userArray}
                   ></NewCard>
                 </div>
