@@ -1,12 +1,13 @@
 "use client";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
 import JoinTeamsCard from "./joinTeamsCard";
 import styles from "../styles/joinTeams.module.css";
 import refreshData from "@/app/utils/refresh";
+import "react-toastify/dist/ReactToastify.css";
 
 function JoinAllTeams({ session, eventName, userData, sentData }) {
   const path = usePathname();
@@ -14,7 +15,7 @@ function JoinAllTeams({ session, eventName, userData, sentData }) {
   const [prev, setPrev] = useState();
   const [teamData, setTeamData] = useState([]);
   const router = useRouter();
-  const searchBar = () => {};
+  const searchBar = () => { };
   const [searchInput, setSearchInput] = useState("");
   const handleChange = (e) => {
     e.preventDefault();
@@ -173,7 +174,8 @@ function JoinAllTeams({ session, eventName, userData, sentData }) {
 
   return (
     <>
-      <div>
+      <ToastContainer />
+      <div className={styles.Teams}>
         <input
           type="text"
           placeholder="Search here"

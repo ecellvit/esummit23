@@ -5,10 +5,12 @@ import { useState } from "react";
 import AddMemberCard from "./addMemberCard";
 import { useRouter } from "next/navigation";
 import styles from "../styles/joinTeams.module.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function AddMember({ session, users, eventName, eventCode, sentData }) {
   const router = useRouter();
-  const searchBar = () => {};
+  const searchBar = () => { };
   const [searchInput, setSearchInput] = useState("");
   // const [searchParam] = useState(["firstName"]);
 
@@ -36,7 +38,8 @@ function AddMember({ session, users, eventName, eventCode, sentData }) {
   }
 
   return (
-    <div>
+    <div className={styles.Teams}>
+      <ToastContainer />
       <input
         type="text"
         placeholder="Search here"

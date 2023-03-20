@@ -1,6 +1,5 @@
 "use client";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 import refreshData from "@/app/utils/refresh";
 import styles from "../styles/joinTeams.module.css";
 
@@ -65,7 +64,6 @@ function UserSentCard({ request, eventName, session }) {
               Remove Request
             </button>
           </div>
-          <ToastContainer />
         </div>
       </div>
     </div>

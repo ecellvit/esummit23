@@ -1,6 +1,5 @@
 "use client";
-import { toast, ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import styles from "../styles/joinTeams.module.css";
 
@@ -63,7 +62,6 @@ function JoinTeamsCard({ teamData, session, eventName }) {
           >
             Join Team
           </button>
-          <ToastContainer />
         </div>
       </div>
     </div>

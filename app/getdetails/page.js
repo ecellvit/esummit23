@@ -2,6 +2,8 @@ import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
 import NotLoggedIn from "../../components/NotLoggedIn";
 import DetailsForm from "./DetailsForm";
+import { signIn, signOut } from "next-auth/react";
+import { NextResponse } from 'next/server'
 
 export default async function page() {
   const session = await getServerSession(authOptions);
@@ -23,6 +25,13 @@ export default async function page() {
           cache: "no-store",
         }
       );
+
+      if (!res.ok) {
+        if(res.status === 401){
+          signOut({ callbackUrl: "/" });
+        }
+        return NextResponse.redirect(new URL("/", req.url))
+      }
       return data.json();
     }
     const response = await getData();
