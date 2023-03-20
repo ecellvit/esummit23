@@ -3,6 +3,8 @@ import NotyNav from "@/components/notyNav";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
 
+import "../../../styles/landing.css";
+
 async function getUserData(session) {
   const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user`, {
     method: "GET",
@@ -33,15 +35,18 @@ export default async function UserSent() {
     hasTeam = true;
   }
   return (
-    <div>
-      <NotyNav eventName={eventName} />
-      <Dashboard
-        eventName={eventName}
-        session={session}
-        hasTeam={hasTeam}
-        userData={userData}
-        userRole={userRole}
-      />
-    </div>
+    <>
+      <div class="create_cont">
+        <NotyNav eventName={eventName} />
+
+        <Dashboard
+          eventName={eventName}
+          session={session}
+          hasTeam={hasTeam}
+          userData={userData}
+          userRole={userRole}
+        />
+      </div>
+    </>
   );
 }

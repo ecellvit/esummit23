@@ -2,7 +2,7 @@ import NotyNav from "@/components/notyNav";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
 import UserSentComponent from "@/components/UserSentComponent";
-
+import "../../../../styles/landing.css";
 async function requestSentData(session) {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_SERVER}/api/user/ehack/requests`,

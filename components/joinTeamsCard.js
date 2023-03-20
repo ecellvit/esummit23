@@ -1,7 +1,7 @@
 "use client";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
-import styles from "../styles/joinTeams.module.css";
+import "../styles/Landing.css";
 
 // import Avatar, { genConfig } from 'react-nice-avatar'
 
@@ -49,22 +49,48 @@ function JoinTeamsCard({ teamData, session, eventName }) {
   });
 
   return (
-    <div className={styles.Cards}>
-      <div className={styles.infogroup}>
-        <div>
-          <h3 className={styles.Cardsh3}>TeamName: {teamData?.teamName}</h3>
-          <h3 className={styles.Cardsh3}>
-            Team Leader Email: {teamLeader?.email}
-          </h3>
-          <button
-            className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-[#53B3B9] rounded-lg hover:bg-[#43A3A9] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-            onClick={(e) => handleJoinReq(teamData?._id)}
-          >
-            Join Team
-          </button>
+    <>
+      {" "}
+      <div class="singlecard">
+        <div class="team_text">
+          <p class="team_details font-semibold break-all">
+            TeamName: <br />
+            {teamData?.teamName}
+          </p>
+          <p class="team_details font-semibold break-all">
+            Team Leader: <br />
+            {teamLeader?.email}
+          </p>
+          <p class="team_details font-semibold break-all">
+            Email: <br />
+            {teamLeader?.email}
+          </p>
         </div>
+        <button
+          class="join_team w-button  text-white "
+          onClick={(e) => handleJoinReq(teamData?._id)}
+        >
+          Join Team
+        </button>
       </div>
-    </div>
+      {/* <div className={styles.Cards}>
+        <div className={styles.infogroup}>
+          <div>
+            <h3 className={styles.Cardsh3}>TeamName: {teamData?.teamName}</h3>
+            <h3 className={styles.Cardsh3}>
+              Team Leader Email: {teamLeader?.email}
+            </h3>
+            <button
+              className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-[#53B3B9] rounded-lg hover:bg-[#43A3A9] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              onClick={(e) => handleJoinReq(teamData?._id)}
+            >
+              Join Team
+            </button>
+            <ToastContainer />
+          </div>
+        </div>
+      </div> */}
+    </>
     // <div className="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
     //   <div className="flex flex-col items-center pb-10">
     //     <div className="w-24 h-24 mb-3 rounded-full shadow-lg">

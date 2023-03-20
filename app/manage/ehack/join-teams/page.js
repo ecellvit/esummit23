@@ -61,7 +61,7 @@ async function getAllteams(session, page) {
 }
 
 export default async function JoinTeams() {
-  const eventName = "eHack";
+  const eventName = "ehack";
   const session = await getServerSession(authOptions);
   const userData = await getUserData(session);
   const sentData = await requestSentData(session);

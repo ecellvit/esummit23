@@ -5,7 +5,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
 import JoinTeamsCard from "./joinTeamsCard";
-import styles from "../styles/joinTeams.module.css";
+
+import "../styles/landing.css";
 import refreshData from "@/app/utils/refresh";
 import "react-toastify/dist/ReactToastify.css";
 
@@ -174,8 +175,60 @@ function JoinAllTeams({ session, eventName, userData, sentData }) {
 
   return (
     <>
-      <ToastContainer />
-      <div>
+      {" "}
+      <div class="teams_sec">
+        <ToastContainer></ToastContainer>
+        <div class="search">
+          <div class="w-form">
+            <input
+              type="text"
+              class="team w-input"
+              maxlength="256"
+              name="name-3"
+              onChange={handleChange}
+              value={searchInput}
+              data-name="Name 3"
+              placeholder="Search Here"
+              id="name-3"
+            />
+          </div>
+        </div>
+        <div class="team_card_holder">
+          <div class="teamcard_cont">
+            {search(teamData, searchInput)?.map((x, index) => {
+              if (shouldRender(sentData, x)) {
+                return (
+                  <JoinTeamsCard
+                    teamData={x}
+                    key={teamData._id}
+                    session={session}
+                    eventName={eventName}
+                  />
+                );
+              }
+            })}
+          </div>
+        </div>
+        <div class="navigation_cont">
+          <button
+            class="navigation_card_btn w-button text-black bg-white hover:bg-[#53B3B9] "
+            onClick={() => {
+              handlePreviousButtonClick();
+            }}
+          >
+            Previous
+          </button>
+          <button
+            class="navigation_card_btn w-button text-black bg-white hover:bg-[#53B3B9] "
+            onClick={() => {
+              handleNextButtonClick();
+            }}
+          >
+            Next
+          </button>
+        </div>
+      </div>
+      {/* <div className={styles.Teams}>
         <input
           type="text"
           placeholder="Search here"
@@ -215,7 +268,7 @@ function JoinAllTeams({ session, eventName, userData, sentData }) {
         >
           Next
         </button>
-      </div>
+      </div> */}
     </>
   );
 }
