@@ -6,9 +6,11 @@ import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 import refreshData from "../utils/refresh";
 
-export default function NewCard({ event, id, isRegistered }) {
+export default function NewCard({ event, id, isRegistered ,userArray,eventsArray}) {
   const path = usePathname();
   const router = useRouter();
+  console.log("event id !!!!",id)
+  console.log("event Name !!!!",event)
   const { data: session, status } = useSession();
   const handleRegisterwithLogin = (id) => {
     // console.log("clicked");
@@ -98,6 +100,12 @@ export default function NewCard({ event, id, isRegistered }) {
             className="card_btn w-button"
             onClick={() => {
               // console.log(isRegistered);
+              if(id === 0 && userArray[2] === 1){
+                return;
+              }
+              if(id === 2 && userArray[0] === 1){
+                return;
+              }
               if (isRegistered === 0) {
                 return handleRegister(id);
               }
@@ -107,9 +115,12 @@ export default function NewCard({ event, id, isRegistered }) {
             {!session ? (
               <>Register event</>
             ) : (
-              <>{isRegistered === 0 ? <>Register</> : <>Go to schedule</>}</>
+              (id === 0)?(
+              <>{isRegistered === 0 ? (( userArray[2] != 1 )? <>Register<strong>→</strong>{" "}</> : <>Clashing with Innoventure</>) : <>Go to schedule<strong>→</strong>{" "}</>}</>
+              ): (id === 2) ? (<>{isRegistered === 0 ? (( userArray[0] != 1 )? <>Register<strong>→</strong>{" "}</> : <>Clashing with Impetus</>) : <>Go to schedule<strong>→</strong>{" "}</>}</>)
+              :(<>{isRegistered === 0 ? <>Register<strong>→</strong>{" "}</> : <>Go to schedule<strong>→</strong>{" "}</>}</>) 
             )}
-            <strong>→</strong>{" "}
+            {/* <strong>→</strong>{" "} */}
           </button>
           {/* <button className="btn_card_last w-button">
                         View Details<strong>→</strong>{" "}
