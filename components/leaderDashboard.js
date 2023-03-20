@@ -4,7 +4,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import refreshData from "@/app/utils/refresh";
 import { usePathname, useRouter } from "next/navigation";
-
+import "../styles/landing.css";
 export default function LeaderDashboard({ userData, eventName, session }) {
   const router = useRouter();
   const path = usePathname();
@@ -40,47 +40,104 @@ export default function LeaderDashboard({ userData, eventName, session }) {
   }
 
   return (
-    <div className=" px-8">
-      <div className="text-center mt-8 font-medium text-2xl">
-        Team Name : {userData.teamName}
-      </div>
-      <div className="grid grid-cols-2 gap-8  mt-10 mx-auto w-[50rem] text-center">
-        {userData?.members?.map((data) => {
-          return (
-            <MemberCard
-              key={data}
-              data={data}
-              teamId={userData._id}
-              eventName={eventName}
-              session={session}
-            />
-          );
-        })}
-      </div>
-      {userData?.members?.length < 4 ? (
-        <div className="flex justify-center mt-10">
+    <>
+      {/* <div className=" px-8">
+        <div className="text-center mt-8 font-medium text-2xl">
+          Team Name : {userData.teamName}
+        </div>
+        <div className="grid grid-cols-2 gap-8  mt-10 mx-auto w-[50rem] text-center">
+          {userData?.members?.map((data) => {
+            return (
+              <MemberCard
+                key={data}
+                data={data}
+                teamId={userData._id}
+                eventName={eventName}
+                session={session}
+              />
+            );
+          })}
+        </div>
+        {userData?.members?.length < 4 ? (
+          <div className="flex justify-center mt-10">
+            <button
+              onClick={(e) => {
+                eventName = eventName.toLowerCase();
+                router.push(`/manage/${eventName}/add-members`);
+              }}
+              className="bg-white w-40 rounded-md p-2"
+            >
+              Add Members
+            </button>
+          </div>
+        ) : (
+          <div></div>
+        )}
+        <div className="flex justify-center mt-8">
           <button
+            onClick={(e) => handleDelete(userData._id)}
+            className="bg-red-700 w-40 text-white rounded-md p-2"
+          >
+            Delete Team
+          </button>
+          <ToastContainer />
+        </div>
+      </div>{" "} */}
+      <div class="teams_sec mt-[-5vh]">
+        <ToastContainer />
+        <div class="search">
+          <div class="w-form text-center w-[100%] text-[2rem]">
+            Team Name : {userData.teamName}
+          </div>
+        </div>
+        <div class="team_card_holder">
+          <div class="teamcard_cont">
+            {userData?.members?.map((data) => {
+              return (
+                <MemberCard
+                  key={data}
+                  data={data}
+                  teamId={userData._id}
+                  eventName={eventName}
+                  session={session}
+                />
+              );
+            })}
+          </div>
+        </div>
+        <div class="navigation_cont mt-[-10vh]">
+          {userData?.members?.length < 4 ? (
+            <button
+              onClick={(e) => {
+                eventName = eventName.toLowerCase();
+                router.push(`/manage/${eventName}/add-members`);
+              }}
+              class="navigation_card_btn w-button"
+            >
+              Add Members
+            </button>
+          ) : (
+            <div></div>
+          )}
+          {/* <button
+            class="navigation_card_btn w-button"
             onClick={(e) => {
               eventName = eventName.toLowerCase();
               router.push(`/manage/${eventName}/add-members`);
             }}
-            className="bg-white w-40 rounded-md p-2"
           >
+            {" "}
             Add Members
+          </button> */}
+          <button
+            class="navigation_card_btn w-button !bg-red-700 w-40 text-white"
+            onClick={(e) => handleDelete(userData._id)}
+          >
+            {" "}
+            Delete Team
           </button>
-        </div>
-      ) : (
-        <div></div>
-      )}
-      <div className="flex justify-center mt-8">
-        <button
-          onClick={(e) => handleDelete(userData._id)}
-          className="bg-red-700 w-40 text-white rounded-md p-2"
-        >
-          Delete Team
-        </button>
-        <ToastContainer />
+        </div>{" "}
       </div>
-    </div>
+    </>
   );
 }

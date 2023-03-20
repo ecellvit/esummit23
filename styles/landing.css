@@ -959,7 +959,8 @@
 }
 /*Create Team*/
 .create_cont {
-  @apply min-h-screen  text-black text-base font-normal;
+  /*min-h-screen*/
+  @apply text-black text-base font-normal;
   font-family: Inter, sans-serif;
 }
 .subnav {
@@ -1000,7 +1001,7 @@
   @apply text-base leading-5  text-white text-center bg-[#53B3B9] ml-2.5 px-[15px] py-[9px] rounded-[5px];
 }
 .teams_sec {
-  @apply static min-h-screen;
+  @apply static min-h-[40vh];
 }
 .teamcard_cont {
   @apply flex w-[90vw] min-h-[70vh] flex-row flex-wrap items-center gap-x-[2vw] gap-y-[2vw] mt-2.5 mx-auto px-10 py-5;

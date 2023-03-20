@@ -2,8 +2,7 @@
 import refreshData from "@/app/utils/refresh";
 import { usePathname, useRouter } from "next/navigation";
 import { toast } from "react-toastify";
-
-
+import "../styles/landing.css";
 function MemberCard({ session, data, teamId, eventName }) {
   const router = useRouter();
   const path = usePathname();
@@ -42,19 +41,40 @@ function MemberCard({ session, data, teamId, eventName }) {
       });
   }
   return (
-    <div className="h-40 rounded-2xl hover:scale-105 ease-linear bg-white">
-      <h2 className="mt-5">{data.email}</h2>
-      {userRole ? (
-        <button
-          onClick={(e) => handleRemove(teamId)}
-          className="bg-red-700 mt-5 w-40 rounded-md p-2"
-        >
-          Remove
-        </button>
-      ) : (
-        <h2>Leader</h2>
-      )}
-    </div>
+    <>
+      <div class="singlecard">
+        <div class="team_text">
+          <p class="team_details">
+            {/* TeamName: <br /> */}
+            {data.email}
+          </p>
+        </div>
+        {userRole ? (
+          <button
+            onClick={(e) => handleRemove(teamId)}
+            className="!bg-red-700 join_team w-button"
+          >
+            Remove
+          </button>
+        ) : (
+          <h2>Leader</h2>
+        )}
+        {/* <button class="join_team w-button">Back</button> */}
+      </div>
+      {/* <div className="h-40 rounded-2xl hover:scale-105 ease-linear bg-white">
+        <h2 className="mt-5">{data.email}</h2>
+        {userRole ? (
+          <button
+            onClick={(e) => handleRemove(teamId)}
+            className="bg-red-700 mt-5 w-40 rounded-md p-2"
+          >
+            Remove
+          </button>
+        ) : (
+          <h2>Leader</h2>
+        )}
+      </div> */}
+    </>
   );
 }
 
