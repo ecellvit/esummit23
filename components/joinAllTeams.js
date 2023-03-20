@@ -15,7 +15,7 @@ function JoinAllTeams({ session, eventName, userData, sentData }) {
   const [prev, setPrev] = useState();
   const [teamData, setTeamData] = useState([]);
   const router = useRouter();
-  const searchBar = () => { };
+  const searchBar = () => {};
   const [searchInput, setSearchInput] = useState("");
   const handleChange = (e) => {
     e.preventDefault();
@@ -175,7 +175,7 @@ function JoinAllTeams({ session, eventName, userData, sentData }) {
   return (
     <>
       <ToastContainer />
-      <div className={styles.Teams}>
+      <div>
         <input
           type="text"
           placeholder="Search here"

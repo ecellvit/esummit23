@@ -10,7 +10,7 @@ import "react-toastify/dist/ReactToastify.css";
 
 function AddMember({ session, users, eventName, eventCode, sentData }) {
   const router = useRouter();
-  const searchBar = () => { };
+  const searchBar = () => {};
   const [searchInput, setSearchInput] = useState("");
   // const [searchParam] = useState(["firstName"]);
 
@@ -38,7 +38,7 @@ function AddMember({ session, users, eventName, eventCode, sentData }) {
   }
 
   return (
-    <div className={styles.Teams}>
+    <div>
       <ToastContainer />
       <input
         type="text"
