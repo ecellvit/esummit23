@@ -483,7 +483,7 @@
       @apply flex-col;
     }
     .features {
-      @apply w-[80vw] max-w-[80vw] pl-5 border-solid border-[0px_0px_1px] border-black;
+      @apply w-[80vw] max-w-[80vw] pl-5 border-solid border-b-[1px] border-r-0  border-[rgba(0,0,0,0.2)];
     }
     .features.last {
       @apply border-r-0;
@@ -955,5 +955,188 @@
   }
   .evet_price_wrap {
     @apply gap-x-2.5 gap-y-2.5 pb-5;
+  }
+}
+/*Create Team*/
+.create_cont {
+  @apply min-h-screen bg-[-webkit-gradient(linear,left_top,left_bottom,from(#245e6e),to(#245e6e))] bg-[linear-gradient(180deg,#245e6e,#245e6e)] text-black text-base font-normal;
+  font-family: Inter, sans-serif;
+}
+.subnav {
+  @apply flex justify-between items-center bg-[#e7e7e7] text-center mx-0 px-10 py-2.5;
+}
+.right_subnav {
+  @apply flex min-w-[20vw] items-center;
+}
+.recieved {
+  @apply text-black text-base leading-5 ml-2.5 px-[15px] py-[9px] rounded-[5px];
+}
+.ehack_cont {
+  @apply flex w-[70vw] min-h-[60vh] flex-col items-center bg-[#e7e7e7] mx-auto my-[10vh] p-2.5;
+}
+.team {
+  @apply min-w-[50vw] mb-2.5 mx-auto pb-2 px-3;
+}
+.managebtn {
+  @apply min-w-[4vw] text-black text-center px-[15px] py-[9px] rounded-[5px];
+}
+.left_sub {
+  @apply flex min-w-[70vw] flex-row justify-around items-center font-normal;
+}
+.subnav_h1 {
+  @apply text-black text-5xl leading-10 font-bold text-center mt-5 mb-2.5;
+  font-family: Inter, sans-serif;
+}
+.join_h1 {
+  @apply text-5xl leading-10 font-normal my-5;
+}
+.join_h1.bold {
+  @apply font-bold mt-5 mb-2.5;
+}
+.handleteam {
+  @apply w-[20vw] text-black text-center px-[15px] py-[9px] rounded-[5px];
+}
+.send {
+  @apply text-black text-base leading-5 text-center ml-2.5 px-[15px] py-[9px] rounded-[5px];
+}
+.teams_sec {
+  @apply static min-h-screen bg-[#245e6e];
+}
+.teamcard_cont {
+  @apply flex w-[90vw] min-h-[70vh] flex-row flex-wrap items-center gap-x-[2vw] gap-y-[2vw] mt-2.5 mx-auto px-10 py-5;
+}
+.singlecard {
+  @apply flex overflow-scroll min-h-[20vh] min-w-[25vw] flex-col justify-center flex-wrap items-center bg-white object-contain mx-auto p-5 rounded-[20px];
+}
+.team_card_holder {
+  @apply flex;
+}
+.team_details {
+  @apply overflow-scroll text-black text-[0.9rem] leading-[25px] text-center object-cover mb-2.5;
+  font-family: Inter, sans-serif;
+}
+.team_text {
+  @apply max-w-[80%];
+}
+.search {
+  @apply max-w-[70vw] mx-auto pt-[10vh];
+}
+.navigation_cont {
+  @apply static flex justify-center items-center gap-x-[10vw] gap-y-[10vw] px-0 top-auto bottom-[0%] inset-x-[0%];
+}
+.navigation_card_btn {
+  @apply min-w-[20vw] text-black text-base leading-5 text-center ml-0 mb-[10vh] px-[15px] py-[9px] rounded-[5px];
+  font-family: Inter, sans-serif;
+}
+.join_team {
+  @apply min-w-[10vw] text-black text-base leading-5 text-center px-[15px] py-[9px] rounded-[5px];
+  font-family: Inter, sans-serif;
+}
+@media screen and (max-width: 991px) {
+  .subnav {
+    @apply flex-row pl-10 pr-[60px];
+  }
+  .left_sub {
+    @apply min-w-[50vw];
+  }
+  .handleteam {
+    @apply w-[25vw];
+  }
+  .teamcard_cont {
+    @apply gap-x-[5vw] gap-y-[5vw];
+  }
+  .singlecard {
+    @apply min-w-[35vw];
+  }
+}
+@media screen and (max-width: 767px) {
+  .subnav {
+    @apply flex-col items-center px-5;
+  }
+  .right_subnav {
+    @apply max-w-[50vw] min-w-[100vw] justify-around my-5;
+  }
+  .recieved {
+    @apply ml-5;
+  }
+  .ehack_cont {
+    @apply min-h-[50vh] pb-2.5;
+  }
+  .managebtn {
+    @apply min-w-[20vw] text-center mb-0;
+  }
+  .left_sub {
+    @apply flex max-w-[50vw] min-w-[100vw] flex-row-reverse justify-around flex-nowrap items-center;
+  }
+  .subnav_h1 {
+    @apply text-[2.5rem];
+  }
+  .join_h1 {
+    @apply text-[2rem] leading-[30px] text-center;
+  }
+  .handleteam {
+    @apply w-[30vw] mb-5;
+  }
+  .send {
+    @apply w-[20vw] text-center ml-0;
+  }
+  .teamcard_cont {
+    @apply w-screen gap-x-4 gap-y-4;
+  }
+  .singlecard {
+    @apply min-h-[10vh] min-w-[80vw] flex-col flex-wrap mx-auto;
+  }
+  .team_card_holder {
+    @apply flex-row;
+  }
+  .navigation_card_btn {
+    @apply w-[20vw] text-center ml-0;
+  }
+  .join_team {
+    @apply min-w-[20vw] text-center mb-0;
+  }
+}
+@media screen and (max-width: 479px) {
+  .subnav {
+    @apply mx-0 pl-2.5;
+  }
+  .right_subnav {
+    @apply justify-between pl-0;
+  }
+  .recieved {
+    @apply mr-10;
+  }
+  .managebtn {
+    @apply mb-0 mx-2.5;
+  }
+  .left_sub {
+    @apply items-center px-5;
+  }
+  .subnav_h1 {
+    @apply text-[2rem] pl-5;
+  }
+  .join_h1 {
+    @apply leading-8 mb-5;
+  }
+  .handleteam {
+    @apply w-[40vw] mb-2.5;
+  }
+  .send {
+    @apply ml-10;
+  }
+  .singlecard {
+    @apply overflow-scroll min-w-[70vw] object-cover mt-5;
+  }
+  .team_text {
+    @apply max-w-full;
+  }
+  .navigation_cont {
+    @apply pl-2.5 pr-10;
+  }
+  .navigation_card_btn {
+    @apply w-auto min-w-[30vw] ml-10;
+  }
+  .join_team {
+    @apply mb-0 mx-2.5;
   }
 }
