@@ -841,8 +841,9 @@
   @apply flex min-h-screen;
 }
 .event-sec {
-  @apply w-screen min-h-screen bg-[url("https://res.cloudinary.com/dchq25bxl/image/upload/v1679337272/template_1-min_iils6g.png")] bg-[50%_50%] bg-cover text-white text-base leading-5 font-normal mt-0 mx-auto pl-0;
+  @apply w-screen min-h-[91vh] bg-[url("https://res.cloudinary.com/dchq25bxl/image/upload/v1679244337/bg_f6aif4.png")] bg-[50%_50%] bg-cover text-white text-base leading-5 font-normal mt-0 mx-auto pl-0;
   font-family: Inter, sans-serif;
+
 }
 .form_sec_r {
   @apply w-[60vw] mt-[10vh];

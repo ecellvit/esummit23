@@ -65,7 +65,7 @@ export default function Navbar({ session }) {
 
   return (
     <>
-      <div className="dark-mode:text-gray-200 dark-mode:bg-gray-800 w-full bg-white text-gray-700">
+      <div className="max-h-[10vh] dark-mode:text-gray-200 dark-mode:bg-gray-800 w-full bg-white text-gray-700">
         <div
           x-data="{ open: false }"
           className="mx-auto flex max-w-screen-xl flex-col px-4 md:flex-row md:items-center md:justify-between md:px-6 lg:px-8"
