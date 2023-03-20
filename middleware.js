@@ -158,3 +158,5 @@ export default withAuth(
     },
 }
 )
+
+export const config = { matcher: ["/schedule", "/manage/:path*"] }
