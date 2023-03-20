@@ -268,11 +268,11 @@
     font-family: Inter, sans-serif;
   }
   .form_para {
-    @apply text-2xl font-normal mt-[20px] mb-[10px];
+    @apply text-2xl font-normal  mb-[10px];
     font-family: Inter, sans-serif;
   }
   .form_para_small {
-    @apply text-base leading-[25px] font-normal mb-[10px];
+    @apply text-base leading-[40px]  font-normal mb-[10px] mt-[35px];
     font-family: Inter, sans-serif;
   }
   .form_r_h1 {
@@ -822,7 +822,7 @@
   font-family: Inter, sans-serif;
 }
 .event_wrapper {
-  @apply w-[75vw] text-left mx-auto pt-0;
+  @apply w-[75vw] text-left mx-auto pt-0 leading-[40px];
 }
 .form_r_h1 {
   @apply font-bold mt-5 mb-2.5 pl-[60px];
@@ -848,14 +848,14 @@
   @apply w-[60vw] mt-[10vh];
 }
 .event_date {
-  @apply text-2xl leading-5 font-semibold text-center mb-2.5;
+  @apply text-2xl font-semibold text-center mb-2.5 leading-[40px];
   font-family: Inter, sans-serif;
 }
 .main_form_wrap {
   @apply mb-[15px];
 }
 .event_h1 {
-  @apply text-[5rem] leading-10 font-bold text-center mx-auto my-0 pt-[15vh];
+  @apply text-[5rem] font-bold text-center mx-auto my-0 pt-[15vh] leading-[40px];
   font-family: Inter, sans-serif;
 }
 .form_cont {
@@ -945,10 +945,10 @@
     @apply text-center;
   }
   .event_h1 {
-    @apply w-[80vw] leading-[25px] my-0;
+    @apply w-[80vw] leading-[10px] my-0 pt-[5vh];
   }
   .event_para {
-    @apply text-center;
+    @apply text-center mt-[10px];
   }
   .input_form {
     @apply w-[70vw];
@@ -1001,10 +1001,11 @@
   @apply text-base leading-5  text-white text-center bg-[#53B3B9] ml-2.5 px-[15px] py-[9px] rounded-[5px];
 }
 .teams_sec {
-  @apply static min-h-[40vh];
+  /* @apply static min-h-[40vh]; */
 }
 .teamcard_cont {
-  @apply flex w-[90vw] min-h-[70vh] flex-row flex-wrap items-center gap-x-[2vw] gap-y-[2vw] mt-2.5 mx-auto px-10 py-5;
+  /*min-h-[70vh]*/
+  @apply flex w-[90vw]  flex-row flex-wrap items-center gap-x-[2vw] gap-y-[2vw] mt-2.5 mx-auto px-10 py-5;
 }
 .singlecard {
   @apply flex break-all min-h-[20vh] min-w-[25vw] flex-col justify-center flex-wrap items-center bg-white object-contain mx-auto p-5 rounded-[20px];
@@ -1108,7 +1109,7 @@
     @apply mr-10;
   }
   .managebtn {
-    @apply mb-0 mx-2.5;
+    @apply mb-0 mx-2.5 hidden;
   }
   .left_sub {
     @apply items-center px-5;
