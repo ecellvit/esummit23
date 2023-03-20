@@ -981,7 +981,7 @@
   @apply text-white text-base leading-5 ml-2.5 px-[15px] py-[9px] rounded-[5px] bg-[#53B3B9];
 }
 .ehack_cont {
-  @apply flex w-[70vw] min-h-[60vh] flex-col items-center bg-[#e7e7e7] mx-auto my-[10vh] p-2.5;
+  @apply flex w-[70vw] min-h-[60vh] flex-col items-center bg-[#e7e7e7] mx-auto my-[7vh] p-5;
 }
 .team {
   @apply min-w-[50vw] mb-2.5 mx-auto pb-2 px-3;
@@ -1000,7 +1000,7 @@
   @apply text-5xl leading-10 font-normal my-5;
 }
 .join_h1.bold {
-  @apply font-bold mt-5 mb-2.5;
+  @apply font-bold mt-5;
 }
 .handleteam {
   @apply w-[20vw] text-white text-center !bg-[#53B3B9] px-[15px] py-[9px] rounded-[5px];

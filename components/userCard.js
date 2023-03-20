@@ -6,8 +6,8 @@ function UserCard({ data, userRole }) {
       <div className="singlecard">
         <div className="team_text">
           <p className="team_details">
-            Email: <br />
-            {data.email}
+            Name : <br />
+            {data.firstName + " " +data.lastName}
           </p>
           {userRole ? (
             <p className="team_details">Member</p>
