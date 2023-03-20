@@ -169,7 +169,7 @@ function JoinAllTeams({ session, eventName, userData, sentData }) {
 
   return (
     <>
-      <div className={styles.Teams}>
+      <div>
         <input
           type="text"
           placeholder="Search here"

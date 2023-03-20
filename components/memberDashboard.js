@@ -3,6 +3,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import refreshData from "@/app/utils/refresh";
 import UserCard from "./userCard";
+import MemberCard from "./memberCard";
 import { usePathname, useRouter } from "next/navigation";
 
 export default function MemberDashboard({ userData, eventName, session }) {
@@ -39,20 +40,46 @@ export default function MemberDashboard({ userData, eventName, session }) {
   }
 
   return (
-    <div className="min-h-screen w-full bg-neutral-100 text-white py-10 px-8">
-      <h1 className="font-md text-4xl">{eventName} dashboard</h1>
+    // <div className="min-h-screen w-full bg-neutral-100 text-white py-10 px-8">
+    //   <h1 className="font-md text-4xl">{eventName} dashboard</h1>
 
-      <div className="grid grid-cols-2 gap-8  mt-20 mx-auto w-[70rem] text-center">
+    //   <div className="grid grid-cols-2 gap-8  mt-20 mx-auto w-[70rem] text-center">
+    //     {userData?.members?.map((data) => {
+    //       return (
+    //         <UserCard key={data} data={data} userRole={data[eventName + "TeamRole"]} />
+    //       );
+    //     })}
+    //   </div>
+    //   <div className="flex justify-center mt-16">
+    //     <button
+    //       onClick={(e) => handleLeave(userData._id)}
+    //       className="bg-red-700 w-40 rounded-md p-2"
+    //     >
+    //       Leave Team
+    //     </button>
+    //     <ToastContainer />
+    //   </div>
+    // </div>
+
+    <div className=" px-8">
+      <div className="text-center mt-8 font-medium text-2xl">
+        Team Name : {userData.teamName}
+      </div>
+      <div className="grid grid-cols-2 gap-8  mt-10 mx-auto w-[50rem] text-center">
         {userData?.members?.map((data) => {
           return (
-            <UserCard key={data} data={data} userRole={data[eventName + "TeamRole"]} />
+            <UserCard
+              key={data}
+              data={data}
+              userRole={data[eventName + "TeamRole"]}
+            />
           );
         })}
       </div>
-      <div className="flex justify-center mt-16">
+      <div className="flex justify-center mt-8">
         <button
           onClick={(e) => handleLeave(userData._id)}
-          className="bg-red-700 w-40 rounded-md p-2"
+          className="bg-red-700 w-40 text-white rounded-md p-2"
         >
           Leave Team
         </button>

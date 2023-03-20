@@ -28,10 +28,14 @@ export default async function UserReceived() {
   const data = await addMemberData(session);
   const requests = data.requests;
   return (
-    <UserReceivedReq
-      eventName={eventName}
-      requests={requests}
-      session={session}
-    />
+    <div>
+      <NotyNav eventName={eventName} />
+
+      <UserReceivedReq
+        eventName={eventName}
+        requests={requests}
+        session={session}
+      />
+    </div>
   );
 }

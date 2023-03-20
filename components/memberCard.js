@@ -1,7 +1,7 @@
 "use client";
 import refreshData from "@/app/utils/refresh";
 import { usePathname, useRouter } from "next/navigation";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 
 function MemberCard({ session, data, teamId, eventName }) {
   const router = useRouter();
@@ -53,7 +53,7 @@ function MemberCard({ session, data, teamId, eventName }) {
       ) : (
         <h2>Leader</h2>
       )}
-      <ToastContainer />
+      {/* <ToastContainer /> */}
     </div>
   );
 }

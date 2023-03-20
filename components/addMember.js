@@ -36,7 +36,7 @@ function AddMember({ session, users, eventName, eventCode, sentData }) {
   }
 
   return (
-    <div className={styles.Teams}>
+    <div>
       <input
         type="text"
         placeholder="Search here"

@@ -30,7 +30,6 @@ export default async function LeaderSent() {
   const requests = data.requests;
   return (
     <>
-      <NotyNav eventName={eventName} />
       <LeaderSentReq
         eventName={eventName}
         requests={requests}
