@@ -9,7 +9,7 @@ export default async function page() {
   const session = await getServerSession(authOptions);
   if (session) {
     async function getData() {
-      const data = await fetch(
+      const res = await fetch(
         `${process.env.NEXT_PUBLIC_SERVER}/api/user/details`,
         {
           method: "PATCH",
@@ -27,12 +27,12 @@ export default async function page() {
       );
 
       if (!res.ok) {
-        if(res.status === 401){
+        if (res.status === 401) {
           signOut({ callbackUrl: "/" });
         }
         return NextResponse.redirect(new URL("/", req.url))
       }
-      return data.json();
+      return res.json();
     }
     const response = await getData();
     return (
