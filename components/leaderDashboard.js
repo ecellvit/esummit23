@@ -41,7 +41,9 @@ export default function LeaderDashboard({ userData, eventName, session }) {
 
   return (
     <div className=" px-8">
-      <div className="text-center mt-8 font-medium text-2xl">Team Name : {userData.teamName}</div>
+      <div className="text-center mt-8 font-medium text-2xl">
+        Team Name : {userData.teamName}
+      </div>
       <div className="grid grid-cols-2 gap-8  mt-10 mx-auto w-[50rem] text-center">
         {userData?.members?.map((data) => {
           return (

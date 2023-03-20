@@ -1,6 +1,5 @@
 "use client";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 import refreshData from "@/app/utils/refresh";
 import styles from "../styles/joinTeams.module.css";
 
@@ -55,17 +54,16 @@ function UserSentCard({ request, eventName, session }) {
         <div>
           <h3 className={styles.Cardsh3}> {request.teamId.teamName}</h3>
           <h3 className={styles.Cardsh3}>
-            {request.teamId.teamLeaderId.email}
+            {request?.teamId?.teamLeaderId?.email}
           </h3>
           <div className="flex mt-4 space-x-3 md:mt-6">
             <button
-              className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="inline-flex bg-[#53B3B9] items-center px-4 py-2 text-sm font-medium text-center text-white rounded-lg hover:bg-[#43A3A9] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               onClick={(e) => handleRemoveRequest(request.teamId?._id)}
             >
               Remove Request
             </button>
           </div>
-          <ToastContainer />
         </div>
       </div>
     </div>

@@ -5,6 +5,8 @@ import React, { useRef, useState } from "react";
 import "../../styles/landing.css";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { signIn, signOut } from "next-auth/react";
+
 export default function DetailsForm({ accessTokenBackend }) {
   const lnameRef = useRef("");
   const fnameRef = useRef("");
@@ -47,15 +49,21 @@ export default function DetailsForm({ accessTokenBackend }) {
       .then((data) => {
         setisLoading(false);
         if (data.error?.errorCode) {
-          toast.error(`${data.message}`, {
-            position: "top-right",
-            autoClose: 5000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-          });
+          if(data.error.errorCode === 401){
+            signOut({ callbackUrl: "/" });
+          }
+          else{
+            router.push("/");
+            toast.error(`${data.message}`, {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            });
+          }
           return;
         }
         router.push("/");
@@ -103,15 +111,15 @@ export default function DetailsForm({ accessTokenBackend }) {
             <div className="form_price_wrap">
               <div className="form_wrap">
                 <p className="para_med_form">1st</p>
-                <p className="para_bold">10,000</p>
+                <p className="para_bold">Coming Soon</p>
               </div>
               <div className="form_wrap">
                 <p className="para_med_form">2nd</p>
-                <p className="para_bold">10,000</p>
+                <p className="para_bold">Coming Soon</p>
               </div>
               <div className="form_wrap">
                 <p className="para_med_form">3rd</p>
-                <p className="para_bold">10,000</p>
+                <p className="para_bold">Coming Soon</p>
               </div>
             </div>
           </div>

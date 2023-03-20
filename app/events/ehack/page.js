@@ -30,18 +30,18 @@ export default async function Home() {
 
   const check = session && userArray[1];
   return (
-    <div class="event-sec">
-      <div class="event_wrapper">
-        <h1 class="event_h1">
+    <div className="event-sec">
+      <div className="event_wrapper">
+        <h1 className="event_h1">
           E-Hack
           <br />‍
         </h1>
-        <p class="event_date">Date &amp; Time</p>
-        <p class="event_para">
-          Venue
+        <p className="event_date">Date &amp; Time : 31st March 2023, 9:00 PM</p>
+        <p className="event_para">
+          Venue: Sarojini Naidu SJT
           <br />‍
         </p>
-        <p class="form_para_small">
+        <p className="form_para_small">
           Prominent motivational speakers from the entrepreneurial environment
           will be delivering a talk to inspire the students and promote the
           ethos of entrepreneurship in the campus. This session will also be
@@ -50,18 +50,18 @@ export default async function Home() {
           entrepreneurship realm.
           <br />‍
         </p>
-        <div class="evet_price_wrap">
-          <div class="price_wrap">
-            <p class="para_med_event">1st</p>
-            <p class="para_bold_event">10,000</p>
+        <div className="evet_price_wrap">
+          <div className="price_wrap">
+            <p className="para_med_event">1st</p>
+            <p className="para_bold_event">Coming Soon</p>
           </div>
-          <div class="price_wrap">
-            <p class="para_med_event">2nd</p>
-            <p class="para_bold_event">10,000</p>
+          <div className="price_wrap">
+            <p className="para_med_event">2nd</p>
+            <p className="para_bold_event">Coming Soon</p>
           </div>
-          <div class="price_wrap">
-            <p class="para_med_event">3rd</p>
-            <p class="para_bold_event">10,000</p>
+          <div className="price_wrap">
+            <p className="para_med_event">3rd</p>
+            <p className="para_bold_event">Coming Soon</p>
           </div>
         </div>
 
@@ -69,12 +69,12 @@ export default async function Home() {
           className="eventbtn w-button"
           href={`${check ? "/manage/ehack" : "/"}`}
         >
-          {`${check ? "Go to Dashboard" : "Go to Register"}`}
+          {`${check ? "Go to Dashboard" : "Register Now"}`}
         </Link>
       </div>
     </div>
   );
 }
-// {session && userArray[1] && <Link className="eventbtn w-button" href="/manage/ehack">
+// {session && userArray[1] && <Link classNameName="eventbtn w-button" href="/manage/ehack">
 // Go to Dashboard
 // </Link>}

@@ -1,12 +1,13 @@
 "use client";
 import { useState, useEffect } from "react";
 import { usePathname } from "next/navigation";
-import { toast } from "react-toastify";
+import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useRouter } from "next/navigation";
 import JoinTeamsCard from "./joinTeamsCard";
 import styles from "../styles/joinTeams.module.css";
 import refreshData from "@/app/utils/refresh";
+import "react-toastify/dist/ReactToastify.css";
 
 function JoinAllTeams({ session, eventName, userData, sentData }) {
   const path = usePathname();
@@ -42,6 +43,7 @@ function JoinAllTeams({ session, eventName, userData, sentData }) {
   }
 
   const handlePreviousButtonClick = () => {
+    console.log(prev);
     if (prev) {
       fetch(
         `${process.env.NEXT_PUBLIC_SERVER}/api/${eventName}?page=${prev.page}&limit=${prev.limit}`,
@@ -88,6 +90,7 @@ function JoinAllTeams({ session, eventName, userData, sentData }) {
   };
 
   const handleNextButtonClick = () => {
+    console.log(next);
     if (next) {
       fetch(
         `${process.env.NEXT_PUBLIC_SERVER}/api/${eventName}?page=${next.page}&limit=${next.limit}`,
@@ -113,7 +116,9 @@ function JoinAllTeams({ session, eventName, userData, sentData }) {
               progress: undefined,
             });
           }
+          setNext(data.paginatedResult.next);
           setPrev(data.paginatedResult.previous);
+
           setTeamData([]);
 
           data.paginatedResult.results.map((currenTeam) => {
@@ -169,7 +174,8 @@ function JoinAllTeams({ session, eventName, userData, sentData }) {
 
   return (
     <>
-      <div className={styles.Teams}>
+      <ToastContainer />
+      <div>
         <input
           type="text"
           placeholder="Search here"

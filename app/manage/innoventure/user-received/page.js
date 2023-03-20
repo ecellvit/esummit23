@@ -1,7 +1,7 @@
 import UserReceivedReq from "@/components/userReceivedReq";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
-
+import NotyNav from "@/components/notyNav";
 async function addMemberData(session) {
   const res = await fetch(
     `${process.env.NEXT_PUBLIC_SERVER}/api/user/innoventure/addMember`,
@@ -28,10 +28,14 @@ export default async function UserReceived() {
   const data = await addMemberData(session);
   const requests = data.requests;
   return (
-    <UserReceivedReq
-      eventName={eventName}
-      requests={requests}
-      session={session}
-    />
+    <div>
+      <NotyNav eventName={eventName} />
+
+      <UserReceivedReq
+        eventName={eventName}
+        requests={requests}
+        session={session}
+      />
+    </div>
   );
 }

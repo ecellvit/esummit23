@@ -5,7 +5,7 @@
   @apply bg-[#070f0f];
 }
 .SearchBar {
-  @apply mt-10 w-[33.33%] justify-center p-2.5;
+  @apply basis-[22.5px] ml-[33%] sm:ml-[100%] md:ml-[33.33%] lg:ml-[33.33%] xl:ml-[33..33%] mt-10 w-[33.33%] justify-center p-2.5;
   border-image-slice: 1;
   border-image-source: linear-gradient(to right, #02b6fd, #00ffff);
 }
@@ -13,16 +13,16 @@
   @apply absolute opacity-40;
 }
 .Teams {
-  @apply flex justify-center flex-wrap gap-[30px];
+  @apply flex justify-center flex-wrap gap-[50px];
 }
 .buttonPlacer {
   @apply flex justify-center flex-wrap gap-[50px];
 }
 .Cards {
-  @apply basis-[22.5px] shadow-[1px_1px_8px_rgba(0,0,0,0.25)] flex flex-col bg-[#ffffff] pb-5 p-[50px] rounded-[30px] min-w-[30%] min-h-[30%]; /* border-color: pa;
+  @apply basis-[22.5px] shadow-[1px_1px_8px_rgba(0,0,0,0.25)] flex flex-col bg-[#ffffff] pb-5 p-[50px] rounded-[30px] min-w-[30%] min-h-[30%]  md:min-w-[50%] md:min-h-[50%]; /* border-color: pa;
       border-radius: 10px; */ /* border: 10px;
       border-color: white; */ /* background-image: linear-gradient(to right top, #070f0f, #001f27, #002e46, #003a68, #004187, #2a3f8c, #443d8f, #5a3890, #5c3382, #5b2e75, #592a68, #56275c); */
-  margin-top:20px    
+  margin-top: 20px;
 }
 .border_gradient {
   @apply border-[10px] border-solid border-[3px];
@@ -34,7 +34,7 @@
   align-self: left;
 }
 .Cardsh3 {
-  @apply min-h-full text-[100%] leading-[30px] text-[#000000] font-thin text-xs sm:text-xs lg:text-sm xl:text-xl;
+  @apply min-h-full text-[100%] leading-[30px] text-[#000000] text-base font-thin text-xs sm:text-xs lg:text-sm xl:text-xl;
   font-family: Arial, sans-serif;
 }
 .Cardsh4 {

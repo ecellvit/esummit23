@@ -2,12 +2,14 @@ import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
 import NotLoggedIn from "../../components/NotLoggedIn";
 import DetailsForm from "./DetailsForm";
+import { signIn, signOut } from "next-auth/react";
+import { NextResponse } from 'next/server'
 
 export default async function page() {
   const session = await getServerSession(authOptions);
   if (session) {
     async function getData() {
-      const data = await fetch(
+      const res = await fetch(
         `${process.env.NEXT_PUBLIC_SERVER}/api/user/details`,
         {
           method: "PATCH",
@@ -23,7 +25,14 @@ export default async function page() {
           cache: "no-store",
         }
       );
-      return data.json();
+
+      if (!res.ok) {
+        if (res.status === 401) {
+          signOut({ callbackUrl: "/" });
+        }
+        return NextResponse.redirect(new URL("/", req.url))
+      }
+      return res.json();
     }
     const response = await getData();
     return (

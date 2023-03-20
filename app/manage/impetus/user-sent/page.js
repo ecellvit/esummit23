@@ -1,4 +1,5 @@
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
+import NotyNav from "@/components/notyNav";
 import { getServerSession } from "next-auth";
 import UserSentComponent from "@/components/UserSentComponent";
 
@@ -28,10 +29,14 @@ export default async function UserSent() {
   const data = await requestSentData(session);
   const requests = data.requests;
   return (
-    <UserSentComponent
-      eventName={eventName}
-      requests={requests}
-      session={session}
-    />
+    <>
+      <NotyNav eventName={eventName} />
+
+      <UserSentComponent
+        eventName={eventName}
+        requests={requests}
+        session={session}
+      />
+    </>
   );
 }

@@ -2,6 +2,8 @@
 import React from "react";
 
 import Card from "./Card";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Timeline({ userArray, eventsArray, session }) {
   const eventCodes = [
@@ -17,7 +19,7 @@ export default function Timeline({ userArray, eventsArray, session }) {
   if (userArray.includes(1)) {
     return (
       <>
-        {/*  */}
+        <ToastContainer />
         <div className="timeline_sec">
           <div className="timeline-cont">
             <div className="timeline_header bg-transparent">
@@ -54,6 +56,6 @@ export default function Timeline({ userArray, eventsArray, session }) {
       </>
     );
   } else {
-    return <div>Please register something</div>;
+    return <div className="flex justify-center mt-10">Please register something</div>
   }
 }

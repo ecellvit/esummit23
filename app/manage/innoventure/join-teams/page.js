@@ -79,13 +79,13 @@ export default async function JoinTeams() {
   //   const requests = data.requests;
   return (
     <>
-    <NotyNav eventName={eventName} />
-    <JoinAllTeams
-      session={session}
-      userData={userData}
-      eventName={eventName}
-      sentData={sentData.requests}
-    />
+      <NotyNav eventName={eventName} />
+      <JoinAllTeams
+        session={session}
+        userData={userData}
+        eventName={eventName}
+        sentData={sentData.requests}
+      />
     </>
   );
 }

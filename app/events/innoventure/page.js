@@ -29,18 +29,18 @@ export default async function Home() {
   }
   const check = session && userArray[2];
   return (
-    <div class="event-sec">
-      <div class="event_wrapper">
-        <h1 class="event_h1">
+    <div className="event-sec">
+      <div className="event_wrapper">
+        <h1 className="event_h1">
           Innoventure
-          <br />‍
+          <br />
         </h1>
-        <p class="event_date">Date &amp; Time</p>
-        <p class="event_para">
-          Venue
-          <br />‍
+        <p className="event_date mt-8">Date &amp; Time: 2nd April 2023, 10:00 AM</p>
+        <p className="event_para">
+          Venue: Sarojini Naidu SJT
+          <br />
         </p>
-        <p class="form_para_small">
+        <p className="form_para_small">
           A business simulation event which gives the participants an
           entrepreneurial ecosystem and platform to deploy their skills and
           ideas about the aspects of product development, business analysis,
@@ -48,20 +48,20 @@ export default async function Home() {
           economic conditions faced by business owners of all sizes everyday.
           Innoventure is your portal to a world full of possibilities and
           creative problem solving.
-          <br />‍
+          <br />
         </p>
-        <div class="evet_price_wrap">
-          <div class="price_wrap">
-            <p class="para_med_event">1st</p>
-            <p class="para_bold_event">10,000</p>
+        <div className="evet_price_wrap">
+          <div className="price_wrap">
+            <p className="para_med_event">1st</p>
+            <p className="para_bold_event">Coming Soon</p>
           </div>
-          <div class="price_wrap">
-            <p class="para_med_event">2nd</p>
-            <p class="para_bold_event">10,000</p>
+          <div className="price_wrap">
+            <p className="para_med_event">2nd</p>
+            <p className="para_bold_event">Coming Soon</p>
           </div>
-          <div class="price_wrap">
-            <p class="para_med_event">3rd</p>
-            <p class="para_bold_event">10,000</p>
+          <div className="price_wrap">
+            <p className="para_med_event">3rd</p>
+            <p className="para_bold_event">Coming Soon</p>
           </div>
         </div>
 
@@ -69,7 +69,7 @@ export default async function Home() {
           className="eventbtn w-button"
           href={`${check ? "/manage/innoventure" : "/"}`}
         >
-          {`${check ? "Go to Dashboard" : "Go to Register"}`}
+          {`${check ? "Go to Dashboard" : "Register Now"}`}
         </Link>
       </div>
     </div>

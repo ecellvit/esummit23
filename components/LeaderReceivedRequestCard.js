@@ -1,6 +1,5 @@
 "use client";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 import refreshData from "@/app/utils/refresh";
 import { usePathname, useRouter } from "next/navigation";
 import styles from "../styles/joinTeams.module.css";
@@ -49,43 +48,43 @@ function LeaderReceivedRequestCard({ request, eventName, session, teamId }) {
       });
   }
 
-    function handleAccept(userId) {
-        eventName = eventName.toLowerCase();
-        fetch(
-            `${process.env.NEXT_PUBLIC_SERVER}/api/${eventName}/requests/${teamId}`,
-            {
-                method: "POST",
-                body: JSON.stringify({
-                    userId:userId,
-                    status: 1,
-                }),
-                headers: {
-                    "Content-Type": "application/json",
-                    Authorization: `Bearer ${session.accessTokenBackend}`,
-                    "Access-Control-Allow-Origin": "*",
-                },
-            }
-        )
-            .then((response) => response.json())
-            .then((data) => {
-                if (data.error?.errorCode) {
-                    toast.error(`${data.message}`, {
-                        position: "top-right",
-                        autoClose: 5000,
-                        hideProgressBar: false,
-                        closeOnClick: true,
-                        pauseOnHover: true,
-                        draggable: true,
-                        progress: undefined,
-                    });
-                    return;
-                }
-               
-                refreshData(router, path);
-                toast("Invite Accepted Successfully");
-                // console.log("Invite Accepted");
-            });
-    }
+  function handleAccept(userId) {
+    eventName = eventName.toLowerCase();
+    fetch(
+      `${process.env.NEXT_PUBLIC_SERVER}/api/${eventName}/requests/${teamId}`,
+      {
+        method: "POST",
+        body: JSON.stringify({
+          userId: userId,
+          status: 1,
+        }),
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${session.accessTokenBackend}`,
+          "Access-Control-Allow-Origin": "*",
+        },
+      }
+    )
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.error?.errorCode) {
+          toast.error(`${data.message}`, {
+            position: "top-right",
+            autoClose: 5000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+          });
+          return;
+        }
+
+        refreshData(router, path);
+        toast("Invite Accepted Successfully");
+        // console.log("Invite Accepted");
+      });
+  }
 
   return (
     <div className={styles.Cards}>
@@ -98,19 +97,18 @@ function LeaderReceivedRequestCard({ request, eventName, session, teamId }) {
           <h3 className={styles.Cardsh3}>{request.email}</h3>
           <div className="flex mt-4 space-x-3 md:mt-6">
             <button
-              className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="inline-flex bg-[#53B3B9] items-center px-4 py-2 text-sm font-medium text-center text-white rounded-lg hover:bg-[#43A3A9] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               onClick={(e) => handleAccept(request._id)}
             >
               Accept Request
             </button>
             <button
-              className="inline-flex items-center px-4 py-2 text-sm font-medium text-center text-white bg-blue-700 rounded-lg hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
+              className="inline-flex bg-[#53B3B9] items-center px-4 py-2 text-sm font-medium text-center text-white rounded-lg hover:bg-[#43A3A9] focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
               onClick={(e) => handleDecline(request._id)}
             >
               Decline Request
             </button>
           </div>
-          <ToastContainer />
         </div>
       </div>
     </div>

@@ -2,6 +2,9 @@
 import React from "react";
 import Carousel from "./Landing/Carousel";
 import NewCard from "./Landing/NewCard";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
 const eventCodes = [
   "IMPETUS",
   "EHACK",
@@ -14,6 +17,18 @@ const eventCodes = [
 export default function Maintimeline({ userArray, eventsArray, session }) {
   return (
     <>
+      <ToastContainer
+        position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
       <div className="timeline_sec">
         <div className="timeline-cont">
           <div className="timeline_header">
