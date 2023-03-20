@@ -56,6 +56,6 @@ export default function Timeline({ userArray, eventsArray, session }) {
       </>
     );
   } else {
-    return <div>Please register something</div>;
+    return <div className="flex justify-center mt-10">Please register something</div>
   }
 }
