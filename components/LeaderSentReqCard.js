@@ -63,19 +63,19 @@ function LeaderSentReqCard({ request, eventName, session }) {
           </div>
         </div>
       </div> */}
-      <div class="singlecard">
-        <div class="team_text">
-          <p class="team_details">
+      <div className="singlecard">
+        <div className="team_text">
+          <p className="team_details">
             Name: <br />
             {request.firstName} {request.lastName}
           </p>
-          <p class="team_details">
+          <p className="team_details">
             Email: <br />
             {request.email}
           </p>
         </div>
         <button
-          class="join_team w-button bg-red-500"
+          className="join_team w-button bg-red-500"
           onClick={(e) => handleDeleteInvite(request._id)}
         >
           {" "}

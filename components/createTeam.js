@@ -56,22 +56,22 @@ export default function CreateTeam({ session, eventName }) {
   return (
     <>
       {" "}
-      <div class="ehack_cont rounded-md  !bg-slate-200 ">
-        <h1 class="join_h1">Join a Team</h1>
+      <div className="ehack_cont rounded-md  !bg-slate-200 ">
+        <h1 className="join_h1">Join a Team</h1>
         <button
           onClick={(e) => {
             router.push(`/manage/${eventName}/join-teams`);
           }}
-          class="handleteam w-button"
+          className="handleteam w-button"
         >
           Find Team
         </button>
-        <h1 class="join_h1 bold">Or</h1>
-        <h1 class="join_h1">Create Your Team</h1>
-        <div class="w-form">
+        <h1 className="join_h1 bold">Or</h1>
+        <h1 className="join_h1">Create Your Team</h1>
+        <div className="w-form">
           <input
             type="text"
-            class="team w-input rounded-lg"
+            className="team w-input rounded-lg"
             name="name"
             ref={teamName}
             data-name="Name"
@@ -82,7 +82,7 @@ export default function CreateTeam({ session, eventName }) {
         <button
           type="button"
           onClick={(e) => handleSubmit(e)}
-          class="handleteam w-button "
+          className="handleteam w-button "
         >
           Create Team
         </button>

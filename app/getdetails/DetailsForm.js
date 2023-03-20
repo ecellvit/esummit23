@@ -87,16 +87,16 @@ export default function DetailsForm({ accessTokenBackend }) {
         theme="light"
       />
       <div className="form_section">
-        <div class="form_sec_l">
-          <div class="form_logo">
-            <img src="logo_ecel.png" alt="logo" class="image" />
+        <div className="form_sec_l">
+          <div className="form_logo">
+            <img src="logo_ecel.png" alt="logo" className="image" />
           </div>
-          <div class="text_form">
-            <h1 class="form_l_h1">
+          <div className="text_form">
+            <h1 className="form_l_h1">
               E-Hack
               <br />‍
             </h1>
-            <p class="form_date">30th March-2nd april</p>
+            <p className="form_date">30th March-2nd april</p>
           </div>
         </div>
         <div className="form_sec_r">

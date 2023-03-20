@@ -8,29 +8,29 @@ function LeaderNav({ eventName }) {
   return (
     <>
       {" "}
-      <div class="create_cont">
-        <div class="subnav !bg-neutral-300 uppercase">
-          <div class="left_sub">
+      <div className="create_cont">
+        <div className="subnav !bg-neutral-300 uppercase">
+          <div className="left_sub">
             <button
               onClick={() => {
                 router.push(`/manage/${eventName}`);
               }}
-              class="managebtn w-button text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700"
+              className="managebtn w-button text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700"
             >
               Back
             </button>
-            <h1 class="subnav_h1"> {eventName.toUpperCase()}</h1>
+            <h1 className="subnav_h1"> {eventName.toUpperCase()}</h1>
           </div>
-          <div class="right_subnav">
+          <div className="right_subnav">
             <button
-              class="send w-button text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700 "
+              className="send w-button text-white shadow-md transition duration-150 ease-in-out hover:bg-primary-700 "
               onClick={(e) => router.push(`/manage/${eventName}/leader-sent`)}
             >
               Sent
             </button>
             <button
               button
-              class="recieved w-button bg-[#53B3B9] "
+              className="recieved w-button bg-[#53B3B9] "
               onClick={(e) =>
                 router.push(`/manage/${eventName}/received-join-request`)
               }

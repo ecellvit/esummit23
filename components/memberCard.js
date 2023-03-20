@@ -42,9 +42,9 @@ function MemberCard({ session, data, teamId, eventName }) {
   }
   return (
     <>
-      <div class="singlecard">
-        <div class="team_text">
-          <p class="team_details">{data.firstName + " " + data.lastName}</p>
+      <div className="singlecard">
+        <div className="team_text">
+          <p className="team_details">{data.firstName + " " + data.lastName}</p>
         </div>
         {userRole ? (
           <button
@@ -56,7 +56,7 @@ function MemberCard({ session, data, teamId, eventName }) {
         ) : (
           <h2>Leader</h2>
         )}
-        {/* <button class="join_team w-button">Back</button> */}
+        {/* <button className="join_team w-button">Back</button> */}
       </div>
       {/* <div className="h-40 rounded-2xl hover:scale-105 ease-linear bg-white">
         <h2 className="mt-5">{data.email}</h2>

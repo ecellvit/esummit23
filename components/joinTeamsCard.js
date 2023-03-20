@@ -59,24 +59,25 @@ function JoinTeamsCard({ teamData, session, eventName }) {
     }
   });
 
-  console.log(teamLeader);
-
   return (
     <>
-      <div class="singlecard">
-        <div class="team_text">
-          <p class="team_details font-semibold break-all">
-            TeamName : {teamData?.teamName}
+      <div className="singlecard">
+        <div className="team_text">
+          <p className="team_details font-semibold break-all">
+            TeamName : {" "}
+            {teamData?.teamName}
           </p>
-          <p class="team_details font-semibold break-all">
-            Team Leader : {teamLeader?.email}
+          <p className="team_details font-semibold break-all">
+            Team Leader : {" "}
+            {teamLeader?.firstName + " " + teamLeader?.lastName}
           </p>
-          <p class="team_details font-semibold break-all">
-            Email : {teamLeader?.email}
+          <p className="team_details font-semibold break-all">
+            Email : {" "}
+            {teamLeader?.email}
           </p>
         </div>
         <button
-          class="join_team w-button  text-white "
+          className="join_team w-button  text-white "
           onClick={(e) => handleJoinReq(teamData?._id)}
         >
           Join Team

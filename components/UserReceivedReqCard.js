@@ -107,26 +107,26 @@ function UserReceivedReqCard({ request, eventName, session }) {
           </div>
         </div>
       </div>{" "} */}
-      <div class="singlecard">
-        <div class="team_text">
-          <p class="team_details">
+      <div className="singlecard">
+        <div className="team_text">
+          <p className="team_details">
             TeamName: <br />
             {request.teamId.teamName}
           </p>
-          <p class="team_details">
+          <p className="team_details">
             Team Leader: <br />
             {request?.teamId?.teamLeaderId?.email}
           </p>
         </div>
         <button
-          class="join_team w-button"
+          className="join_team w-button"
           onClick={(e) => handleRejectInvite(request.teamId?._id)}
         >
           {" "}
           Reject Team
         </button>
         <button
-          class="join_team w-button px-4 mt-2"
+          className="join_team w-button px-4 mt-2"
           onClick={(e) => handleAcceptInvite(request.teamId?._id)}
         >
           {" "}

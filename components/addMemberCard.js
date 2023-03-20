@@ -64,19 +64,19 @@ function AddMemberCard({ user, session, eventName }) {
           </div>
         </div>
       </div>{" "} */}
-      <div class="singlecard">
-        <div class="team_text">
-          <p class="team_details">
+      <div className="singlecard">
+        <div className="team_text">
+          <p className="team_details">
             Name: <br />
             {user.firstName} {user.lastName}
           </p>
-          <p class="team_details">
+          <p className="team_details">
             Email: <br />
             {user.email}
           </p>
         </div>
         <button
-          class="join_team w-button"
+          className="join_team w-button"
           onClick={(e) => handleInvite(user?._id)}
         >
           {" "}
