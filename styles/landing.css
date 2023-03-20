@@ -866,6 +866,12 @@
   @apply text-[5rem] font-bold text-center mx-auto my-0 pt-[15vh] leading-[40px];
   font-family: Inter, sans-serif;
 }
+
+.event_h2 {
+  @apply text-[2.5rem] font-bold text-center mx-auto my-0 pt-[15vh] leading-[40px];
+  font-family: Inter, sans-serif;
+}
+
 .form_cont {
   @apply px-[60px];
 }
