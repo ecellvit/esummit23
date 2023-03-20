@@ -20,6 +20,7 @@ export default function MemberDashboard({ userData, eventName, session }) {
         Authorization: `Bearer ${session.accessTokenBackend}`,
         "Access-Control-Allow-Origin": "*",
       },
+      cache: "no-store",
     })
       .then((response) => response.json())
       .then((data) => {
