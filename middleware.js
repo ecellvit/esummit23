@@ -56,11 +56,11 @@ export default withAuth(
             console.log("eHackTeamRole!!!",eHackTeamRole);
 
             //Leader routes block for User and Member
-            if((eHackTeamRole === undefined || eHackTeamRole === 1)  && (req.nextUrl.pathname.startsWith("/manage/ehack/leader-sent") || req.nextUrl.pathname.startsWith("/manage/ehack/leader-received") || req.nextUrl.pathname.startsWith("/manage/ehack/add-members") )){
-                req.nextUrl.pathname = "/"
-                // return NextResponse.redirect(req.nextUrl)
-                return NextResponse.redirect(new URL("/", req.url))
-            }
+            // if((eHackTeamRole === undefined || eHackTeamRole === 1)  && (req.nextUrl.pathname.startsWith("/manage/ehack/leader-sent") || req.nextUrl.pathname.startsWith("/manage/ehack/leader-received") || req.nextUrl.pathname.startsWith("/manage/ehack/add-members") )){
+            //     req.nextUrl.pathname = "/"
+            //     // return NextResponse.redirect(req.nextUrl)
+            //     return NextResponse.redirect(new URL("/", req.url))
+            // }
 
             //Member routes block for User and Leader
 
@@ -81,11 +81,11 @@ export default withAuth(
             }
 
             //Leader routes block for User and Member
-            if((impetusTeamRole === undefined || impetusTeamRole === 1)  && (req.nextUrl.pathname.startsWith("/manage/impetus/leader-sent") || req.nextUrl.pathname.startsWith("/manage/impetus/leader-received") || req.nextUrl.pathname.startsWith("/manage/impetus/add-members") )){
-                req.nextUrl.pathname = "/"
-                // return NextResponse.redirect(req.nextUrl)
-                return NextResponse.redirect(new URL("/", req.url))
-            }
+            // if((impetusTeamRole === undefined || impetusTeamRole === 1)  && (req.nextUrl.pathname.startsWith("/manage/impetus/leader-sent") || req.nextUrl.pathname.startsWith("/manage/impetus/leader-received") || req.nextUrl.pathname.startsWith("/manage/impetus/add-members") )){
+            //     req.nextUrl.pathname = "/"
+            //     // return NextResponse.redirect(req.nextUrl)
+            //     return NextResponse.redirect(new URL("/", req.url))
+            // }
         }
         else if (req.nextUrl.pathname.startsWith("/manage/innoventure")) {
 
@@ -102,11 +102,11 @@ export default withAuth(
             }
 
             //Leader routes block for User and Member
-            if((innoventureTeamRole === undefined || innoventureTeamRole === 1)  && (req.nextUrl.pathname.startsWith("/manage/innoventure/leader-sent") || req.nextUrl.pathname.startsWith("/manage/innoventure/leader-received") || req.nextUrl.pathname.startsWith("/manage/innoventure/add-members") )){
-                req.nextUrl.pathname = "/"
-                // return NextResponse.redirect(req.nextUrl)
-                return NextResponse.redirect(new URL("/", req.url))
-            }
+            // if((innoventureTeamRole === undefined || innoventureTeamRole === 1)  && (req.nextUrl.pathname.startsWith("/manage/innoventure/leader-sent") || req.nextUrl.pathname.startsWith("/manage/innoventure/leader-received") || req.nextUrl.pathname.startsWith("/manage/innoventure/add-members") )){
+            //     req.nextUrl.pathname = "/"
+            //     // return NextResponse.redirect(req.nextUrl)
+            //     return NextResponse.redirect(new URL("/", req.url))
+            // }
         }
         return null;
     }
