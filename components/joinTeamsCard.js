@@ -1,7 +1,7 @@
 "use client";
 import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
-import "../styles/Landing.css";
+import "../styles/landing.css"
 
 // import Avatar, { genConfig } from 'react-nice-avatar'
 
