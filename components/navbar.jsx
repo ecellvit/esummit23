@@ -6,7 +6,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 
 export default function Navbar({ session }) {
-  const [regArray, setRegArray] = useState();
+  const [regArray, setRegArray] = useState([0, 0, 0]);
 
   useEffect(() => {
     if (session) {
@@ -104,9 +104,8 @@ export default function Navbar({ session }) {
             </button>
           </div>
           <nav
-            className={`${
-              respHidden && "hidden"
-            } flex-grow flex-col pb-4 md:flex md:flex-row md:justify-end md:pb-0`}
+            className={`${respHidden && "hidden"
+              } flex-grow flex-col pb-4 md:flex md:flex-row md:justify-end md:pb-0`}
           >
             <Link
               className={`dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 focus:shadow-outline mt-2 flex w-full flex-row items-center rounded-lg bg-transparent px-4 py-2 text-left text-sm font-semibold hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0 md:ml-4 md:inline md:w-auto`}
@@ -219,7 +218,7 @@ export default function Navbar({ session }) {
                 </div>
               )}
             </div>
-            {session && (
+            {(!(regArray[0] === 0 && regArray[1] === 0 && regArray[2] === 0) && session) && (
               <div className="relative" id="manage">
                 <button
                   ref={manageRef}
@@ -227,9 +226,8 @@ export default function Navbar({ session }) {
                     setDropdown2(!dropdown2);
                     setDropdown1(false);
                   }}
-                  className={`${
-                    pathname.split("/")[1] == "manage"
-                  } dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 focus:shadow-outline mt-2 flex w-full flex-row items-center rounded-lg bg-transparent px-4 py-2 text-left text-sm font-semibold hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0 md:ml-4 md:inline md:w-auto`}
+                  className={`${pathname.split("/")[1] == "manage"
+                    } dark-mode:bg-transparent dark-mode:focus:text-white dark-mode:hover:text-white dark-mode:focus:bg-gray-600 dark-mode:hover:bg-gray-600 focus:shadow-outline mt-2 flex w-full flex-row items-center rounded-lg bg-transparent px-4 py-2 text-left text-sm font-semibold hover:bg-gray-200 hover:text-gray-900 focus:bg-gray-200 focus:text-gray-900 focus:outline-none md:mt-0 md:ml-4 md:inline md:w-auto`}
                   style={{
                     backgroundColor:
                       pathname.split("/")[1] == "manage" && "#E5E7EB",
