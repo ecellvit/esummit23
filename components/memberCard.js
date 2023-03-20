@@ -3,6 +3,7 @@ import refreshData from "@/app/utils/refresh";
 import { usePathname, useRouter } from "next/navigation";
 import { toast } from "react-toastify";
 
+
 function MemberCard({ session, data, teamId, eventName }) {
   const router = useRouter();
   const path = usePathname();
@@ -53,7 +54,6 @@ function MemberCard({ session, data, teamId, eventName }) {
       ) : (
         <h2>Leader</h2>
       )}
-      {/* <ToastContainer /> */}
     </div>
   );
 }

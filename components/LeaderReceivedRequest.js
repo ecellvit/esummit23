@@ -4,11 +4,14 @@ import LeaderReceivedRequestCard from "./LeaderReceivedRequestCard";
 import styles from "../styles/joinTeams.module.css";
 
 import { useRouter } from "next/navigation";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function LeaderReceivedReq({ eventName, session, requests, teamId }) {
   const router = useRouter();
   return (
     <div>
+      <ToastContainer />
       <LeaderNav eventName={eventName} />
       <div className={styles.Teams}>
         <div className={styles.Teams}>

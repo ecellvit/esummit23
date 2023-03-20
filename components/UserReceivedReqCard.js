@@ -1,10 +1,8 @@
 "use client";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 import refreshData from "@/app/utils/refresh";
 import { usePathname, useRouter } from "next/navigation";
 import styles from "../styles/joinTeams.module.css";
-import "react-toastify/dist/ReactToastify.css";
 
 // import Avatar, { genConfig } from 'react-nice-avatar'
 function UserReceivedReqCard({ request, eventName, session }) {
@@ -104,7 +102,6 @@ function UserReceivedReqCard({ request, eventName, session }) {
               Accept Team
             </button>
           </div>
-          <ToastContainer />
         </div>
       </div>
     </div>

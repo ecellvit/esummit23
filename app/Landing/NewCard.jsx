@@ -1,8 +1,7 @@
 "use client";
 import React, { useEffect } from "react";
 import { signIn, useSession } from "next-auth/react";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
 import refreshData from "../utils/refresh";
@@ -75,19 +74,6 @@ export default function NewCard({ event, id, isRegistered }) {
 
   return (
     <>
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
-
       <div className="timeline_wrapper">
         <h1 className="date">{event.date}</h1>
         <div

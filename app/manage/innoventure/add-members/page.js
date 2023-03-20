@@ -49,7 +49,6 @@ export default async function AddMembers() {
   const data = await innoventureRegistered(session);
   const users = data.innoventureMembers;
   const sentData = await leaderSentInvites(session);
-  console.log(sentData.requests);
   return (
     <div>
       <NotyNav eventName={eventName} />

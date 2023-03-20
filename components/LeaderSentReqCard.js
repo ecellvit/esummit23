@@ -1,6 +1,5 @@
 "use client";
-import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
+import { toast } from "react-toastify";
 import refreshData from "@/app/utils/refresh";
 import { usePathname, useRouter } from "next/navigation";
 import styles from "../styles/joinTeams.module.css";
@@ -59,7 +58,6 @@ function LeaderSentReqCard({ request, eventName, session }) {
             >
               Delete Invite
             </button>
-            <ToastContainer />
           </div>
         </div>
       </div>

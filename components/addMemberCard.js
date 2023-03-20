@@ -1,8 +1,7 @@
 "use client";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import styles from "../styles/joinTeams.module.css";
 
-import "react-toastify/dist/ReactToastify.css";
 import refreshData from "@/app/utils/refresh";
 import { useRouter } from "next/navigation";
 import { usePathname } from "next/navigation";
@@ -60,7 +59,6 @@ function AddMemberCard({ user, session, eventName }) {
               Send Invite
             </button>
           </div>
-          <ToastContainer />
         </div>
       </div>
     </div>

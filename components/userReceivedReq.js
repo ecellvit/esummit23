@@ -1,10 +1,12 @@
 import UserReceivedReqCard from "./UserReceivedReqCard";
 import styles from "../styles/joinTeams.module.css";
-import NotyNav from "./notyNav";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function UserReceivedReq({ eventName, requests, session }) {
   return (
     <div>
+      <ToastContainer />
       <div className={styles.Teams}>
         {requests.length ? (
           requests.map((x) => {

@@ -1,10 +1,13 @@
 "use client";
 import UserSentCard from "./userSentCard";
 import styles from "../styles/joinTeams.module.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function UserSentComponent({ eventName, requests, session }) {
   return (
     <div className={styles.Teams}>
+      <ToastContainer />
       <div>User Sent </div>
       <div className={styles.Teams}>
         {requests.length ? (
