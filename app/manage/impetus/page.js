@@ -1,5 +1,3 @@
-import hasDetailsFilled from "@/app/utils/hasDetailsFIiled";
-import NotFilledDetails from "@/app/utils/NotFilledDetails";
 import Dashboard from "@/components/dashboard";
 import NotyNav from "@/components/notyNav";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
@@ -25,7 +23,6 @@ async function getUserData(session) {
 export default async function ManagePage() {
   const eventName = "impetus";
   const session = await getServerSession(authOptions);
-  const hasDetailsFIiled = session && (await hasDetailsFilled(session));
   const data = await getUserData(session);
   const userData = data.user[eventName + "TeamId"];
   const userRole = data.user[eventName + "TeamRole"];
@@ -34,20 +31,16 @@ export default async function ManagePage() {
   if (userData) {
     hasTeam = true;
   }
-  if (hasDetailsFIiled) {
-    return (
-      <>
-        <NotyNav eventName={eventName} />
-        <Dashboard
-          eventName={eventName}
-          session={session}
-          hasTeam={hasTeam}
-          userData={userData}
-          userRole={userRole}
-        />
-      </>
-    );
-  } else {
-    <NotFilledDetails />;
-  }
+  return (
+    <>
+      <NotyNav eventName={eventName} />
+      <Dashboard
+        eventName={eventName}
+        session={session}
+        hasTeam={hasTeam}
+        userData={userData}
+        userRole={userRole}
+      />
+    </>
+  );
 }

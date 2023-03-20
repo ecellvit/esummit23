@@ -4,7 +4,6 @@ import styles from "../styles/joinTeams.module.css";
 function UserReceivedReq({ eventName, requests, session }) {
   return (
     <div>
-      <div>userReceivedReq</div>
       <div className={styles.Teams}>
         {requests.length ? (
           requests.map((x) => {
