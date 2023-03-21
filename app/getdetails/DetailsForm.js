@@ -10,6 +10,7 @@ import { signIn, signOut } from "next-auth/react";
 export default function DetailsForm({ accessTokenBackend }) {
   const lnameRef = useRef("");
   const fnameRef = useRef("");
+  const regRef = useRef("");
   const router = useRouter();
   const [isLoading, setisLoading] = useState(false);
 
@@ -29,6 +30,12 @@ export default function DetailsForm({ accessTokenBackend }) {
     } else if (fnameRef.current.value.trim() === "") {
       toast.error("Please Don't Leave Name as Blank!");
       return;
+    } else if (
+      regRef.current.value.trim() === "" ||
+      !regtest.test(regRef.current.value.trim())
+    ) {
+      toast.error("Please Enter Correct VIT Registration number!");
+      return;
     }
     setisLoading(true);
     fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user/details`, {
@@ -37,6 +44,7 @@ export default function DetailsForm({ accessTokenBackend }) {
         firstName: fnameRef.current.value.trim(),
         lastName: lnameRef.current.value.trim(),
         mobileNumber: mobileNumberRef.current.value,
+        regNo: regRef.current.value,
       }),
       headers: {
         "Content-Type": "application/json",
@@ -132,18 +140,19 @@ export default function DetailsForm({ accessTokenBackend }) {
                 placeholder="Enter Your last name here"
                 id="lastn"
               />
-              {/* <label htmlFor="name-3" className="text_label">
-          Email-ID
-        </label>
-        <input
-          type="text"
-          className="input_form w-input"
-          maxLength="256"
-          name="name-3"
-          data-name="Name 3"
-          placeholder="Your email here"
-          id="name-3"
-        /> */}
+              <label htmlFor="name-3" className="text_label">
+                Registration Number
+              </label>
+              <input
+                type="text"
+                className="input_form w-input"
+                maxLength="256"
+                ref={regRef}
+                name="name-3"
+                data-name="Name 3"
+                placeholder="Registration number here"
+                id="name-3"
+              />
               <label htmlFor="mob" className="text_label">
                 Mobile number
               </label>
