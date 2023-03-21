@@ -2,8 +2,10 @@
 import Link from "next/link";
 import React from "react";
 import { signIn, signOut, useSession } from "next-auth/react";
+import { useRouter } from "next/navigation";
 
 export default function Section6() {
+  const router = useRouter();
   const session = useSession();
   const loginHandler = () => {
     signIn("google", {
@@ -23,7 +25,6 @@ export default function Section6() {
               session.data ? router.push("/schedule") : loginHandler();
             }}
             className="primary_btn w-button"
-            href="#"
           >
             {session.data ? "View Registered Events" : "Get Started"}
           </button>

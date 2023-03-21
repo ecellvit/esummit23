@@ -39,7 +39,6 @@ export default function Section2() {
               session.data ? router.push("/schedule") : loginHandler();
             }}
             className="primary_btn w-button"
-            href="#"
           >
             {session.data ? "View Registered Events" : "Get Started"}
           </button>
