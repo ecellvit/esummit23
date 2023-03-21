@@ -839,14 +839,14 @@
   @apply flex min-h-screen;
 }
 .event-sec {
-  @apply w-screen min-h-[91vh] bg-[url("https://res.cloudinary.com/dchq25bxl/image/upload/v1679244337/bg_f6aif4.png")] bg-[50%_50%] bg-cover text-white text-base leading-5 font-normal mt-0 mx-auto pl-0;
+  @apply w-screen min-h-[95vh] bg-[url("https://res.cloudinary.com/dchq25bxl/image/upload/v1679244337/bg_f6aif4.png")] bg-[50%_50%] bg-cover text-white text-base leading-5 font-normal mt-0 mx-auto pl-0;
   font-family: Inter, sans-serif;
 }
 .form_sec_r {
   @apply w-[60vw] mt-[10vh];
 }
 .event_date {
-  @apply text-2xl font-semibold text-center mb-2.5 leading-[40px];
+  @apply text-2xl font-semibold text-center mb-2.5 leading-normal;
   font-family: Inter, sans-serif;
 }
 .main_form_wrap {
@@ -858,7 +858,7 @@
 }
 
 .event_h2 {
-  @apply text-[2.5rem] font-bold text-center mx-auto my-0 pt-[15vh] leading-[40px];
+  @apply text-[2.5rem] font-bold text-center mx-auto my-0 pt-[15vh] leading-normal;
   font-family: Inter, sans-serif;
 }
 
@@ -908,7 +908,7 @@
     @apply w-[50vw];
   }
   .event_date {
-    @apply font-semibold text-left;
+    @apply font-semibold text-center;
   }
   .event_h1 {
     @apply text-5xl leading-[25px] text-center pt-[10vh] pb-2.5;
@@ -917,18 +917,21 @@
     @apply pl-5;
   }
   .event_para {
-    @apply text-left mb-2.5;
+    @apply text-center mb-2.5;
   }
   .input_form {
     @apply w-[40vw];
   }
 }
 @media screen and (max-width: 479px) {
+  .event_h2 {
+    @apply text-[1.5rem]  pt-[5vh];
+  }
   .form_para_small {
     @apply text-base leading-[22px] text-left;
   }
   .event_wrapper {
-    @apply w-[80vw];
+    @apply max-w-[90vw];
   }
   .form_r_h1 {
     @apply text-[2.5rem];
@@ -952,7 +955,7 @@
     @apply w-[80vw] leading-[10px] my-0 pt-[5vh];
   }
   .event_para {
-    @apply text-center mt-[10px];
+    @apply text-center leading-normal mt-[10px];
   }
   .input_form {
     @apply w-[70vw];
