@@ -75,7 +75,7 @@
     @apply inline-block max-w-full;
   }
   .about_para {
-    @apply text-[#4e4e57] text-[1.3rem] leading-[32px] font-normal mb-[2vh];
+    @apply text-[#4e4e57] text-[1.3rem] leading-[35px] font-normal mb-[2vh];
     font-family: Inter, sans-serif;
   }
   .primary_btn {
@@ -846,7 +846,7 @@
   @apply w-[60vw] mt-[10vh];
 }
 .event_date {
-  @apply text-2xl font-semibold text-center mb-2.5 leading-normal;
+  @apply text-2xl font-semibold text-center mb-2.5 leading-normal mt-8;
   font-family: Inter, sans-serif;
 }
 .main_form_wrap {
@@ -925,7 +925,7 @@
 }
 @media screen and (max-width: 479px) {
   .event_h2 {
-    @apply text-[1.5rem]  pt-[5vh];
+    @apply text-[2rem]  pt-[5vh];
   }
   .form_para_small {
     @apply text-base leading-[22px] text-left;
@@ -949,7 +949,7 @@
     @apply w-[90vw] mt-[5vh];
   }
   .event_date {
-    @apply text-center;
+    @apply text-center leading-normal mt-3;
   }
   .event_h1 {
     @apply w-[80vw] leading-[10px] my-0 pt-[5vh];
