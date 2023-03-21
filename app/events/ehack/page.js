@@ -38,7 +38,7 @@ export default async function Home() {
           <br />
         </h1>
         <p className="event_date ">
-          Date &amp; Time : 31th March 2023, 9:00 PM
+          Date &amp; Time : 31st March 2023, 9:00 PM
         </p>
         <p className="event_para">
           Venue: Sarojini Naidu SJT
