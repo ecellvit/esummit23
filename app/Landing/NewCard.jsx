@@ -94,6 +94,15 @@ export default function NewCard({
             localStorage.removeItem("eventId");
           }
         }
+
+        if (
+          localStorage.getItem("eventId") == 1 ||
+          localStorage.getItem("eventId") == 3 ||
+          localStorage.getItem("eventId") == 4
+        ) {
+          handleRegister(localStorage.getItem("eventId")) &&
+            localStorage.removeItem("eventId");
+        }
       }
     }
     refreshData(router, path);
@@ -125,11 +134,11 @@ export default function NewCard({
           <button
             className="card_btn w-button"
             onClick={() => {
-              // //console.log(isRegistered);
-              if (id === 0 && userArray[2] === 1) {
+              // console.log(isRegistered);
+              if (id === 0 && userArray !== undefined && userArray[2] === 1) {
                 return;
               }
-              if (id === 2 && userArray[0] === 1) {
+              if (id === 2 && userArray !== undefined && userArray[0] === 1) {
                 return;
               }
               if (isRegistered === 0) {

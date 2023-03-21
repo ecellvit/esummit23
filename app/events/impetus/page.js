@@ -39,7 +39,7 @@ export default async function Home() {
             Impetus
             <br />
           </h1>
-          <p className="event_date mt-10">
+          <p className="event_date ">
             Date &amp; Time : 02nd April 2023, 10:00 AM
           </p>
           <p className="event_para">

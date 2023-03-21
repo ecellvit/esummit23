@@ -18,7 +18,7 @@
 }
 @layer components {
   .w-button {
-    @apply inline-block bg-[#3898ec] text-[white] leading-[inherit] no-underline cursor-pointer px-[15px] py-[9px] rounded-none border-0;
+    @apply inline-block outline-0 bg-[#3898ec] text-[white] leading-[inherit] no-underline cursor-pointer px-[15px] py-[9px] rounded-none border-0;
   }
   .header {
     @apply flex min-h-[70vh] flex-col justify-center items-center bg-[url("https://res.cloudinary.com/dchq25bxl/image/upload/v1679337272/template_1-min_iils6g.png")] bg-[50%_100%] bg-cover pb-[20vh];
@@ -75,7 +75,7 @@
     @apply inline-block max-w-full;
   }
   .about_para {
-    @apply text-[#4e4e57] text-[1.3rem] leading-[32px] font-normal mb-[2vh];
+    @apply text-[#4e4e57] text-[1.3rem] leading-[35px] font-normal mb-[2vh];
     font-family: Inter, sans-serif;
   }
   .primary_btn {
@@ -811,17 +811,7 @@
   }
 }
 .w-input {
-  display: block;
-  width: 100%;
-  height: 38px;
-  padding: 8px 12px;
-  margin-bottom: 10px;
-  font-size: 14px;
-  line-height: 1.42857143;
-  color: #333333;
-  vertical-align: middle;
-  background-color: #ffffff;
-  border: 1px solid #cccccc;
+  @apply block w-full h-[38px] text-sm  outline-0 leading-[1.42857143] text-[#333333] align-middle bg-white border mb-2.5 px-3 py-2 border-solid border-[#cccccc];
 }
 
 /* Details Page*/
@@ -849,14 +839,14 @@
   @apply flex min-h-screen;
 }
 .event-sec {
-  @apply w-screen min-h-[91vh] bg-[url("https://res.cloudinary.com/dchq25bxl/image/upload/v1679244337/bg_f6aif4.png")] bg-[50%_50%] bg-cover text-white text-base leading-5 font-normal mt-0 mx-auto pl-0;
+  @apply w-screen min-h-[95vh] bg-[url("https://res.cloudinary.com/dchq25bxl/image/upload/v1679244337/bg_f6aif4.png")] bg-[50%_50%] bg-cover text-white text-base leading-5 font-normal mt-0 mx-auto pl-0;
   font-family: Inter, sans-serif;
 }
 .form_sec_r {
   @apply w-[60vw] mt-[10vh];
 }
 .event_date {
-  @apply text-2xl font-semibold text-center mb-2.5 leading-[40px];
+  @apply text-2xl font-semibold text-center mb-2.5 leading-normal mt-8;
   font-family: Inter, sans-serif;
 }
 .main_form_wrap {
@@ -868,7 +858,7 @@
 }
 
 .event_h2 {
-  @apply text-[2.5rem] font-bold text-center mx-auto my-0 pt-[15vh] leading-[40px];
+  @apply text-[2.5rem] font-bold text-center mx-auto my-0 pt-[15vh] leading-normal;
   font-family: Inter, sans-serif;
 }
 
@@ -918,7 +908,7 @@
     @apply w-[50vw];
   }
   .event_date {
-    @apply font-semibold text-left;
+    @apply font-semibold text-center;
   }
   .event_h1 {
     @apply text-5xl leading-[25px] text-center pt-[10vh] pb-2.5;
@@ -927,18 +917,21 @@
     @apply pl-5;
   }
   .event_para {
-    @apply text-left mb-2.5;
+    @apply text-center mb-2.5;
   }
   .input_form {
     @apply w-[40vw];
   }
 }
 @media screen and (max-width: 479px) {
+  .event_h2 {
+    @apply text-[2rem]  pt-[5vh];
+  }
   .form_para_small {
     @apply text-base leading-[22px] text-left;
   }
   .event_wrapper {
-    @apply w-[80vw];
+    @apply max-w-[90vw];
   }
   .form_r_h1 {
     @apply text-[2.5rem];
@@ -956,13 +949,13 @@
     @apply w-[90vw] mt-[5vh];
   }
   .event_date {
-    @apply text-center;
+    @apply text-center leading-normal mt-[20px] mb-[0px];
   }
   .event_h1 {
-    @apply w-[80vw] leading-[10px] my-0 pt-[5vh];
+    @apply w-[80vw] leading-[10px] my-0 pt-[7vh];
   }
   .event_para {
-    @apply text-center mt-[10px];
+    @apply text-center leading-normal mt-[10px];
   }
   .input_form {
     @apply w-[70vw];

@@ -38,7 +38,7 @@ export default async function Home() {
           Trading Workshop
           <br />
         </h1>
-        <p className="event_date mt-8">
+        <p className="event_date ">
           Date &amp; Time : 01st April 2023, 4:00 PM
         </p>
         <p className="event_para">
