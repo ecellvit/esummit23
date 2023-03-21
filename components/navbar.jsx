@@ -81,7 +81,7 @@ export default function Navbar({ session }) {
               }}
               href={"/"}
             >
-              Esummit
+              E-SUMMIT’23
             </Link>
             <button
               onClick={() => {
