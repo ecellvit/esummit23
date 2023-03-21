@@ -44,7 +44,7 @@ export default function DetailsForm({ accessTokenBackend }) {
         firstName: fnameRef.current.value.trim(),
         lastName: lnameRef.current.value.trim(),
         mobileNumber: mobileNumberRef.current.value,
-        regNo: regRef.current.value,
+        regNo: regRef.current.value.toUpperCase(),
       }),
       headers: {
         "Content-Type": "application/json",
@@ -147,6 +147,9 @@ export default function DetailsForm({ accessTokenBackend }) {
                 type="text"
                 className="input_form w-input"
                 maxLength="256"
+                onInput={(e) =>
+                  (e.target.value = ("" + e.target.value).toUpperCase())
+                }
                 ref={regRef}
                 name="name-3"
                 data-name="Name 3"
