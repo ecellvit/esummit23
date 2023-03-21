@@ -10,8 +10,8 @@ export default function Footer() {
           </div>
           <div className="contact_footer">
             <img src="call.png" width="23.5" alt="" />
-            <a href="tel:+918293622180" className="contact_para">
-              +918293622180 <br></br>(Shrishail - Chairperson)
+            <a href="tel:+917259973282" className="contact_para">
+              +917259973282 <br></br>(Shrishail - Chairperson)
             </a>
           </div>
           <div className="contact_footer">
