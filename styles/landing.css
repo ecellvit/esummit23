@@ -18,7 +18,7 @@
 }
 @layer components {
   .w-button {
-    @apply inline-block bg-[#3898ec] text-[white] leading-[inherit] no-underline cursor-pointer px-[15px] py-[9px] rounded-none border-0;
+    @apply inline-block outline-0 bg-[#3898ec] text-[white] leading-[inherit] no-underline cursor-pointer px-[15px] py-[9px] rounded-none border-0;
   }
   .header {
     @apply flex min-h-[70vh] flex-col justify-center items-center bg-[url("https://res.cloudinary.com/dchq25bxl/image/upload/v1679337272/template_1-min_iils6g.png")] bg-[50%_100%] bg-cover pb-[20vh];
@@ -811,17 +811,7 @@
   }
 }
 .w-input {
-  display: block;
-  width: 100%;
-  height: 38px;
-  padding: 8px 12px;
-  margin-bottom: 10px;
-  font-size: 14px;
-  line-height: 1.42857143;
-  color: #333333;
-  vertical-align: middle;
-  background-color: #ffffff;
-  border: 1px solid #cccccc;
+  @apply block w-full h-[38px] text-sm  outline-0 leading-[1.42857143] text-[#333333] align-middle bg-white border mb-2.5 px-3 py-2 border-solid border-[#cccccc];
 }
 
 /* Details Page*/
