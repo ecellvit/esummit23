@@ -949,10 +949,10 @@
     @apply w-[90vw] mt-[5vh];
   }
   .event_date {
-    @apply text-center leading-normal mt-3;
+    @apply text-center leading-normal mt-[20px] mb-[0px];
   }
   .event_h1 {
-    @apply w-[80vw] leading-[10px] my-0 pt-[5vh];
+    @apply w-[80vw] leading-[10px] my-0 pt-[7vh];
   }
   .event_para {
     @apply text-center leading-normal mt-[10px];

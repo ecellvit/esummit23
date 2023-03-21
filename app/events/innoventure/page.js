@@ -36,9 +36,7 @@ export default async function Home() {
           Innoventure
           <br />
         </h1>
-        <p className="event_date mt-8">
-          Date &amp; Time: 2nd April 2023, 10:00 AM
-        </p>
+        <p className="event_date ">Date &amp; Time: 2nd April 2023, 10:00 AM</p>
         <p className="event_para">
           Venue: Sarojini Naidu SJT
           <br />

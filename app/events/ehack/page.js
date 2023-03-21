@@ -37,13 +37,22 @@ export default async function Home() {
           E-Hack
           <br />
         </h1>
-        <p className="event_date mt-8">Date &amp; Time : 31st March 2023, 9:00 PM</p>
+        <p className="event_date ">
+          Date &amp; Time : 31st March 2023, 9:00 PM
+        </p>
         <p className="event_para">
           Venue: Sarojini Naidu SJT
           <br />
         </p>
         <p className="form_para_small">
-          An overnight hackathon that provides an opportunity for participants to put their problem-solving skills to test. With different tracks covering various real world problems in the business hemisphere, participants will be able to showcase their expertise and creativity while working alongside like-minded individuals. Whether you are a seasoned hacker or just starting out, "E-Hack" is a unique chance to work on challenging projects and build your skills in this competitive arena of entrepreneurship and technology.
+          An overnight hackathon that provides an opportunity for participants
+          to put their problem-solving skills to test. With different tracks
+          covering various real world problems in the business hemisphere,
+          participants will be able to showcase their expertise and creativity
+          while working alongside like-minded individuals. Whether you are a
+          seasoned hacker or just starting out, "E-Hack" is a unique chance to
+          work on challenging projects and build your skills in this competitive
+          arena of entrepreneurship and technology.
           <br />
         </p>
         {/* <div className="evet_price_wrap">
