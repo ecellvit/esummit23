@@ -94,6 +94,15 @@ export default function NewCard({
             localStorage.removeItem("eventId");
           }
         }
+
+        if (
+          localStorage.getItem("eventId") == 1 ||
+          localStorage.getItem("eventId") == 3 ||
+          localStorage.getItem("eventId") == 4
+        ) {
+          handleRegister(localStorage.getItem("eventId")) &&
+            localStorage.removeItem("eventId");
+        }
       }
     }
     refreshData(router, path);
