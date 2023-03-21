@@ -10,8 +10,8 @@ export default function Footer() {
           </div>
           <div className="contact_footer">
             <img src="call.png" width="23.5" alt="" />
-            <a href="tel:+918293622180" className="contact_para">
-              +918293622180
+            <a href="tel:+917259973282" className="contact_para">
+              +917259973282 <br></br>(Shrishail - Chairperson)
             </a>
           </div>
           <div className="contact_footer">
@@ -51,7 +51,11 @@ export default function Footer() {
               href="https://www.linkedin.com/in/sai-sreekar/"
               className="developers"
             >
-              <img src="https://avatars.githubusercontent.com/u/91886335?v=4" alt="Sai" className="img_dev" />
+              <img
+                src="https://avatars.githubusercontent.com/u/91886335?v=4"
+                alt="Sai"
+                className="img_dev"
+              />
             </a>
             <a
               href="https://www.linkedin.com/in/pratyush-kongalla-995b73209/"

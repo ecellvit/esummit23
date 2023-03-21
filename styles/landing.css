@@ -267,7 +267,7 @@
     @apply flex flex-col items-center text-2xl leading-[25px];
   }
   .form_l_h1 {
-    @apply w-[40vw] text-[5rem] leading-10 font-bold text-center mt-0 mb-5 mx-auto;
+    @apply text-[3rem]  font-bold text-center mt-0 mb-5 mx-auto;
     font-family: Inter, sans-serif;
   }
   .form_date {
@@ -574,7 +574,7 @@
       @apply text-[0.9rem];
     }
     .form_l_h1 {
-      @apply text-5xl text-center;
+      @apply text-xl leading-[.5]  w-[95%] text-center;
     }
     .form_para_small {
       @apply text-center;
@@ -729,7 +729,7 @@
       @apply pb-[20px];
     }
     .form_l_h1 {
-      @apply w-[80vw] leading-[30px] mt-[60px] mb-0;
+      @apply w-[95%]  text-[2.0rem] mt-[10px];
     }
 
     .form_para_small {
