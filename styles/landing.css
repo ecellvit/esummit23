@@ -961,7 +961,7 @@
     @apply w-[70vw];
   }
   .evet_price_wrap {
-    @apply gap-x-2.5 gap-y-2.5 pb-5;
+    @apply gap-x-2.5 gap-y-2.5;
   }
 }
 /*Create Team*/
