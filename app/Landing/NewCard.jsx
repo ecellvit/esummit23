@@ -33,6 +33,7 @@ export default function NewCard({
       handleRegisterwithLogin(id);
     }
 
+
     fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user/register`, {
       method: "PATCH",
       body: JSON.stringify({
@@ -135,6 +136,10 @@ export default function NewCard({
             className="card_btn w-button"
             onClick={() => {
               // console.log(isRegistered);
+              if (event === eventsArray[4]) {
+                return;
+              }
+              
               if (id === 0 && userArray !== undefined && userArray[2] === 1) {
                 return;
               }
@@ -148,22 +153,23 @@ export default function NewCard({
             }}
           >
             {!session ? (
-              <>Register event</>
-            ) : id === 0 ? (
+              (event === eventsArray[4]) ? <>Maximum Capacity Reached</> : <>Register event</>
+            ) : (event != eventsArray[4]) ? (id === 0 ? (
               <>
-                {isRegistered === 0 ? (
-                  userArray[2] != 1 ? (
-                    <>
-                      Register<strong>→</strong>{" "}
-                    </>
+                {
+                  isRegistered === 0 ? (
+                    userArray[2] != 1 ? (
+                      <>
+                        Register<strong>→</strong>{" "}
+                      </>
+                    ) : (
+                      <>Clashing with Innoventure</>
+                    )
                   ) : (
-                    <>Clashing with Innoventure</>
-                  )
-                ) : (
-                  <>
-                    Go to schedule<strong>→</strong>{" "}
-                  </>
-                )}
+                    <>
+                      Go to schedule<strong>→</strong>{" "}
+                    </>
+                  )}
               </>
             ) : id === 2 ? (
               <>
@@ -193,7 +199,7 @@ export default function NewCard({
                   </>
                 )}
               </>
-            )}
+            )) : (<>Maximum Capacity Reached</>)}
             {/* <strong>→</strong>{" "} */}
           </button>
           {/* <button className="btn_card_last w-button">
