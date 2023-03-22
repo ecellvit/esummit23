@@ -55,20 +55,20 @@ export default async function Home() {
           arena of entrepreneurship and technology.
           <br />
         </p>
-        {/* <div className="evet_price_wrap">
+        <div className="evet_price_wrap">
           <div className="price_wrap">
-            <p className="para_med_event">1st</p>
-            <p className="para_bold_event">Coming Soon</p>
+            {/* <p className="para_med_event">Prize Pool</p> */}
+            <p className="para_bold_event">Prize Pool - Rs 75,000</p>
           </div>
-          <div className="price_wrap">
+          {/* <div className="price_wrap">
             <p className="para_med_event">2nd</p>
             <p className="para_bold_event">Coming Soon</p>
           </div>
           <div className="price_wrap">
             <p className="para_med_event">3rd</p>
             <p className="para_bold_event">Coming Soon</p>
-          </div>
-        </div> */}
+          </div> */}
+        </div>
 
         <RegButton check={check} userArray={userArray} />
       </div>
