@@ -35,8 +35,28 @@ export default function Footer() {
             set up a diverse pool of investors, evaluators and mentors.
           </p>
           <div className="foot_line"></div>
-          <h1 className="develop_h1">Developed and designed by:</h1>
+          <h1 className="develop_h1">Designed and developed by:</h1>
           <div className="dev_img_wrap">
+            <a
+              href="https://www.linkedin.com/in/aryak-singh-73686422b/"
+              className="developers"
+            >
+              <img
+                src="https://media.licdn.com/dms/image/D5603AQEgRURC6ZQcLA/profile-displayphoto-shrink_400_400/0/1678198489941?e=1684972800&v=beta&t=_hH-jZUdeoL4j0YgQ5W94g3SupMEw4vFMUOSQ33A83c"
+                alt="Aryak"
+                className="img_dev"
+              />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/namish-gupta-08b21a217/"
+              className="developers"
+            >
+              <img
+                src="https://media.licdn.com/dms/image/D5603AQGJyeZGxeYQaA/profile-displayphoto-shrink_400_400/0/1679407969587?e=1684972800&v=beta&t=Fab5Ax6i12z7SpCD78rbNLMA0hNu_srXY0X_FA5g1ic"
+                alt="Namish"
+                className="img_dev"
+              />
+            </a>
             <a
               href="https://www.linkedin.com/in/chiranjeev-vishnoi-345b481b0/"
               className="developers"
