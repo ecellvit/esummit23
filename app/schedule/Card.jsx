@@ -16,6 +16,21 @@ export default function Card({
   const router = useRouter();
   const path = usePathname();
 
+  let whatsappLink;
+  if (event.title==="Innoventure"){
+    whatsappLink = "https://chat.whatsapp.com/GMzHaKmhcvA9TPLWrlpG4Z"
+  } else if (event.title==="Impetus"){
+    whatsappLink = "https://chat.whatsapp.com/KZAspzBzz6vG49ZPIwWt2w"
+  } else if (event.title==="E-Talk"){
+    whatsappLink = "https://chat.whatsapp.com/Gzlla7Uc89HK5f8n4cybXr"
+  } else if (event.title==="E-Hack"){
+    whatsappLink = "https://chat.whatsapp.com/CDdt3aIeMxg8YRdhHkK7YN"
+  } else if (event.title==="Trading Workshop"){
+    whatsappLink = "https://chat.whatsapp.com/KLM4P8UksZy7ZuIjjb8HCF"
+  } else {
+    whatsappLink = ""
+  }
+
   function handleDeRegister(eventCode) {
     const newArray = userArray;
     fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/user/register`, {
@@ -72,6 +87,8 @@ export default function Card({
         >
           <h1 className="card_h1">{event.title} </h1>
           <p className="card_para">{event.description}</p>
+          <div className="card_btn w-button mb-4"><a href={whatsappLink}
+            >Join Whatsapp Group</a></div>
           <div className="card_time">
             <div className="card_l">
               <img src="clock.svg" alt="" className="svg_card" />
