@@ -1,4 +1,4 @@
-"use client"
+"use client";
 import React from "react";
 import { useRouter } from "next/navigation";
 
@@ -18,7 +18,10 @@ function UserNav({ eventName }) {
           >
             Back
           </button>
-          <h1 className="subnav_h1"> {eventName.toUpperCase()}</h1>
+          <h1 className="subnav_h1">
+            {" "}
+            {eventName === "ehack" ? "E-Hack" : eventName.toUpperCase()}
+          </h1>
         </div>
         <div className="right_subnav">
           <button
