@@ -216,6 +216,9 @@
   .card_cont {
     @apply static max-h-full max-w-[70%] min-w-[50vw] min-h-[40vh]  bg-[50%_50%] bg-cover bg-no-repeat text-white ml-[5vw] px-[40px] py-[20px] rounded-[20px] left-[10%] right-[15%] top-[5%] bottom-auto;
   }
+  .pos {
+    @apply bg-[0%_0%];
+  }
   .card_cont.dual {
     @apply mb-[20px];
   }
@@ -694,6 +697,9 @@
     }
     .card_cont {
       @apply max-w-[95%] ml-[3vw] pl-[20px] pr-[10px] py-[10px] left-[0%] right-[5%] top-[0%];
+    }
+    .pos {
+      @apply bg-[50%_50%];
     }
     .card_h1 {
       @apply text-2xl leading-[30px] mt-[20px];
