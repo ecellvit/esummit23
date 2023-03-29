@@ -5,6 +5,7 @@ import "react-toastify/dist/ReactToastify.css";
 import refreshData from "@/app/utils/refresh";
 import { usePathname, useRouter } from "next/navigation";
 import "../styles/landing.css";
+import NewPages from "./NewPages";
 export default function LeaderDashboard({ userData, eventName, session }) {
   const router = useRouter();
   const path = usePathname();
@@ -42,6 +43,7 @@ export default function LeaderDashboard({ userData, eventName, session }) {
 
   return (
     <>
+      <NewPages />
       {/* <div className=" px-8">
         <div className="text-center mt-8 font-medium text-2xl">
           Team Name : {userData.teamName}
