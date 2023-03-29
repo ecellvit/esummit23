@@ -1,5 +1,6 @@
 import Taskbar from "@/app/componentsSSR/taskbar";
 import Dashboard from "@/components/dashboard";
+import NewPages from "@/components/NewPages";
 import NotyNav from "@/components/notyNav";
 import { authOptions } from "@/pages/api/auth/[...nextauth]";
 import { getServerSession } from "next-auth";
@@ -40,6 +41,7 @@ export default async function UserSent() {
     <>
       <div className="create_cont">
         <Taskbar eventName={eventName} />
+        <NewPages/>
         <Dashboard
           eventName={eventName}
           session={session}
