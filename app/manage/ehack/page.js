@@ -41,7 +41,6 @@ export default async function UserSent() {
     <>
       <div className="create_cont">
         <Taskbar eventName={eventName} />
-        <NewPages/>
         <Dashboard
           eventName={eventName}
           session={session}
