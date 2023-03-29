@@ -2,18 +2,15 @@
 
 import { useEffect, useState } from "react";
 
-export default function RoundOne({ accessTokenBackend }) {
+export default function RoundZero({ accessTokenBackend }) {
   const [file, setFile] = useState(null);
   const [warning, setWarning] = useState(null);
   const [upFile, setUpFile] = useState(null);
   const [progress, setProgress] = useState(null);
-  const [desc, setDesc] = useState();
   const [done, setDone] = useState();
-
-  useEffect(() => {
-    let descrip = document.getElementById("projDesc");
-    descrip.value = desc;
-  }, [desc]);
+  const [video, setVideo] = useState();
+  const [name, setName] = useState();
+  const [stack, setStack] = useState();
 
   useEffect(() => {
     fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/ehack/roundOne`, {
@@ -29,7 +26,9 @@ export default function RoundOne({ accessTokenBackend }) {
       .then((data) => {
         if (data.fileUrl) {
           setUpFile(data.fileUrl);
-          setDesc(data.desc);
+          setName(data.projectName);
+          setStack(data.techStack);
+          setVideo(data.youtubeUrl);
         }
       });
     //   {message: 'File fetched successfully', desc: 'asdf', fileUrl: 'http://res.cloudinary.com/dz1lxpkck/image/upload/v1678380901/wtr4ok91pafcfx2bpuq1.pdf', fileId: 'wtr4ok91pafcfx2bpuq1'}
@@ -40,14 +39,23 @@ export default function RoundOne({ accessTokenBackend }) {
   };
 
   function handleFormSubmit() {
-    let desc = document.getElementById("projDesc");
-    let format = file.name.split(".")[1];
-    if (!file) {
-      setWarning("Please upload a file");
-    } else if (format !== "ppt" && format !== "pptx" && format !== "pdf") {
-      setWarning("Please upload only ppts or pdfs");
-    } else if (desc.value === "") {
-      setWarning("Please fill the Project Description");
+    // let desc = document.getElementById("projDesc");
+    let video = document.getElementById("video");
+    let name = document.getElementById("name");
+    let gith = document.getElementById("github");
+    let format = file?.name.split(".")[1];
+    console.log(name);
+    
+    // if (!file) {
+    //   setWarning("Please upload a file");
+    // } else if (format !== "ppt" && format !== "pptx" && format !== "pdf") {
+    //   setWarning("Please upload only ppts or pdfs");
+    if (name.value === "") {
+      setWarning("Please Enter Project Name");
+    } else if (video.value === "") {
+      setWarning("Please Enter Video URL");
+    } else if (gith.value === "") {
+      setWarning("Please Enter Project Github Organization");
     } else {
       setWarning();
       // send data to cloudinary
@@ -77,9 +85,12 @@ export default function RoundOne({ accessTokenBackend }) {
             "Access-Control-Allow-Origin": "*",
           },
           body: JSON.stringify({
-            desc: desc.value,
+            desc: gith.value,
             fileUrl: data.url,
             fileId: data.public_id,
+            youtubeUrl: video.value,
+            projectName: name.value,
+            techStack: [],
           }),
           cache: "no-store",
         })
@@ -103,9 +114,12 @@ export default function RoundOne({ accessTokenBackend }) {
         "Access-Control-Allow-Origin": "*",
       },
       body: JSON.stringify({
-        desc: descrip.value,
-        fileUrl: upFile,
+        desc: gith.value,
+        fileUrl: upFile?upFile:"",
         fileId: upFile.split("/")[7],
+        youtubeUrl: video.value,
+        projectName: name.value,
+        techStack: [],
       }),
       cache: "no-store",
     })
@@ -115,25 +129,85 @@ export default function RoundOne({ accessTokenBackend }) {
 
   return (
     <div className="content-center m-5 px-10 w-3/4">
-      <h1 className="mb-10 text-4xl font-extrabold leading-none tracking-tight text-gray-900 md:text-5xl lg:text-6xl dark:text-white">
-        Round 1
+      <h1 className="mb-10 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl text-white">
+        Round Zero
       </h1>
 
-      <div className="my-5">
+      {/* <div className="my-5">
         <label
           htmlFor="message"
-          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          className="block mb-2 text-sm font-medium text-white"
         >
           Describe your project breifly
         </label>
         <textarea
           id="projDesc"
           rows="4"
-          className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border border-gray-300"
           placeholder="Leave a comment..."
         ></textarea>
+      </div> */}
+
+      <div id="nameDiv" class="mb-6">
+        <label for="nameL" class="block mb-2 text-sm font-medium text-white">Name of your Project</label>
+        <input id="name" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" required></input>
       </div>
-      {upFile && (
+
+      <div id="videoDiv" class="mb-6">
+        <label for="videoL" class="block mb-2 text-sm font-medium text-white">Link to your Video Presentation</label>
+        <input id="video" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" placeholder="https://www.youtube.com/" required></input>
+      </div>
+
+      <div id="githubDiv" class="mb-6">
+        <label for="githubL" class="block mb-2 text-sm font-medium text-white">Link to the projects GitHub organization (please make one with and put all your projects code in it)</label>
+        <input id="github" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" placeholder="https://github.com/" required></input>
+      </div>
+
+      <div id="fileDiv" class="mb-6">
+        <label for="fileL" class="block mb-2 text-sm font-medium text-white">Link to your presentation ()</label>
+        <input id="file" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg block w-full p-2.5" placeholder="https://github.com/" required></input>
+      </div>
+
+      {/* <div id="tech">
+        <div class="row col-5">
+          <h4 class="fw-bold text-center mt-3"></h4>
+          <form class="px-4" action="">
+            <p class="fw-bold text-white">Tech Stack <br/> Choose all the technologies you will be implementing</p>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+              <label class="form-check-label text-white px-2" for="flexCheckDefault">
+                Web App
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" />
+              <label class="form-check-label text-white px-2" for="flexCheckDefault">
+                Mobile App
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault2" />
+              <label class="form-check-label text-white px-2" for="flexCheckDefault2">
+                ML/AI
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3" />
+              <label class="form-check-label text-white px-2" for="flexCheckDefault3">
+                Web3/Blockchain
+              </label>
+            </div>
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault3" />
+              <label class="form-check-label text-white px-2" for="flexCheckDefault3">
+                IoT/Hardware
+              </label>
+            </div>
+          </form>
+        </div>
+      </div> */}
+
+      {/* {upFile && (
         <button
           onClick={handleDescChange}
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
@@ -146,7 +220,7 @@ export default function RoundOne({ accessTokenBackend }) {
         <div className="my-5">
           <label
             htmlFor="message"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            className="block mb-2 text-sm font-medium text-white"
           >
             Upload your presentation. (Not more than 1MB)
           </label>
@@ -222,7 +296,7 @@ export default function RoundOne({ accessTokenBackend }) {
             {upFile.split("/")[7]}
           </a>{" "}
         </div>
-      )}
+      )} */}
 
       {warning && (
         <div>
@@ -230,7 +304,7 @@ export default function RoundOne({ accessTokenBackend }) {
         </div>
       )}
 
-      {progress ? (
+      {/* {progress ? (
         <div className="w-full bg-gray-200 rounded-full dark:bg-gray-700">
           <div
             className="bg-blue-600 text-xs font-medium text-blue-100 text-center p-0.5 leading-none rounded-full"
@@ -240,14 +314,14 @@ export default function RoundOne({ accessTokenBackend }) {
             {`${progress}%`}
           </div>
         </div>
-      ) : (
+      ) : ( */}
         <button
           onClick={handleFormSubmit}
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 border border-blue-700 rounded"
         >
           Submit
         </button>
-      )}
+      {/* )} */}
 
       {done && <div className="mb-5 text-green-500">Done!</div>}
     </div>
