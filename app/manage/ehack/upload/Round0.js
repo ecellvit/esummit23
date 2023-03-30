@@ -61,10 +61,12 @@ export default function RoundZero({ accessTokenBackend }) {
     //   setWarning("Please upload only ppts or pdfs");
     if (name.value === "") {
       setWarning("Please Enter Project Name");
-    } else if (video.value === "") {
-      setWarning("Please Enter Video URL");
+    // } else if (video.value === "") {
+    //   setWarning("Please Enter Video URL");
     } else if (gith.value === "") {
       setWarning("Please Enter Project Github Organization");
+    } else if (file.value === "") {
+      setWarning("Please Enter your presentation");
     } else {
       setWarning();
       // send data to cloudinary
@@ -198,7 +200,7 @@ export default function RoundZero({ accessTokenBackend }) {
 
         <div id="videoDiv" class="mb-6">
           <label for="videoL" class="block mb-2 text-sm font-medium text-white">
-            Link to your Video Presentation
+            Link to your Video Presentation (Optional)
           </label>
           <input
             id="video"
