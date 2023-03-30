@@ -10,7 +10,7 @@ import Footer from "./Landing/Footer";
 import { getSession } from "@/lib/session";
 import Maintimeline from "./mainTimeline";
 import NotLoggedIn from "@/components/NotLoggedIn";
-
+import NewTimeline from "./Landing/NewTimeline";
 async function getData() {
   const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/events`, {
     method: "GET",
@@ -35,7 +35,7 @@ async function getUserData(session) {
       cache: "no-store",
     });
     if (!res.ok) {
-      return "error"
+      return "error";
     }
     return res.json();
   }
@@ -54,6 +54,7 @@ export default async function Home() {
 
   return (
     <div className="bg-white">
+      <NewTimeline></NewTimeline>
       <Header></Header>
       <Section1 />
       <Section2 />
