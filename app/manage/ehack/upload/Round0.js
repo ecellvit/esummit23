@@ -101,10 +101,10 @@ export default function RoundZero({ accessTokenBackend }) {
         cache: "no-store",
       })
         .then((resp) => {
-          return resp.json()
+          return resp.json();
         })
         .then((data) => {
-          if (data.status == "fail"){
+          if (data.status == "fail") {
             console.log(data.message);
             toast.error(`${data.message}`, {
               position: "top-right",
@@ -116,9 +116,18 @@ export default function RoundZero({ accessTokenBackend }) {
               progress: undefined,
             });
           } else {
+            toast.success(`${data.message}`, {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            });
             setDone(true);
           }
-        })
+        });
       // });
       // send POST request to server
       // request.send(formData);
@@ -389,6 +398,8 @@ export default function RoundZero({ accessTokenBackend }) {
   } else {
     return (
       <div className="content-center m-5 px-10 w-3/4">
+        <ToastContainer />
+
         <h1 className="mb-10 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl text-white">
           Round Zero
         </h1>
