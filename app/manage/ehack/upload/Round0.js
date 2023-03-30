@@ -1,7 +1,10 @@
 "use client";
 
+import "../../../../styles/landing.css";
+
 import { useEffect, useState } from "react";
 import { toast, ToastContainer } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function RoundZero({ accessTokenBackend }) {
   const [file, setFile] = useState(null);
