@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { toast, ToastContainer } from "react-toastify";
 
 export default function RoundZero({ accessTokenBackend }) {
   const [file, setFile] = useState(null);
@@ -99,43 +100,59 @@ export default function RoundZero({ accessTokenBackend }) {
         }),
         cache: "no-store",
       })
-        .then((resp) => resp.json())
+        .then((resp) => {
+          return resp.json()
+        })
         .then((data) => {
-          setDone(true);
-        });
+          if (data.status == "fail"){
+            console.log(data.message);
+            toast.error(`${data.message}`, {
+              position: "top-right",
+              autoClose: 5000,
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              progress: undefined,
+            });
+          } else {
+            setDone(true);
+          }
+        })
       // });
       // send POST request to server
       // request.send(formData);
     }
   }
 
-  function handleDescChange(event) {
-    let descrip = document.getElementById("projDesc");
-    fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/ehack/roundOne`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${accessTokenBackend}`,
-        "Access-Control-Allow-Origin": "*",
-      },
-      body: JSON.stringify({
-        desc: gith.value,
-        fileUrl: file.value,
-        fileId: "",
-        youtubeUrl: video.value,
-        projectName: name.value,
-        techStack: [],
-      }),
-      cache: "no-store",
-    })
-      .then((resp) => resp.json())
-      .then((data) => console.log(data));
-  }
+  // function handleDescChange(event) {
+  //   let descrip = document.getElementById("projDesc");
+  //   fetch(`${process.env.NEXT_PUBLIC_SERVER}/api/ehack/roundOne`, {
+  //     method: "POST",
+  //     headers: {
+  //       "Content-Type": "application/json",
+  //       Authorization: `Bearer ${accessTokenBackend}`,
+  //       "Access-Control-Allow-Origin": "*",
+  //     },
+  //     body: JSON.stringify({
+  //       desc: gith.value,
+  //       fileUrl: file.value,
+  //       fileId: "",
+  //       youtubeUrl: video.value,
+  //       projectName: name.value,
+  //       techStack: [],
+  //     }),
+  //     cache: "no-store",
+  //   })
+  //     .then((resp) => resp.json())
+  //     .then((data) => console.log(data));
+  // }
 
   console.log(final);
   if (final) {
     return (
       <div className="content-center m-5 px-10 w-3/4">
+        <ToastContainer />
         <h1 className="mb-10 text-4xl font-extrabold leading-none tracking-tight md:text-5xl lg:text-6xl text-white">
           Round Zero
         </h1>
