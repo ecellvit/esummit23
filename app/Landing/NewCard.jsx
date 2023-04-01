@@ -140,9 +140,6 @@ export default function NewCard({
               //   return;
               // }
               
-              if (event === eventsArray[4]) {
-                return handleRegister(id);
-              }
 
               if (id === 0 && userArray !== undefined && userArray[2] === 1) {
                 return;
@@ -151,7 +148,7 @@ export default function NewCard({
                 return;
               }
               if (isRegistered === 0) {
-                return;
+                return handleRegister(id);
               }
               router.push("/schedule");
             }}
