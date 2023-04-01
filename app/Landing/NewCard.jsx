@@ -202,7 +202,7 @@ export default function NewCard({
                 )}
               </>
             // )) : (<>Maximum Capacity Reached</>)}
-            )) : (<>Register<strong>→</strong>{" "}</>)}
+            )) : (<> Go to schedule<strong>→</strong>{" "}</>)}
             {/* <strong>→</strong>{" "} */}
           </button>
           {/* <button className="btn_card_last w-button">
