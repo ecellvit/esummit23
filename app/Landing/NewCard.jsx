@@ -153,7 +153,8 @@ export default function NewCard({
             }}
           >
             {!session ? (
-              (event === eventsArray[4]) ? <>Maximum Capacity Reached</> : <>Register event</>
+              // (event === eventsArray[4]) ? <>Maximum Capacity Reached</> : <>Register event</>
+              <>Register event</>
             ) : (event != eventsArray[4]) ? (id === 0 ? (
               <>
                 {
@@ -199,7 +200,8 @@ export default function NewCard({
                   </>
                 )}
               </>
-            )) : (<>Maximum Capacity Reached</>)}
+            // )) : (<>Maximum Capacity Reached</>)}
+            )) : (<>Register<strong>→</strong>{" "}</>)}
             {/* <strong>→</strong>{" "} */}
           </button>
           {/* <button className="btn_card_last w-button">
